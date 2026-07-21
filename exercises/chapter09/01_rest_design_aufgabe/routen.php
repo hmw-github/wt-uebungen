@@ -35,8 +35,12 @@
 */
 
 // Routentabelle der REST-Schnittstelle fuer die Ressource "Buch"
+// jede Route durch ['methode' => '<HTTP Methode>', 
+//                   'pfad' => '<Pfad>', 
+//                   'aktion' => '<aufzurufende Methode>'] 
+// definieren
 $routen = [
-
+    array("methode" => )
     // TODO 1: Route "Buecher auflisten" ergaenzen
 
     // TODO 2: Route "Buch lesen" ergaenzen
