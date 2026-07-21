@@ -1,0 +1,7 @@
+/*
+    LOESUNGSVORSCHLAG - UEBUNG 1: Druck-Stylesheet
+*/
+
+.no-print {
+    display: none;
+}

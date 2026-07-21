@@ -1,0 +1,40 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 1: JAVASCRIPT EINBINDEN
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alles ueber Katzen</title>
+    <meta charset="UTF-8">
+
+    <script>
+        console.log("Seite ueber Katzen wird geladen...");
+    </script>
+</head>
+<body>
+
+    <h1>Alles ueber Katzen</h1>
+
+    <p>Katzen sind seit Jahrtausenden beliebte Haustiere. Sie sind bekannt
+    fuer ihre Selbststaendigkeit, ihre Neugier und ihr ausgepraegtes
+    Schlafbeduerfnis.</p>
+
+    <a href="javascript:alert('Katzen schlafen bis zu 16 Stunden am Tag!')">Katzen-Weisheit anzeigen</a>
+
+    <p></p>
+
+    <button onclick="zeigeAlert()">Info anzeigen</button>
+
+    <!--
+        Hinweis: Eingebundene externe Skripte werden idealerweise erst am
+        Ende des body platziert (wie unten), damit das HTML-Dokument
+        bereits vollstaendig geladen ist, bevor das Skript darauf
+        zugreift. Alternativ kann man am script-Tag im head auch das
+        Attribut "defer" (Ausfuehrung erst nach dem Parsen des Dokuments,
+        in Dokumentreihenfolge) oder "async" (Ausfuehrung sobald das
+        Skript geladen ist, Reihenfolge nicht garantiert) verwenden.
+    -->
+    <script src="01_einbinden_script_loesung.js"></script>
+
+</body>
+</html>

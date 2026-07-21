@@ -1,0 +1,56 @@
+<!--
+    UEBUNG 1: EINBINDEN VON CSS (Kapitel 4.2 - Einbinden von CSS)
+
+    Aufgabenstellung:
+    Diese Seite ("Ueber mich") soll auf vier unterschiedliche Arten mit CSS
+    gestaltet werden. Ergaenzen Sie an den mit TODO markierten Stellen:
+
+    TODO 1: Fuegen Sie dem ersten Absatz ein style-Attribut hinzu, das die
+            Textfarbe (color) auf eine Farbe Ihrer Wahl setzt (Inline-CSS).
+    TODO 2: Ergaenzen Sie im head einen style-Block, der die Ueberschrift h1
+            einfaerbt (color) und zentriert (text-align: center).
+    TODO 3: Binden Sie mit einem link-Tag das externe Stylesheet
+            "01_einbindung_style_aufgabe.css" ein.
+    TODO 4: Binden Sie mit einem weiteren link-Tag das Druck-Stylesheet
+            "01_einbindung_druck_aufgabe.css" ein (media="print").
+    TODO 5: Ergaenzen Sie in der Datei "01_einbindung_style_aufgabe.css" eine
+            Regel fuer .box, die eine Hintergrundfarbe (background-color) und
+            einen Rahmen (border) definiert.
+    TODO 6: Ergaenzen Sie in der Datei "01_einbindung_druck_aufgabe.css" eine
+            Regel, die Elemente mit der Klasse .no-print beim Drucken
+            ausblendet (display: none).
+
+    Hinweis: Oeffnen Sie die Seite im Browser und pruefen Sie zusaetzlich die
+    Druckvorschau (Drucken bzw. "Als PDF speichern"), um TODO 6 zu ueberpruefen.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ueber mich</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO 2: style-Block fuer h1 ergaenzen -->
+
+    <!-- TODO 3: externes Stylesheet einbinden -->
+
+    <!-- TODO 4: Druck-Stylesheet einbinden -->
+
+</head>
+<body>
+
+    <h1>Ueber mich</h1>
+
+    <!-- TODO 1: style-Attribut mit Textfarbe ergaenzen -->
+    <p>Mein Name ist ... und ich beschaeftige mich in dieser Uebung mit dem Einbinden von CSS.</p>
+
+    <p>In diesem zweiten Absatz erklaere ich, warum ich Webtechnologien spannend finde.</p>
+
+    <div class="box">
+        <p>Dieser Kasten sollte durch das externe Stylesheet eine Hintergrundfarbe und einen Rahmen erhalten.</p>
+    </div>
+
+    <p class="no-print">Hinweis: Dieser Text ist nur am Bildschirm sichtbar, beim Drucken der Seite wird er ausgeblendet.</p>
+
+</body>
+</html>

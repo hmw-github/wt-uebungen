@@ -1,0 +1,49 @@
+<!--
+    UEBUNG 1: XHR-GRUNDLAGEN - CLIENTTEIL (Kapitel 8.2 - Name-Finder-Beispiel)
+
+    Aufgabenstellung:
+    Bauen Sie einen einfachen Namensvorschlag (Autocomplete) nach dem
+    Vorbild des "Name-Finder"-Beispiels aus der Vorlesung. Bei jedem
+    Tastendruck im Eingabefeld soll per XMLHttpRequest eine Anfrage an
+    hinweis.php gestellt werden. Ergaenzen Sie an den TODO-Stellen:
+
+    TODO 1: Erzeugen Sie ein neues XMLHttpRequest-Objekt.
+    TODO 2: Registrieren Sie eine onreadystatechange-Funktion, die prueft,
+            ob xhr.readyState == 4 und xhr.status == 200 ist.
+    TODO 3: Schreiben Sie in diesem Fall den Inhalt von xhr.responseText in
+            das Ergebnis-Element (id="ergebnis").
+    TODO 4: Oeffnen Sie eine GET-Anfrage an "hinweis.php?praefix=" + wert
+            (open) und senden Sie diese ab (send).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name-Finder</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Name-Finder</h1>
+
+    <label for="praefixFeld">Vorname eingeben:</label>
+    <input type="text" id="praefixFeld" onkeyup="ladeVorschlag()">
+
+    <p>Vorschlaege: <span id="ergebnis"></span></p>
+
+    <script>
+        function ladeVorschlag() {
+            var wert = document.getElementById("praefixFeld").value;
+
+            // TODO 1: XMLHttpRequest-Objekt erzeugen
+
+            // TODO 2: onreadystatechange-Funktion registrieren
+            //         (readyState == 4 und status == 200 pruefen)
+
+                // TODO 3: responseText in #ergebnis schreiben
+
+            // TODO 4: GET-Anfrage an hinweis.php?praefix=... oeffnen und senden
+        }
+    </script>
+
+</body>
+</html>

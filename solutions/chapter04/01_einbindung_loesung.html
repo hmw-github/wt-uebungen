@@ -1,0 +1,38 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 1: EINBINDEN VON CSS
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ueber mich</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+    </style>
+
+    <link rel="stylesheet" href="01_einbindung_style_loesung.css">
+
+    <link rel="stylesheet" href="01_einbindung_druck_loesung.css" media="print">
+
+</head>
+<body>
+
+    <h1>Ueber mich</h1>
+
+    <p style="color: darkblue;">Mein Name ist ... und ich beschaeftige mich in dieser Uebung mit dem Einbinden von CSS.</p>
+
+    <p>In diesem zweiten Absatz erklaere ich, warum ich Webtechnologien spannend finde.</p>
+
+    <div class="box">
+        <p>Dieser Kasten erhaelt durch das externe Stylesheet eine Hintergrundfarbe und einen Rahmen.</p>
+    </div>
+
+    <p class="no-print">Hinweis: Dieser Text ist nur am Bildschirm sichtbar, beim Drucken der Seite wird er ausgeblendet.</p>
+
+</body>
+</html>

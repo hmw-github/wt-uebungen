@@ -1,0 +1,56 @@
+<!--
+    UEBUNG 2: VARIABLEN, DATENTYPEN, OPERATOREN (Kapitel 5.3 - Sprachkonzepte)
+
+    Aufgabenstellung:
+    Ergaenzen Sie im <script>-Block unten an den TODO-Stellen den fehlenden
+    Code. Nutzen Sie die bereits vorhandene Funktion ausgabe(text), um Ihre
+    Ergebnisse sowohl auf der Seite als auch in der Entwicklerkonsole
+    sichtbar zu machen.
+
+    TODO 1: Deklarieren Sie eine Variable mit var, eine mit let und eine
+            mit const (mit beliebigen Startwerten unterschiedlichen Typs,
+            z.B. einer Zahl, einer Zeichenkette und einem Boolean). Geben
+            Sie fuer jede der drei Variablen mit ausgabe(...) den Namen und
+            den per typeof ermittelten Datentyp aus.
+    TODO 2: Bilden Sie den Ausdruck "5" + 3 und speichern Sie das Ergebnis
+            in einer Variablen. Geben Sie mit ausgabe(...) sowohl den Wert
+            als auch den per typeof ermittelten Datentyp des Ergebnisses aus.
+    TODO 3: Vergleichen Sie die Werte 5 (Zahl) und "5" (Zeichenkette) einmal
+            mit dem strikten Vergleichsoperator === und einmal mit dem
+            unstrikten Vergleichsoperator ==. Geben Sie beide Ergebnisse
+            mit ausgabe(...) inkl. einer kurzen erklaerenden Beschriftung
+            aus (z.B. "5 === \"5\": " + ergebnis).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Variablen, Datentypen und Operatoren</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Variablen, Datentypen und Operatoren</h1>
+
+    <p>Die Ergebnisse erscheinen unten auf der Seite und zusaetzlich in der
+    Entwicklerkonsole (F12).</p>
+
+    <pre id="ausgabe"></pre>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        // TODO 1: var-, let- und const-Variable deklarieren und typeof ausgeben
+
+
+        // TODO 2: "5" + 3 bilden und Wert sowie Typ ausgeben
+
+
+        // TODO 3: 5 === "5" und 5 == "5" vergleichen und beide Ergebnisse ausgeben
+
+    </script>
+
+</body>
+</html>

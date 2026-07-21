@@ -1,0 +1,51 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 7: FORMULARE
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrierung</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Registrierung</h1>
+
+    <form action="registrieren.php" method="post">
+
+        <label for="vornameFeld">Vorname:</label><br>
+        <input type="text" id="vornameFeld" name="vorname" required><br><br>
+
+        <label for="nachnameFeld">Nachname:</label><br>
+        <input type="text" id="nachnameFeld" name="nachname"><br><br>
+
+        <label for="emailFeld">E-Mail:</label><br>
+        <input type="email" id="emailFeld" name="email"><br><br>
+
+        <p>Geschlecht:</p>
+        <input type="radio" id="geschlechtM" name="geschlecht" value="maennlich">
+        <label for="geschlechtM">maennlich</label><br>
+        <input type="radio" id="geschlechtW" name="geschlecht" value="weiblich">
+        <label for="geschlechtW">weiblich</label><br>
+        <input type="radio" id="geschlechtD" name="geschlecht" value="divers">
+        <label for="geschlechtD">divers</label><br><br>
+
+        <input type="checkbox" id="agbFeld" name="agb" value="akzeptiert">
+        <label for="agbFeld">Ich akzeptiere die AGB</label><br><br>
+
+        <label for="landFeld">Land:</label><br>
+        <select id="landFeld" name="land">
+            <option value="de" selected>Deutschland</option>
+            <option value="at">Oesterreich</option>
+            <option value="ch">Schweiz</option>
+        </select><br><br>
+
+        <label for="kommentarFeld">Kommentar:</label><br>
+        <textarea id="kommentarFeld" name="kommentar" rows="4" cols="30"></textarea><br><br>
+
+        <input type="submit" value="Registrieren">
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 2: WIE IST MEINE IP? - CLIENTTEIL
+
+    Hinweis: Wenn Sie diese Uebung mit Docker testen, wird als Ergebnis
+    vermutlich keine "echte" oeffentliche IP-Adresse angezeigt, sondern eine
+    interne Adresse (z.B. aus dem Docker-Netzwerk oder 127.0.0.1), da
+    $_SERVER['REMOTE_ADDR'] immer nur die Adresse der unmittelbaren
+    Gegenstelle liefert, die den Request beim Server abgesetzt hat.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wie ist meine IP?</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Wie ist meine IP?</h1>
+
+    <p>Ihre IP-Adresse (laut Server): <span id="ip">?</span></p>
+
+    <script>
+        window.addEventListener("load", function() {
+            var ipElement = document.getElementById("ip");
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    ipElement.innerHTML = xhr.responseText;
+                }
+            };
+
+            xhr.open("GET", "ip.php", true);
+            xhr.send();
+        });
+    </script>
+
+</body>
+</html>

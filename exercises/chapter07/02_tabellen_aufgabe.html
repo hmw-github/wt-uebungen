@@ -1,0 +1,92 @@
+<!--
+    UEBUNG 2: TABELLEN (Kapitel 7.4 - Tabellen)
+
+    Aufgabenstellung:
+    Gestalten Sie eine Tabelle mit Studierendendaten mithilfe der
+    Bootstrap-Tabellenklassen. Ergaenzen Sie an den TODO-Stellen den
+    fehlenden Code:
+
+    TODO 1: Fuegen Sie der table dem vorgegebenen table-Tag die Klassen
+            "table", "table-striped" und "table-hover" hinzu.
+    TODO 2: Umschliessen Sie die gesamte Tabelle mit einem div der Klasse
+            "table-responsive", damit die Tabelle auf kleinen Bildschirmen
+            horizontal scrollbar wird statt das Layout zu sprengen.
+    TODO 3: Bootstrap selbst legt die konkreten Farben fuer "table-striped"
+            und "table-hover" nur als Standardwerte fest. Ergaenzen Sie im
+            vorgegebenen style-Block eigenes CSS, das
+              a) die gestreiften Zeilen (striped) in "lightpink" faerbt und
+              b) die Zeile beim Ueberfahren mit der Maus (hover) in "white"
+                 (weiss) faerbt, sodass die Hover-Zeile sichtbar aus dem
+                 Streifenmuster heraussticht.
+            Tipp: Bootstrap 5 stellt dafuer die CSS-Variablen
+            --bs-table-striped-bg und --bs-table-hover-bg bereit, die auf der
+            Klasse ".table" gesetzt sind. Ueberschreiben Sie diese beiden
+            Variablen fuer die Klasse ".table" in Ihrem eigenen style-Block
+            (dieser steht im HTML nach dem Bootstrap-CDN-Link und "gewinnt"
+            daher bei gleicher Spezifitaet).
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Studierendentabelle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* TODO 3: eigenes CSS fuer Streifen- und Hover-Farbe hier ergaenzen */
+
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+
+        <h1>Studierende im Kurs Webtechnologien</h1>
+
+        <!-- TODO 2: div class="table-responsive" oeffnen -->
+
+        <table>
+            <!-- TODO 1: Klassen table, table-striped, table-hover ergaenzen -->
+            <thead>
+                <tr>
+                    <th>Matrikelnummer</th>
+                    <th>Nachname</th>
+                    <th>Vorname</th>
+                    <th>Hobbies</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123456</td>
+                    <td>Mustermann</td>
+                    <td>Max</td>
+                    <td>Fussball, Gitarre</td>
+                </tr>
+                <tr>
+                    <td>234567</td>
+                    <td>Musterfrau</td>
+                    <td>Erika</td>
+                    <td>Lesen, Klettern</td>
+                </tr>
+                <tr>
+                    <td>345678</td>
+                    <td>Schmidt</td>
+                    <td>Jonas</td>
+                    <td>Programmieren, Schach</td>
+                </tr>
+                <tr>
+                    <td>456789</td>
+                    <td>Becker</td>
+                    <td>Lena</td>
+                    <td>Fotografie, Reisen</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Ende table-responsive (TODO 2) -->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 6: FORTGESCHRITTENE SELEKTOREN
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fortgeschrittene Selektoren</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        nav > ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        h2 + p {
+            font-style: italic;
+            color: #555555;
+        }
+
+        nav a:hover {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        nav a::before {
+            content: "\00BB ";
+        }
+
+        table, th, td {
+            border: 1px solid #999999;
+            border-collapse: collapse;
+            padding: 5px 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">Produkte</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <h2>Bestenliste</h2>
+    <p>Die folgende Tabelle zeigt die aktuelle Rangliste.</p>
+
+    <table>
+        <thead>
+            <tr><th>Platz</th><th>Name</th><th>Punkte</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Alice</td><td>95</td></tr>
+            <tr><td>2</td><td>Bob</td><td>88</td></tr>
+            <tr><td>3</td><td>Charlie</td><td>81</td></tr>
+            <tr><td>4</td><td>Dora</td><td>77</td></tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

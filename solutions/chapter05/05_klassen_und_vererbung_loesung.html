@@ -1,0 +1,82 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 5: KLASSEN UND VERERBUNG
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Klassen und Vererbung</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Klassen und Vererbung</h1>
+
+    <pre id="ausgabe"></pre>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        class Tier {
+            constructor(name, gewicht) {
+                this._name = name;
+                this._gewicht = gewicht;
+            }
+
+            get name() {
+                return this._name;
+            }
+
+            set name(neuerName) {
+                this._name = neuerName;
+            }
+
+            get gewicht() {
+                return this._gewicht;
+            }
+
+            set gewicht(neuesGewicht) {
+                if (neuesGewicht < 0) {
+                    throw "Gewicht darf nicht negativ sein!";
+                }
+                this._gewicht = neuesGewicht;
+            }
+
+            toString() {
+                return this._name + " (" + this._gewicht + " kg)";
+            }
+        }
+
+        class Hund extends Tier {
+            constructor(name, gewicht, rasse) {
+                super(name, gewicht);
+                this._rasse = rasse;
+            }
+
+            get rasse() {
+                return this._rasse;
+            }
+
+            set rasse(neueRasse) {
+                this._rasse = neueRasse;
+            }
+
+            toString() {
+                return super.toString() + ", Rasse: " + this._rasse;
+            }
+        }
+
+        const hund = new Hund("Bello", 12, "Labrador");
+        ausgabe(hund.toString());
+
+        try {
+            hund.gewicht = -5;
+        } catch (fehler) {
+            ausgabe("Fehler abgefangen: " + fehler);
+        }
+    </script>
+
+</body>
+</html>

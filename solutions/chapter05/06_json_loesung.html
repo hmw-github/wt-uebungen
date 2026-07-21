@@ -1,0 +1,40 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 6: JSON
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>JSON</h1>
+
+    <pre id="ausgabe"></pre>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        let einstellungen = {
+            theme: "dunkel",
+            schriftgroesse: 16,
+            benachrichtigungenAn: true
+        };
+        let json = JSON.stringify(einstellungen);
+        ausgabe("JSON-String: " + json);
+
+        localStorage.setItem("meineEinstellungen", json);
+
+        let gelesenerJson = localStorage.getItem("meineEinstellungen");
+        let wiederhergestellt = JSON.parse(gelesenerJson);
+        ausgabe("Wiederhergestelltes theme: " + wiederhergestellt.theme);
+        ausgabe("Wiederhergestellte schriftgroesse: " + wiederhergestellt.schriftgroesse);
+        ausgabe("Wiederhergestelltes benachrichtigungenAn: " + wiederhergestellt.benachrichtigungenAn);
+    </script>
+
+</body>
+</html>

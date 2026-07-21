@@ -1,0 +1,53 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 5: FETCH MIT POST UND ASYNC/AWAIT - CLIENTTEIL
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formular mit Fetch (POST)</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Formular mit Fetch (POST)</h1>
+
+    <form id="anmeldeForm" onsubmit="return false;">
+        <label for="nameFeld">Name:</label>
+        <input type="text" id="nameFeld">
+        <br><br>
+
+        <label for="alterFeld">Alter:</label>
+        <input type="number" id="alterFeld">
+        <br><br>
+
+        <button type="submit" onclick="sende()">Absenden</button>
+    </form>
+
+    <p id="ergebnis"></p>
+
+    <script>
+        async function sende() {
+            var name = document.getElementById("nameFeld").value;
+            var alter = document.getElementById("alterFeld").value;
+
+            try {
+                var response = await fetch("echo.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ name: name, alter: alter })
+                });
+
+                var ergebnis = await response.json();
+
+                document.getElementById("ergebnis").innerHTML =
+                    "Gespeichert: " + ergebnis.name + " (" + ergebnis.alter + " Jahre), Status: " + ergebnis.status;
+            } catch (fehler) {
+                document.getElementById("ergebnis").innerHTML = "Fehler beim Senden der Daten.";
+            }
+        }
+    </script>
+
+</body>
+</html>

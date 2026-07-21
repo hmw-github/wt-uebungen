@@ -1,0 +1,72 @@
+<!--
+    UEBUNG 7: DOM-MANIPULATION (Kapitel 5.5 - Document Object Model)
+
+    Aufgabenstellung:
+    Ergaenzen Sie im <script>-Block unten an den TODO-Stellen den fehlenden
+    Code, um eine kleine interaktive To-Do-Liste fertigzustellen.
+
+    TODO 1: Suchen Sie sich das Eingabefeld (id="neuerEintrag"), den
+            Hinzufuegen-Button (id="hinzufuegenButton") sowie die Liste
+            (id="liste") jeweils mit einer passenden Methode
+            (getElementById und/oder querySelector) und speichern Sie die
+            Referenzen in Variablen.
+    TODO 2: Registrieren Sie mit addEventListener("click", ...) einen
+            Klick-Handler auf dem Hinzufuegen-Button. Der Handler soll:
+            - den aktuellen Wert (value) des Eingabefelds auslesen,
+            - falls das Eingabefeld leer ist, nichts weiter tun,
+            - andernfalls per document.createElement("li") ein neues
+              Listenelement erzeugen und dessen Text auf den eingelesenen
+              Wert setzen,
+            - das neue Element mit appendChild an die Liste anhaengen,
+            - das Eingabefeld anschliessend leeren (value = "").
+    TODO 3: Registrieren Sie auf der Liste (id="liste") per Event
+            Delegation (ein einziger addEventListener("click", ...) auf
+            dem <ul>-Element) einen Handler, der beim Klick auf ein
+            <li>-Element dessen CSS-Klasse "erledigt" umschaltet (mittels
+            classList.toggle), sodass erledigte Eintraege durchgestrichen
+            dargestellt werden. Der Handler muss auch fuer neu
+            hinzugefuegte Eintraege (aus TODO 2) funktionieren, ohne dass
+            dafuer erneut ein Listener registriert werden muss.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do-Liste</title>
+    <meta charset="UTF-8">
+    <style>
+        .erledigt {
+            text-decoration: line-through;
+            color: gray;
+        }
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>To-Do-Liste</h1>
+
+    <p>Klicken Sie auf einen Eintrag, um ihn als erledigt zu markieren.</p>
+
+    <ul id="liste">
+        <li>Einkaufen gehen</li>
+        <li>Hausaufgaben fuer WT erledigen</li>
+    </ul>
+
+    <input type="text" id="neuerEintrag" placeholder="Neuer Eintrag">
+    <button id="hinzufuegenButton">Hinzufuegen</button>
+
+    <script>
+        // TODO 1: Referenzen auf Eingabefeld, Button und Liste ermitteln
+
+
+        // TODO 2: Klick-Handler auf dem Button: neues li erzeugen und anhaengen
+
+
+        // TODO 3: Event Delegation auf der Liste: Klasse "erledigt" umschalten
+
+    </script>
+
+</body>
+</html>

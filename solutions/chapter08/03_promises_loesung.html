@@ -1,0 +1,44 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 3: PROMISES
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promises</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Promises</h1>
+
+    <p>Oeffnen Sie die Browser-Konsole, um die Ausgabe zu sehen.</p>
+
+    <script>
+        // Fertige Hilfsfunktion: liefert ein Promise, das nach einer
+        // zufaelligen kurzen Verzoegerung mit '{"number": N}' aufgeloest wird.
+        function erzeugeZahlenPromise() {
+            return new Promise(function(resolve, reject) {
+                var verzoegerung = Math.random() * 500;
+                setTimeout(function() {
+                    var zahl = Math.floor(Math.random() * 100);
+                    resolve('{"number": ' + zahl + '}');
+                }, verzoegerung);
+            });
+        }
+
+        for (var i = 0; i < 10; i++) {
+            erzeugeZahlenPromise()
+                .then(function(ergebnis) {
+                    var objekt = JSON.parse(ergebnis);
+                    if (objekt.number % 2 === 0) {
+                        console.log(objekt.number);
+                    }
+                })
+                .catch(function(fehler) {
+                    console.error(fehler);
+                });
+        }
+    </script>
+
+</body>
+</html>

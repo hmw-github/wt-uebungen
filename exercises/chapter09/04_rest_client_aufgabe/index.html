@@ -1,0 +1,98 @@
+<!--
+    UEBUNG 4: REST-CLIENT (Kapitel 9.2/9.3 - Beispiel Bestellungsverwaltung, Repraesentationen)
+
+    Aufgabenstellung:
+    Diese Seite ist ein kleiner Client fuer die REST-Schnittstelle aus
+    Uebung 3 (solutions/chapter09/03_rest_crud_api_loesung). Ergaenzen Sie
+    die drei JavaScript-Funktionen an den TODO-Stellen.
+
+    Hinweis: Die Konstante API_BASIS_URL zeigt auf den Pfad der
+    Musterloesung von Uebung 3. Soll die Schnittstelle unter einer anderen
+    Adresse angesprochen werden (z.B. die eigene Loesung von Uebung 3),
+    passen Sie einfach diese Konstante an.
+
+    TODO 1: ladeBuecher() - Laden Sie per fetch() alle Buecher
+            (GET API_BASIS_URL + "/buecher"), leeren Sie die Liste
+            #buecherliste und fuegen Sie fuer jedes Buch ein li-Element mit
+            Titel, Autor und einem "Loeschen"-Button ein. Der Button soll
+            beim Klick loescheBuch(id) mit der jeweiligen id aufrufen.
+    TODO 2: fuegeBuchHinzu() - Lesen Sie Titel und Autor aus den
+            Eingabefeldern, senden Sie per fetch() eine POST-Anfrage
+            (API_BASIS_URL + "/buch") mit den Daten als JSON-Body, laden Sie
+            anschliessend die Liste neu (ladeBuecher()) und leeren Sie die
+            Eingabefelder.
+    TODO 3: loescheBuch(id) - Senden Sie per fetch() eine DELETE-Anfrage
+            (API_BASIS_URL + "/buch/" + id) und laden Sie anschliessend die
+            Liste neu (ladeBuecher()).
+
+    Verwenden Sie durchgehend async/await mit try/catch zur Fehlerbehandlung.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buecher-Client</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Buecherverwaltung</h1>
+
+    <button onclick="ladeBuecher()">Aktualisieren</button>
+
+    <ul id="buecherliste"></ul>
+
+    <h2>Neues Buch anlegen</h2>
+
+    <label for="titelFeld">Titel:</label>
+    <input type="text" id="titelFeld"><br><br>
+
+    <label for="autorFeld">Autor:</label>
+    <input type="text" id="autorFeld"><br><br>
+
+    <button onclick="fuegeBuchHinzu()">Hinzufuegen</button>
+
+    <script>
+        // Pfad der REST-Schnittstelle aus Uebung 3 (Musterloesung). Diese
+        // Seite laeuft im Docker-Setup von exercises/chapter09 (Port 8009),
+        // die Musterloesung laeuft in ihrem eigenen, separaten Docker-Setup
+        // unter solutions/chapter09 (Port 8019) - daher die absolute
+        // Cross-Origin-URL. Die Musterloesung setzt dafuer passende
+        // CORS-Header (Access-Control-Allow-Origin). Wollen Sie stattdessen
+        // Ihre eigene Loesung von Uebung 3 testen, starten Sie deren
+        // Docker-Setup und passen Sie diese Konstante entsprechend an.
+        const API_BASIS_URL = 'http://localhost:8019/03_rest_crud_api_loesung';
+
+        async function ladeBuecher() {
+            try {
+                // TODO 1: Buecher laden und Liste #buecherliste neu aufbauen
+
+            } catch (fehler) {
+                console.error('Fehler beim Laden der Buecher:', fehler);
+            }
+        }
+
+        async function fuegeBuchHinzu() {
+            try {
+                // TODO 2: Neues Buch per POST anlegen, Liste neu laden,
+                //         Eingabefelder leeren
+
+            } catch (fehler) {
+                console.error('Fehler beim Anlegen des Buchs:', fehler);
+            }
+        }
+
+        async function loescheBuch(id) {
+            try {
+                // TODO 3: Buch per DELETE loeschen und Liste neu laden
+
+            } catch (fehler) {
+                console.error('Fehler beim Loeschen des Buchs:', fehler);
+            }
+        }
+
+        // Beim Laden der Seite direkt die aktuelle Buecherliste anzeigen
+        ladeBuecher();
+    </script>
+
+</body>
+</html>

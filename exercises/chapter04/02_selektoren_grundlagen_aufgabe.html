@@ -1,0 +1,63 @@
+<!--
+    UEBUNG 2: GRUNDLAGEN CSS-SELEKTOREN (Kapitel 4.3 - Grundlagen CSS-Selektoren)
+
+    Aufgabenstellung:
+    Diese Seite enthaelt eine Navigation, einen Hauptbereich und ein
+    Suchformular. Ergaenzen Sie im style-Block an den TODO-Stellen die
+    passenden Selektoren:
+
+    TODO 1: Element-Selektor fuer li, der die Listenpunkte ohne Aufzaehlungs-
+            zeichen darstellt (list-style-type: none).
+    TODO 2: ID-Selektor fuer #hauptbereich, der eine Hintergrundfarbe und
+            einen Innenabstand (padding) definiert.
+    TODO 3: Klassen-Selektor fuer .hervorgehoben, der Schriftfarbe und
+            Schriftschnitt (font-weight) des Absatzes veraendert.
+    TODO 4: Attribut-Selektor fuer input[type="text"], der einen Rahmen
+            (border) definiert.
+    TODO 5: Setzen Sie fuer #suchfeld eine Breite (width) mit der relativen
+            Einheit rem.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grundlagen der CSS-Selektoren</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        /* TODO 1: Element-Selektor fuer li ergaenzen */
+
+        /* TODO 2: ID-Selektor #hauptbereich ergaenzen */
+
+        /* TODO 3: Klassen-Selektor .hervorgehoben ergaenzen */
+
+        /* TODO 4: Attribut-Selektor input[type="text"] ergaenzen */
+
+        /* TODO 5: Breite von #suchfeld in rem ergaenzen */
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">Ueber uns</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <div id="hauptbereich">
+        <h1>Willkommen</h1>
+        <p class="hervorgehoben">Dieser Absatz soll durch einen Klassen-Selektor besonders hervorgehoben werden.</p>
+        <p>Dieser Absatz bleibt unveraendert.</p>
+    </div>
+
+    <form>
+        <label for="suchfeld">Suche:</label>
+        <input type="text" id="suchfeld" name="suche">
+    </form>
+
+</body>
+</html>

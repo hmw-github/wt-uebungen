@@ -1,0 +1,37 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 1: XHR-GRUNDLAGEN - CLIENTTEIL
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name-Finder</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Name-Finder</h1>
+
+    <label for="praefixFeld">Vorname eingeben:</label>
+    <input type="text" id="praefixFeld" onkeyup="ladeVorschlag()">
+
+    <p>Vorschlaege: <span id="ergebnis"></span></p>
+
+    <script>
+        function ladeVorschlag() {
+            var wert = document.getElementById("praefixFeld").value;
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("ergebnis").innerHTML = xhr.responseText;
+                }
+            };
+
+            xhr.open("GET", "hinweis.php?praefix=" + wert, true);
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>

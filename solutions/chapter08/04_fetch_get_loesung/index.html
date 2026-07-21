@@ -1,0 +1,40 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 4: FETCH-API MIT GET - CLIENTTEIL
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name-Finder mit Fetch</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Name-Finder mit Fetch</h1>
+
+    <label for="praefixFeld">Vorname eingeben:</label>
+    <input type="text" id="praefixFeld" onkeyup="ladeVorschlag()">
+
+    <p>Vorschlaege: <span id="ergebnis"></span></p>
+
+    <script>
+        function ladeVorschlag() {
+            var wert = document.getElementById("praefixFeld").value;
+
+            fetch("hinweis.php?praefix=" + wert)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error("Serverfehler");
+                    }
+                    return response.text();
+                })
+                .then(function(text) {
+                    document.getElementById("ergebnis").innerHTML = text;
+                })
+                .catch(function(fehler) {
+                    document.getElementById("ergebnis").innerHTML = "Fehler beim Laden der Vorschlaege.";
+                });
+        }
+    </script>
+
+</body>
+</html>

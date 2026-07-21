@@ -1,0 +1,74 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 3: KONTROLLSTRUKTUREN
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kontrollstrukturen</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Kontrollstrukturen</h1>
+
+    <pre id="ausgabe"></pre>
+
+    <h2>Namensliste</h2>
+    <ul id="namenListe"></ul>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        let zahl = -5;
+        if (zahl > 0) {
+            ausgabe(zahl + " ist positiv.");
+        } else if (zahl < 0) {
+            ausgabe(zahl + " ist negativ.");
+        } else {
+            ausgabe(zahl + " ist null.");
+        }
+
+        let note = 2;
+        switch (note) {
+            case 1:
+                ausgabe("Note " + note + ": Sehr gut");
+                break;
+            case 2:
+                ausgabe("Note " + note + ": Gut");
+                break;
+            case 3:
+                ausgabe("Note " + note + ": Befriedigend");
+                break;
+            case 4:
+                ausgabe("Note " + note + ": Ausreichend");
+                break;
+            case 5:
+                ausgabe("Note " + note + ": Mangelhaft");
+                break;
+            case 6:
+                ausgabe("Note " + note + ": Ungenuegend");
+                break;
+            default:
+                ausgabe("Ungueltige Note: " + note);
+        }
+
+        let summe = 0;
+        for (let i = 1; i <= 10; i++) {
+            summe += i;
+        }
+        ausgabe("Summe von 1 bis 10: " + summe);
+
+        const namen = ["Anna", "Bilal", "Chiara", "David"];
+
+        for (const name of namen) {
+            const li = document.createElement("li");
+            li.textContent = name;
+            document.getElementById("namenListe").appendChild(li);
+        }
+    </script>
+
+</body>
+</html>

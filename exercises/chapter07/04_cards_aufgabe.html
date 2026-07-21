@@ -1,0 +1,69 @@
+<!--
+    UEBUNG 4: CARDS (Kapitel 7.6 - Cards)
+
+    Aufgabenstellung:
+    Erstellen Sie ein "Personen-Karten"-Deck mit drei Karten (Cards), die je
+    eine Person zeigen. Ergaenzen Sie an den TODO-Stellen den fehlenden Code:
+
+    TODO 1: Karte fuer Person 1 (Anna Schmidt, Berlin, 23 Jahre).
+            Erstellen Sie eine div class="card" mit:
+              - card-header mit dem Namen "Anna Schmidt" und id="card1-name"
+              - card-body mit zwei Zeilen (je eine Bootstrap-Grid-Zeile
+                "row" mit "col-4" fuer das Label und "col-8" fuer den Wert):
+                  Zeile 1: Label "Wo:", Wert in einem div mit id="card1-wo"
+                           und Inhalt "Berlin"
+                  Zeile 2: Label "Alter:", Wert in einem div mit id="card1-alter"
+                           und Inhalt "23"
+              - card-footer mit einem Button "Bearbeiten", dessen onclick-
+                Attribut die Funktion kontaktBearbeiten('card1') aufruft.
+    TODO 2: Analoge Karte fuer Person 2 (Max Mustermann, Muenchen, 25 Jahre)
+            mit den ids card2-name / card2-wo / card2-alter und dem Aufruf
+            kontaktBearbeiten('card2').
+    TODO 3: Analoge Karte fuer Person 3 (Julia Weber, Hamburg, 21 Jahre) mit
+            den ids card3-name / card3-wo / card3-alter und dem Aufruf
+            kontaktBearbeiten('card3').
+    TODO 4: Implementieren Sie im vorgegebenen script-Block die JavaScript-
+            Funktion kontaktBearbeiten(cardId), die (als Platzhalter fuer eine
+            spaetere Bearbeitungsfunktion) einfach eine Meldung mit dem
+            uebergebenen cardId anzeigt, z.B. per alert(...) oder
+            console.log(...).
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Personen-Karten</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-4">
+
+        <h1>Unsere Kontakte</h1>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-3">
+                <!-- TODO 1: Karte fuer Anna Schmidt (card1) -->
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <!-- TODO 2: Karte fuer Max Mustermann (card2) -->
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <!-- TODO 3: Karte fuer Julia Weber (card3) -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // TODO 4: Funktion kontaktBearbeiten(cardId) implementieren
+
+    </script>
+</body>
+</html>

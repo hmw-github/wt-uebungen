@@ -1,0 +1,47 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 4: ARRAYS UND OBJEKTE
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrays und Objekte</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Arrays und Objekte</h1>
+
+    <pre id="ausgabe"></pre>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        let zahlen = [8, 3, 15, 6];
+        zahlen.push(1);
+        zahlen.sort(function(a, b) {
+            return a - b;
+        });
+        ausgabe("zahlen (sortiert): " + zahlen);
+
+        let [erste, zweite, dritte] = zahlen;
+        ausgabe("erste: " + erste + ", zweite: " + zweite + ", dritte: " + dritte);
+
+        let person = {
+            vorname: "Julia",
+            nachname: "Bauer",
+            alter: 29,
+            vorstellen: function() {
+                return "Hallo, ich bin " + this.vorname + " " + this.nachname +
+                    " und ich bin " + this.alter + " Jahre alt.";
+            }
+        };
+        ausgabe(person.vorstellen());
+        ausgabe("Vorname (Punktnotation): " + person.vorname);
+        ausgabe("Nachname (Klammernotation): " + person["nachname"]);
+    </script>
+
+</body>
+</html>

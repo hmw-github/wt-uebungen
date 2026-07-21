@@ -1,0 +1,79 @@
+<!--
+    UEBUNG 6: PROTOKOLL MIT AJAX - CLIENTTEIL (Kapitel 8.2/8.4 - AJAX-Prinzip)
+
+    Aufgabenstellung:
+    Beim Laden der Seite sollen alle bisher gespeicherten Protokoll-Eintraege
+    vom Server geladen und angezeigt werden. Ueber den "Speichern"-Button
+    soll ein neuer Eintrag gespeichert und die Liste anschliessend
+    aktualisiert werden. Die Hilfsfunktionen fillList(), clearList() und
+    createListElement() sind bereits fertig vorgegeben.
+
+    TODO 1: Implementieren Sie onLoad(). Die Funktion soll per fetch() eine
+            POST-Anfrage mit dem JSON-Body {"action": "list"} an api.php
+            senden, die Antwort als JSON auslesen (response.json()) und
+            mit fillList(antwort.entries) die Liste befuellen.
+    TODO 2: Implementieren Sie addProtocolEntry(). Die Funktion soll den
+            Wert des Eingabefelds (id="nachrichtFeld") auslesen. Ist der
+            Wert leer, soll ein alert() erscheinen und die Funktion
+            abgebrochen werden (return). Andernfalls soll per fetch() eine
+            POST-Anfrage mit dem JSON-Body {"action": "save", "message": ...}
+            an api.php gesendet werden; aus der (aktualisierten) Antwort
+            soll die Liste erneut mit fillList(antwort.entries) aufgebaut
+            werden.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protokoll mit AJAX</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Protokoll mit AJAX</h1>
+
+    <label for="nachrichtFeld">Nachricht:</label>
+    <input type="text" id="nachrichtFeld">
+    <button onclick="addProtocolEntry()">Speichern</button>
+
+    <h2>Protokoll</h2>
+    <ul id="liste"></ul>
+
+    <script>
+        // Fertige Hilfsfunktionen zur Anzeige der Liste.
+        function createListElement(text) {
+            var li = document.createElement("li");
+            li.textContent = text;
+            return li;
+        }
+
+        function clearList() {
+            document.getElementById("liste").innerHTML = "";
+        }
+
+        function fillList(entries) {
+            clearList();
+            var liste = document.getElementById("liste");
+            for (var i = 0; i < entries.length; i++) {
+                liste.appendChild(createListElement(entries[i]));
+            }
+        }
+
+        // TODO 1: onLoad() implementieren (POST {"action":"list"} an
+        //         api.php, Antwort per fillList() anzeigen)
+        function onLoad() {
+
+        }
+
+        // TODO 2: addProtocolEntry() implementieren (Eingabefeld auslesen,
+        //         bei leerem Wert alert() + return, sonst POST
+        //         {"action":"save","message":...} senden und Liste mit
+        //         fillList() neu aufbauen)
+        function addProtocolEntry() {
+
+        }
+
+        window.addEventListener("load", onLoad);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 6: TABELLEN
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notenuebersicht</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Notenuebersicht</h1>
+
+    <table border="1">
+        <caption>Notenuebersicht Wintersemester</caption>
+        <thead>
+            <tr><th>Fach</th><th>Note</th><th>ECTS</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Webtechnologien</td>
+                <td>1,7 (Klausur)</td>
+                <td rowspan="2">5</td>
+            </tr>
+            <tr>
+                <td>2,0 (Praktikum)</td>
+            </tr>
+            <tr>
+                <td>Datenbanken</td>
+                <td>1,3</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Mathematik 2</td>
+                <td>2,3</td>
+                <td>8</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="3">Gesamt-ECTS: 18</td></tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

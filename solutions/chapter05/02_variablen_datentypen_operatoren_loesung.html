@@ -1,0 +1,42 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 2: VARIABLEN, DATENTYPEN, OPERATOREN
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Variablen, Datentypen und Operatoren</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Variablen, Datentypen und Operatoren</h1>
+
+    <p>Die Ergebnisse erscheinen unten auf der Seite und zusaetzlich in der
+    Entwicklerkonsole (F12).</p>
+
+    <pre id="ausgabe"></pre>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        var zahl = 42;
+        let text = "Hallo";
+        const istAktiv = true;
+        ausgabe("zahl (var): " + typeof zahl);
+        ausgabe("text (let): " + typeof text);
+        ausgabe("istAktiv (const): " + typeof istAktiv);
+
+        let ergebnis = "5" + 3;
+        ausgabe('"5" + 3 = ' + ergebnis + " (Typ: " + typeof ergebnis + ")");
+
+        let striktGleich = (5 === "5");
+        let lockerGleich = (5 == "5");
+        ausgabe('5 === "5": ' + striktGleich + " (kein Typ-Zwang, Zahl und String sind nie strikt gleich)");
+        ausgabe('5 == "5": ' + lockerGleich + " (mit Typumwandlung, der String wird in eine Zahl umgewandelt)");
+    </script>
+
+</body>
+</html>

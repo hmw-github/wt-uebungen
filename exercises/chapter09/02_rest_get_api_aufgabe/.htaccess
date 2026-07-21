@@ -1,0 +1,9 @@
+# TODO 1: Rewriting aktivieren, damit jede Anfrage an service.php
+#         weitergeleitet wird und der urspruengliche Pfad ueber den
+#         Query-Parameter "_url" erhalten bleibt.
+#
+# Ergaenzen Sie dazu die folgenden drei Zeilen (ggf. leicht angepasst):
+#
+#   RewriteEngine On
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteRule ^(.*)$ service.php?_url=$1 [QSA,L]

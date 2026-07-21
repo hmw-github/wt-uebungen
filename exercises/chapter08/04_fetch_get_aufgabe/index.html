@@ -1,0 +1,51 @@
+<!--
+    UEBUNG 4: FETCH-API MIT GET - CLIENTTEIL (Kapitel 8.4 - Fetch API)
+
+    Aufgabenstellung:
+    Diese Uebung nutzt denselben Namens-Server wie Uebung 1 (hinweis.php),
+    ruft ihn aber statt mit XMLHttpRequest mit der modernen Fetch-API auf.
+    Ergaenzen Sie an den TODO-Stellen:
+
+    TODO 1: Rufen Sie mit fetch("hinweis.php?praefix=" + wert) den Server
+            auf. Pruefen Sie im ersten .then() anhand von response.ok, ob
+            die Antwort erfolgreich war; werfen Sie andernfalls mit throw
+            einen neuen Error (z.B. new Error("Serverfehler")).
+    TODO 2: Lesen Sie den Antworttext mit response.text() aus (liefert
+            selbst wieder ein Promise) und geben Sie ihn im naechsten
+            .then() in das Ergebnis-Element (id="ergebnis") aus.
+    TODO 3: Fangen Sie Fehler mit .catch() ab und zeigen Sie eine fuer die
+            Nutzer/-innen sichtbare Fehlermeldung im Ergebnis-Element an
+            (z.B. "Fehler beim Laden der Vorschlaege.").
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name-Finder mit Fetch</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Name-Finder mit Fetch</h1>
+
+    <label for="praefixFeld">Vorname eingeben:</label>
+    <input type="text" id="praefixFeld" onkeyup="ladeVorschlag()">
+
+    <p>Vorschlaege: <span id="ergebnis"></span></p>
+
+    <script>
+        function ladeVorschlag() {
+            var wert = document.getElementById("praefixFeld").value;
+
+            // TODO 1: fetch("hinweis.php?praefix=" + wert) aufrufen,
+            //         response.ok pruefen, sonst Error werfen
+
+                // TODO 2: response.text() auslesen und Ergebnis in
+                //         #ergebnis schreiben
+
+            // TODO 3: .catch() fuer Fehlerbehandlung ergaenzen
+            //         (sichtbare Fehlermeldung in #ergebnis anzeigen)
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!--
+    LOESUNGSVORSCHLAG - UEBUNG 7: RESPONSIVE WEB DESIGN
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Webseite</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 10px;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+
+        .bild-text {
+            display: flex;
+        }
+
+        .bild-text .bild {
+            width: 40%;
+        }
+
+        .bild-text .bild img {
+            width: 100%;
+            display: block;
+        }
+
+        .bild-text .text {
+            width: 60%;
+            padding: 15px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .col-3, .col-9 {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .bild-text {
+                display: block;
+            }
+
+            .bild-text .bild,
+            .bild-text .text {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-3">
+            <nav>
+                <a href="#">Start</a>
+                <a href="#">Produkte</a>
+                <a href="#">Ueber uns</a>
+                <a href="#">Kontakt</a>
+            </nav>
+        </div>
+        <div class="col-9">
+            <div class="bild-text">
+                <div class="bild">
+                    <img src="https://via.placeholder.com/300x200" alt="Beispielbild">
+                </div>
+                <div class="text">
+                    <h1>Willkommen auf unserer Webseite</h1>
+                    <p>Dieser Inhaltsbereich zeigt ein Bild neben einem Textblock. Auf schmaleren Bildschirmen soll sich das Layout anpassen: Navigation und Inhalt werden untereinander angeordnet, und auf sehr kleinen Bildschirmen wird zusaetzlich das Bild ueber den Text gestapelt.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!--
+    UEBUNG 5: KLASSEN UND VERERBUNG
+    (Kapitel 5.3 - Sprachkonzepte, Klassen; Kapitel 5.4 - Fehlerbehandlung)
+
+    Aufgabenstellung:
+    Ergaenzen Sie im <script>-Block unten an den TODO-Stellen den fehlenden
+    Code. Nutzen Sie die vorhandene Funktion ausgabe(text) fuer Textausgaben.
+
+    TODO 1: Implementieren Sie die Klasse Tier mit einem Konstruktor, der
+            name und gewicht entgegennimmt. Ergaenzen Sie einen get/set
+            fuer name sowie einen get/set fuer gewicht. Im Setter fuer
+            gewicht: werfen Sie mittels throw einen Fehler (als String)
+            mit der Meldung "Gewicht darf nicht negativ sein!", falls ein
+            negativer Wert uebergeben wird. Ergaenzen Sie ausserdem eine
+            Methode toString(), die einen Beschreibungstext liefert, z.B.
+            "Bello (12 kg)".
+    TODO 2: Implementieren Sie die Klasse Hund, die mittels extends von
+            Tier erbt. Der Konstruktor nimmt zusaetzlich eine rasse
+            entgegen, ruft mit super(name, gewicht) den Tier-Konstruktor
+            auf und speichert die Rasse (inkl. get/set fuer rasse).
+            Ueberschreiben Sie toString(), sodass zusaetzlich zur per
+            super.toString() geerbten Beschreibung auch die Rasse
+            ausgegeben wird, z.B. "Bello (12 kg), Rasse: Labrador".
+    TODO 3: Erzeugen Sie ein Hund-Objekt mit beliebigen Werten und geben
+            Sie mit ausgabe(...) dessen toString()-Ergebnis aus. Versuchen
+            Sie anschliessend innerhalb eines try...catch-Blocks, das
+            gewicht des Hundes auf einen negativen Wert zu setzen, und
+            geben Sie im catch-Block die abgefangene Fehlermeldung mit
+            ausgabe(...) aus.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Klassen und Vererbung</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Klassen und Vererbung</h1>
+
+    <pre id="ausgabe"></pre>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        // TODO 1: Klasse Tier implementieren (Konstruktor, get/set, toString)
+
+
+        // TODO 2: Klasse Hund implementieren (extends Tier, get/set rasse, toString)
+
+
+        // TODO 3: Hund-Objekt erzeugen, toString ausgeben, try/catch fuer ungueltiges Gewicht
+
+    </script>
+
+</body>
+</html>

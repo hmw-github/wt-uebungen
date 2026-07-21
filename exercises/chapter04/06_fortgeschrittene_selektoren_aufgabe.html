@@ -1,0 +1,73 @@
+<!--
+    UEBUNG 6: FORTGESCHRITTENE SELEKTOREN (Kapitel 4.5 - Fortgeschrittene Selektoren)
+
+    Aufgabenstellung:
+    Eine Navigation und eine Tabelle sollen mit fortgeschrittenen Selektoren
+    gestaltet werden. Ergaenzen Sie im style-Block an den TODO-Stellen:
+
+    TODO 1: Kindselektor (nav > ul) ergaenzen, der die Aufzaehlungszeichen
+            entfernt und den Innenabstand auf 0 setzt.
+    TODO 2: Selektor fuer direkt aufeinanderfolgende Geschwister (h2 + p)
+            ergaenzen, der den ersten Absatz nach einer h2-Ueberschrift kursiv
+            und grau darstellt.
+    TODO 3: :hover-Pseudoklasse fuer Links im nav ergaenzen (Hintergrund- und
+            Schriftfarbe aendern sich beim Ueberfahren mit der Maus).
+    TODO 4: :nth-child(odd)-Pseudoklasse ergaenzen, um die Tabellenzeilen im
+            tbody abwechselnd einzufaerben (Zebra-Streifen).
+    TODO 5: ::before-Pseudoelement fuer Links im nav ergaenzen, das den Text
+            "» " vor jedem Linktext einfuegt (content-Eigenschaft).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fortgeschrittene Selektoren</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        /* TODO 1: Kindselektor nav > ul ergaenzen */
+
+        /* TODO 2: Nachbarselektor h2 + p ergaenzen */
+
+        /* TODO 3: :hover fuer nav a ergaenzen */
+
+        /* TODO 4: :nth-child(odd) fuer Tabellenzeilen ergaenzen */
+
+        /* TODO 5: ::before fuer nav a ergaenzen */
+
+        table, th, td {
+            border: 1px solid #999999;
+            border-collapse: collapse;
+            padding: 5px 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#">Start</a></li>
+            <li><a href="#">Produkte</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <h2>Bestenliste</h2>
+    <p>Die folgende Tabelle zeigt die aktuelle Rangliste.</p>
+
+    <table>
+        <thead>
+            <tr><th>Platz</th><th>Name</th><th>Punkte</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Alice</td><td>95</td></tr>
+            <tr><td>2</td><td>Bob</td><td>88</td></tr>
+            <tr><td>3</td><td>Charlie</td><td>81</td></tr>
+            <tr><td>4</td><td>Dora</td><td>77</td></tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
