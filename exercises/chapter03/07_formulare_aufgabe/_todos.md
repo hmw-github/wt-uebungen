@@ -9,6 +9,3 @@
 6. TODO 6: Ein mehrzeiliges Textfeld (textarea, name="nachricht") für die Nachricht, ebenfalls required.
 7. TODO 7: Eine Checkbox (name="newsletter") für "Ich möchte den Newsletter erhalten", mit label.
 8. TODO 8: Einen Submit-Button mit dem Text "Absenden".
-
-## projekte.html
-- (kein TODO-Marker) Übernommene Lösung aus Übung 6: Die Datei enthält bereits die vollständig ausgefüllte Projekttabelle (caption, thead, tbody mit rowspan bei "Portfolio-Website", tfoot mit colspan-Zusammenfassung) aus der vorherigen Teilübung. Kein neuer Arbeitsauftrag hier; die eigentliche Aufgabe (Formulare) befindet sich in kontakt.html.
