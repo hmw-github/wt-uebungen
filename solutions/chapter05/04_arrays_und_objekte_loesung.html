@@ -1,5 +1,5 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 4: ARRAYS UND OBJEKTE
+    LÖSUNGSVORSCHLAG - ÜBUNG 4: ARRAYS UND OBJEKTE
 -->
 <!DOCTYPE html>
 <html>
@@ -19,28 +19,27 @@
             document.getElementById("ausgabe").textContent += text + "\n";
         }
 
-        let zahlen = [8, 3, 15, 6];
-        zahlen.push(1);
-        zahlen.sort(function(a, b) {
+        let jahre = [2022, 2025, 2023, 2024];
+        jahre.push(2026);
+        jahre.sort(function(a, b) {
             return a - b;
         });
-        ausgabe("zahlen (sortiert): " + zahlen);
+        ausgabe("jahre (sortiert): " + jahre);
 
-        let [erste, zweite, dritte] = zahlen;
-        ausgabe("erste: " + erste + ", zweite: " + zweite + ", dritte: " + dritte);
+        let [erstesJahr, zweitesJahr, drittesJahr] = jahre;
+        ausgabe("erstesJahr: " + erstesJahr + ", zweitesJahr: " + zweitesJahr + ", drittesJahr: " + drittesJahr);
 
-        let person = {
-            vorname: "Julia",
-            nachname: "Bauer",
-            alter: 29,
-            vorstellen: function() {
-                return "Hallo, ich bin " + this.vorname + " " + this.nachname +
-                    " und ich bin " + this.alter + " Jahre alt.";
+        let projekt = {
+            titel: "Portfolio-Website",
+            technologie: "HTML, CSS, JavaScript",
+            jahr: 2026,
+            beschreibung: function() {
+                return this.titel + " (" + this.jahr + "), gebaut mit " + this.technologie;
             }
         };
-        ausgabe(person.vorstellen());
-        ausgabe("Vorname (Punktnotation): " + person.vorname);
-        ausgabe("Nachname (Klammernotation): " + person["nachname"]);
+        ausgabe(projekt.beschreibung());
+        ausgabe("Titel (Punktnotation): " + projekt.titel);
+        ausgabe("Technologie (Klammernotation): " + projekt["technologie"]);
     </script>
 
 </body>

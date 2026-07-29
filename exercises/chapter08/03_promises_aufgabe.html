@@ -1,17 +1,17 @@
 <!--
-    UEBUNG 3: PROMISES (Kapitel 8.5 - Promises)
+    ÜBUNG 3: PROMISES (Kapitel 8.5 - Promises)
 
     Aufgabenstellung:
     Unten ist eine fertige Hilfsfunktion erzeugeZahlenPromise() vorgegeben.
-    Sie liefert ein Promise, das nach einer zufaelligen kurzen Verzoegerung
-    mit einem JSON-String der Form '{"number": N}' aufgeloest (resolve) wird,
+    Sie liefert ein Promise, das nach einer zufälligen kurzen Verzögerung
+    mit einem JSON-String der Form '{"number": N}' aufgelöst (resolve) wird,
     wobei N eine Zufallszahl zwischen 0 und 99 ist.
 
     TODO 1: Erzeugen Sie 10 solcher Promises (z.B. in einer Schleife), indem
             Sie erzeugeZahlenPromise() zehnmal aufrufen.
-    TODO 2: Haengen Sie an jedes der 10 Promises ein .then() an, das den
+    TODO 2: Hängen Sie an jedes der 10 Promises ein .then() an, das den
             JSON-String parst (JSON.parse) und die enthaltene Zahl NUR DANN
-            mit console.log() ausgibt, wenn sie gerade ist. Haengen Sie
+            mit console.log() ausgibt, wenn sie gerade ist. Hängen Sie
             ausserdem ein .catch() an, das einen eventuellen Fehler mit
             console.error() protokolliert.
 -->
@@ -25,25 +25,25 @@
 
     <h1>Promises</h1>
 
-    <p>Oeffnen Sie die Browser-Konsole, um die Ausgabe zu sehen.</p>
+    <p>Öffnen Sie die Browser-Konsole, um die Ausgabe zu sehen.</p>
 
     <script>
         // Fertige Hilfsfunktion: liefert ein Promise, das nach einer
-        // zufaelligen kurzen Verzoegerung mit '{"number": N}' aufgeloest wird.
+        // zufälligen kurzen Verzögerung mit '{"number": N}' aufgelöst wird.
         function erzeugeZahlenPromise() {
             return new Promise(function(resolve, reject) {
-                var verzoegerung = Math.random() * 500;
+                var verzögerung = Math.random() * 500;
                 setTimeout(function() {
                     var zahl = Math.floor(Math.random() * 100);
                     resolve('{"number": ' + zahl + '}');
-                }, verzoegerung);
+                }, verzögerung);
             });
         }
 
         // TODO 1: 10 Promises mittels erzeugeZahlenPromise() erzeugen
 
         // TODO 2: an jedes Promise .then() (JSON parsen, gerade Zahlen
-        //         loggen) und .catch() (Fehler loggen) anhaengen
+        //         loggen) und .catch() (Fehler loggen) anhängen
     </script>
 
 </body>

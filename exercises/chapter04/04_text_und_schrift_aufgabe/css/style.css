@@ -1,0 +1,123 @@
+/*
+    ÜBUNG 4: TEXT UND SCHRIFT (Kapitel 4.4) - style.css
+
+    Aufgabenstellung:
+    Verfeinern Sie die Typografie der Website. Ergänzen Sie an den
+    TODO-Stellen:
+
+    TODO 1: "h1, h2": font-family auf "Georgia, serif" setzen (abweichend
+            vom Fliesstext), damit sich Überschriften optisch abheben.
+    TODO 2: "h1": font-size: 2.5em sowie letter-spacing: 1px.
+    TODO 3: "p": line-height: 1.6, damit Absätze besser lesbar sind.
+    TODO 4: "table caption": font-style: italic sowie margin-bottom: 10px.
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #2b2d42;
+}
+
+a {
+    color: #2b2d42;
+    text-decoration: none;
+}
+
+header {
+    background-color: #2b2d42;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+.btn {
+    background-color: #ef233c;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    display: inline-block;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+#hauptnav a {
+    color: #ffffff;
+    margin-right: 15px;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+table td,
+table th {
+    padding: 8px;
+    border: 1px solid #8d99ae;
+}
+
+footer {
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #8d99ae;
+}
+
+/* TODO 1: h1, h2 { font-family: ...; } */
+
+/* TODO 2: h1 { font-size: ...; letter-spacing: ...; } */
+
+/* TODO 3: p { line-height: ...; } */
+
+/* TODO 4: table caption { font-style: ...; margin-bottom: ...; } */
+
+.no-text-decoration {
+    text-decoration: none;
+}
+
+/* Begrenzt die Inhaltsbreite und zentriert den Hauptbereich der Seite */
+main {
+    max-width: 500px;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+/* Formatiert die Überschrift eines aufklappbaren <details>-Elements */
+details summary {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Fügt Abstand vor dem GitHub-Badge hinzu */
+.github-badge {
+    margin-left: 30px;
+}
+
+/* Feste Breite für die Link-Spalte in der Projekte-Tabelle */
+.projekte-table-link-col {
+    width: 120px;
+}
+
+/* Burger-Menü-Button für die mobile Navigation (standardmäßig ausgeblendet,
+   wird per Media Query bei kleinen Bildschirmen eingeblendet) */
+.burger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Die drei horizontalen Striche (Linien) innerhalb des Burger-Buttons */
+.burger-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+}

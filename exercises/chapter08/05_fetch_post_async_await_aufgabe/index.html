@@ -1,41 +1,42 @@
 <!--
-    UEBUNG 5: FETCH MIT POST UND ASYNC/AWAIT - CLIENTTEIL
+    ÜBUNG 5: FETCH MIT POST UND ASYNC/AWAIT - CLIENTTEIL
     (Kapitel 8.4/8.6 - Fetch API / async/await)
 
     Aufgabenstellung:
-    Ergaenzen Sie ein Formular, das Name und Alter per POST (als JSON) an
-    echo.php sendet, und zeigen Sie die vom Server zurueckgesendete
-    Bestaetigung an. Verwenden Sie dafuer async/await statt .then()-Ketten.
+    Ergänzen Sie ein Formular, über das eine neue Projekt-Idee (Titel und
+    Jahr) per POST (als JSON) an echo.php gesendet wird, und zeigen Sie die
+    vom Server zurückgesendete Bestätigung an. Verwenden Sie dafür
+    async/await statt .then()-Ketten.
 
     TODO 1: Deklarieren Sie sende() als async function. Senden Sie darin
             mit await fetch("echo.php", {...}) eine POST-Anfrage, deren
             Header "Content-Type" auf "application/json" gesetzt ist und
             deren body mit JSON.stringify() aus den Werten der Felder
-            "nameFeld" und "alterFeld" gebildet wird. Kapseln Sie den
+            "titelFeld" und "jahrFeld" gebildet wird. Kapseln Sie den
             Aufruf in einem try/catch-Block.
     TODO 2: Lesen Sie die Antwort mit await response.json() aus und zeigen
-            Sie eine Bestaetigungsmeldung (z.B. mit den Werten aus dem
+            Sie eine Bestätigungsmeldung (z.B. mit den Werten aus dem
             Antwortobjekt) im Element mit der id "ergebnis" an.
-    TODO 3: Zeigen Sie im catch-Block eine fuer die Nutzer/-innen sichtbare
+    TODO 3: Zeigen Sie im catch-Block eine für die Nutzer/-innen sichtbare
             Fehlermeldung im Element mit der id "ergebnis" an.
 -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formular mit Fetch (POST)</title>
+    <title>Projekt-Idee einreichen (Fetch POST)</title>
     <meta charset="UTF-8">
 </head>
 <body>
 
-    <h1>Formular mit Fetch (POST)</h1>
+    <h1>Projekt-Idee einreichen</h1>
 
-    <form id="anmeldeForm" onsubmit="return false;">
-        <label for="nameFeld">Name:</label>
-        <input type="text" id="nameFeld">
+    <form id="ideeForm" onsubmit="return false;">
+        <label for="titelFeld">Titel:</label>
+        <input type="text" id="titelFeld">
         <br><br>
 
-        <label for="alterFeld">Alter:</label>
-        <input type="number" id="alterFeld">
+        <label for="jahrFeld">Jahr:</label>
+        <input type="number" id="jahrFeld">
         <br><br>
 
         <button type="submit" onclick="sende()">Absenden</button>
@@ -48,7 +49,7 @@
         //         mit await fetch(...) senden (try/catch)
 
             // TODO 2: Antwort mit await response.json() auslesen und
-            //         Bestaetigung in #ergebnis anzeigen
+            //         Bestätigung in #ergebnis anzeigen
 
             // TODO 3: im catch-Block Fehlermeldung in #ergebnis anzeigen
     </script>

@@ -1,8 +1,10 @@
 services:
   php:
-    image: php:8.3-fpm
+    build: .
     volumes:
       - ./:/var/www/html
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   nginx:
     image: nginx:alpine

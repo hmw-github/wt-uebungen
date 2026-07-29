@@ -1,0 +1,14 @@
+/*
+    Beispielstile für die Technikseite: Hintergrundfarben für die
+    "container"/"container-fluid"-Demo.
+*/
+
+.beispiel-container {
+    background-color: lightblue;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.beispiel-fluid {
+    background-color: lightgreen;
+    padding: 15px;
+}

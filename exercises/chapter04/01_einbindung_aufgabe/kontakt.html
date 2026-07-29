@@ -1,0 +1,99 @@
+<!--
+    ÜBUNG 1: EINBINDEN VON CSS (Kapitel 4.2) - Seite "Kontakt"
+
+    Aufgabenstellung:
+    Ihre Portfolio-Website bekommt jetzt ein gemeinsames Stylesheet. Ergänzen
+    Sie an den TODO-Stellen (identisch in allen Seiten dieses Ordners):
+
+    TODO 1: Binden Sie das externe Stylesheet "css/style.css" per link-Tag
+            ein.
+    TODO 2: Binden Sie zusätzlich das Druck-Stylesheet "css/druck.css" per
+            link-Tag ein, das NUR beim Drucken angewendet wird
+            (media="print").
+
+    In css/style.css und css/druck.css selbst warten ebenfalls TODOs auf
+    Sie (siehe die Kommentare dort).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Kontakt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TODO 1: <link rel="stylesheet" href="css/style.css"> -->
+
+    <!-- TODO 2: <link rel="stylesheet" href="css/druck.css" media="print"> -->
+
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Alex Berger" height="50">
+        </a>
+
+        <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="hauptnav">
+            <a href="index.html">Startseite</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="projekte.html">Projekte</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Kontakt</h1>
+
+        <p>Ich freue mich über Nachrichten - schreiben Sie mir gerne!</p>
+
+        <form action="kontakt-verarbeiten.php" method="post">
+
+            <label for="nameFeld">Name:</label><br>
+            <input type="text" id="nameFeld" name="name" required><br><br>
+
+            <label for="emailFeld">E-Mail:</label><br>
+            <input type="email" id="emailFeld" name="email" required><br><br>
+
+            <p>Bevorzugte Rückmeldung:</p>
+            <input type="radio" id="rueckmeldungEmail" name="rueckmeldung" value="email" checked>
+            <label for="rueckmeldungEmail">E-Mail</label><br>
+            <input type="radio" id="rueckmeldungTelefon" name="rueckmeldung" value="telefon">
+            <label for="rueckmeldungTelefon">Telefon</label><br><br>
+
+            <label for="betreffFeld">Betreff:</label><br>
+            <select id="betreffFeld" name="betreff">
+                <option value="anfrage" selected>Anfrage</option>
+                <option value="feedback">Feedback</option>
+                <option value="sonstiges">Sonstiges</option>
+            </select><br><br>
+
+            <label for="nachrichtFeld">Nachricht:</label><br>
+            <textarea id="nachrichtFeld" name="nachricht" rows="4" cols="30" required></textarea><br><br>
+
+            <input type="checkbox" id="newsletterFeld" name="newsletter" value="ja">
+            <label for="newsletterFeld">Ich möchte den Newsletter erhalten</label><br><br>
+
+            <input type="submit" value="Absenden" class="btn">
+
+        </form>
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+    <script src="js/main.js" defer></script>
+
+</body>
+</html>

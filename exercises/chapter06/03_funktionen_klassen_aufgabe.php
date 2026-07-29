@@ -1,28 +1,31 @@
 <!--
-    UEBUNG 3: FUNKTIONEN UND KLASSEN (Kapitel 6.2 - PHP-Sprachkonzepte: Funktionen, Klassen, Vererbung)
+    ÜBUNG 3: FUNKTIONEN UND KLASSEN (Kapitel 6.2 - PHP-Sprachkonzepte: Funktionen, Klassen, Vererbung)
 
     Aufgabenstellung:
-    Ergaenzen Sie an den mit TODO markierten Stellen den fehlenden PHP-Code:
+    Die Klassen Projekt/Webprojekt kennen Sie bereits in JavaScript aus
+    Kapitel 5 (Übung 5) - hier entwerfen Sie dasselbe Konzept in PHP.
+    Ergänzen Sie an den TODO-Stellen den fehlenden PHP-Code:
 
     TODO 1: Schreiben Sie eine Funktion pruefeVorzeichen($zahl, &$ergebnis), die
             per Wert die Zahl $zahl entgegennimmt und per Referenz in $ergebnis
             den String "positiv", "negativ" oder "null" ablegt, je nachdem ob
-            $zahl > 0, < 0 oder == 0 ist. Die Funktion selbst gibt nichts zurueck.
-    TODO 2: Rufen Sie pruefeVorzeichen() fuer eine Beispielzahl auf und geben Sie
-            den ueber die Referenzvariable ermittelten Wert von $ergebnis aus.
-    TODO 3: Erstellen Sie eine Klasse Buch mit den privaten Eigenschaften
-            $titel und $autor, einem Konstruktor __construct($titel, $autor)
-            und einer Methode __toString(), die einen String wie
-            "'Titel' von Autor" zurueckgibt.
-    TODO 4: Erstellen Sie eine Klasse EBook, die von Buch erbt (extends Buch)
-            und zusaetzlich die private Eigenschaft $dateigroesse (in MB) sowie
-            einen eigenen Konstruktor besitzt, der den Konstruktor der Basis-
-            klasse ueber parent::__construct(...) aufruft. Ueberschreiben Sie
-            __toString(), sodass zusaetzlich die Dateigroesse ausgegeben wird,
-            wobei die Basisklassen-Darstellung ueber parent::__toString()
+            $zahl > 0, < 0 oder == 0 ist. Die Funktion selbst gibt nichts zurück.
+    TODO 2: Rufen Sie pruefeVorzeichen() für eine Beispielzahl auf und geben Sie
+            den über die Referenzvariable ermittelten Wert von $ergebnis aus.
+    TODO 3: Erstellen Sie eine Klasse Projekt mit den privaten Eigenschaften
+            $titel und $technologie, einem Konstruktor
+            __construct($titel, $technologie) und einer Methode
+            __toString(), die einen String wie "'Titel' - Technologie"
+            zurückgibt.
+    TODO 4: Erstellen Sie eine Klasse Webprojekt, die von Projekt erbt
+            (extends Projekt) und zusätzlich die private Eigenschaft $jahr
+            sowie einen eigenen Konstruktor besitzt, der den Konstruktor der
+            Basisklasse über parent::__construct(...) aufruft. Überschreiben
+            Sie __toString(), sodass zusätzlich das Jahr ausgegeben wird,
+            wobei die Basisklassen-Darstellung über parent::__toString()
             wiederverwendet wird.
-    TODO 5: Instanziieren Sie ein Buch und ein EBook und geben Sie beide
-            (z.B. mit echo) aus.
+    TODO 5: Instanziieren Sie ein Projekt und ein Webprojekt und geben Sie
+            beide (z.B. mit echo) aus.
 -->
 <!DOCTYPE html>
 <html>
@@ -38,7 +41,7 @@
         // TODO 1: Funktion pruefeVorzeichen($zahl, &$ergebnis) definieren
     ?>
 
-    <h2>Vorzeichenpruefung</h2>
+    <h2>Vorzeichenprüfung</h2>
     <p>
         <?php
             // TODO 2: Funktion aufrufen und Ergebnis ausgeben
@@ -46,15 +49,15 @@
     </p>
 
     <?php
-        // TODO 3: Klasse Buch definieren
+        // TODO 3: Klasse Projekt definieren
 
-        // TODO 4: Klasse EBook definieren (extends Buch)
+        // TODO 4: Klasse Webprojekt definieren (extends Projekt)
     ?>
 
-    <h2>Buecher</h2>
+    <h2>Projekte</h2>
     <p>
         <?php
-            // TODO 5: Buch und EBook instanziieren und ausgeben
+            // TODO 5: Projekt und Webprojekt instanziieren und ausgeben
         ?>
     </p>
 

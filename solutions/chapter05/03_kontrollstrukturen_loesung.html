@@ -1,5 +1,5 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 3: KONTROLLSTRUKTUREN
+    LÖSUNGSVORSCHLAG - ÜBUNG 3: KONTROLLSTRUKTUREN
 -->
 <!DOCTYPE html>
 <html>
@@ -13,8 +13,8 @@
 
     <pre id="ausgabe"></pre>
 
-    <h2>Namensliste</h2>
-    <ul id="namenListe"></ul>
+    <h2>Projektliste</h2>
+    <ul id="projekteListe"></ul>
 
     <script>
         function ausgabe(text) {
@@ -22,37 +22,37 @@
             document.getElementById("ausgabe").textContent += text + "\n";
         }
 
-        let zahl = -5;
-        if (zahl > 0) {
-            ausgabe(zahl + " ist positiv.");
-        } else if (zahl < 0) {
-            ausgabe(zahl + " ist negativ.");
+        let jahreBisAbschluss = -1;
+        if (jahreBisAbschluss > 0) {
+            ausgabe(jahreBisAbschluss + " ist positiv.");
+        } else if (jahreBisAbschluss < 0) {
+            ausgabe(jahreBisAbschluss + " ist negativ.");
         } else {
-            ausgabe(zahl + " ist null.");
+            ausgabe(jahreBisAbschluss + " ist null.");
         }
 
-        let note = 2;
-        switch (note) {
+        let bewertung = 2;
+        switch (bewertung) {
             case 1:
-                ausgabe("Note " + note + ": Sehr gut");
+                ausgabe("Note " + bewertung + ": Sehr gut");
                 break;
             case 2:
-                ausgabe("Note " + note + ": Gut");
+                ausgabe("Note " + bewertung + ": Gut");
                 break;
             case 3:
-                ausgabe("Note " + note + ": Befriedigend");
+                ausgabe("Note " + bewertung + ": Befriedigend");
                 break;
             case 4:
-                ausgabe("Note " + note + ": Ausreichend");
+                ausgabe("Note " + bewertung + ": Ausreichend");
                 break;
             case 5:
-                ausgabe("Note " + note + ": Mangelhaft");
+                ausgabe("Note " + bewertung + ": Mangelhaft");
                 break;
             case 6:
-                ausgabe("Note " + note + ": Ungenuegend");
+                ausgabe("Note " + bewertung + ": Ungenügend");
                 break;
             default:
-                ausgabe("Ungueltige Note: " + note);
+                ausgabe("Ungültige Note: " + bewertung);
         }
 
         let summe = 0;
@@ -61,12 +61,12 @@
         }
         ausgabe("Summe von 1 bis 10: " + summe);
 
-        const namen = ["Anna", "Bilal", "Chiara", "David"];
+        const projekte = ["Wetter-App", "Rezeptsammlung", "Portfolio-Website"];
 
-        for (const name of namen) {
+        for (const projekt of projekte) {
             const li = document.createElement("li");
-            li.textContent = name;
-            document.getElementById("namenListe").appendChild(li);
+            li.textContent = projekt;
+            document.getElementById("projekteListe").appendChild(li);
         }
     </script>
 

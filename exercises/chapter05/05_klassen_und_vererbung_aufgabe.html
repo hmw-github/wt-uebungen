@@ -1,32 +1,33 @@
 <!--
-    UEBUNG 5: KLASSEN UND VERERBUNG
+    ÜBUNG 5: KLASSEN UND VERERBUNG
     (Kapitel 5.3 - Sprachkonzepte, Klassen; Kapitel 5.4 - Fehlerbehandlung)
 
     Aufgabenstellung:
-    Ergaenzen Sie im <script>-Block unten an den TODO-Stellen den fehlenden
-    Code. Nutzen Sie die vorhandene Funktion ausgabe(text) fuer Textausgaben.
+    Ergänzen Sie im <script>-Block unten an den TODO-Stellen den fehlenden
+    Code. Nutzen Sie die vorhandene Funktion ausgabe(text) für Textausgaben.
 
-    TODO 1: Implementieren Sie die Klasse Tier mit einem Konstruktor, der
-            name und gewicht entgegennimmt. Ergaenzen Sie einen get/set
-            fuer name sowie einen get/set fuer gewicht. Im Setter fuer
-            gewicht: werfen Sie mittels throw einen Fehler (als String)
-            mit der Meldung "Gewicht darf nicht negativ sein!", falls ein
-            negativer Wert uebergeben wird. Ergaenzen Sie ausserdem eine
+    TODO 1: Implementieren Sie die Klasse Projekt mit einem Konstruktor,
+            der titel und jahr entgegennimmt. Ergänzen Sie einen get/set
+            für titel sowie einen get/set für jahr. Im Setter für jahr:
+            werfen Sie mittels throw einen Fehler (als String) mit der
+            Meldung "Jahr darf nicht vor 2000 liegen!", falls ein Wert
+            kleiner als 2000 übergeben wird. Ergänzen Sie ausserdem eine
             Methode toString(), die einen Beschreibungstext liefert, z.B.
-            "Bello (12 kg)".
-    TODO 2: Implementieren Sie die Klasse Hund, die mittels extends von
-            Tier erbt. Der Konstruktor nimmt zusaetzlich eine rasse
-            entgegen, ruft mit super(name, gewicht) den Tier-Konstruktor
-            auf und speichert die Rasse (inkl. get/set fuer rasse).
-            Ueberschreiben Sie toString(), sodass zusaetzlich zur per
-            super.toString() geerbten Beschreibung auch die Rasse
-            ausgegeben wird, z.B. "Bello (12 kg), Rasse: Labrador".
-    TODO 3: Erzeugen Sie ein Hund-Objekt mit beliebigen Werten und geben
-            Sie mit ausgabe(...) dessen toString()-Ergebnis aus. Versuchen
-            Sie anschliessend innerhalb eines try...catch-Blocks, das
-            gewicht des Hundes auf einen negativen Wert zu setzen, und
-            geben Sie im catch-Block die abgefangene Fehlermeldung mit
-            ausgabe(...) aus.
+            "Wetter-App (2024)".
+    TODO 2: Implementieren Sie die Klasse Webprojekt, die mittels extends
+            von Projekt erbt. Der Konstruktor nimmt zusätzlich eine
+            technologie entgegen, ruft mit super(titel, jahr) den
+            Projekt-Konstruktor auf und speichert die Technologie (inkl.
+            get/set für technologie). Überschreiben Sie toString(),
+            sodass zusätzlich zur per super.toString() geerbten
+            Beschreibung auch die Technologie ausgegeben wird, z.B.
+            "Wetter-App (2024), Technologie: JavaScript".
+    TODO 3: Erzeugen Sie ein Webprojekt-Objekt für "Portfolio-Website"
+            (Jahr 2026, Technologie "PHP, REST") und geben Sie mit
+            ausgabe(...) dessen toString()-Ergebnis aus. Versuchen Sie
+            anschließend innerhalb eines try...catch-Blocks, das jahr des
+            Projekts auf 1990 zu setzen, und geben Sie im catch-Block die
+            abgefangene Fehlermeldung mit ausgabe(...) aus.
 -->
 <!DOCTYPE html>
 <html>
@@ -46,13 +47,13 @@
             document.getElementById("ausgabe").textContent += text + "\n";
         }
 
-        // TODO 1: Klasse Tier implementieren (Konstruktor, get/set, toString)
+        // TODO 1: Klasse Projekt implementieren (Konstruktor, get/set, toString)
 
 
-        // TODO 2: Klasse Hund implementieren (extends Tier, get/set rasse, toString)
+        // TODO 2: Klasse Webprojekt implementieren (extends Projekt, get/set technologie, toString)
 
 
-        // TODO 3: Hund-Objekt erzeugen, toString ausgeben, try/catch fuer ungueltiges Gewicht
+        // TODO 3: Webprojekt-Objekt erzeugen, toString ausgeben, try/catch für ungültiges Jahr
 
     </script>
 

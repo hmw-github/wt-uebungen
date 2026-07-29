@@ -3,22 +3,45 @@
 Diese 7 Übungen decken alle Themen des Kapitels ab (5.1–5.5): Überblick über
 JavaScript, die verschiedenen Wege der Einbindung, Sprachkonzepte
 (Datentypen, Variablen, Operatoren, Kontrollfluss, Arrays, Objekte, Klassen
-und Vererbung, Fehlerbehandlung), JSON sowie das DOM. Sie sind so
-konzipiert, dass sie direkt nach der jeweiligen Wiederholung im
-Vorlesungsteil bearbeitet werden können. Jede Übung besteht aus einer
-Aufgabendatei (in diesem Ordner; Übung 1 zusätzlich aus einer kleinen
-externen JavaScript-Datei) und einer Lösungsdatei im Ordner
-`../../solutions/chapter05/`:
+und Vererbung, Fehlerbehandlung), JSON sowie das DOM.
 
-| # | Thema (Kapitel) | Aufgabendatei | Lösungsdatei |
+**Durchgängiges Projekt:** Übung 1 und Übung 7 greifen direkt in die
+Portfolio-Website aus den Kapiteln 3 und 4 ein und bestehen daher – wie in
+Kapitel 3 und 4 – aus einem Aufgabenordner mit dem kompletten aktuellen
+Stand der Website. Die Übungen 2 bis 6 sind dagegen bewusst eigenständige,
+einzelne HTML-Dateien (wie im Original-Kurskonzept), die grundlegende
+Sprachkonzepte anhand der immer gleichen Projektdaten von Alex Berger
+(Titel, Technologie, Jahr) einüben, ohne dass Studierende dafür die
+eigentlichen Website-Dateien anfassen müssen.
+
+| # | Thema (Kapitel) | Aufgabendatei/-ordner | Lösungsdatei/-ordner |
 |---|---|---|---|
-| 1 | JavaScript einbinden (5.2) | `01_einbinden_aufgabe.html` + `01_einbinden_script_aufgabe.js` | `../../solutions/chapter05/01_einbinden_loesung.html` + `01_einbinden_script_loesung.js` |
+| 1 | JavaScript einbinden (5.2) | `01_einbinden_aufgabe/` | `../../solutions/chapter05/01_einbinden_loesung/` |
 | 2 | Variablen, Datentypen, Operatoren (5.3) | `02_variablen_datentypen_operatoren_aufgabe.html` | `../../solutions/chapter05/02_variablen_datentypen_operatoren_loesung.html` |
 | 3 | Kontrollstrukturen (5.3) | `03_kontrollstrukturen_aufgabe.html` | `../../solutions/chapter05/03_kontrollstrukturen_loesung.html` |
 | 4 | Arrays und Objekte (5.3) | `04_arrays_und_objekte_aufgabe.html` | `../../solutions/chapter05/04_arrays_und_objekte_loesung.html` |
 | 5 | Klassen und Vererbung (5.3, 5.4) | `05_klassen_und_vererbung_aufgabe.html` | `../../solutions/chapter05/05_klassen_und_vererbung_loesung.html` |
 | 6 | JSON (5.4) | `06_json_aufgabe.html` | `../../solutions/chapter05/06_json_loesung.html` |
-| 7 | DOM-Manipulation (5.5) | `07_dom_manipulation_aufgabe.html` | `../../solutions/chapter05/07_dom_manipulation_loesung.html` |
+| 7 | DOM-Manipulation (5.5) | `07_dom_manipulation_aufgabe/` | `../../solutions/chapter05/07_dom_manipulation_loesung/` |
+
+## Wie sich die Übungen auf die Website und die Sprachgrundlagen aufteilen
+
+- **Übung 1** bindet auf der Startseite (`index.html`) ein externes Skript
+  `js/begruessung.js` ein und zeigt dabei alle drei Einbindungsarten
+  (inline im `<script>`-Block, `javascript:`-Pseudo-Protokoll,
+  `onclick`-Attribut mit externer Funktion).
+- **Übungen 2–6** sind eigenständige Dateien mit der bekannten
+  Hilfsfunktion `ausgabe(text)` (siehe unten) und behandeln anhand der
+  immer gleichen drei Beispielprojekte (Wetter-App, Rezeptsammlung,
+  Portfolio-Website) Variablen/Datentypen/Operatoren, Kontrollstrukturen,
+  Arrays/Objekte, Klassen mit Vererbung sowie JSON.
+- **Übung 7** ist der Höhepunkt des Kapitels: Die bisher statische
+  Projekttabelle auf `projekte.html` wird durch echte DOM-Manipulation aus
+  einem JavaScript-Array heraus erzeugt (inkl. eines Buttons, der Projekte
+  aus 2026 per `classList.toggle` hervorhebt). Genau dieses Array
+  (`titel`, `technologie`, `jahr`, `link`) wird in Kapitel 6 zu
+  serverseitigen PHP-Daten und in Kapitel 9 zur JSON-Antwort einer echten
+  REST-Schnittstelle.
 
 ## Aufbau jeder Aufgabendatei
 
@@ -30,21 +53,15 @@ externen JavaScript-Datei) und einer Lösungsdatei im Ordner
   `// TODO n: ...`-Kommentare innerhalb von `<script>`-Blöcken (leer, ohne
   vorgegebenen Code), sodass Studierende direkt im Browser/Editor sehen,
   wo etwas fehlt.
-- Anders als in Kapitel 3 sind die Übungen hier bewusst als einzelne,
-  vollständig lauffähige HTML-Dokumente mit eingebettetem `<script>`-Block
-  gehalten (kein separates .js pro Übung nötig), damit sie ohne Server
-  direkt im Browser geöffnet werden können. Eine Ausnahme bildet Übung 1,
-  die gezielt die Einbindung per externer Datei (`<script src="...">`)
-  behandelt und daher zusätzlich eine kleine `.js`-Datei enthält.
-- In den meisten Übungen gibt die Datei bereits eine kleine Hilfsfunktion
+- In den Übungen 2–6 gibt die Datei bereits eine kleine Hilfsfunktion
   `ausgabe(text)` vor (kein TODO), die den übergebenen Text sowohl per
   `console.log` in der Entwicklerkonsole als auch sichtbar auf der Seite
   (in einem `<pre id="ausgabe">`-Element) ausgibt. So lassen sich die an
   den TODO-Stellen erzielten Ergebnisse sowohl im Browser als auch in der
   Konsole überprüfen, ohne dass Studierende bei jeder Teilaufgabe erneut
   DOM-Code dafür schreiben müssen.
-- Die Dateien sind vollständig lauffähige (wenn auch unvollständige)
-  HTML-Dokumente – Studierende können sie direkt im Browser öffnen und
+- Die Dateien bzw. Ordner sind vollständig lauffähig (wenn auch
+  unvollständig) – Studierende können sie direkt im Browser öffnen und
   ihren Fortschritt sofort visuell und in der Konsole überprüfen.
 
 ## Aufbau jeder Lösungsdatei

@@ -1,0 +1,9 @@
+.projekt-card {
+    min-height: 250px;
+}
+
+@media (max-width: 761px) {
+    .projekt-card {
+        min-height: 150px;
+    }
+}

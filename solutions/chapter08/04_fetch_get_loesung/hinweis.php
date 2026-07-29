@@ -1,18 +1,18 @@
 <?php
 /*
-    LOESUNGSVORSCHLAG - UEBUNG 4: FETCH-API MIT GET - SERVERTEIL
-    (identisch zu Uebung 1)
+    LÖSUNGSVORSCHLAG - ÜBUNG 4: FETCH-API MIT GET - SERVERTEIL
+    (identisch zu Übung 1)
 */
 
-$namen = ["Anna", "Anton", "Bernd", "Berta", "Clara", "Daniel", "Emil", "Frieda"];
+$technologien = ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "REST", "MySQL"];
 
 $praefix = $_GET['praefix'] ?? '';
 
 $treffer = [];
 
-foreach ($namen as $name) {
-    if (strpos(strtolower($name), strtolower($praefix)) === 0) {
-        $treffer[] = $name;
+foreach ($technologien as $technologie) {
+    if (strpos(strtolower($technologie), strtolower($praefix)) === 0) {
+        $treffer[] = $technologie;
     }
 }
 

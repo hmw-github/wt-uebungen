@@ -1,17 +1,17 @@
 <?php
 /*
-    LOESUNGSVORSCHLAG - UEBUNG 1: XHR-GRUNDLAGEN - SERVERTEIL
+    LÖSUNGSVORSCHLAG - ÜBUNG 1: XHR-GRUNDLAGEN - SERVERTEIL
 */
 
-$namen = ["Anna", "Anton", "Bernd", "Berta", "Clara", "Daniel", "Emil", "Frieda"];
+$technologien = ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "REST", "MySQL"];
 
 $praefix = $_GET['praefix'] ?? '';
 
 $treffer = [];
 
-foreach ($namen as $name) {
-    if (strpos(strtolower($name), strtolower($praefix)) === 0) {
-        $treffer[] = $name;
+foreach ($technologien as $technologie) {
+    if (strpos(strtolower($technologie), strtolower($praefix)) === 0) {
+        $treffer[] = $technologie;
     }
 }
 

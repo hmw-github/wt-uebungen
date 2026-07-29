@@ -1,21 +1,22 @@
 <?php
 /*
-    UEBUNG 4: FETCH-API MIT GET - SERVERTEIL (Kapitel 8.4 - Fetch API)
+    ÜBUNG 4: FETCH-API MIT GET - SERVERTEIL (Kapitel 8.4 - Fetch API)
 
-    Dieses Skript ist bereits vollstaendig (identisch zu Uebung 1): Es
-    filtert das Array $namen nach dem uebergebenen Praefix und liefert die
-    Treffer als kommagetrennte Liste zurueck (oder "kein Treffer!").
+    Dieses Skript ist bereits vollständig (identisch zu Übung 1): Es
+    filtert das Array $technologien nach dem übergebenen Praefix und
+    liefert die Treffer als kommagetrennte Liste zurück (oder
+    "kein Treffer!").
 */
 
-$namen = ["Anna", "Anton", "Bernd", "Berta", "Clara", "Daniel", "Emil", "Frieda"];
+$technologien = ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "REST", "MySQL"];
 
 $praefix = $_GET['praefix'] ?? '';
 
 $treffer = [];
 
-foreach ($namen as $name) {
-    if (strpos(strtolower($name), strtolower($praefix)) === 0) {
-        $treffer[] = $name;
+foreach ($technologien as $technologie) {
+    if (strpos(strtolower($technologie), strtolower($praefix)) === 0) {
+        $treffer[] = $technologie;
     }
 }
 

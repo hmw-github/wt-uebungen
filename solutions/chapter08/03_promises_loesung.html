@@ -1,5 +1,5 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 3: PROMISES
+    LÖSUNGSVORSCHLAG - ÜBUNG 3: PROMISES
 -->
 <!DOCTYPE html>
 <html>
@@ -11,18 +11,18 @@
 
     <h1>Promises</h1>
 
-    <p>Oeffnen Sie die Browser-Konsole, um die Ausgabe zu sehen.</p>
+    <p>Öffnen Sie die Browser-Konsole, um die Ausgabe zu sehen.</p>
 
     <script>
         // Fertige Hilfsfunktion: liefert ein Promise, das nach einer
-        // zufaelligen kurzen Verzoegerung mit '{"number": N}' aufgeloest wird.
+        // zufälligen kurzen Verzögerung mit '{"number": N}' aufgelöst wird.
         function erzeugeZahlenPromise() {
             return new Promise(function(resolve, reject) {
-                var verzoegerung = Math.random() * 500;
+                var verzögerung = Math.random() * 500;
                 setTimeout(function() {
                     var zahl = Math.floor(Math.random() * 100);
                     resolve('{"number": ' + zahl + '}');
-                }, verzoegerung);
+                }, verzögerung);
             });
         }
 

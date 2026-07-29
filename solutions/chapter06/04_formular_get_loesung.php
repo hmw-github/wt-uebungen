@@ -1,40 +1,47 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 4: FORMULARVERARBEITUNG MIT GET
+    LÖSUNGSVORSCHLAG - ÜBUNG 4: FORMULARVERARBEITUNG MIT GET
 -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Unterkunftssuche</title>
+    <title>Projekte filtern</title>
     <meta charset="UTF-8">
 </head>
 <body>
 
-    <h1>Unterkunftssuche</h1>
+    <h1>Projekte filtern</h1>
+
+    <?php
+        $projekte = [
+            ["titel" => "Wetter-App", "technologie" => "JavaScript, Fetch API"],
+            ["titel" => "Rezeptsammlung", "technologie" => "PHP, MySQL"],
+            ["titel" => "Portfolio-Website", "technologie" => "HTML, CSS, JavaScript, PHP, REST"]
+        ];
+    ?>
 
     <form method="get" action="">
-        <label for="stadtFeld">Stadt:</label>
-        <input type="text" id="stadtFeld" name="stadt" value="<?= htmlspecialchars($_GET['stadt'] ?? '') ?>">
+        <label for="technologieFeld">Technologie:</label>
+        <input type="text" id="technologieFeld" name="technologie" value="<?= htmlspecialchars($_GET['technologie'] ?? '') ?>">
         <br><br>
 
-        <label for="landFeld">Land:</label>
-        <input type="text" id="landFeld" name="land" value="<?= htmlspecialchars($_GET['land'] ?? '') ?>">
-        <br><br>
-
-        <input type="submit" value="Suchen">
+        <input type="submit" value="Filtern">
     </form>
 
     <h2>Ergebnis</h2>
-    <p>
+    <ul>
         <?php
-            if (isset($_GET['stadt']) && isset($_GET['land']) && $_GET['stadt'] !== '' && $_GET['land'] !== '') {
-                $stadt = $_GET['stadt'];
-                $land = $_GET['land'];
-                echo "Sie suchen nach Unterkuenften in " . htmlspecialchars($stadt) . ", " . htmlspecialchars($land) . ".";
+            if (isset($_GET['technologie']) && $_GET['technologie'] !== '') {
+                $suchbegriff = $_GET['technologie'];
+                foreach ($projekte as $projekt) {
+                    if (stripos($projekt['technologie'], $suchbegriff) !== false) {
+                        echo "<li>" . htmlspecialchars($projekt['titel']) . " (" . htmlspecialchars($projekt['technologie']) . ")</li>";
+                    }
+                }
             } else {
-                echo "Bitte geben Sie eine Stadt und ein Land ein.";
+                echo "<li>Bitte geben Sie eine Technologie ein.</li>";
             }
         ?>
-    </p>
+    </ul>
 
 </body>
 </html>

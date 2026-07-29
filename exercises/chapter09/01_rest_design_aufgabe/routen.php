@@ -1,71 +1,72 @@
 <?php
 /*
-    UEBUNG 1: REST-ROUTENDESIGN (Kapitel 9.1 - REST-Grundprinzipien)
+    ÜBUNG 1: REST-ROUTENDESIGN (Kapitel 9.1 - REST-Grundprinzipien)
 
     Aufgabenstellung:
-    Fuer die Ressource "Buch" (Attribute: id, titel, autor) soll eine
-    REST-Schnittstelle entworfen werden. Ergaenzen Sie in der Tabelle
-    $routen die fehlenden Routen (Methode + Pfad + Aktionsname) sowie
-    anschliessend die Zuordnungslogik, die zu einer gegebenen Methode/Pfad-
-    Kombination die passende Aktion ermittelt.
+    Für die Ressource "Projekt" (Attribute: id, titel, technologie, jahr)
+    Ihrer Portfolio-Website soll eine REST-Schnittstelle entworfen werden -
+    genau die Schnittstelle, die Sie in den Übungen 2 bis 4 tatsächlich
+    umsetzen. Ergänzen Sie in der Tabelle $routen die fehlenden Routen
+    (Methode + Pfad + Aktionsname) sowie anschließend die
+    Zuordnungslogik, die zu einer gegebenen Methode/Pfad-Kombination die
+    passende Aktion ermittelt.
 
-    TODO 1: Route zum Auflisten aller Buecher ergaenzen:
-            Methode GET, Pfad "/buecher", Aktion "buecher_liste".
-    TODO 2: Route zum Lesen eines einzelnen Buchs ergaenzen:
-            Methode GET, Pfad "/buch/{id}", Aktion "buch_lesen".
-    TODO 3: Route zum Anlegen eines neuen Buchs ergaenzen:
-            Methode POST, Pfad "/buch", Aktion "buch_anlegen".
-    TODO 4: Route zum Aktualisieren eines Buchs ergaenzen:
-            Methode PUT, Pfad "/buch/{id}", Aktion "buch_aktualisieren".
-    TODO 5: Route zum Loeschen eines Buchs ergaenzen:
-            Methode DELETE, Pfad "/buch/{id}", Aktion "buch_loeschen".
-    TODO 6: Vervollstaendigen Sie die Zuordnungslogik in der Schleife weiter
-            unten: Fuer jeden Testfall soll die Liste $routen durchsucht
-            werden. Eine Route passt, wenn die Methode uebereinstimmt und
+    TODO 1: Route zum Auflisten aller Projekte ergänzen:
+            Methode GET, Pfad "/projekte", Aktion "projekte_liste".
+    TODO 2: Route zum Lesen eines einzelnen Projekts ergänzen:
+            Methode GET, Pfad "/projekt/{id}", Aktion "projekt_lesen".
+    TODO 3: Route zum Anlegen eines neuen Projekts ergänzen:
+            Methode POST, Pfad "/projekt", Aktion "projekt_anlegen".
+    TODO 4: Route zum Aktualisieren eines Projekts ergänzen:
+            Methode PUT, Pfad "/projekt/{id}", Aktion "projekt_aktualisieren".
+    TODO 5: Route zum Löschen eines Projekts ergänzen:
+            Methode DELETE, Pfad "/projekt/{id}", Aktion "projekt_loeschen".
+    TODO 6: Vervollständigen Sie die Zuordnungslogik in der Schleife weiter
+            unten: Für jeden Testfall soll die Liste $routen durchsucht
+            werden. Eine Route passt, wenn die Methode übereinstimmt und
             entweder der Pfad exakt gleich ist, oder das Pfad-Muster ein
-            "{id}" enthaelt und der tatsaechliche Pfad an dieser Stelle eine
-            Zahl enthaelt (pruefen Sie dies mit preg_match, indem Sie
+            "{id}" enthält und der tatsächliche Pfad an dieser Stelle eine
+            Zahl enthält (prüfen Sie dies mit preg_match, indem Sie
             "{id}" im Muster durch "[0-9]+" ersetzen). Passt eine Route,
             soll deren Aktionsname in $gefunden gespeichert werden.
 
-    Ausfuehrung:
-    - Ueber die Kommandozeile: php routen.php
-    - Oder ueber den Browser, wenn diese Datei ueber den PHP-Webserver
+    Ausführung:
+    - Über die Kommandozeile: php routen.php
+    - Oder über den Browser, wenn diese Datei über den PHP-Webserver
       (siehe Docker-Setup dieses Kapitels) aufgerufen wird.
 */
 
-// Routentabelle der REST-Schnittstelle fuer die Ressource "Buch"
-// jede Route durch ['methode' => '<HTTP Methode>', 
-//                   'pfad' => '<Pfad>', 
-//                   'aktion' => '<aufzurufende Methode>'] 
+// Routentabelle der REST-Schnittstelle für die Ressource "Projekt"
+// jede Route durch ['methode' => '<HTTP Methode>',
+//                   'pfad' => '<Pfad>',
+//                   'aktion' => '<aufzurufende Methode>']
 // definieren
 $routen = [
-    array("methode" => )
-    // TODO 1: Route "Buecher auflisten" ergaenzen
+    // TODO 1: Route "Projekte auflisten" ergänzen
 
-    // TODO 2: Route "Buch lesen" ergaenzen
+    // TODO 2: Route "Projekt lesen" ergänzen
 
-    // TODO 3: Route "Buch anlegen" ergaenzen
+    // TODO 3: Route "Projekt anlegen" ergänzen
 
-    // TODO 4: Route "Buch aktualisieren" ergaenzen
+    // TODO 4: Route "Projekt aktualisieren" ergänzen
 
-    // TODO 5: Route "Buch loeschen" ergaenzen
+    // TODO 5: Route "Projekt löschen" ergänzen
 
 ];
 
-// Testfaelle: jeweils [Methode, Pfad]
-$testfaelle = [
-    ['GET', '/buecher'],
-    ['GET', '/buch/3'],
-    ['POST', '/buch'],
-    ['PUT', '/buch/7'],
-    ['DELETE', '/buch/2'],
+// Testfälle: jeweils [Methode, Pfad]
+$testfälle = [
+    ['GET', '/projekte'],
+    ['GET', '/projekt/3'],
+    ['POST', '/projekt'],
+    ['PUT', '/projekt/2'],
+    ['DELETE', '/projekt/1'],
 ];
 
-// Zeilenumbruch passend zur Ausfuehrungsart (CLI oder Browser)
+// Zeilenumbruch passend zur Ausführungsart (CLI oder Browser)
 $eol = (php_sapi_name() === 'cli') ? "\n" : "<br>\n";
 
-foreach ($testfaelle as $testfall) {
+foreach ($testfälle as $testfall) {
     $methode = $testfall[0];
     $pfad = $testfall[1];
     $gefunden = 'nicht gefunden';

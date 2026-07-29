@@ -1,5 +1,5 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 2: KONTROLLSTRUKTUREN UND ARRAYS
+    LÖSUNGSVORSCHLAG - ÜBUNG 2: KONTROLLSTRUKTUREN UND ARRAYS
 -->
 <!DOCTYPE html>
 <html>
@@ -14,26 +14,27 @@
     <h2>Summe eines Arrays</h2>
     <p>
         <?php
-            $zahlen = [12, 7, 33, 5, 21];
+            $jahre = [2022, 2023, 2024, 2025, 2026];
             $summe = 0;
-            foreach ($zahlen as $zahl) {
-                $summe += $zahl;
+            foreach ($jahre as $jahr) {
+                $summe += $jahr;
             }
-            echo "Die Summe der Zahlen ist: " . $summe;
+            echo "Die Summe der Jahre ist: " . $summe;
         ?>
     </p>
 
-    <h2>Produktliste (assoziatives Array)</h2>
+    <h2>Technologien (assoziatives Array)</h2>
     <table border="1">
-        <tr><th>Produkt</th><th>Preis</th></tr>
+        <tr><th>Technologie</th><th>Erfahrung (Jahre)</th></tr>
         <?php
-            $produkte = [
-                "Tastatur" => 29.99,
-                "Monitor" => 199.00,
-                "Maus" => 14.50
+            $technologien = [
+                "HTML" => 4,
+                "CSS" => 4,
+                "JavaScript" => 3,
+                "PHP" => 2
             ];
-            foreach ($produkte as $name => $preis) {
-                echo "<tr><td>" . $name . "</td><td>" . $preis . " EUR</td></tr>";
+            foreach ($technologien as $technologie => $jahre) {
+                echo "<tr><td>" . $technologie . "</td><td>" . $jahre . "</td></tr>";
             }
         ?>
     </table>
@@ -59,7 +60,7 @@
                     echo "mangelhaft";
                     break;
                 case 6:
-                    echo "ungenuegend";
+                    echo "ungenügend";
                     break;
                 default:
                     echo "unbekannte Note";

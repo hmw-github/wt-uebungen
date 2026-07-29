@@ -1,55 +1,61 @@
 <!--
-    UEBUNG 4: FORMULARVERARBEITUNG MIT GET (Kapitel 6.3 - Formularverarbeitung)
+    ÜBUNG 4: FORMULARVERARBEITUNG MIT GET (Kapitel 6.3 - Formularverarbeitung)
 
     Aufgabenstellung:
-    Diese Seite enthaelt ein Suchformular (Stadt, Land), das per GET an sich
-    selbst gesendet wird. Ergaenzen Sie an den mit TODO markierten Stellen den
-    fehlenden PHP-Code:
+    Diese Seite enthält ein Suchformular, mit dem sich die (hier fest im
+    Code hinterlegten) Projekte nach Technologie filtern lassen. Das
+    Formular wird per GET an sich selbst gesendet - dadurch landet der
+    Suchbegriff sichtbar in der URL und die Ergebnisseite ist direkt als
+    Link teilbar. Ergänzen Sie an den TODO-Stellen den fehlenden PHP-Code:
 
-    TODO 1: Pruefen Sie mittels isset() (oder dem Null-Coalescing-Operator ??),
-            ob das Formular bereits abgeschickt wurde (d.h. ob $_GET['stadt']
-            und $_GET['land'] gesetzt sind).
-    TODO 2: Falls das Formular abgeschickt wurde: Lesen Sie die Werte aus
-            $_GET['stadt'] und $_GET['land'] und geben Sie einen Ergebnissatz
-            aus (z.B. "Sie suchen nach Unterkuenften in <Stadt>, <Land>.").
-    TODO 3: Befuellen Sie das value-Attribut des Textfelds "stadt" erneut mit
-            dem zuletzt gesuchten Wert aus $_GET, damit das Formular nach dem
-            Absenden nicht leer erscheint (leerer String, falls noch nichts
-            gesucht wurde).
-    TODO 4: Befuellen Sie das value-Attribut des Textfelds "land" analog zu
-            TODO 3 erneut mit dem zuletzt gesuchten Wert aus $_GET.
+    TODO 1: Prüfen Sie mittels isset() (oder dem Null-Coalescing-Operator ??),
+            ob das Formular bereits abgeschickt wurde (d.h. ob
+            $_GET['technologie'] gesetzt ist).
+    TODO 2: Falls das Formular abgeschickt wurde: Iterieren Sie das Array
+            $projekte (bereits vorgegeben) mit foreach und geben Sie für
+            jedes Projekt, dessen technologie-Eintrag den Suchbegriff aus
+            $_GET['technologie'] enthält (str_contains(), Groß-/
+            Kleinschreibung ignorieren Sie der Einfachheit halber), eine
+            <li>-Zeile mit Titel und Technologie aus.
+    TODO 3: Befüllen Sie das value-Attribut des Textfelds "technologie"
+            erneut mit dem zuletzt gesuchten Wert aus $_GET, damit das
+            Formular nach dem Absenden nicht leer erscheint (leerer String,
+            falls noch nichts gesucht wurde).
 -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Unterkunftssuche</title>
+    <title>Projekte filtern</title>
     <meta charset="UTF-8">
 </head>
 <body>
 
-    <h1>Unterkunftssuche</h1>
+    <h1>Projekte filtern</h1>
+
+    <?php
+        $projekte = [
+            ["titel" => "Wetter-App", "technologie" => "JavaScript, Fetch API"],
+            ["titel" => "Rezeptsammlung", "technologie" => "PHP, MySQL"],
+            ["titel" => "Portfolio-Website", "technologie" => "HTML, CSS, JavaScript, PHP, REST"]
+        ];
+    ?>
 
     <form method="get" action="">
-        <label for="stadtFeld">Stadt:</label>
-        <input type="text" id="stadtFeld" name="stadt" value="<?php // TODO 3: Wert aus $_GET wieder einsetzen ?>">
+        <label for="technologieFeld">Technologie:</label>
+        <input type="text" id="technologieFeld" name="technologie" value="<?php // TODO 3: Wert aus $_GET wieder einsetzen ?>">
         <br><br>
 
-        <label for="landFeld">Land:</label>
-        <input type="text" id="landFeld" name="land" value="<?php // TODO 4: Wert aus $_GET wieder einsetzen ?>">
-        <br><br>
-
-        <input type="submit" value="Suchen">
+        <input type="submit" value="Filtern">
     </form>
 
     <h2>Ergebnis</h2>
-    <p>
+    <ul>
         <?php
-            // TODO 1: pruefen, ob das Formular abgeschickt wurde (isset()/??)
+            // TODO 1: prüfen, ob das Formular abgeschickt wurde (isset()/??)
 
-                // TODO 2: Werte aus $_GET lesen und Ergebnissatz ausgeben
-
+                // TODO 2: $projekte durchsuchen und passende Treffer als <li> ausgeben
         ?>
-    </p>
+    </ul>
 
 </body>
 </html>

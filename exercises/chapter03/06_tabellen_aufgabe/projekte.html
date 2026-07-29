@@ -1,0 +1,72 @@
+<!--
+    ÜBUNG 6: TABELLEN (Kapitel 3.7)
+
+    Aufgabenstellung:
+    Stellen Sie Ihre Projekte als Tabelle dar. An den TODO-Stellen:
+
+    TODO 1: Eine caption mit dem Text "Meine Projekte".
+    TODO 2: Einen thead-Bereich mit einer Kopfzeile: "Projekt", "Technologie",
+            "Jahr", "Link".
+    TODO 3: Einen tbody-Bereich mit 3 Datenzeilen zu den Projekten
+            "Wetter-App" (JavaScript, Fetch API, 2024), "Rezeptsammlung"
+            (PHP, MySQL, 2025) und "Portfolio-Website" (siehe TODO 4). Jede
+            Zeile soll in der Spalte "Link" einen Link auf das jeweilige
+            GitHub-Repository enthalten (z.B.
+            "https://github.com/alexberger/wetter-app").
+    TODO 4: Das Projekt "Portfolio-Website" (dieses Projekt!) besteht aus zwei
+            Teilzeilen mit unterschiedlicher Technologie ("HTML &amp; CSS
+            (Konzept)" und "JavaScript, PHP, REST (Umsetzung)"), beide aus
+            dem Jahr 2026. Nutzen Sie rowspan, damit sich der Projektname
+            "Portfolio-Website" über beide Zeilen erstreckt.
+    TODO 5: Einen tfoot-Bereich mit einer Zusammenfassungszeile
+            ("Anzahl Projekte: 3"), deren Zelle sich per colspan über alle
+            4 Spalten erstreckt.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Projekte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="images/logo.svg" alt="Logo Alex Berger" width="100" height="50">
+        </a>
+
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+
+    <h1>Projekte</h1>
+
+    <p>Auf dieser Seite stelle ich nach und nach einige meiner Projekte vor.</p>
+
+    <table border="1">
+        <!-- TODO 1: caption -->
+
+        <!-- TODO 2: thead mit Kopfzeile Projekt/Technologie/Jahr/Link -->
+
+        <!-- TODO 3 + TODO 4: tbody mit 3 Projekten, "Portfolio-Website" mit rowspan auf 2 Zeilen -->
+
+        <!-- TODO 5: tfoot mit Zusammenfassungszeile (colspan) -->
+
+    </table>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+</body>
+</html>

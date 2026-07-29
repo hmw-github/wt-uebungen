@@ -1,5 +1,5 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 2: VARIABLEN, DATENTYPEN, OPERATOREN
+    LÖSUNGSVORSCHLAG - ÜBUNG 2: VARIABLEN, DATENTYPEN, OPERATOREN
 -->
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
 
     <h1>Variablen, Datentypen und Operatoren</h1>
 
-    <p>Die Ergebnisse erscheinen unten auf der Seite und zusaetzlich in der
+    <p>Die Ergebnisse erscheinen unten auf der Seite und zusätzlich in der
     Entwicklerkonsole (F12).</p>
 
     <pre id="ausgabe"></pre>
@@ -22,20 +22,20 @@
             document.getElementById("ausgabe").textContent += text + "\n";
         }
 
-        var zahl = 42;
-        let text = "Hallo";
-        const istAktiv = true;
-        ausgabe("zahl (var): " + typeof zahl);
-        ausgabe("text (let): " + typeof text);
-        ausgabe("istAktiv (const): " + typeof istAktiv);
+        let projektName = "Portfolio-Website";
+        const jahr = 2026;
+        var istOnline = true;
+        ausgabe("projektName (" + typeof projektName + "): " + projektName);
+        ausgabe("jahr (" + typeof jahr + "): " + jahr);
+        ausgabe("istOnline (" + typeof istOnline + "): " + istOnline);
 
-        let ergebnis = "5" + 3;
-        ausgabe('"5" + 3 = ' + ergebnis + " (Typ: " + typeof ergebnis + ")");
+        let kapitelText = "Kapitel " + 5;
+        ausgabe("kapitelText (" + typeof kapitelText + "): " + kapitelText);
 
-        let striktGleich = (5 === "5");
-        let lockerGleich = (5 == "5");
-        ausgabe('5 === "5": ' + striktGleich + " (kein Typ-Zwang, Zahl und String sind nie strikt gleich)");
-        ausgabe('5 == "5": ' + lockerGleich + " (mit Typumwandlung, der String wird in eine Zahl umgewandelt)");
+        let striktGleich = (2026 === "2026");
+        let unstriktGleich = (2026 == "2026");
+        ausgabe("2026 === \"2026\": " + striktGleich);
+        ausgabe("2026 == \"2026\": " + unstriktGleich);
     </script>
 
 </body>

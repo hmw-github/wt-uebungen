@@ -1,5 +1,5 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 3: FUNKTIONEN UND KLASSEN
+    LÖSUNGSVORSCHLAG - ÜBUNG 3: FUNKTIONEN UND KLASSEN
 -->
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
         }
     ?>
 
-    <h2>Vorzeichenpruefung</h2>
+    <h2>Vorzeichenprüfung</h2>
     <p>
         <?php
             $beispielzahl = -8;
@@ -35,48 +35,48 @@
     </p>
 
     <?php
-        class Buch
+        class Projekt
         {
             private $titel;
-            private $autor;
+            private $technologie;
 
-            public function __construct($titel, $autor)
+            public function __construct($titel, $technologie)
             {
                 $this->titel = $titel;
-                $this->autor = $autor;
+                $this->technologie = $technologie;
             }
 
             public function __toString()
             {
-                return "'" . $this->titel . "' von " . $this->autor;
+                return "'" . $this->titel . "' - " . $this->technologie;
             }
         }
 
-        class EBook extends Buch
+        class Webprojekt extends Projekt
         {
-            private $dateigroesse;
+            private $jahr;
 
-            public function __construct($titel, $autor, $dateigroesse)
+            public function __construct($titel, $technologie, $jahr)
             {
-                parent::__construct($titel, $autor);
-                $this->dateigroesse = $dateigroesse;
+                parent::__construct($titel, $technologie);
+                $this->jahr = $jahr;
             }
 
             public function __toString()
             {
-                return parent::__toString() . " (E-Book, " . $this->dateigroesse . " MB)";
+                return parent::__toString() . " (" . $this->jahr . ")";
             }
         }
     ?>
 
-    <h2>Buecher</h2>
+    <h2>Projekte</h2>
     <p>
         <?php
-            $buch = new Buch("Der alte Mann und das Meer", "Ernest Hemingway");
-            $ebook = new EBook("Clean Code", "Robert C. Martin", 4.2);
+            $projekt = new Projekt("Rezeptsammlung", "PHP, MySQL");
+            $webprojekt = new Webprojekt("Portfolio-Website", "HTML, CSS, JavaScript, PHP, REST", 2026);
 
-            echo $buch . "<br>";
-            echo $ebook;
+            echo $projekt . "<br>";
+            echo $webprojekt;
         ?>
     </p>
 

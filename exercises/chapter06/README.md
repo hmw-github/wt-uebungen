@@ -2,22 +2,50 @@
 
 Diese 7 Übungen decken alle Themen des Kapitels ab (6.1–6.5: serverseitige
 HTML-Generierung, PHP-Sprachkonzepte, Formularverarbeitung, Session-Handling
-und das Model-View-Controller-Muster) und sind so konzipiert, dass sie direkt
-nach der jeweiligen Wiederholung im Vorlesungsteil bearbeitet werden können.
-Jede Übung besteht aus einer Aufgabendatei in diesem Ordner und einer
-Lösungsdatei im Ordner `../../solutions/chapter06/` (bzw. bei Übung 7 aus
-zwei Ordnern mit mehreren Dateien, da hier das MVC2-Muster mit mehreren
-Klassen umgesetzt wird).
+und das Model-View-Controller-Muster).
 
-| # | Thema (Kapitel) | Aufgabendatei | Lösungsdatei |
+**Durchgängiges Projekt:** Die Portfolio-Website aus den Kapiteln 3–5 wird
+in diesem Kapitel schrittweise "serverseitig". Übung 1, 5, 6 und 7 greifen
+direkt in die Website ein und bestehen daher aus einem Aufgabenordner mit
+dem kompletten aktuellen Stand der Website. Übung 2–4 sind dagegen bewusst
+eigenständige, einzelne PHP-Dateien (wie im Original-Kurskonzept), die
+grundlegende PHP-Konzepte anhand derselben Projektdaten (Technologien,
+Jahre, die Klassen Projekt/Webprojekt) einüben.
+
+| # | Thema (Kapitel) | Aufgabendatei/-ordner | Lösungsdatei/-ordner |
 |---|---|---|---|
-| 1 | PHP-Grundlagen und Ausgabe (6.1/6.2) | `01_grundlagen_ausgabe_aufgabe.php` | `../../solutions/chapter06/01_grundlagen_ausgabe_loesung.php` |
+| 1 | PHP-Grundlagen und Ausgabe (6.1/6.2) | `01_grundlagen_ausgabe_aufgabe/` | `../../solutions/chapter06/01_grundlagen_ausgabe_loesung/` |
 | 2 | Kontrollstrukturen und Arrays (6.2) | `02_kontrollstrukturen_arrays_aufgabe.php` | `../../solutions/chapter06/02_kontrollstrukturen_arrays_loesung.php` |
 | 3 | Funktionen und Klassen (6.2) | `03_funktionen_klassen_aufgabe.php` | `../../solutions/chapter06/03_funktionen_klassen_loesung.php` |
 | 4 | Formularverarbeitung mit GET (6.3) | `04_formular_get_aufgabe.php` | `../../solutions/chapter06/04_formular_get_loesung.php` |
-| 5 | Formularverarbeitung mit POST (6.3) | `05_formular_post_aufgabe.php` | `../../solutions/chapter06/05_formular_post_loesung.php` |
-| 6 | Session-Handling (6.4) | `06_sessions_aufgabe.php` | `../../solutions/chapter06/06_sessions_loesung.php` |
-| 7 | Model-View-Controller-Muster (6.5) | `07_mvc2_aufgabe/` (mehrere Dateien) | `../../solutions/chapter06/07_mvc2_loesung/` (mehrere Dateien) |
+| 5 | Formularverarbeitung mit POST (6.3) | `05_formular_post_aufgabe/` | `../../solutions/chapter06/05_formular_post_loesung/` |
+| 6 | Session-Handling (6.4) | `06_sessions_aufgabe/` | `../../solutions/chapter06/06_sessions_loesung/` |
+| 7 | Model-View-Controller-Muster (6.5) | `07_mvc2_aufgabe/` | `../../solutions/chapter06/07_mvc2_loesung/` |
+
+## Wie sich die Website in diesem Kapitel verändert
+
+- **Übung 1** macht aus der statischen Startseite `index.html` eine
+  `index.php`: ein "Steckbrief"-Abschnitt mit Variablen, `gettype()`,
+  String-Verkettung und `date()` kommt hinzu. Alle Links auf die
+  Startseite werden in der gesamten Website entsprechend auf `index.php`
+  angepasst.
+- **Übungen 2–4** sind eigenständige Dateien und behandeln
+  Kontrollstrukturen/Arrays, Funktionen/Klassen (die Klassen
+  `Projekt`/`Webprojekt` kennen Sie bereits aus JavaScript, Kapitel 5,
+  Übung 5 - hier entstehen sie in PHP) sowie Formularverarbeitung mit GET
+  anhand eines kleinen "Projekte filtern"-Suchformulars.
+- **Übung 5** setzt `kontakt-verarbeiten.php` um - genau die Datei, auf
+  die das Kontaktformular aus Kapitel 3 (Übung 7) bereits verweist. Das
+  Formular wird jetzt tatsächlich ausgewertet (inkl. `htmlspecialchars()`
+  gegen XSS).
+- **Übung 6** macht aus `kontakt.html` eine `kontakt.php` und ergänzt ein
+  sitzungsbasiertes Gästebuch: Besucher/-innen können eine kurze Nachricht
+  hinterlassen, die für die Dauer der Session gesammelt wird.
+- **Übung 7** teilt genau dieses Gästebuch nach dem MVC2-Muster auf einen
+  eigenen Einstiegspunkt `gaestebuch/index.php` auf
+  (`Controller.php`/`Gästebuch.php`/`GaestebuchView.php`); `kontakt.php`
+  verlinkt fortan nur noch dorthin. In Kapitel 8 (AJAX) wird dieses
+  Gästebuch so erweitert, dass neue Einträge ohne Seitenneuladen erscheinen.
 
 ## Aufbau jeder Aufgabendatei
 
@@ -29,14 +57,16 @@ Klassen umgesetzt wird).
   `<!-- TODO n: ... -->`- bzw. `// TODO n: ...`-Kommentare markiert (leer,
   ohne vorgegebenen Code), sodass Studierende direkt im Editor sehen, wo
   etwas fehlt.
-- Die Dateien sind vollständig lauffähige (wenn auch unvollständige)
-  PHP-Seiten – Studierende können sie jederzeit über einen lokalen
-  PHP-Webserver aufrufen und ihren Fortschritt sofort im Browser überprüfen.
-- Bei Übung 7 (MVC2) sind die TODOs auf mehrere Dateien (Controller, Model,
-  View) verteilt; die Verdrahtung (Autoloading, Session-Start, Aufruf des
-  Controllers) in `index.php` ist bereits vollständig fertig, damit sich
-  die Studierenden auf die eigentlichen MVC-Verantwortlichkeiten
-  konzentrieren können.
+- Die Dateien bzw. Ordner sind vollständig lauffähige (wenn auch
+  unvollständige) PHP-Seiten – Studierende können sie jederzeit über einen
+  lokalen PHP-Webserver aufrufen und ihren Fortschritt sofort im Browser
+  überprüfen.
+- Bei Übung 7 (MVC2) sind die TODOs auf mehrere Dateien im Unterordner
+  `gaestebuch/` (Controller, Model, View) verteilt; die Verdrahtung
+  (Autoloading, Session-Start, Aufruf des Controllers) in
+  `gaestebuch/index.php` ist bereits vollständig fertig, damit sich die
+  Studierenden auf die eigentlichen MVC-Verantwortlichkeiten konzentrieren
+  können.
 
 ## Aufbau jeder Lösungsdatei
 
@@ -47,13 +77,13 @@ Klassen umgesetzt wird).
 ## Didaktischer Hinweis
 
 Die Übungen bauen inhaltlich leicht aufeinander auf (z.B. verwendet Übung 5
-das Formular-Konzept aus Übung 4 weiter, und Übung 7 baut direkt auf dem
-Session-Protokoll aus Übung 6 auf, das dort lediglich in das MVC2-Muster
-überführt wird), sind aber unabhängig voneinander lösbar und können auch
-einzeln passend zur jeweiligen Folienreihenfolge im Foliensatz eingesetzt
-werden. Der Schwierigkeitsgrad steigt leicht von Übung 1 (reine
-Sprachgrundlagen) zu Übung 7 (vollständige Aufteilung einer Anwendung nach
-dem MVC2-Muster mit Autoloading).
+das Kontaktformular aus Kapitel 3, und Übung 7 baut direkt auf dem
+Gästebuch aus Übung 6 auf, das dort lediglich in das MVC2-Muster überführt
+wird), sind aber unabhängig voneinander lösbar und können auch einzeln
+passend zur jeweiligen Folienreihenfolge im Foliensatz eingesetzt werden.
+Der Schwierigkeitsgrad steigt leicht von Übung 1 (reine Sprachgrundlagen)
+zu Übung 7 (vollständige Aufteilung einer Anwendung nach dem MVC2-Muster
+mit Autoloading).
 
 Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
 Verständnisfragen (wie in den Folien bereits vorhanden) oder um eine
@@ -90,19 +120,13 @@ Aufgaben-Container und umgekehrt.
    docker compose up -d
    ```
 
-2. Im Browser die gewünschte Übungsdatei aufrufen, z.B.:
+2. Im Browser die gewünschte Übungsdatei bzw. den gewünschten Übungsordner
+   aufrufen, z.B.:
 
    ```
-   http://localhost:8006/01_grundlagen_ausgabe_aufgabe.php
-   http://localhost:8016/06_sessions_loesung.php
-   ```
-
-   Für die MVC2-Übung (Übung 7) wird stattdessen der `index.php`-Einstiegspunkt
-   im jeweiligen Unterordner aufgerufen:
-
-   ```
-   http://localhost:8006/07_mvc2_aufgabe/index.php
-   http://localhost:8016/07_mvc2_loesung/index.php
+   http://localhost:8006/01_grundlagen_ausgabe_aufgabe/index.php
+   http://localhost:8016/06_sessions_loesung/kontakt.php
+   http://localhost:8006/07_mvc2_aufgabe/gaestebuch/index.php
    ```
 
 3. Nach dem Bearbeiten einer Aufgabendatei die Seite im Browser einfach neu

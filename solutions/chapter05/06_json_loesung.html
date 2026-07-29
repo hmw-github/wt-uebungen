@@ -1,5 +1,5 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 6: JSON
+    LÖSUNGSVORSCHLAG - ÜBUNG 6: JSON
 -->
 <!DOCTYPE html>
 <html>
@@ -19,21 +19,20 @@
             document.getElementById("ausgabe").textContent += text + "\n";
         }
 
-        let einstellungen = {
-            theme: "dunkel",
-            schriftgroesse: 16,
-            benachrichtigungenAn: true
+        let projekt = {
+            titel: "Portfolio-Website",
+            technologie: "PHP, REST",
+            jahr: 2026
         };
-        let json = JSON.stringify(einstellungen);
+        let json = JSON.stringify(projekt);
         ausgabe("JSON-String: " + json);
 
-        localStorage.setItem("meineEinstellungen", json);
+        localStorage.setItem("letztesProjekt", json);
 
-        let gelesenerJson = localStorage.getItem("meineEinstellungen");
+        let gelesenerJson = localStorage.getItem("letztesProjekt");
         let wiederhergestellt = JSON.parse(gelesenerJson);
-        ausgabe("Wiederhergestelltes theme: " + wiederhergestellt.theme);
-        ausgabe("Wiederhergestellte schriftgroesse: " + wiederhergestellt.schriftgroesse);
-        ausgabe("Wiederhergestelltes benachrichtigungenAn: " + wiederhergestellt.benachrichtigungenAn);
+        ausgabe("Wiederhergestellter Titel: " + wiederhergestellt.titel);
+        ausgabe("Wiederhergestelltes Jahr: " + wiederhergestellt.jahr);
     </script>
 
 </body>

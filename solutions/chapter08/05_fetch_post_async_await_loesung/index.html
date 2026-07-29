@@ -1,23 +1,23 @@
 <!--
-    LOESUNGSVORSCHLAG - UEBUNG 5: FETCH MIT POST UND ASYNC/AWAIT - CLIENTTEIL
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: FETCH MIT POST UND ASYNC/AWAIT - CLIENTTEIL
 -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formular mit Fetch (POST)</title>
+    <title>Projekt-Idee einreichen (Fetch POST)</title>
     <meta charset="UTF-8">
 </head>
 <body>
 
-    <h1>Formular mit Fetch (POST)</h1>
+    <h1>Projekt-Idee einreichen</h1>
 
-    <form id="anmeldeForm" onsubmit="return false;">
-        <label for="nameFeld">Name:</label>
-        <input type="text" id="nameFeld">
+    <form id="ideeForm" onsubmit="return false;">
+        <label for="titelFeld">Titel:</label>
+        <input type="text" id="titelFeld">
         <br><br>
 
-        <label for="alterFeld">Alter:</label>
-        <input type="number" id="alterFeld">
+        <label for="jahrFeld">Jahr:</label>
+        <input type="number" id="jahrFeld">
         <br><br>
 
         <button type="submit" onclick="sende()">Absenden</button>
@@ -27,8 +27,8 @@
 
     <script>
         async function sende() {
-            var name = document.getElementById("nameFeld").value;
-            var alter = document.getElementById("alterFeld").value;
+            var titel = document.getElementById("titelFeld").value;
+            var jahr = document.getElementById("jahrFeld").value;
 
             try {
                 var response = await fetch("echo.php", {
@@ -36,13 +36,13 @@
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ name: name, alter: alter })
+                    body: JSON.stringify({ titel: titel, jahr: jahr })
                 });
 
                 var ergebnis = await response.json();
 
                 document.getElementById("ergebnis").innerHTML =
-                    "Gespeichert: " + ergebnis.name + " (" + ergebnis.alter + " Jahre), Status: " + ergebnis.status;
+                    "Gespeichert: " + ergebnis.titel + " (" + ergebnis.jahr + "), Status: " + ergebnis.status;
             } catch (fehler) {
                 document.getElementById("ergebnis").innerHTML = "Fehler beim Senden der Daten.";
             }

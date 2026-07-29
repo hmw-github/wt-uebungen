@@ -1,0 +1,90 @@
+/*
+    ÜBUNG 2: GRUNDLAGEN CSS-SELEKTOREN (Kapitel 4.3) - style.css
+
+    Aufgabenstellung:
+    Geben Sie der Website ein einheitliches Grundaussehen. Ergänzen Sie an
+    den TODO-Stellen:
+
+    TODO 1: Typselektor "body": Schriftart "Arial, sans-serif" und
+            Textfarbe "#2b2d42".
+    TODO 2: Typselektor "a" (alle Links): Textfarbe "#2b2d42" und
+            text-decoration auf "none" (keine Unterstreichung).
+    TODO 3: Typselektor "header": Hintergrundfarbe "#2b2d42", Textfarbe
+            "#ffffff" sowie etwas Innenabstand (padding: 10px 20px).
+    TODO 4: Klassenselektor ".btn" (für den Button "Projekte ansehen" und
+            den Absenden-Button): Hintergrundfarbe "#ef233c", Textfarbe
+            "#ffffff", kein Rahmen (border: none) sowie Innenabstand
+            (padding: 8px 16px).
+    TODO 5: ID-Selektor kombiniert mit Typselektor "#hauptnav a" (die Links
+            INNERHALB der Hauptnavigation): Textfarbe "#ffffff" sowie ein
+            wenig Abstand nach rechts (margin-right: 15px).
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* TODO 1: body { font-family: ...; color: ...; } */
+
+/* TODO 2: a { color: ...; text-decoration: ...; } */
+
+/* TODO 3: header { background-color: ...; color: ...; padding: ...; } */
+
+/* TODO 4: .btn { background-color: ...; color: ...; border: ...; padding: ...; } */
+
+/* TODO 5: #hauptnav a { color: ...; margin-right: ...; } */
+
+.no-text-decoration {
+    text-decoration: none;
+}
+
+/* Begrenzt die Inhaltsbreite und zentriert den Hauptbereich der Seite */
+main {
+    max-width: 500px;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+/* Formatiert die Überschrift eines aufklappbaren <details>-Elements */
+details summary {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Fügt Abstand vor dem GitHub-Badge hinzu */
+.github-badge {
+    margin-left: 30px;
+}
+
+/* Feste Breite für die Link-Spalte in der Projekte-Tabelle */
+.projekte-table-link-col {
+    width: 120px;
+}
+
+/* Burger-Menü-Button für die mobile Navigation (standardmäßig ausgeblendet,
+   wird per Media Query bei kleinen Bildschirmen eingeblendet) */
+.burger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Die drei horizontalen Striche (Linien) innerhalb des Burger-Buttons */
+.burger-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
