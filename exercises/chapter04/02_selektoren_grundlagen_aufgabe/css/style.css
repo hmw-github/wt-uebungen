@@ -1,25 +1,3 @@
-/*
-    ÜBUNG 2: GRUNDLAGEN CSS-SELEKTOREN (Kapitel 4.3) - style.css
-
-    Aufgabenstellung:
-    Geben Sie der Website ein einheitliches Grundaussehen. Ergänzen Sie an
-    den TODO-Stellen:
-
-    TODO 1: Typselektor "body": Schriftart "Arial, sans-serif" und
-            Textfarbe "#2b2d42".
-    TODO 2: Typselektor "a" (alle Links): Textfarbe "#2b2d42" und
-            text-decoration auf "none" (keine Unterstreichung).
-    TODO 3: Typselektor "header": Hintergrundfarbe "#2b2d42", Textfarbe
-            "#ffffff" sowie etwas Innenabstand (padding: 10px 20px).
-    TODO 4: Klassenselektor ".btn" (für den Button "Projekte ansehen" und
-            den Absenden-Button): Hintergrundfarbe "#ef233c", Textfarbe
-            "#ffffff", kein Rahmen (border: none) sowie Innenabstand
-            (padding: 8px 16px).
-    TODO 5: ID-Selektor kombiniert mit Typselektor "#hauptnav a" (die Links
-            INNERHALB der Hauptnavigation): Textfarbe "#ffffff" sowie ein
-            wenig Abstand nach rechts (margin-right: 15px).
-*/
-
 * {
     box-sizing: border-box;
 }

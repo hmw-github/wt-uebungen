@@ -1,20 +1,3 @@
-/*
-    ÜBUNG 3: BOXMODELL (Kapitel 4.4) - style.css
-
-    Aufgabenstellung:
-    Wenden Sie das Boxmodell (padding, border, margin, display) auf mehrere
-    Bereiche der Website an. Ergänzen Sie an den TODO-Stellen:
-
-    TODO 1: "#hauptnav a": display auf "inline-block" setzen, damit padding
-            wirkt, sowie padding: 8px 12px und border-radius: 4px.
-    TODO 2: ".btn" ergänzen um: display: inline-block, border-radius: 4px
-            und margin-top: 10px.
-    TODO 3: "table td, table th": padding: 8px sowie border: 1px solid
-            "#8d99ae".
-    TODO 4: "footer": padding: 20px, margin-top: 40px sowie border-top:
-            1px solid "#8d99ae".
-*/
-
 * {
     box-sizing: border-box;
 }

@@ -1,33 +1,3 @@
-/*
-    ÜBUNG 6: FORTGESCHRITTENE SELEKTOREN (Kapitel 4.5) - style.css
-
-    Aufgabenstellung:
-    Nutzen Sie Pseudoklassen, Pseudoelemente und Attributselektoren, um die
-    Website interaktiver und übersichtlicher zu machen. Ergänzen Sie an
-    den TODO-Stellen:
-
-    TODO 1: Pseudoklasse ":hover" auf "#hauptnav a" UND ".btn" (kombiniert
-            als Selektorliste): opacity: 0.85, damit sich beim Überfahren
-            mit der Maus eine leichte Reaktion zeigt.
-    TODO 2: Pseudoklasse "table tbody tr:nth-child(even)": background-color
-            "#edf2f4", damit die Projekttabelle abwechselnd eingefärbte
-            Zeilen bekommt (Zebra-Streifen).
-    TODO 3: Attributselektor, der ALLE folgenden Formularfelder
-            gruppiert anspricht: input[type="text"], input[type="email"],
-            textarea und select. Setzen Sie border: 1px solid "#8d99ae",
-            padding: 6px sowie border-radius: 4px.
-    TODO 4: Attributselektor kombiniert mit Pseudoelement:
-            "a[target="_blank"]::after" mit content: " ...", das nach
-            jedem Link, der in einem neuen Tab öffnet, ein kleines Pfeil-
-            Symbol anzeigt (z.B. content: " \2197").
-    TODO 5: Typselektor "thead": Hintergrundfarbe "#2b2d42" und Textfarbe
-            "#ffffff", damit sich der Tabellenkopf farblich vom restlichen
-            Tabelleninhalt abhebt.
-    TODO 6: Pseudoklasse "table tbody tr:hover": background-color
-            "#d8dee6", damit sich beim Überfahren einer Tabellenzeile mit
-            der Maus eine leichte Hervorhebung zeigt.
-*/
-
 * {
     box-sizing: border-box;
 }

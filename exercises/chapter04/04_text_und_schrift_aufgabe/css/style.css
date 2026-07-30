@@ -1,17 +1,3 @@
-/*
-    ÜBUNG 4: TEXT UND SCHRIFT (Kapitel 4.4) - style.css
-
-    Aufgabenstellung:
-    Verfeinern Sie die Typografie der Website. Ergänzen Sie an den
-    TODO-Stellen:
-
-    TODO 1: "h1, h2": font-family auf "Georgia, serif" setzen (abweichend
-            vom Fliesstext), damit sich Überschriften optisch abheben.
-    TODO 2: "h1": font-size: 2.5em sowie letter-spacing: 1px.
-    TODO 3: "p": line-height: 1.6, damit Absätze besser lesbar sind.
-    TODO 4: "table caption": font-style: italic sowie margin-bottom: 10px.
-*/
-
 * {
     box-sizing: border-box;
 }
