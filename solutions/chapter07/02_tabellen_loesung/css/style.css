@@ -109,10 +109,6 @@ a[target="_blank"]::after {
     content: " \2197";
 }
 
-tr.hervorgehoben {
-    background-color: #ffd60a;
-}
-
 .no-text-decoration {
     text-decoration: none;
 }
@@ -225,4 +221,15 @@ table tbody tr:hover {
     border: 1px solid lightblue;
     border-radius: 5px;
     background-color: rgb(244, 241, 241);
+}
+
+.beispiel-container {
+    max-width: 200px;
+    background-color: lightblue;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.beispiel-fluid {
+    background-color: lightgreen;
+    padding: 15px;
 }

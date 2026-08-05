@@ -1,6 +1,3 @@
-<!--
-    LÖSUNGSVORSCHLAG - ÜBUNG 6: SESSION-HANDLING - Seite "Kontakt"
--->
 <?php
     session_start();
 
@@ -12,6 +9,9 @@
         $_SESSION['gaestebucheintraege'][] = date("H:i:s d.m.Y") . " - " . htmlspecialchars($_POST['gbnachricht']);
     }
 ?>
+<!--
+    LÖSUNGSVORSCHLAG - ÜBUNG 4: SESSION-HANDLING - Seite "Kontakt"
+-->
 <!DOCTYPE html>
 <html>
 <head>

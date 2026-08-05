@@ -34,6 +34,7 @@
         </nav>
     </header>
 
+    <main>
     <h1>Kontaktanfrage</h1>
 
     <?php
@@ -59,6 +60,8 @@
     ?>
 
     <p><a href="kontakt.php">Zurück zum Kontaktformular</a></p>
+
+    </main>
 
     <footer>
         <p>

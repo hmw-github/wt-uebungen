@@ -230,3 +230,14 @@ table tbody tr:hover {
     border-radius: 5px;
     background-color: rgb(244, 241, 241);
 }
+
+.beispiel-container {
+    max-width: 200px;
+    background-color: lightblue;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.beispiel-fluid {
+    background-color: lightgreen;
+    padding: 15px;
+}

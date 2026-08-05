@@ -1,3 +1,11 @@
+### Testdatei für den REST-Client der Entwicklungsumgebung
+### (z.B. Erweiterung "REST Client" in VS Code oder der eingebaute
+### HTTP Client in PhpStorm/IntelliJ). Die Schnittstelle selbst ist hier
+### bereits die fertige Lösung aus Übung 3 - diese Datei eignet sich vor
+### allem, um beim Nachvollziehen des fetch()-Clients in projekte.html die
+### erwarteten Antworten der Schnittstelle direkt zu sehen.
+### Container vorher starten (siehe README, "docker compose up -d").
+
 @baseUrl = http://localhost:8019/04_rest_client_loesung/api
 
 ### Alle Projekte abrufen

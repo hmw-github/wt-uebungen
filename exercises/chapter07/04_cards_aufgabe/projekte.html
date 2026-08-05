@@ -3,42 +3,40 @@
 
     Aufgabenstellung:
     Statt der Tabelle aus Übung 2 bekommt die Projekte-Seite jetzt ein
-    "Projekt-Karten"-Deck: eine Karte (Card) pro Projekt. Ergänzen Sie an
-    den TODO-Stellen den fehlenden Code:
+    "Projekt-Karten"-Deck: eine Karte (Card) pro Projekt. Die Projekte
+    werden dabei - wie schon die Tabelle in Übung 2 - dynamisch per
+    JavaScript aus dem Array projekte erzeugt, diesmal aber als
+    verschachtelte Kartenstruktur statt als Tabellenzeile. Damit Sie genau
+    wissen, welche Elemente/Klassen/ids am Ende pro Karte herauskommen
+    sollen, ist unten bereits eine fertige Beispielkarte (für die
+    Wetter-App) als reines HTML vorgegeben - nutzen Sie sie als Vorlage
+    für Ihren JavaScript-Code und LÖSCHEN SIE SIE ANSCHLIESSEND, da alle
+    drei Karten (inklusive der Wetter-App) am Ende per JavaScript erzeugt
+    werden sollen. Ergänzen Sie an den TODO-Stellen den fehlenden Code:
 
-    TODO 1: Karte für die Wetter-App (card1). Erstellen Sie eine
-            div class="card" mit:
-              - card-header mit dem Titel "Wetter-App" und id="card1-titel"
-              - card-body mit zwei Zeilen (je eine Bootstrap-Grid-Zeile
-                "row" mit "col-4" für das Label und "col-8" für den Wert):
-                  Zeile 1: Label "Technologie:", Wert in einem div mit
-                           id="card1-technologie" und Inhalt
-                           "JavaScript, Fetch API"
-                  Zeile 2: Label "Jahr:", Wert in einem div mit
-                           id="card1-jahr" und Inhalt "2024"
-              - card-footer mit einem Link "Repository" (href
-                "https://github.com/alexberger/wetter-app", target="_blank",
-                Klasse "btn btn-outline-secondary btn-sm") sowie einem
-                Button "Bearbeiten" (Klasse "btn btn-primary btn-sm"),
-                dessen onclick-Attribut die Funktion
-                projektBearbeiten('card1') aufruft.
-    TODO 2: Analoge Karte für die Rezeptsammlung (card2, Technologie
-            "PHP, MySQL", Jahr "2025", Link
-            "https://github.com/alexberger/rezeptsammlung") mit den ids
-            card2-titel / card2-technologie / card2-jahr und dem Aufruf
-            projektBearbeiten('card2').
-    TODO 3: Analoge Karte für die Portfolio-Website (card3, Technologie
-            "HTML, CSS, JavaScript, PHP, REST", Jahr "2026", Link
-            "https://github.com/alexberger/portfolio") mit den ids
-            card3-titel / card3-technologie / card3-jahr und dem Aufruf
-            projektBearbeiten('card3'). Ergänzen Sie ausserdem das
-            Attribut data-jahr="2026" am äußersten div.card dieser Karte,
-            damit der Hervorheben-Button (siehe unten) sie findet.
-    TODO 4: Implementieren Sie im vorgegebenen script-Block die JavaScript-
-            Funktion projektBearbeiten(cardId), die (als Platzhalter für
-            eine spätere Bearbeitungsfunktion, siehe Übung 7) einfach
-            eine Meldung mit dem übergebenen cardId anzeigt, z.B. per
-            alert(...) oder console.log(...).
+    TODO 1: Erzeugen Sie pro Durchlauf der Schleife über projekte eine
+            Spalte (div class="col-md-6 mb-3") mit darin verschachteltem
+            div class="card" (mit dataset.jahr = projekt.jahr) und darin
+            wiederum einem card-header (Klasse "card-header", id
+            cardId+"-titel", Textinhalt projekt.titel). cardId ist dabei
+            "card" + laufende Nummer (1, 2, 3, ...), siehe Beispielkarte.
+    TODO 2: Erzeugen Sie den card-body mit zwei Absätzen (je p class=
+            "card-text"): einer für "Technologie:" (fett, per strong-
+            Element) gefolgt von einem span mit id cardId+"-technologie"
+            und dem Wert projekt.technologie, einer analog für "Jahr:"
+            mit id cardId+"-jahr" und Wert projekt.jahr (siehe
+            Beispielkarte für die genaue Struktur).
+    TODO 3: Erzeugen Sie den card-footer mit einem Link "Repository"
+            (href projekt.link, target="_blank", Klasse "btn
+            btn-outline-secondary btn-sm") sowie einem Button
+            "Bearbeiten" (Klasse "btn btn-primary btn-sm"), der beim
+            Klick projektBearbeiten(cardId) aufruft. Fügen Sie die
+            fertige Karte anschließend in projekteKoerper ein.
+    TODO 4: Implementieren Sie die JavaScript-Funktion
+            projektBearbeiten(cardId), die (als Platzhalter für eine
+            spätere Bearbeitungsfunktion, siehe Übung 7) einfach eine
+            Meldung mit dem übergebenen cardId anzeigt, z.B. per alert(...)
+            oder console.log(...).
 -->
 <!DOCTYPE html>
 <html>
@@ -82,18 +80,22 @@
 
         <button id="filterButton" class="btn btn-secondary mb-3">Projekte aus 2026 hervorheben</button>
 
-        <div class="row">
+        <div class="row" id="projekteKoerper">
 
-            <div class="col-md-4 mb-3">
-                <!-- TODO 1: Karte für die Wetter-App (card1) -->
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <!-- TODO 2: Karte für die Rezeptsammlung (card2) -->
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <!-- TODO 3: Karte für die Portfolio-Website (card3, data-jahr="2026") -->
+            <!-- Beispielkarte als Vorlage für die JS-DOM-Codierung (TODO 1-3) -
+                 nach Fertigstellung des JavaScript-Codes wieder löschen! -->
+            <div class="col-md-6 mb-3">
+                <div class="card" data-jahr="2024">
+                    <div class="card-header" id="card1-titel">Wetter-App</div>
+                    <div class="card-body">
+                        <p class="card-text mb-1"><strong>Technologie:</strong> <span id="card1-technologie">JavaScript, Fetch API</span></p>
+                        <p class="card-text"><strong>Jahr:</strong> <span id="card1-jahr">2024</span></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/alexberger/wetter-app" target="_blank" class="btn btn-outline-secondary btn-sm">Repository</a>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="projektBearbeiten('card1')">Bearbeiten</button>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -113,7 +115,29 @@
     <!-- Autor: Alex Berger -->
 
     <script>
+        const projekte = [
+            { titel: "Wetter-App", technologie: "JavaScript, Fetch API", jahr: 2024, link: "https://github.com/alexberger/wetter-app" },
+            { titel: "Rezeptsammlung", technologie: "PHP, MySQL", jahr: 2025, link: "https://github.com/alexberger/rezeptsammlung" },
+            { titel: "Portfolio-Website", technologie: "HTML, CSS, JS, PHP, REST", jahr: 2026, link: "https://github.com/alexberger/portfolio" }
+        ];
+
         // TODO 4: Funktion projektBearbeiten(cardId) implementieren
+
+        const projekteKoerper = document.getElementById("projekteKoerper");
+
+        let index = 0;
+        for (const projekt of projekte) {
+            index++;
+            const cardId = "card" + index;
+
+            // TODO 1: Spalte (col-md-6) + card (mit dataset.jahr) + card-header erzeugen
+
+            // TODO 2: card-body mit Technologie- und Jahr-Absätzen erzeugen
+
+            // TODO 3: card-footer mit Repository-Link und Bearbeiten-Button
+            //         erzeugen, Karte zusammensetzen und in projekteKoerper
+            //         einfügen
+        }
 
         const filterButton = document.getElementById("filterButton");
         filterButton.addEventListener("click", function() {

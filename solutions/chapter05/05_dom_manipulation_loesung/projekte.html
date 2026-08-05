@@ -1,5 +1,5 @@
 <!--
-    LÖSUNGSVORSCHLAG - ÜBUNG 7: DOM-MANIPULATION - Seite "Projekte"
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: DOM-MANIPULATION - Seite "Projekte"
 -->
 <!DOCTYPE html>
 <html>
@@ -68,56 +68,6 @@
     </footer>
 
     <!-- Autor: Alex Berger -->
-
-    <script>
-        const projekte = [
-            { titel: "Wetter-App", technologie: "JavaScript, Fetch API", jahr: 2024, link: "https://github.com/alexberger/wetter-app" },
-            { titel: "Rezeptsammlung", technologie: "PHP, MySQL", jahr: 2025, link: "https://github.com/alexberger/rezeptsammlung" },
-            { titel: "Portfolio-Website", technologie: "HTML, CSS, JavaScript, PHP, REST", jahr: 2026, link: "https://github.com/alexberger/portfolio" }
-        ];
-
-        const projekteKoerper = document.getElementById("projekteKoerper");
-        const projekteAnzahl = document.getElementById("projekteAnzahl");
-
-        for (const projekt of projekte) {
-            const zeile = document.createElement("tr");
-
-            const titelZelle = document.createElement("td");
-            titelZelle.textContent = projekt.titel;
-            zeile.appendChild(titelZelle);
-
-            const technologieZelle = document.createElement("td");
-            technologieZelle.textContent = projekt.technologie;
-            zeile.appendChild(technologieZelle);
-
-            const jahrZelle = document.createElement("td");
-            jahrZelle.textContent = projekt.jahr;
-            zeile.appendChild(jahrZelle);
-
-            const linkZelle = document.createElement("td");
-            const link = document.createElement("a");
-            link.href = projekt.link;
-            link.target = "_blank";
-            link.textContent = "Repository";
-            linkZelle.appendChild(link);
-            zeile.appendChild(linkZelle);
-
-            projekteKoerper.appendChild(zeile);
-        }
-
-        projekteAnzahl.textContent = "Anzahl Projekte: " + projekte.length;
-
-        const filterButton = document.getElementById("filterButton");
-        filterButton.addEventListener("click", function() {
-            const zeilen = projekteKoerper.querySelectorAll("tr");
-            for (const zeile of zeilen) {
-                const jahrZelle = zeile.children[2];
-                if (jahrZelle.textContent === "2026") {
-                    zeile.classList.toggle("hervorgehoben");
-                }
-            }
-        });
-    </script>
 
     <script src="js/main.js" defer></script>
 </body>

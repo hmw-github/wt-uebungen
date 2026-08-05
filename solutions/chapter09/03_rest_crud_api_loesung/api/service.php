@@ -26,7 +26,7 @@ if (!isset($_SESSION['projekte'])) {
 
 $methode = $_SERVER['REQUEST_METHOD'];
 $pfad = isset($_REQUEST['_url']) ? $_REQUEST['_url'] : '/';
-$pfad = '/' . ltrim($pfad, '/'); // .htaccess liefert den Pfad ohne führenden Schrägstrich
+$pfad = '/' . ltrim($pfad, '/'); // nginx liefert den Pfad ohne führenden Schrägstrich
 
 if ($methode === 'GET' && $pfad === '/projekte') {
     http_response_code(200);

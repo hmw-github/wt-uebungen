@@ -1,0 +1,216 @@
+/*
+    ÜBUNG 4: DOM-WERTE LESEN - style.css
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #2b2d42;
+}
+
+a {
+    color: #2b2d42;
+    text-decoration: none;
+}
+
+header {
+    position: relative;
+    background-color: #2b2d42;
+    color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: #ef233c;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    display: inline-block;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+#hauptnav a {
+    color: #ffffff;
+    margin-right: 15px;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+#hauptnav {
+    display: flex;
+    align-items: center;
+}
+
+table td,
+table th {
+    padding: 8px;
+    border: 1px solid #8d99ae;
+}
+
+footer {
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #8d99ae;
+}
+
+footer p {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+h1,
+h2 {
+    font-family: Georgia, serif;
+}
+
+h1 {
+    font-size: 2.5em;
+    letter-spacing: 1px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+table caption {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+#hauptnav a:hover,
+.btn:hover {
+    opacity: 0.85;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #edf2f4;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    border: 1px solid #8d99ae;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+a[target="_blank"]::after {
+    content: " \2197";
+}
+
+.no-text-decoration {
+    text-decoration: none;
+}
+
+/* Begrenzt die Inhaltsbreite und zentriert den Hauptbereich der Seite */
+main {
+    max-width: 500px;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+/* Formatiert die Überschrift eines aufklappbaren <details>-Elements */
+details summary {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Fügt Abstand vor dem GitHub-Badge hinzu */
+.github-badge {
+    margin-left: 30px;
+}
+
+/* Feste Breite für die Link-Spalte in der Projekte-Tabelle */
+.projekte-table-link-col {
+    width: 120px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead {
+    background-color: #2b2d42;
+    color: #ffffff;
+}
+
+table tbody tr:hover {
+    background-color: #d8dee6;
+}
+
+/* Burger-Menü-Button für die mobile Navigation (standardmäßig ausgeblendet,
+   wird per Media Query bei kleinen Bildschirmen eingeblendet) */
+.burger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Die drei horizontalen Striche (Linien) innerhalb des Burger-Buttons */
+.burger-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+    #hauptnav {
+        display: none;
+    }
+
+    #hauptnav.offen {
+        display: flex;
+    }
+
+    .burger-button {
+        display: flex;
+        position: absolute;
+        top: 14px;
+        right: 20px;
+    }
+
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #hauptnav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #hauptnav a {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+        width: 100%;
+    }
+
+}

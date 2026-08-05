@@ -90,8 +90,19 @@
             </div>
 
         </div>
-
     </main>
+
+    <div>
+        <h2 class="mt-4">Container-Vergleich</h2>
+
+        <div class="container beispiel-container">
+            Ich bin ein 'container' - zentriert mit fester maximaler Breite
+        </div>
+
+        <div class="container-fluid beispiel-fluid">
+            Ich bin ein 'container-fluid' - immer 100% Bildschirmbreite
+        </div>
+    </div>
 
     <footer>
         <p>

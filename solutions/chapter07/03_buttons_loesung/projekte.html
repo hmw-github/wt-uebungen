@@ -41,7 +41,7 @@
 
         <p>Auf dieser Seite stelle ich nach und nach einige meiner Projekte vor.</p>
 
-        <button id="filterButton" class="btn btn-secondary">Projekte aus 2026 hervorheben</button>
+        <button id="filterButton" class="btn btn-secondary mb-3">Projekte aus 2026 hervorheben</button>
 
         <table class="table table-striped table-bordered table-hover">
             <caption>Meine Projekte</caption>
@@ -120,7 +120,7 @@
             for (const zeile of zeilen) {
                 const jahrZelle = zeile.children[2];
                 if (jahrZelle.textContent === "2026") {
-                    zeile.classList.toggle("hervorgehoben");
+                    zeile.classList.toggle("table-warning");
                 }
             }
         });

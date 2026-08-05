@@ -8,7 +8,7 @@ POST), Promises sowie async/await.
 **Durchgängiges Projekt:** Übung 6 greift direkt in die Portfolio-Website
 ein (siehe unten) und besteht daher aus dem kompletten aktuellen Stand der
 Website. Die Übungen 1, 2, 4 und 5 sind eigenständige Mini-Projekte (Client
-+ PHP-Server-Teil, jeweils in einem eigenen Ordner), Übung 3 ist eine rein
+und PHP-Server-Teil, jeweils in einem eigenen Ordner), Übung 3 ist eine rein
 clientseitige einzelne HTML-Datei.
 
 | # | Thema (Kapitel) | Aufgabendatei/-ordner | Lösungsdatei/-ordner |

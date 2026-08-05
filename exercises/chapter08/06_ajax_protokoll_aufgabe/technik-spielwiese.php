@@ -91,7 +91,9 @@
             </div>
 
         </div>
+    </main>
 
+    <div>
         <h5 class="mt-4">Container-Vergleich</h5>
 
         <div class="container beispiel-container">
@@ -101,8 +103,7 @@
         <div class="container-fluid beispiel-fluid">
             Ich bin ein 'container-fluid' - immer 100% Bildschirmbreite
         </div>
-
-    </main>
+    </div>
 
     <footer>
         <p>

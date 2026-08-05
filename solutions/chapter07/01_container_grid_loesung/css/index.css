@@ -1,17 +1,8 @@
 /*
-    Beispielstile für die Startseite: Hintergrundfarben für die
-    "container"/"container-fluid"-Demo sowie die Stärken-Boxen im Grid.
+    Beispielstile für die Startseite: Hintergrundfarbe für die
+    Stärken-Boxen im Grid.
 */
 
-.beispiel-container {
-    background-color: lightblue;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-.beispiel-fluid {
-    background-color: lightgreen;
-    padding: 15px;
-}
 .staerke-box {
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;

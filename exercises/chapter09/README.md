@@ -16,8 +16,8 @@ selbst gebaute REST-Schnittstelle aus Übung 3.
 | # | Thema (Kapitel) | Aufgabendatei/-ordner | Lösungsdatei/-ordner |
 |---|---|---|---|
 | 1 | REST-Routendesign (9.1) | `01_rest_design_aufgabe/routen.php` | `../../solutions/chapter09/01_rest_design_loesung/routen.php` |
-| 2 | Lesende REST-Schnittstelle (9.2) | `02_rest_get_api_aufgabe/` (Website + `api/.htaccess`, `api/service.php`) | `../../solutions/chapter09/02_rest_get_api_loesung/` |
-| 3 | Vollständige CRUD-Schnittstelle (9.2) | `03_rest_crud_api_aufgabe/` (Website + `api/.htaccess`, `api/service.php`) | `../../solutions/chapter09/03_rest_crud_api_loesung/` |
+| 2 | Lesende REST-Schnittstelle (9.2) | `02_rest_get_api_aufgabe/` (Website + `api/service.php`) | `../../solutions/chapter09/02_rest_get_api_loesung/` |
+| 3 | Vollständige CRUD-Schnittstelle (9.2) | `03_rest_crud_api_aufgabe/` (Website + `api/service.php`) | `../../solutions/chapter09/03_rest_crud_api_loesung/` |
 | 4 | REST-Client mit fetch (9.2, 9.3) | `04_rest_client_aufgabe/` (Website, `projekte.html` als REST-Client) | `../../solutions/chapter09/04_rest_client_loesung/` |
 
 ## Wie die Website in diesem Kapitel fertiggestellt wird
@@ -28,10 +28,13 @@ selbst gebaute REST-Schnittstelle aus Übung 3.
   passende Aktion findet.
 - **Übung 2** setzt eine rein lesende Schnittstelle dafür tatsächlich um:
   Der komplette aktuelle Stand der Website bekommt einen neuen Unterordner
-  `api/` mit `.htaccess` (Apache-Rewriting auf `service.php`) und
-  `service.php` (liefert `GET /projekte` und `GET /projekt/{id}` als
-  JSON). Die Projekte-Seite selbst nutzt diese Schnittstelle noch nicht -
-  das ist Gegenstand von Übung 4.
+  `api/` mit `service.php` (liefert `GET /projekte` und `GET /projekt/{id}`
+  als JSON). Damit die "schönen" REST-URLs wie `api/projekt/2` überhaupt
+  bei `service.php` ankommen, ist serverseitiges URL-Rewriting nötig - das
+  übernimmt hier zentral die `nginx.conf` des Docker-Setups (siehe
+  "Wie die Umleitung mit nginx funktioniert" unten), nicht die einzelne
+  Übungsdatei. Die Projekte-Seite selbst nutzt diese Schnittstelle noch
+  nicht - das ist Gegenstand von Übung 4.
 - **Übung 3** erweitert `api/service.php` um die schreibenden Operationen
   `POST /projekt`, `PUT /projekt/{id}` und `DELETE /projekt/{id}` mit
   session-basierter Datenhaltung (keine Datenbank nötig) sowie CORS-Headern.
@@ -56,9 +59,11 @@ selbst gebaute REST-Schnittstelle aus Übung 3.
   fehlt.
 - Die Dateien sind vollständig lauffähig (wenn auch fachlich unvollständig):
   Die PHP-Dateien lassen sich ohne Syntaxfehler ausführen, die
-  `api/.htaccess`/`api/service.php`-Paare lassen sich über den
-  Docker-Webserver aufrufen, auch wenn einzelne Operationen erst nach
-  Bearbeitung der TODOs die erwartete Antwort liefern.
+  `api/service.php`-Dateien lassen sich über den Docker-Webserver
+  aufrufen (das URL-Rewriting auf `service.php` ist bereits zentral über
+  die `nginx.conf` eingerichtet, siehe unten), auch wenn einzelne
+  Operationen erst nach Bearbeitung der TODOs die erwartete Antwort
+  liefern.
 
 ## Aufbau jeder Lösungsdatei
 
@@ -89,6 +94,52 @@ XML-Repräsentation zusätzlich zu JSON (Kapitel 9.3), um eine echte
 Datenbank (PDO/MySQLi) anstelle der Session, oder um eine Anmeldung
 (Kapitel 6), damit nur Alex Berger selbst Projekte bearbeiten kann.
 
+## Wie die Umleitung mit nginx funktioniert
+
+Ein REST-Client ruft URLs wie `api/projekte` oder `api/projekt/2` auf -
+Dateien mit diesen Namen gibt es aber nicht, es gibt nur `api/service.php`.
+Damit trotzdem jede Anfrage bei `service.php` landet (statt einen 404 zu
+erzeugen), braucht der Webserver serverseitiges URL-Rewriting.
+
+Bei nginx geschieht das nicht dezentral pro Verzeichnis - nginx wertet
+`.htaccess`-Dateien grundsätzlich nicht aus -, sondern zentral in der
+Server-Konfiguration `nginx.conf` mit sogenannten `location`-Blöcken. Die
+relevanten Blöcke in der `nginx.conf` dieses Ordners (analog in
+`../../solutions/chapter09/nginx.conf`) sehen vereinfacht so aus:
+
+```nginx
+location ~ ^/(02_rest_get_api_aufgabe|03_rest_crud_api_aufgabe|04_rest_client_aufgabe)/api/service\.php$ {
+    fastcgi_pass php:9000;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
+
+location ~ ^/(02_rest_get_api_aufgabe|03_rest_crud_api_aufgabe|04_rest_client_aufgabe)/api(/.*)?$ {
+    try_files $uri $uri/ /$1/api/service.php?_url=$2;
+}
+```
+
+- Der **zweite** Block greift für jede Anfrage unterhalb eines
+  `api/`-Pfads, z.B. `.../api/projekt/2`. `try_files` prüft der Reihe nach,
+  ob eine passende Datei (`$uri`) oder ein passendes Verzeichnis (`$uri/`)
+  existiert - das ist hier nie der Fall -, und leitet die Anfrage
+  andernfalls intern an `api/service.php` weiter. Der ursprüngliche Pfad
+  (`/projekt/2`) wird dabei als Query-Parameter `_url` angehängt, sodass
+  `service.php` ihn über `$_REQUEST['_url']` auslesen kann.
+- Der **erste**, spezifischere Block sorgt dafür, dass genau diese intern
+  weitergeleitete Anfrage an `service.php` tatsächlich von PHP-FPM
+  ausgeführt wird (`fastcgi_pass`), statt von der allgemeineren Regel
+  darunter als statische Datei ausgeliefert zu werden. Er muss deshalb in
+  der `nginx.conf` **vor** dem zweiten Block stehen: nginx verwendet bei
+  mehreren passenden `location ~`-Regeln immer die zuerst im File
+  stehende.
+
+Diese Konfiguration ist für alle Übungsordner mit `api/`-Unterordner
+(Übung 2–4) bereits vollständig eingerichtet und ist kein Teil der
+Übungen - Sie müssen also weder `nginx.conf` noch das Rewriting selbst
+bearbeiten, sondern nur `api/service.php`.
+
 ## Ausführung mit Docker
 
 Dieser Ordner sowie `../../solutions/chapter09/` haben je eine eigene
@@ -100,15 +151,6 @@ lauffähig ist:
 |---|---|---|
 | `exercises/chapter09/` (Aufgaben) | `8009` | in diesem Ordner |
 | `solutions/chapter09/` (Lösungen) | `8019` | in `../../solutions/chapter09/` |
-
-Die in Kapitel 9.2 vorgestellte `.htaccess`-Regel (Weiterleitung aller
-Anfragen an `service.php` mit dem Pfad als `_url`-Query-Parameter) liegt
-weiterhin unverändert in `api/.htaccess` der jeweiligen Übungsordner, da
-sie Teil der Aufgabenstellung bzw. Musterlösung ist. Da nginx – anders als
-Apache – keine `.htaccess`-Dateien auswertet, ist die gleichwertige
-Weiterleitung zusätzlich direkt in der `nginx.conf` des jeweiligen
-Docker-Setups hinterlegt, damit die Übungen unter nginx trotzdem
-lauffähig sind.
 
 1. Im Terminal in den gewünschten Ordner wechseln und den Container starten,
    z.B. für die Aufgaben:
@@ -138,11 +180,21 @@ lauffähig sind.
      mitgelieferten CORS-Header in `api/service.php` sind trotzdem gesetzt,
      falls die Schnittstelle später einmal separat betrieben werden soll.
 
-   Für GET-Anfragen genügt der Browser oder ein REST-Client (z.B. Postman).
-   Für POST-, PUT- und DELETE-Anfragen wird ein Werkzeug benötigt, das
-   diese HTTP-Methoden senden kann, z.B. curl oder Postman, da der Browser
-   beim einfachen Aufrufen einer Adresse immer nur GET-Anfragen sendet.
-   Beispiel mit curl:
+   Für GET-Anfragen genügt der Browser. Für POST-, PUT- und
+   DELETE-Anfragen wird dagegen ein Werkzeug benötigt, das diese
+   HTTP-Methoden senden kann, da der Browser beim einfachen Aufrufen einer
+   Adresse immer nur GET-Anfragen sendet. Jeder Übungsordner mit
+   `api/`-Unterordner (Übung 2–4) enthält dafür bereits eine Datei
+   `api/tests.http` mit vorbereiteten Requests für alle Operationen
+   (inkl. Erfolgs- und Fehlerfällen wie einer nicht existierenden id).
+   Sie lässt sich direkt im Editor ausführen, sofern eine passende
+   Erweiterung installiert ist (z.B. "REST Client" in VS Code; PhpStorm/
+   IntelliJ bringen einen HTTP Client bereits eingebaut mit) - einfach
+   die gewünschte Datei öffnen und den jeweiligen Request per Klick auf
+   "Send Request" (bzw. das grüne Pfeil-Symbol über der Anfrage)
+   abschicken.
+
+   Alternativ funktioniert auch curl, z.B.:
 
    ```
    curl -i -X POST -H "Content-Type: application/json" \

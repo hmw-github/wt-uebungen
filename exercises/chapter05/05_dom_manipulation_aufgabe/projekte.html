@@ -1,33 +1,24 @@
 <!--
-    ÜBUNG 7: DOM-MANIPULATION (Kapitel 5.5 - Document Object Model)
+    ÜBUNG 5: DOM-MANIPULATION (Kapitel 5.5 - Document Object Model)
 
     Aufgabenstellung:
-    Die Projekttabelle wird nun nicht mehr von Hand ins HTML geschrieben,
-    sondern aus einem JavaScript-Array per DOM-Manipulation erzeugt. Das
-    Array "projekte" weiter unten hat bewusst dieselbe Form
-    (titel, technologie, jahr, link), die in Kapitel 6 (PHP) serverseitig
-    und in Kapitel 9 (REST) als JSON-Antwort einer echten Schnittstelle
-    wiederkehrt. Ergänzen Sie an den TODO-Stellen:
+    Die Projekttabelle wird nicht mehr von Hand ins HTML geschrieben,
+    sondern per DOM-Manipulation aus Daten erzeugt, die per fetch() aus
+    der Datei projekte.json geladen werden. Diese Daten haben bewusst
+    dieselbe Form (titel, technologie, jahr, link), die in Kapitel 6
+    (PHP) serverseitig und in Kapitel 9 (REST) als JSON-Antwort einer
+    echten Schnittstelle wiederkehrt.
 
-    TODO 1: Ermitteln Sie per getElementById Referenzen auf den
-            tbody-Bereich (id="projekteKoerper") sowie auf die
-            Zusammenfassungszelle im tfoot (id="projekteAnzahl") und
-            speichern Sie sie in Variablen.
-    TODO 2: Iterieren Sie das Array "projekte" mit einer for...of-Schleife.
-            Erzeugen Sie pro Projekt per document.createElement("tr") eine
-            neue Tabellenzeile mit 4 Zellen (createElement("td")): Titel,
-            Technologie, Jahr sowie ein Link-Element (createElement("a"))
-            mit href auf projekt.link, target="_blank" und dem Text
-            "Repository". Hängen Sie die Zellen an die Zeile und die
-            Zeile an den tbody (aus TODO 1) an. Setzen Sie anschließend
-            den Text der Zusammenfassungszelle auf
-            "Anzahl Projekte: " + projekte.length.
-    TODO 3: Ermitteln Sie den Button mit id="filterButton" und registrieren
-            Sie per addEventListener("click", ...) einen Handler. Der
-            Handler soll ALLE Zeilen des tbody (querySelectorAll("tr"))
-            durchlaufen und bei jeder Zeile, deren dritte Zelle (Jahr) den
-            Text "2026" enthält, die CSS-Klasse "hervorgehoben" per
-            classList.toggle umschalten.
+    Das Laden der Daten (loadProjects() in js/main.js) ist bereits
+    vorgegeben. Ergänzen Sie in js/main.js an den TODO-Stellen:
+
+    TODO 1: fillProjectTable(projekte) implementieren, um die Tabelle
+            (tbody#projekteKoerper) sowie die Zusammenfassungszelle
+            (tfoot#projekteAnzahl) mit den übergebenen Projektdaten zu
+            befüllen.
+    TODO 2: Klick-Handler für den Button #filterButton registrieren, der
+            Zeilen mit Jahr "2026" per classList.toggle("hervorgehoben")
+            hervorhebt.
 -->
 <!DOCTYPE html>
 <html>
@@ -97,23 +88,6 @@
     </footer>
 
     <!-- Autor: Alex Berger -->
-
-    <script>
-        const projekte = [
-            { titel: "Wetter-App", technologie: "JavaScript, Fetch API", jahr: 2024, link: "https://github.com/alexberger/wetter-app" },
-            { titel: "Rezeptsammlung", technologie: "PHP, MySQL", jahr: 2025, link: "https://github.com/alexberger/rezeptsammlung" },
-            { titel: "Portfolio-Website", technologie: "HTML, CSS, JavaScript, PHP, REST", jahr: 2026, link: "https://github.com/alexberger/portfolio" }
-        ];
-
-        // TODO 1: Referenzen auf tbody (projekteKoerper) und Zusammenfassungszelle (projekteAnzahl) ermitteln
-
-
-        // TODO 2: projekte per for...of iterieren, tr/td-Elemente erzeugen, anhängen, Anzahl setzen
-
-
-        // TODO 3: filterButton ermitteln, Klick-Handler mit classList.toggle("hervorgehoben") registrieren
-
-    </script>
 
     <script src="js/main.js" defer></script>
 </body>

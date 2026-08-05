@@ -1,7 +1,7 @@
 <!--
-    ÜBUNG 7: MODEL-VIEW-CONTROLLER (MVC2) (Kapitel 6.5)
+    ÜBUNG 5: MODEL-VIEW-CONTROLLER (MVC2) (Kapitel 6.5)
 
-    Das Gästebuch aus Übung 6 lebt ab jetzt als eigene kleine MVC2-Anwendung
+    Das Gästebuch aus Übung 4 lebt ab jetzt als eigene kleine MVC2-Anwendung
     im Unterordner "gaestebuch/" (siehe dort). Diese Seite verlinkt nur noch
     dorthin; die TODOs dieser Übung befinden sich in
     gaestebuch/Controller.php, gaestebuch/Gästebuch.php und

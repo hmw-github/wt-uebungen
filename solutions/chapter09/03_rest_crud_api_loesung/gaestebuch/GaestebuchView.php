@@ -34,7 +34,7 @@ class GaestebuchView
             <h2>Bisherige Einträge</h2>
             <ul id="liste"></ul>
 
-            <p><a href="./gaestebuch/index.php">Zurück zur Kontaktseite</a></p>
+            <p><a href="../kontakt.php">Zurück zur Kontaktseite</a></p>
 
             <script>
                 function createListElement(text) {

@@ -23,8 +23,11 @@ Stand der Website und einem gleichnamigen Lösungsordner im Ordner
 
 - **Übung 1** bindet Bootstrap 5 site-weit über das offizielle CDN ein
   (bereits fertig in allen Seiten ergänzt – kein TODO) und ergänzt auf der
-  Startseite einen Abschnitt "Unsere Stärken" mit Bootstrap-Grid sowie
-  eine Gegenüberstellung von `container` und `container-fluid`.
+  Startseite einen Abschnitt "Meine Stärken" mit Bootstrap-Grid. Die
+  Gegenüberstellung von `container` und `container-fluid` findet auf der
+  neuen Seite `technik-spielwiese.php` statt (einer Sammlung kleiner
+  Code-Demos, die dort auch die PHP-/JavaScript-Schnipsel früherer Kapitel
+  bündelt, damit die Startseite aufgeräumt bleibt).
 - **Übung 2** gestaltet die Projekttabelle mit Bootstrap-Tabellenklassen.
 - **Übung 3** ersetzt die eigene CSS-Klasse `.btn` aus Kapitel 4 durch
   echte Bootstrap-Button-Klassen (`btn-primary`, `btn-secondary`, ...) auf
@@ -51,8 +54,12 @@ Stand der Website und einem gleichnamigen Lösungsordner im Ordner
   `<!-- TODO n: ... -->`-Kommentare markiert (leer, ohne vorgegebenen Code),
   sodass Studierende direkt im Browser/Editor sehen, wo etwas fehlt.
 - Die Dateien sind vollständig lauffähige (wenn auch unvollständige)
-  HTML/PHP-Dokumente – Studierende können den jeweiligen Ordner direkt im
-  Browser öffnen und ihren Fortschritt sofort visuell überprüfen.
+  HTML/PHP-Dokumente. Da jeder Übungsordner PHP-Endpunkte enthält
+  (`kontakt-verarbeiten.php` u.a.), reicht ein einfacher Doppelklick im
+  Dateibrowser nicht aus – Studierende rufen den jeweiligen Ordner
+  stattdessen über den in Docker laufenden PHP-Server auf (siehe
+  "Ausführung mit Docker" unten) und überprüfen ihren Fortschritt sofort
+  im Browser.
 - Bootstrap 5 wird ab Übung 1 in jeder Seite bereits fertig über das
   offizielle CDN eingebunden (CSS im head, Bundle-JS mit Popper vor dem
   schließenden body-Tag) – das Einbinden von Bootstrap selbst ist kein
@@ -79,3 +86,52 @@ Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
 Verständnisfragen (wie in den Folien bereits vorhanden) oder um weitere
 Bootstrap-Komponenten (Alerts, Navbar, Badges), sobald diese im Kurs
 vertieft werden.
+
+## Ausführung mit Docker
+
+Da jeder Übungsordner PHP-Endpunkte enthält (aus Kapitel 6 übernommen),
+wird ein PHP-fähiger Webserver benötigt. Sowohl dieser Ordner als auch
+`../../solutions/chapter07/` haben dafür je eine eigene
+`docker-compose.yml`, die einen nginx-Webserver zusammen mit einem
+PHP-FPM-Container startet. Beide Setups sind unabhängig voneinander
+lauffähig – die Lösungen benötigen also nicht den Aufgaben-Container und
+umgekehrt. Xdebug ist bereits vorkonfiguriert (siehe `xdebug.ini`), sodass
+sich einzelne TODO-Stellen bei Bedarf auch per Schritt-für-Schritt-Debugger
+in der IDE untersuchen lassen.
+
+| Ordner | Port | docker-compose.yml |
+|---|---|---|
+| `exercises/chapter07/` (Aufgaben) | `8007` | in diesem Ordner |
+| `solutions/chapter07/` (Lösungen) | `8017` | in `../../solutions/chapter07/` |
+
+1. Im Terminal in den gewünschten Ordner wechseln und den Container starten,
+   z.B. für die Aufgaben:
+
+   ```
+   cd exercises/chapter07
+   docker compose up -d
+   ```
+
+   bzw. für die Lösungen:
+
+   ```
+   cd solutions/chapter07
+   docker compose up -d
+   ```
+
+2. Im Browser die gewünschte Übung öffnen, z.B.:
+
+   ```
+   http://localhost:8007/01_container_grid_aufgabe/index.php
+   http://localhost:8017/07_modal_loesung/index.php
+   ```
+
+3. Nach dem Bearbeiten einer Aufgabendatei die Seite im Browser einfach neu
+   laden – Änderungen an den Dateien werden sofort übernommen (per
+   Bind-Mount eingebunden), ein Neustart des Containers ist nicht nötig.
+
+4. Wenn fertig, den jeweiligen Container wieder stoppen:
+
+   ```
+   docker compose down
+   ```

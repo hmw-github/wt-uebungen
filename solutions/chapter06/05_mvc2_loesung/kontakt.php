@@ -1,5 +1,5 @@
 <!--
-    LÖSUNGSVORSCHLAG - ÜBUNG 7: MODEL-VIEW-CONTROLLER (MVC2) - Seite "Kontakt"
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: MODEL-VIEW-CONTROLLER (MVC2) - Seite "Kontakt"
 -->
 <!DOCTYPE html>
 <html>

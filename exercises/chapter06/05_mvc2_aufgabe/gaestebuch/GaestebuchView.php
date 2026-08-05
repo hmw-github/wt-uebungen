@@ -7,11 +7,16 @@
             das übergebene Model-Objekt in der Eigenschaft
             $this->gaestebuch speichert.
     TODO 2: Implementieren Sie die Methode render(). Sie soll ein komplettes
-            HTML-Dokument ausgeben: eine Überschrift, ein Formular
-            (method="post", Textfeld "gbnachricht", Submit-Button
-            "Eintragen"), einen Link zurück zu "../kontakt.php" sowie
-            darunter eine HTML-Liste aller Einträge, die Sie über
-            $this->gaestebuch->alleEintraege() abrufen.
+            HTML-Dokument mit demselben Seitenrahmen wie die übrigen
+            Portfolio-Seiten ausgeben (CSS-Einbindung, <header> mit
+            Logo/Burger-Button/Navigation, <main> mit dem eigentlichen
+            Inhalt, <footer> - siehe z.B. ../kontakt.php als Vorlage,
+            Pfade dabei um ein "../" ergänzen): eine Überschrift
+            "Gästebuch", ein Formular (method="post", Textfeld
+            "gbnachricht", Submit-Button "Eintragen"), darunter eine
+            HTML-Liste aller Einträge, die Sie über
+            $this->gaestebuch->alleEintraege() abrufen, sowie einen Link
+            zurück zu "../kontakt.php".
 */
 
 class GaestebuchView

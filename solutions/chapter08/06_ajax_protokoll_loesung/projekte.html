@@ -34,6 +34,7 @@
         </nav>
     </header>
 
+    <main>
     <div class="container mt-4">
 
         <h1>Projekte</h1>
@@ -42,68 +43,7 @@
 
         <button id="filterButton" class="btn btn-secondary mb-3">Projekte aus 2026 hervorheben</button>
 
-        <div class="row">
-
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-header" id="card1-titel">Wetter-App</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">Technologie:</div>
-                            <div class="col-8" id="card1-technologie">JavaScript, Fetch API</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4">Jahr:</div>
-                            <div class="col-8" id="card1-jahr">2024</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/alexberger/wetter-app" target="_blank" class="btn btn-outline-secondary btn-sm">Repository</a>
-                        <button type="button" class="btn btn-primary btn-sm" onclick="projektBearbeiten('card1')">Bearbeiten</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-header" id="card2-titel">Rezeptsammlung</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">Technologie:</div>
-                            <div class="col-8" id="card2-technologie">PHP, MySQL</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4">Jahr:</div>
-                            <div class="col-8" id="card2-jahr">2025</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/alexberger/rezeptsammlung" target="_blank" class="btn btn-outline-secondary btn-sm">Repository</a>
-                        <button type="button" class="btn btn-primary btn-sm" onclick="projektBearbeiten('card2')">Bearbeiten</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <div class="card" data-jahr="2026">
-                    <div class="card-header" id="card3-titel">Portfolio-Website</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-4">Technologie:</div>
-                            <div class="col-8" id="card3-technologie">HTML, CSS, JavaScript, PHP, REST</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4">Jahr:</div>
-                            <div class="col-8" id="card3-jahr">2026</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/alexberger/portfolio" target="_blank" class="btn btn-outline-secondary btn-sm">Repository</a>
-                        <button type="button" class="btn btn-primary btn-sm" onclick="projektBearbeiten('card3')">Bearbeiten</button>
-                    </div>
-                </div>
-            </div>
-
+        <div class="row" id="projekteKoerper">
         </div>
 
     </div>
@@ -137,6 +77,8 @@
         </div>
     </div>
 
+    </main>
+
     <footer>
         <p>
             <a href="https://github.com/alexberger" target="_blank">GitHub</a>
@@ -148,6 +90,12 @@
     <!-- Autor: Alex Berger -->
 
     <script>
+        const projekte = [
+            { titel: "Wetter-App", technologie: "JavaScript, Fetch API", jahr: 2024, link: "https://github.com/alexberger/wetter-app" },
+            { titel: "Rezeptsammlung", technologie: "PHP, MySQL", jahr: 2025, link: "https://github.com/alexberger/rezeptsammlung" },
+            { titel: "Portfolio-Website", technologie: "HTML, CSS, JS, PHP, REST", jahr: 2026, link: "https://github.com/alexberger/portfolio" }
+        ];
+
         var aktuelleCardId = null;
 
         function projektBearbeiten(cardId) {
@@ -180,8 +128,79 @@
             document.getElementById(aktuelleCardId + '-titel').textContent = document.getElementById('modalTitel').value;
             document.getElementById(aktuelleCardId + '-technologie').textContent = document.getElementById('modalTechnologie').value;
             document.getElementById(aktuelleCardId + '-jahr').textContent = document.getElementById('modalJahr').value;
+            document.getElementById(aktuelleCardId).dataset.jahr = document.getElementById('modalJahr').value;
 
             schließen();
+        }
+
+        const projekteKoerper = document.getElementById("projekteKoerper");
+
+        let index = 0;
+        for (const projekt of projekte) {
+            index++;
+            const cardId = "card" + index;
+
+            const spalte = document.createElement("div");
+            spalte.className = "col-md-6 mb-3";
+
+            const card = document.createElement("div");
+            card.id = cardId;
+            card.className = "card";
+            card.dataset.jahr = projekt.jahr;
+
+            const titel = document.createElement("div");
+            titel.className = "card-header";
+            titel.id = cardId + "-titel";
+            titel.textContent = projekt.titel;
+            card.appendChild(titel);
+
+            const body = document.createElement("div");
+            body.className = "card-body";
+
+            const technologieAbsatz = document.createElement("p");
+            technologieAbsatz.className = "card-text mb-1";
+            const technologieLabel = document.createElement("strong");
+            technologieLabel.textContent = "Technologie:";
+            const technologieWert = document.createElement("span");
+            technologieWert.id = cardId + "-technologie";
+            technologieWert.textContent = projekt.technologie;
+            technologieAbsatz.append(technologieLabel, " ", technologieWert);
+            body.appendChild(technologieAbsatz);
+
+            const jahrAbsatz = document.createElement("p");
+            jahrAbsatz.className = "card-text";
+            const jahrLabel = document.createElement("strong");
+            jahrLabel.textContent = "Jahr:";
+            const jahrWert = document.createElement("span");
+            jahrWert.id = cardId + "-jahr";
+            jahrWert.textContent = projekt.jahr;
+            jahrAbsatz.append(jahrLabel, " ", jahrWert);
+            body.appendChild(jahrAbsatz);
+
+            card.appendChild(body);
+
+            const footer = document.createElement("div");
+            footer.className = "card-footer";
+
+            const link = document.createElement("a");
+            link.href = projekt.link;
+            link.target = "_blank";
+            link.className = "btn btn-outline-secondary btn-sm";
+            link.textContent = "Repository";
+            footer.appendChild(link);
+
+            const bearbeitenButton = document.createElement("button");
+            bearbeitenButton.type = "button";
+            bearbeitenButton.className = "btn btn-primary btn-sm";
+            bearbeitenButton.textContent = "Bearbeiten";
+            bearbeitenButton.addEventListener("click", function() {
+                projektBearbeiten(cardId);
+            });
+            footer.appendChild(bearbeitenButton);
+
+            card.appendChild(footer);
+            spalte.appendChild(card);
+            projekteKoerper.appendChild(spalte);
         }
 
         const filterButton = document.getElementById("filterButton");

@@ -1,5 +1,5 @@
 <!--
-    ÜBUNG 5: FORMULARVERARBEITUNG MIT POST (Kapitel 6.3 - Formularverarbeitung)
+    ÜBUNG 3: FORMULARVERARBEITUNG MIT POST (Kapitel 6.3 - Formularverarbeitung)
 
     Aufgabenstellung:
     Diese Datei wertet endlich das Kontaktformular aus kontakt.html aus

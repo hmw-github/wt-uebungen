@@ -1,0 +1,17 @@
+### Testdatei für den REST-Client der Entwicklungsumgebung
+### (z.B. Erweiterung "REST Client" in VS Code oder der eingebaute
+### HTTP Client in PhpStorm/IntelliJ) - jeder Block ab "###" lässt sich
+### einzeln ausführen, ohne dass die Website (projekte.html) die
+### Schnittstelle selbst schon nutzen muss. Container vorher starten
+### (siehe README, "docker compose up -d").
+
+@baseUrl = http://localhost:8009/02_rest_get_api_aufgabe/api
+
+### Alle Projekte abrufen (GET /projekte) -> Status 200, JSON-Array
+GET {{baseUrl}}/projekte
+
+### Einzelnes, vorhandenes Projekt abrufen (GET /projekt/{id}) -> Status 200
+GET {{baseUrl}}/projekt/1
+
+### Einzelnes, nicht vorhandenes Projekt abrufen -> Status 404, leerer Body
+GET {{baseUrl}}/projekt/999

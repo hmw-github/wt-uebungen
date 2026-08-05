@@ -2,6 +2,19 @@
     Technik-Spielwiese: Sammlung kleiner Code-Demos (PHP-Grundlagen,
     JavaScript-Einbindung), die von der Startseite hierher verschoben
     wurden, um die Startseite aufgeräumt zu halten.
+
+    Aufgabenstellung (siehe auch index.php):
+    TODO 3: Erstellen Sie im Abschnitt "Container-Vergleich" ein div der
+            Klasse "container" mit sichtbarer Hintergrundfarbe (Klasse
+            "beispiel-container"), das den Text "Ich bin ein 'container' -
+            zentriert mit fester maximaler Breite" enthält.
+    TODO 4: Erstellen Sie direkt darunter ein div der Klasse
+            "container-fluid" mit sichtbarer Hintergrundfarbe (Klasse
+            "beispiel-fluid"), das den Text "Ich bin ein 'container-fluid'
+            - immer 100% Bildschirmbreite" enthält, damit der Unterschied
+            zu TODO 3 optisch erkennbar ist. Platzieren Sie beide bewusst
+            AUSSERHALB des "container mt-4"-Wrappers oben auf dieser
+            Seite, damit der Unterschied sichtbar bleibt.
 -->
 <!DOCTYPE html>
 <html>
@@ -90,8 +103,15 @@
             </div>
 
         </div>
-
     </main>
+
+    <div>
+        <h2 class="mt-4">Container-Vergleich</h2>
+
+        <!-- TODO 3: div class="container" mit Klasse "beispiel-container" -->
+
+        <!-- TODO 4: div class="container-fluid" mit Klasse "beispiel-fluid" -->
+    </div>
 
     <footer>
         <p>

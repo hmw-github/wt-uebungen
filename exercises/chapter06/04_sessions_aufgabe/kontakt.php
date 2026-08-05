@@ -1,30 +1,3 @@
-<!--
-    ÜBUNG 6: SESSION-HANDLING (Kapitel 6.4 - Session-Handling)
-
-    Aufgabenstellung:
-    Die Kontaktseite bekommt zusätzlich ein kleines Gästebuch: Über ein
-    Textfeld können Besucher/-innen eine kurze, öffentliche Nachricht
-    hinterlassen, die mit Uhrzeit/Datum versehen dauerhaft (für die Dauer
-    der Session) in einer Liste gesammelt wird. In Kapitel 6.5 (Übung 7)
-    wird dieses Gästebuch in das MVC2-Muster überführt, in Kapitel 8
-    (AJAX) wird es per Fetch statt per Seitenneuladen aktualisiert.
-    Ergänzen Sie an den TODO-Stellen den fehlenden PHP-Code:
-
-    TODO 1: Starten Sie die PHP-Session mit session_start(). Dies muss vor
-            JEDER Ausgabe geschehen, deshalb steht der PHP-Block dafür
-            bereits ganz am Dateianfang, noch vor dem "<!DOCTYPE html>".
-    TODO 2: Prüfen Sie mit isset(), ob $_SESSION['gaestebucheintraege']
-            bereits existiert. Falls nicht, initialisieren Sie es als
-            leeres Array.
-    TODO 3: Falls das Gästebuch-Formular abgeschickt wurde (Textfeld
-            "gbnachricht" gesetzt und nicht leer): Hängen Sie einen neuen
-            Eintrag der Form date("H:i:s d.m.Y") . " - " . <Nachricht> an
-            $_SESSION['gaestebucheintraege'] an. Nutzen Sie htmlspecialchars()
-            auf der Nachricht, bevor Sie sie anhängen, um XSS zu vermeiden.
-    TODO 4: Geben Sie alle bisher gesammelten Einträge aus
-            $_SESSION['gaestebucheintraege'] in einer Schleife als
-            HTML-Liste (<li>) im Abschnitt "Gästebuch" aus.
--->
 <?php
     // TODO 1: Session starten (session_start())
 

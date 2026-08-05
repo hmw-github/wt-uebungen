@@ -1,6 +1,6 @@
 <?php
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 7: MODEL-VIEW-CONTROLLER (MVC2)
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: MODEL-VIEW-CONTROLLER (MVC2)
 */
 
 spl_autoload_register(function ($class) {

@@ -34,6 +34,7 @@
         </nav>
     </header>
 
+    <main>
     <div class="container mt-4">
 
         <h1>Kontakt</h1>
@@ -45,11 +46,13 @@
             <div class="mb-3">
                 <label for="nameFeld" class="form-label">Name:</label>
                 <input type="text" id="nameFeld" name="name" class="form-control" required>
+                <div class="invalid-feedback">Der Name darf nicht leer sein und muss mindestens 5 Zeichen enthalten.</div>
             </div>
 
             <div class="mb-3">
                 <label for="emailFeld" class="form-label">E-Mail:</label>
                 <input type="email" id="emailFeld" name="email" class="form-control" required>
+                <div class="invalid-feedback">Die E-Mail-Adresse muss ein @-Zeichen enthalten.</div>
             </div>
 
             <div class="mb-3">
@@ -62,6 +65,7 @@
                     <input type="radio" id="rueckmeldungTelefon" name="rueckmeldung" value="telefon" class="form-check-input">
                     <label for="rueckmeldungTelefon" class="form-check-label">Telefon</label>
                 </div>
+                <div id="rueckmeldungFeedback" class="invalid-feedback">Bitte wählen Sie eine bevorzugte Rückmeldung aus.</div>
             </div>
 
             <div class="mb-3">
@@ -76,6 +80,7 @@
             <div class="mb-3">
                 <label for="nachrichtFeld" class="form-label">Nachricht:</label>
                 <textarea id="nachrichtFeld" name="nachricht" rows="4" class="form-control" required></textarea>
+                <div class="invalid-feedback">Die Nachricht darf nicht leer sein.</div>
             </div>
 
             <div class="mb-3 form-check">
@@ -92,6 +97,8 @@
         <p><a href="gaestebuch/index.php" class="btn btn-secondary">Zum Gästebuch</a></p>
 
     </div>
+
+    </main>
 
     <footer>
         <p>
@@ -114,6 +121,58 @@
             } else {
                 emailFeld.classList.remove('is-valid');
                 emailFeld.classList.add('is-invalid');
+            }
+        });
+
+        const nameFeld = document.getElementById('nameFeld');
+
+        nameFeld.addEventListener('blur', function() {
+            if (nameFeld.value.trim().length >= 5) {
+                nameFeld.classList.remove('is-invalid');
+                nameFeld.classList.add('is-valid');
+            } else {
+                nameFeld.classList.remove('is-valid');
+                nameFeld.classList.add('is-invalid');
+            }
+        });
+
+        const rueckmeldungFelder = document.querySelectorAll('input[name="rueckmeldung"]');
+        const rueckmeldungFeedback = document.getElementById('rueckmeldungFeedback');
+
+        function pruefeRueckmeldung() {
+            let istAusgewaehlt = false;
+            for (const feld of rueckmeldungFelder) {
+                if (feld.checked) {
+                    istAusgewaehlt = true;
+                }
+            }
+
+            for (const feld of rueckmeldungFelder) {
+                if (istAusgewaehlt) {
+                    feld.classList.remove('is-invalid');
+                    feld.classList.add('is-valid');
+                } else {
+                    feld.classList.remove('is-valid');
+                    feld.classList.add('is-invalid');
+                }
+            }
+
+            rueckmeldungFeedback.classList.toggle('d-block', !istAusgewaehlt);
+        }
+
+        for (const feld of rueckmeldungFelder) {
+            feld.addEventListener('blur', pruefeRueckmeldung);
+        }
+
+        const nachrichtFeld = document.getElementById('nachrichtFeld');
+
+        nachrichtFeld.addEventListener('blur', function() {
+            if (nachrichtFeld.value.trim().length > 0) {
+                nachrichtFeld.classList.remove('is-invalid');
+                nachrichtFeld.classList.add('is-valid');
+            } else {
+                nachrichtFeld.classList.remove('is-valid');
+                nachrichtFeld.classList.add('is-invalid');
             }
         });
     </script>

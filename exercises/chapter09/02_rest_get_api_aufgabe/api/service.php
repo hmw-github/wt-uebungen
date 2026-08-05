@@ -9,21 +9,27 @@
     In Übung 4 wird "projekte.html" der eigentlichen Website diese
     Schnittstelle tatsächlich per fetch() konsumieren.
 
-    TODO 1: Ergänzen Sie in der Datei .htaccess in diesem Verzeichnis das
-            Rewriting, damit jede Anfrage an service.php weitergeleitet wird
-            (der ursprüngliche Pfad soll dabei über den Query-Parameter
-            "_url" erhalten bleiben).
-    TODO 2: Implementieren Sie die Operation "GET /projekte": Geben Sie das
+    Damit "schöne" REST-URLs wie /api/projekt/2 überhaupt bei dieser Datei
+    ankommen (es gibt ja keine solche Datei), braucht es serverseitiges
+    URL-Rewriting. Mit dem hier verwendeten nginx-Webserver geschieht das
+    zentral in der nginx.conf (siehe dort sowie den Abschnitt "Wie die
+    Umleitung mit nginx funktioniert" im README): Jede Anfrage unterhalb
+    von api/ wird intern an service.php weitergereicht, wobei der
+    ursprüngliche Pfad als Query-Parameter "_url" übergeben wird. Diese
+    Weiterleitung ist bereits vollständig eingerichtet und kein Teil
+    dieser Übung.
+
+    TODO 1: Implementieren Sie die Operation "GET /projekte": Geben Sie das
             gesamte Projekt-Array als JSON aus und setzen Sie den HTTP-Status
             auf 200.
-    TODO 3: Implementieren Sie die Operation "GET /projekt/{id}": Suchen Sie
+    TODO 2: Implementieren Sie die Operation "GET /projekt/{id}": Suchen Sie
             das Projekt mit passender id im Array. Wird es gefunden, geben
             Sie es als JSON mit Status 200 aus, andernfalls antworten Sie
             mit Status 404 und leerem Body.
 
-    Hinweis: Der von .htaccess weitergeleitete Pfad steht in
-    $_REQUEST['_url'] (z.B. "/projekt/2"). Nutzen Sie preg_match, um die id
-    aus dem Pfad zu extrahieren.
+    Hinweis: Der von nginx weitergeleitete Pfad steht in $_REQUEST['_url']
+    (z.B. "/projekt/2"). Nutzen Sie preg_match, um die id aus dem Pfad zu
+    extrahieren.
 */
 
 header('Content-Type: application/json');
@@ -38,16 +44,16 @@ $projekte = [
 
 $methode = $_SERVER['REQUEST_METHOD'];
 $pfad = isset($_REQUEST['_url']) ? $_REQUEST['_url'] : '/';
-$pfad = '/' . ltrim($pfad, '/'); // .htaccess liefert den Pfad ohne führenden Schrägstrich
+$pfad = '/' . ltrim($pfad, '/'); // nginx liefert den Pfad ohne führenden Schrägstrich
 
 if ($methode === 'GET' && $pfad === '/projekte') {
 
-    // TODO 2: Alle Projekte als JSON zurückgeben (Status 200)
+    // TODO 1: Alle Projekte als JSON zurückgeben (Status 200)
 
 } elseif ($methode === 'GET' && preg_match('#^/projekt/([0-9]+)$#', $pfad, $treffer)) {
     $id = (int) $treffer[1];
 
-    // TODO 3: Projekt mit passender id suchen und als JSON zurückgeben
+    // TODO 2: Projekt mit passender id suchen und als JSON zurückgeben
     //         (Status 200) bzw. mit Status 404 antworten, falls nicht gefunden
 
 } else {

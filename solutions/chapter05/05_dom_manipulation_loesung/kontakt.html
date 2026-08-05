@@ -1,5 +1,5 @@
 <!--
-    LÖSUNGSVORSCHLAG - ÜBUNG 7: DOM-MANIPULATION - Seite "Kontakt"
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: DOM-MANIPULATION - Seite "Kontakt"
 -->
 <!DOCTYPE html>
 <html>
@@ -33,40 +33,41 @@
     </header>
 
     <main>
-        <h1>Kontakt</h1>
+    <h1>Kontakt</h1>
 
-        <p>Ich freue mich über Nachrichten - schreiben Sie mir gerne!</p>
+    <p>Ich freue mich über Nachrichten - schreiben Sie mir gerne!</p>
 
-        <form action="kontakt-verarbeiten.php" method="post">
+    <form id="kontaktFormular" action="kontaktanfrage-bestaetigung.html" method="post">
 
-            <label for="nameFeld">Name:</label><br>
-            <input type="text" id="nameFeld" name="name" required><br><br>
+        <label for="nameFeld">Name:</label><br>
+        <input type="text" id="nameFeld" name="name" required><br><br>
 
-            <label for="emailFeld">E-Mail:</label><br>
-            <input type="email" id="emailFeld" name="email" required><br><br>
+        <label for="emailFeld">E-Mail:</label><br>
+        <input type="email" id="emailFeld" name="email" required><br><br>
 
-            <p>Bevorzugte Rückmeldung:</p>
-            <input type="radio" id="rueckmeldungEmail" name="rueckmeldung" value="email" checked>
-            <label for="rueckmeldungEmail">E-Mail</label><br>
-            <input type="radio" id="rueckmeldungTelefon" name="rueckmeldung" value="telefon">
-            <label for="rueckmeldungTelefon">Telefon</label><br><br>
+        <p>Bevorzugte Rückmeldung:</p>
+        <input type="radio" id="rueckmeldungEmail" name="rueckmeldung" value="email">
+        <label for="rueckmeldungEmail">E-Mail</label><br>
+        <input type="radio" id="rueckmeldungTelefon" name="rueckmeldung" value="telefon">
+        <label for="rueckmeldungTelefon">Telefon</label><br><br>
 
-            <label for="betreffFeld">Betreff:</label><br>
-            <select id="betreffFeld" name="betreff">
-                <option value="anfrage" selected>Anfrage</option>
-                <option value="feedback">Feedback</option>
-                <option value="sonstiges">Sonstiges</option>
-            </select><br><br>
+        <label for="betreffFeld">Betreff:</label><br>
+        <select id="betreffFeld" name="betreff">
+            <option value="anfrage" selected>Anfrage</option>
+            <option value="feedback">Feedback</option>
+            <option value="sonstiges">Sonstiges</option>
+        </select><br><br>
 
-            <label for="nachrichtFeld">Nachricht:</label><br>
-            <textarea id="nachrichtFeld" name="nachricht" rows="4" cols="30" required></textarea><br><br>
+        <label for="nachrichtFeld">Nachricht:</label><br>
+        <textarea id="nachrichtFeld" name="nachricht" rows="4" cols="30" required></textarea><br><br>
 
-            <input type="checkbox" id="newsletterFeld" name="newsletter" value="ja">
-            <label for="newsletterFeld">Ich möchte den Newsletter erhalten</label><br><br>
+        <input type="checkbox" id="newsletterFeld" name="newsletter" value="ja">
+        <label for="newsletterFeld">Ich möchte den Newsletter erhalten</label><br><br>
 
-            <input type="submit" value="Absenden" class="btn">
+        <input type="submit" value="Absenden" class="btn">
 
-        </form>
+    </form>
+
     </main>
 
     <footer>
@@ -80,6 +81,5 @@
     <!-- Autor: Alex Berger -->
 
     <script src="js/main.js" defer></script>
-
 </body>
 </html>

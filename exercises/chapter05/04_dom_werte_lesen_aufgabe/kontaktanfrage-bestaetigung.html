@@ -1,0 +1,70 @@
+<!--
+    ÜBUNG 4: DOM-WERTE LESEN (Kapitel 5.5 - Document Object Model) - Seite "Kontaktanfrage-Bestätigung"
+
+    Diese Seite zeigt die zuvor in kontakt.html eingegebenen und im
+    localStorage gespeicherten Daten an (siehe TODO 4 in js/main.js).
+    Die Platzhalter-Elemente unten (id="begruessung" sowie die
+    id="detail..."-Spans) sind bereits vorgegeben und werden per
+    JavaScript befüllt.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Kontaktanfrage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/druck.css" media="print">
+
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Alex Berger" height="50">
+        </a>
+
+        <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="hauptnav">
+            <a href="index.html">Startseite</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="projekte.html">Projekte</a>
+        </nav>
+    </header>
+
+    <main>
+    <h1>Kontaktanfrage</h1>
+
+    <p id="begruessung"></p>
+
+    <ul>
+        <li>E-Mail: <span id="detailEmail"></span></li>
+        <li>Betreff: <span id="detailBetreff"></span></li>
+        <li>Bevorzugte Rückmeldung: <span id="detailRueckmeldung"></span></li>
+        <li>Nachricht: <span id="detailNachricht"></span></li>
+        <li>Newsletter gewünscht: <span id="detailNewsletter"></span></li>
+    </ul>
+
+    <p><a href="kontakt.html">Zurück zum Kontaktformular</a></p>
+
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

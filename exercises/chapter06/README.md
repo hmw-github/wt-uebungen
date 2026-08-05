@@ -1,47 +1,53 @@
 # Übungsaufgaben zu Kapitel 6: PHP
 
-Diese 7 Übungen decken alle Themen des Kapitels ab (6.1–6.5: serverseitige
+Diese 5 Übungen decken alle Themen des Kapitels ab (6.1–6.5: serverseitige
 HTML-Generierung, PHP-Sprachkonzepte, Formularverarbeitung, Session-Handling
 und das Model-View-Controller-Muster).
 
 **Durchgängiges Projekt:** Die Portfolio-Website aus den Kapiteln 3–5 wird
-in diesem Kapitel schrittweise "serverseitig". Übung 1, 5, 6 und 7 greifen
+in diesem Kapitel schrittweise "serverseitig". Übung 3, 4 und 5 greifen
 direkt in die Website ein und bestehen daher aus einem Aufgabenordner mit
-dem kompletten aktuellen Stand der Website. Übung 2–4 sind dagegen bewusst
-eigenständige, einzelne PHP-Dateien (wie im Original-Kurskonzept), die
-grundlegende PHP-Konzepte anhand derselben Projektdaten (Technologien,
-Jahre, die Klassen Projekt/Webprojekt) einüben.
+dem kompletten aktuellen Stand der Website (deren Startseite `index.php`
+dort bereits fertig vorliegt). Übung 1 und 2 sind dagegen bewusst
+eigenständige, einzelne PHP-Dateien ohne Bezug zur Website (wie im
+Original-Kurskonzept), die grundlegende PHP-Sprachkonzepte bzw.
+Formularverarbeitung mit GET anhand derselben Projektdaten (Technologien)
+einüben.
 
 | # | Thema (Kapitel) | Aufgabendatei/-ordner | Lösungsdatei/-ordner |
 |---|---|---|---|
-| 1 | PHP-Grundlagen und Ausgabe (6.1/6.2) | `01_grundlagen_ausgabe_aufgabe/` | `../../solutions/chapter06/01_grundlagen_ausgabe_loesung/` |
-| 2 | Kontrollstrukturen und Arrays (6.2) | `02_kontrollstrukturen_arrays_aufgabe.php` | `../../solutions/chapter06/02_kontrollstrukturen_arrays_loesung.php` |
-| 3 | Funktionen und Klassen (6.2) | `03_funktionen_klassen_aufgabe.php` | `../../solutions/chapter06/03_funktionen_klassen_loesung.php` |
-| 4 | Formularverarbeitung mit GET (6.3) | `04_formular_get_aufgabe.php` | `../../solutions/chapter06/04_formular_get_loesung.php` |
-| 5 | Formularverarbeitung mit POST (6.3) | `05_formular_post_aufgabe/` | `../../solutions/chapter06/05_formular_post_loesung/` |
-| 6 | Session-Handling (6.4) | `06_sessions_aufgabe/` | `../../solutions/chapter06/06_sessions_loesung/` |
-| 7 | Model-View-Controller-Muster (6.5) | `07_mvc2_aufgabe/` | `../../solutions/chapter06/07_mvc2_loesung/` |
+| 1 | PHP-Grundlagen (6.1/6.2) | `01_php_basics_aufgabe.php` | `../../solutions/chapter06/01_php_basics_loesung.php` |
+| 2 | Formularverarbeitung mit GET (6.3) | `02_formular_get_aufgabe.php` | `../../solutions/chapter06/02_formular_get_loesung.php` |
+| 3 | Formularverarbeitung mit POST (6.3) | `03_formular_post_aufgabe/` | `../../solutions/chapter06/03_formular_post_loesung/` |
+| 4 | Session-Handling (6.4) | `04_sessions_aufgabe/` | `../../solutions/chapter06/04_sessions_loesung/` |
+| 5 | Model-View-Controller-Muster (6.5) | `05_mvc2_aufgabe/` | `../../solutions/chapter06/05_mvc2_loesung/` |
 
 ## Wie sich die Website in diesem Kapitel verändert
 
-- **Übung 1** macht aus der statischen Startseite `index.html` eine
-  `index.php`: ein "Steckbrief"-Abschnitt mit Variablen, `gettype()`,
-  String-Verkettung und `date()` kommt hinzu. Alle Links auf die
-  Startseite werden in der gesamten Website entsprechend auf `index.php`
-  angepasst.
-- **Übungen 2–4** sind eigenständige Dateien und behandeln
-  Kontrollstrukturen/Arrays, Funktionen/Klassen (die Klassen
+Die Startseite liegt bereits ab Übung 3 fertig als `index.php` vor (kein
+Teil einer eigenen Übung); alle Links auf die Startseite wurden in der
+gesamten Website bereits entsprechend auf `index.php` angepasst.
+
+- **Übung 1** ist eine eigenständige Datei ohne Bezug zur Website und übt
+  anhand der immer gleichen Projektdaten von Alex Berger grundlegende
+  PHP-Sprachkonzepte ein: ein "Steckbrief"-Abschnitt mit Variablen,
+  `gettype()`, String-Verkettung und `date()`, gefolgt von Abschnitten zu
+  Kontrollstrukturen/Arrays sowie Funktionen/Klassen (die Klassen
   `Projekt`/`Webprojekt` kennen Sie bereits aus JavaScript, Kapitel 5,
-  Übung 5 - hier entstehen sie in PHP) sowie Formularverarbeitung mit GET
-  anhand eines kleinen "Projekte filtern"-Suchformulars.
-- **Übung 5** setzt `kontakt-verarbeiten.php` um - genau die Datei, auf
+  Übung 2 - hier entstehen sie in PHP). Diese Übung ersetzt die vormals
+  drei eigenständigen Übungen "PHP-Grundlagen und Ausgabe",
+  "Kontrollstrukturen und Arrays" sowie "Funktionen und Klassen".
+- **Übung 2** ist ebenfalls eine eigenständige Datei und behandelt
+  Formularverarbeitung mit GET anhand eines kleinen
+  "Projekte filtern"-Suchformulars.
+- **Übung 3** setzt `kontakt-verarbeiten.php` um - genau die Datei, auf
   die das Kontaktformular aus Kapitel 3 (Übung 7) bereits verweist. Das
   Formular wird jetzt tatsächlich ausgewertet (inkl. `htmlspecialchars()`
   gegen XSS).
-- **Übung 6** macht aus `kontakt.html` eine `kontakt.php` und ergänzt ein
+- **Übung 4** macht aus `kontakt.html` eine `kontakt.php` und ergänzt ein
   sitzungsbasiertes Gästebuch: Besucher/-innen können eine kurze Nachricht
   hinterlassen, die für die Dauer der Session gesammelt wird.
-- **Übung 7** teilt genau dieses Gästebuch nach dem MVC2-Muster auf einen
+- **Übung 5** teilt genau dieses Gästebuch nach dem MVC2-Muster auf einen
   eigenen Einstiegspunkt `gaestebuch/index.php` auf
   (`Controller.php`/`Gästebuch.php`/`GaestebuchView.php`); `kontakt.php`
   verlinkt fortan nur noch dorthin. In Kapitel 8 (AJAX) wird dieses
@@ -61,7 +67,7 @@ Jahre, die Klassen Projekt/Webprojekt) einüben.
   unvollständige) PHP-Seiten – Studierende können sie jederzeit über einen
   lokalen PHP-Webserver aufrufen und ihren Fortschritt sofort im Browser
   überprüfen.
-- Bei Übung 7 (MVC2) sind die TODOs auf mehrere Dateien im Unterordner
+- Bei Übung 5 (MVC2) sind die TODOs auf mehrere Dateien im Unterordner
   `gaestebuch/` (Controller, Model, View) verteilt; die Verdrahtung
   (Autoloading, Session-Start, Aufruf des Controllers) in
   `gaestebuch/index.php` ist bereits vollständig fertig, damit sich die
@@ -76,13 +82,13 @@ Jahre, die Klassen Projekt/Webprojekt) einüben.
 
 ## Didaktischer Hinweis
 
-Die Übungen bauen inhaltlich leicht aufeinander auf (z.B. verwendet Übung 5
-das Kontaktformular aus Kapitel 3, und Übung 7 baut direkt auf dem
-Gästebuch aus Übung 6 auf, das dort lediglich in das MVC2-Muster überführt
+Die Übungen bauen inhaltlich leicht aufeinander auf (z.B. verwendet Übung 3
+das Kontaktformular aus Kapitel 3, und Übung 5 baut direkt auf dem
+Gästebuch aus Übung 4 auf, das dort lediglich in das MVC2-Muster überführt
 wird), sind aber unabhängig voneinander lösbar und können auch einzeln
 passend zur jeweiligen Folienreihenfolge im Foliensatz eingesetzt werden.
 Der Schwierigkeitsgrad steigt leicht von Übung 1 (reine Sprachgrundlagen)
-zu Übung 7 (vollständige Aufteilung einer Anwendung nach dem MVC2-Muster
+zu Übung 5 (vollständige Aufteilung einer Anwendung nach dem MVC2-Muster
 mit Autoloading).
 
 Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
@@ -124,9 +130,9 @@ Aufgaben-Container und umgekehrt.
    aufrufen, z.B.:
 
    ```
-   http://localhost:8006/01_grundlagen_ausgabe_aufgabe/index.php
-   http://localhost:8016/06_sessions_loesung/kontakt.php
-   http://localhost:8006/07_mvc2_aufgabe/gaestebuch/index.php
+   http://localhost:8006/01_php_basics_aufgabe.php
+   http://localhost:8016/04_sessions_loesung/kontakt.php
+   http://localhost:8006/05_mvc2_aufgabe/gaestebuch/index.php
    ```
 
 3. Nach dem Bearbeiten einer Aufgabendatei die Seite im Browser einfach neu
@@ -139,6 +145,6 @@ Aufgaben-Container und umgekehrt.
    docker compose down
    ```
 
-PHP-Sessions (Übung 6 und 7) funktionieren mit diesem Setup ohne weitere
+PHP-Sessions (Übung 4 und 5) funktionieren mit diesem Setup ohne weitere
 Konfiguration, da PHP standardmäßig Sessions dateibasiert innerhalb des
 PHP-Containers speichert.

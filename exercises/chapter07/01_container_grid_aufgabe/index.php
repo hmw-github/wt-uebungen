@@ -16,16 +16,11 @@
             (Sauberer Code, Moderne Technologien, Zuverlässig) mit
             Überschrift und kurzem Text enthalten. Die drei Spalten
             müssen sich zu 12 aufsummieren.
-    TODO 3: Erstellen Sie im Abschnitt "Container-Vergleich" (bewusst
-            AUSSERHALB des Containers aus TODO 1, damit der Unterschied
-            sichtbar bleibt) ein div der Klasse "container" mit sichtbarer
-            Hintergrundfarbe (Klasse "beispiel-container"), das den Text
-            "Ich bin ein 'container' - zentriert mit fester maximaler Breite"
-            enthält.
-    TODO 4: Erstellen Sie direkt darunter ein div der Klasse "container-fluid"
-            mit sichtbarer Hintergrundfarbe (Klasse "beispiel-fluid"), das den
-            Text "Ich bin ein 'container-fluid' - immer 100% Bildschirmbreite"
-            enthält, damit der Unterschied zu TODO 3 optisch erkennbar ist.
+
+    Die TODOs 3 und 4 (Gegenüberstellung von "container" und
+    "container-fluid") finden Sie nicht hier, sondern auf der Seite
+    technik-spielwiese.php - dort ist genug Platz, um den Unterschied ohne
+    einen umschließenden Container zu zeigen.
 -->
 <!DOCTYPE html>
 <html>
@@ -90,12 +85,6 @@
         <!-- TODO 2: Grid-Zeile mit drei col-sm-4 Spalten (Sauberer Code, Moderne Technologien, Zuverlässig) -->
 
     <!-- Ende container (TODO 1) -->
-
-    <h2 class="mt-4">Container-Vergleich</h2>
-
-    <!-- TODO 3: div class="container" mit Klasse "beispiel-container" -->
-
-    <!-- TODO 4: div class="container-fluid" mit Klasse "beispiel-fluid" -->
 
     </main>
 

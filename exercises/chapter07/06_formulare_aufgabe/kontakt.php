@@ -23,7 +23,14 @@
             umschließendes div class="form-check", die Klasse
             "form-check-input" auf dem input type="checkbox" sowie die
             Klasse "form-check-label" auf dem zugehörigen label.
-    TODO 7: Ergänzen Sie ein JavaScript-Snippet (im vorgegebenen
+    TODO 7: Ergänzen Sie bei den vier Feldern Name, E-Mail, "Bevorzugte
+            Rückmeldung" und Nachricht jeweils ein div
+            class="invalid-feedback" mit einem passenden Hinweistext
+            direkt nach dem jeweiligen Eingabeelement (bei der
+            Rückmeldung: nach den beiden Radiobutton-divs, mit
+            id="rueckmeldungFeedback", da hier zwei Eingabeelemente sich
+            ein gemeinsames Feedback-Element teilen).
+    TODO 8: Ergänzen Sie ein JavaScript-Snippet (im vorgegebenen
             script-Block), das beim Verlassen des E-Mail-Feldes
             (Event "blur") prüft, ob der eingegebene Wert ein
             "@"-Zeichen enthält:
@@ -33,6 +40,25 @@
                 "is-invalid" setzen.
             (Es handelt sich hier bewusst um eine einfache clientseitige
             Demo-Prüfung, keine vollständige E-Mail-Validierung.)
+    TODO 9: Ergänzen Sie analog ein JavaScript-Snippet für das Namensfeld
+            (Event "blur"), das prüft, ob der (getrimmte) Wert mindestens
+            5 Zeichen lang ist, und je nach Ergebnis "is-valid"/
+            "is-invalid" setzt (siehe TODO 8 als Vorlage für das
+            Grundmuster).
+    TODO 10: Ergänzen Sie ein JavaScript-Snippet für die beiden
+            Rückmeldung-Radiobuttons (document.querySelectorAll('input[name="rueckmeldung"]')):
+            Bei "blur" eines der beiden Radiobuttons prüfen, ob mindestens
+            einer der beiden checked ist, dann bei beiden Radiobuttons
+            "is-valid"/"is-invalid" setzen (analog TODO 8/9) sowie
+            zusätzlich die Klasse "d-block" auf dem Element mit
+            id="rueckmeldungFeedback" setzen bzw. entfernen (nur bei
+            Ungültigkeit gesetzt), da das Feedback-Element hier kein
+            direktes Geschwisterelement eines einzelnen Eingabefelds ist
+            und Bootstrap es daher nicht automatisch einblendet.
+    TODO 11: Ergänzen Sie analog ein JavaScript-Snippet für das
+            Nachrichtenfeld (Event "blur"), das prüft, ob der (getrimmte)
+            Wert nicht leer ist, und je nach Ergebnis "is-valid"/
+            "is-invalid" setzt.
 -->
 <!DOCTYPE html>
 <html>
@@ -80,12 +106,14 @@
                 <label for="nameFeld" class="form-label">Name:</label>
                 <!-- TODO 1: form-control ergänzen -->
                 <input type="text" id="nameFeld" name="name" required>
+                <!-- TODO 7: invalid-feedback für den Namen ergänzen -->
             </div>
 
             <div class="mb-3">
                 <label for="emailFeld" class="form-label">E-Mail:</label>
                 <!-- TODO 2: form-control ergänzen -->
                 <input type="email" id="emailFeld" name="email" required>
+                <!-- TODO 7: invalid-feedback für die E-Mail ergänzen -->
             </div>
 
             <div class="mb-3">
@@ -96,6 +124,7 @@
 
                 <input type="radio" id="rueckmeldungTelefon" name="rueckmeldung" value="telefon">
                 <label for="rueckmeldungTelefon">Telefon</label>
+                <!-- TODO 7: invalid-feedback (id="rueckmeldungFeedback") ergänzen -->
             </div>
 
             <div class="mb-3">
@@ -112,6 +141,7 @@
                 <label for="nachrichtFeld" class="form-label">Nachricht:</label>
                 <!-- TODO 5: form-control ergänzen -->
                 <textarea id="nachrichtFeld" name="nachricht" rows="4" required></textarea>
+                <!-- TODO 7: invalid-feedback für die Nachricht ergänzen -->
             </div>
 
             <!-- TODO 6: form-check-Klassen für die Newsletter-Checkbox ergänzen -->
@@ -146,7 +176,15 @@
     <script>
         var emailFeld = document.getElementById('emailFeld');
 
-        // TODO 7: blur-Event auf emailFeld: is-valid/is-invalid je nach "@" setzen
+        // TODO 8: blur-Event auf emailFeld: is-valid/is-invalid je nach "@" setzen
+
+        // TODO 9: blur-Event auf nameFeld: is-valid/is-invalid je nach Länge (mind. 5 Zeichen) setzen
+
+        // TODO 10: blur-Event auf beiden rueckmeldung-Radiobuttons: is-valid/is-invalid
+        //          setzen, je nachdem ob einer der beiden checked ist, sowie
+        //          "d-block" auf rueckmeldungFeedback bei Ungültigkeit setzen/entfernen
+
+        // TODO 11: blur-Event auf nachrichtFeld: is-valid/is-invalid je nach Inhalt setzen
 
     </script>
     <script src="js/main.js" defer></script>

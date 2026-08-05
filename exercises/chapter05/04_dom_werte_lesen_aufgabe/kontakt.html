@@ -1,0 +1,111 @@
+<!--
+    ÜBUNG 4: DOM-WERTE LESEN (Kapitel 5.5 - Document Object Model) - Seite "Kontakt"
+
+    Aufgabenstellung:
+    Das Kontaktformular soll nicht mehr klassisch an einen Server
+    gesendet werden. Stattdessen sollen beim Absenden die eingegebenen
+    Werte per DOM-Zugriff ausgelesen, zu einem JSON-Objekt zusammengefasst
+    und im localStorage des Browsers gespeichert werden. Anschließend wird
+    zur Seite "kontaktanfrage-bestaetigung.html" weitergeleitet, die die
+    gespeicherten Daten wieder ausliest und anzeigt.
+
+    Ergänzen Sie in js/main.js im Submit-Handler des Formulars
+    (id="kontaktFormular") an den TODO-Stellen:
+
+    TODO 1: Lesen Sie die Werte der Formularfelder per getElementById(...)
+            aus: nameFeld.value, emailFeld.value, betreffFeld.value und
+            nachrichtFeld.value. Ermitteln Sie außerdem das ausgewählte
+            Radio-Button-Element für die Rückmeldung per
+            document.querySelector('input[name="rueckmeldung"]:checked')
+            (kann null sein, falls nichts ausgewählt wurde) sowie den
+            Zustand der Newsletter-Checkbox per newsletterFeld.checked.
+            Bauen Sie daraus ein Objekt mit den Eigenschaften name, email,
+            betreff, rueckmeldung, nachricht und newsletter.
+    TODO 2: Wandeln Sie das Objekt mit JSON.stringify in einen JSON-String
+            um und speichern Sie ihn mit localStorage.setItem unter dem
+            Schlüssel "kontaktanfrage".
+    TODO 3: Leiten Sie per location.href zur Seite
+            "kontaktanfrage-bestaetigung.html" weiter.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Kontakt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/druck.css" media="print">
+
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Alex Berger" height="50">
+        </a>
+
+        <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="hauptnav">
+            <a href="index.html">Startseite</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="projekte.html">Projekte</a>
+        </nav>
+    </header>
+
+    <main>
+    <h1>Kontakt</h1>
+
+    <p>Ich freue mich über Nachrichten - schreiben Sie mir gerne!</p>
+
+    <form id="kontaktFormular" action="kontaktanfrage-bestaetigung.html" method="post">
+
+        <label for="nameFeld">Name:</label><br>
+        <input type="text" id="nameFeld" name="name" required><br><br>
+
+        <label for="emailFeld">E-Mail:</label><br>
+        <input type="email" id="emailFeld" name="email" required><br><br>
+
+        <p>Bevorzugte Rückmeldung:</p>
+        <input type="radio" id="rueckmeldungEmail" name="rueckmeldung" value="email">
+        <label for="rueckmeldungEmail">E-Mail</label><br>
+        <input type="radio" id="rueckmeldungTelefon" name="rueckmeldung" value="telefon">
+        <label for="rueckmeldungTelefon">Telefon</label><br><br>
+
+        <label for="betreffFeld">Betreff:</label><br>
+        <select id="betreffFeld" name="betreff">
+            <option value="anfrage" selected>Anfrage</option>
+            <option value="feedback">Feedback</option>
+            <option value="sonstiges">Sonstiges</option>
+        </select><br><br>
+
+        <label for="nachrichtFeld">Nachricht:</label><br>
+        <textarea id="nachrichtFeld" name="nachricht" rows="4" cols="30" required></textarea><br><br>
+
+        <input type="checkbox" id="newsletterFeld" name="newsletter" value="ja">
+        <label for="newsletterFeld">Ich möchte den Newsletter erhalten</label><br><br>
+
+        <input type="submit" value="Absenden" class="btn">
+
+    </form>
+
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

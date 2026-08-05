@@ -1,5 +1,7 @@
 <!--
-    LÖSUNGSVORSCHLAG - ÜBUNG 1: PHP-GRUNDLAGEN UND AUSGABE - Seite "Startseite"
+    Startseite (bereits vollständig vorgegeben, kein Teil dieser Übung -
+    die PHP-Sprachgrundlagen werden eigenständig in
+    01_php_basics_aufgabe.php bzw. 01_php_basics_loesung.php erarbeitet)
 -->
 <!DOCTYPE html>
 <html>

@@ -1,0 +1,223 @@
+<!--
+    LÖSUNGSVORSCHLAG - ÜBUNG 2: JAVASCRIPT-GRUNDLAGEN
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projektliste (Klassen und Vererbung)</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h1>Projektliste</h1>
+
+    <p>Die Ergebnisse erscheinen unten auf der Seite und zusätzlich in der
+    Entwicklerkonsole (F12).</p>
+
+    <pre id="ausgabe"></pre>
+
+    <script>
+        function ausgabe(text) {
+            console.log(text);
+            document.getElementById("ausgabe").textContent += text + "\n";
+        }
+
+        // ==== Teil 1: Klassen Projekt und Webprojekt ====
+
+        class Projekt {
+            constructor(id, titel, jahr) {
+                this._id = id;
+                this._titel = titel;
+                this.jahr = jahr;
+            }
+
+            get id() {
+                return this._id;
+            }
+
+            get titel() {
+                return this._titel;
+            }
+
+            set titel(neuerTitel) {
+                this._titel = neuerTitel;
+            }
+
+            get jahr() {
+                return this._jahr;
+            }
+
+            set jahr(neuesJahr) {
+                if (neuesJahr < 2000) {
+                    throw "Jahr darf nicht vor 2000 liegen!";
+                }
+                this._jahr = neuesJahr;
+            }
+
+            toString() {
+                return this._titel + " (" + this._jahr + ")";
+            }
+        }
+
+        class Webprojekt extends Projekt {
+            constructor(id, titel, jahr, technologie) {
+                super(id, titel, jahr);
+                this._technologie = technologie;
+            }
+
+            get technologie() {
+                return this._technologie;
+            }
+
+            set technologie(neueTechnologie) {
+                this._technologie = neueTechnologie;
+            }
+
+            toString() {
+                return super.toString() + ", Technologie: " + this._technologie;
+            }
+        }
+
+        // ==== Teil 2: Klasse Projektliste ====
+
+        class Projektliste {
+            constructor() {
+                this._projekte = [];
+            }
+
+            get anzahl() {
+                return this._projekte.length;
+            }
+
+            alsArray() {
+                return [...this._projekte];
+            }
+
+            hinzufuegen(projekt) {
+                this._projekte.push(projekt);
+                ausgabe("Hinzugefügt: " + projekt.toString());
+            }
+
+            aktualisieren(id, aenderungen) {
+                const projekt = this._projekte.find(function(p) {
+                    return p.id === id;
+                });
+
+                if (!projekt) {
+                    ausgabe("Aktualisierung fehlgeschlagen: Kein Projekt mit id " + id + " gefunden.");
+                    return;
+                }
+
+                if (aenderungen.titel !== undefined) {
+                    projekt.titel = aenderungen.titel;
+                }
+                if (aenderungen.jahr !== undefined) {
+                    projekt.jahr = aenderungen.jahr;
+                }
+                if (aenderungen.technologie !== undefined && projekt instanceof Webprojekt) {
+                    projekt.technologie = aenderungen.technologie;
+                }
+
+                ausgabe("Aktualisiert: " + projekt.toString());
+            }
+
+            entfernen(id) {
+                for (let i = 0; i < this._projekte.length; i++) {
+                    if (this._projekte[i].id === id) {
+                        const entferntesProjekt = this._projekte.splice(i, 1)[0];
+                        ausgabe("Entfernt: " + entferntesProjekt.toString());
+                        return;
+                    }
+                }
+                ausgabe("Entfernen fehlgeschlagen: Kein Projekt mit id " + id + " gefunden.");
+            }
+
+            auflisten(id) {
+                if (id === undefined) {
+                    ausgabe("Anzahl Projekte: " + this.anzahl);
+                    for (const projekt of this._projekte) {
+                        ausgabe("- " + projekt.toString());
+                    }
+                    return;
+                }
+
+                const projekt = this._projekte.find(function(p) {
+                    return p.id === id;
+                });
+                ausgabe(projekt ? projekt.toString() : "Kein Projekt mit id " + id + " gefunden.");
+            }
+
+            sortierenNachJahr() {
+                this._projekte.sort(function(a, b) {
+                    return a.jahr - b.jahr;
+                });
+                ausgabe("Projektliste nach Jahr sortiert.");
+            }
+        }
+
+        // ==== Teil 3: Hauptteil - Projektliste verwenden ====
+
+        let naechsteId = 1;
+        const listenName = "Meine Projekte";
+        var istInitialisiert = true;
+        ausgabe("naechsteId (" + typeof naechsteId + "): " + naechsteId);
+        ausgabe("listenName (" + typeof listenName + "): " + listenName);
+        ausgabe("istInitialisiert (" + typeof istInitialisiert + "): " + istInitialisiert);
+
+        let kapitelText = "Kapitel " + 5;
+        ausgabe("kapitelText (" + typeof kapitelText + "): " + kapitelText);
+
+        let striktGleich = (naechsteId === "1");
+        let unstriktGleich = (naechsteId == "1");
+        ausgabe("naechsteId === \"1\": " + striktGleich);
+        ausgabe("naechsteId == \"1\": " + unstriktGleich);
+
+        const projektliste = new Projektliste();
+
+        const rezeptsammlung = new Webprojekt(naechsteId, "Rezeptsammlung", 2025, "PHP, MySQL");
+        naechsteId++;
+        projektliste.hinzufuegen(rezeptsammlung);
+
+        const portfolioWebsite = new Webprojekt(naechsteId, "Portfolio-Website", 2026, "HTML, CSS, JavaScript, PHP, REST");
+        naechsteId++;
+        projektliste.hinzufuegen(portfolioWebsite);
+
+        const wetterApp = new Projekt(naechsteId, "Wetter-App", 2024);
+        naechsteId++;
+        projektliste.hinzufuegen(wetterApp);
+
+        projektliste.sortierenNachJahr();
+        projektliste.auflisten();
+
+        projektliste.aktualisieren(rezeptsammlung.id, { technologie: "PHP, MySQL, REST" });
+
+        try {
+            projektliste.aktualisieren(wetterApp.id, { jahr: 1999 });
+        } catch (fehler) {
+            ausgabe("Fehler abgefangen: " + fehler);
+        }
+
+        const [erstesProjekt, zweitesProjekt] = projektliste.alsArray();
+        ausgabe("Erstes Projekt: " + erstesProjekt.toString());
+        ausgabe("Zweites Projekt: " + zweitesProjekt.toString());
+
+        projektliste.entfernen(wetterApp.id);
+        projektliste.entfernen(999);
+
+        switch (projektliste.anzahl) {
+            case 0:
+                ausgabe("Keine Projekte mehr vorhanden.");
+                break;
+            case 1:
+                ausgabe("Noch ein Projekt vorhanden.");
+                break;
+            case 2:
+                ausgabe("Noch zwei Projekte vorhanden.");
+                break;
+            default:
+                ausgabe("Noch mehrere Projekte vorhanden.");
+        }
+    </script>
+
+</body>
+</html>

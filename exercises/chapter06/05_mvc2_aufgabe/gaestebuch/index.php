@@ -1,9 +1,9 @@
 <?php
 /*
-    ÜBUNG 7: MODEL-VIEW-CONTROLLER (MVC2) (Kapitel 6.5 - Model-View-Controller-Muster)
+    ÜBUNG 5: MODEL-VIEW-CONTROLLER (MVC2) (Kapitel 6.5 - Model-View-Controller-Muster)
 
     Aufgabenstellung:
-    Das Gästebuch aus Übung 6 (Session-Handling, siehe ../kontakt.php) wird
+    Das Gästebuch aus Übung 4 (Session-Handling, siehe ../kontakt.php) wird
     hier in das MVC2-Muster aufgeteilt:
     - index.php (diese Datei) ist der einzige Einstiegspunkt für alle
       Anfragen. Sie registriert das Autoloading, startet die Session und
