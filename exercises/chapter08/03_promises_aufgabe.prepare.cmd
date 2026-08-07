@@ -1,8 +1,6 @@
 @echo off
 rem prepare.cmd - Vorbereitung fuer "03_promises_aufgabe.html"
-rem
-rem Diese Aufgabe ist eigenstaendig und hat keinen Bezug zum fortlaufenden
-rem Webportfolio-Projekt. Es muss nichts aus einer Vorgaenger-Aufgabe kopiert
-rem werden.
-echo Diese Aufgabe ist eigenstaendig (kein Teil des Webportfolio-Projekts).
-echo Keine Vorbereitung noetig - direkt in der Vorgabedatei loslegen.
+rem Duenner Wrapper, der die gemeinsame Kopierlogik in scripts\prepare_base.cmd aufruft.
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+call "%SCRIPT_DIR%\..\scripts\prepare_base.cmd" "%SCRIPT_DIR%"

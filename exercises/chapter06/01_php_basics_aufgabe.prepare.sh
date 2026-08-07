@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # prepare.sh - Vorbereitung fuer "01_php_basics_aufgabe.php"
-#
-# Diese Aufgabe ist eigenstaendig und hat keinen Bezug zum fortlaufenden
-# Webportfolio-Projekt. Es muss nichts aus einer Vorgaenger-Aufgabe kopiert
-# werden.
-echo "Diese Aufgabe ist eigenstaendig (kein Teil des Webportfolio-Projekts)."
-echo "Keine Vorbereitung noetig - direkt in der Vorgabedatei loslegen."
+# Duenner Wrapper, der die gemeinsame Kopierlogik in scripts/prepare_base.sh aufruft.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+"$SCRIPT_DIR/../scripts/prepare_base.sh" "$SCRIPT_DIR"
