@@ -18,5 +18,3 @@
 ## Sonstige Dateien
 - (kein TODO-Marker) `index.html`, `ueber-mich.html`, `rechtliches/impressum.html`, `css/style.css`, `css/druck.css`, `js/begruessung.js` entsprechen unverändert dem Stand der vorherigen Website-Übungen und enthalten keine TODOs.
 
-## Hinweis zur Einordnung
-Diese Übung ist neu und ersetzt keine bisherige Datei. Durch ihre Einfügung als Übung 4 wurde die bisherige Übung "07_dom_manipulation_aufgabe" (DOM-Manipulation der Projekttabelle per fetch()) zu Übung 5 (`05_dom_manipulation_aufgabe/`).
