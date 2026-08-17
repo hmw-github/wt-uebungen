@@ -6,9 +6,12 @@
 # Verwendung: prepare_base.sh <ziel-verzeichnis> [<vorgaenger-verzeichnis>]
 #
 # Uebernimmt automatisch die bereits geloesten Dateien aus dem Vorgaenger-
-# Verzeichnis in das Ziel-Verzeichnis. Dateien, die im Ziel bereits neue
-# TODO-Markierungen ("TODO <Nr>:") enthalten, werden dabei NICHT ueberschrieben,
-# damit die neue Aufgabenstellung erhalten bleibt. Dateien, die es im
+# Verzeichnis in das Ziel-Verzeichnis. Enthaelt eine Zieldatei bereits neue
+# TODO-Markierungen ("TODO <Nr>:") und ist die passende Vorgaenger-Datei
+# fertig geloest, wird die neue Vorgabedatei zu "<name>.org.<extension>"
+# gesichert und die geloeste Vorgaenger-Datei an ihrer Stelle eingesetzt.
+# So bleibt die neue Aufgabenstellung als Referenz erhalten und man arbeitet
+# trotzdem auf Basis der eigenen Loesung weiter. Dateien, die es im
 # Vorgaenger nicht gibt (z.B. wegen Umbenennung wie index.html -> index.php),
 # werden nicht neu angelegt. Enthaelt die Vorgaenger-Datei selbst noch offene
 # TODOs, wird sie ebenfalls NICHT kopiert (Schutz gegen zu fruehes Ausfuehren).
@@ -43,23 +46,45 @@ echo "Ziel: $DEST_DIR"
 echo
 
 kopiert=0
+gesichert=0
 uebersprungen=0
 
 while IFS= read -r -d '' destfile; do
     rel="${destfile#"$DEST_DIR"/}"
     case "$rel" in
-        prepare.sh|prepare.cmd|_todos.md|*.todos.md|*.prepare.sh|*.prepare.cmd)
+        prepare.sh|prepare.cmd|_todos.md|*.todos.md|*.prepare.sh|*.prepare.cmd|*.org.*)
             continue
             ;;
     esac
 
+    prevfile="$PREV_DIR/$rel"
+
     if grep -aqE "TODO [0-9]+:" "$destfile" 2>/dev/null; then
-        echo "  [neu]      $rel (enthaelt neue TODOs - Vorgabedatei bleibt erhalten)"
-        uebersprungen=$((uebersprungen+1))
+        if [ ! -f "$prevfile" ]; then
+            echo "  [neu]      $rel (enthaelt neue TODOs - Vorgabedatei bleibt erhalten)"
+            uebersprungen=$((uebersprungen+1))
+            continue
+        fi
+        if grep -aqE "TODO [0-9]+:" "$prevfile" 2>/dev/null; then
+            echo "  [WARNUNG]  $rel: Vorgaenger-Datei ist noch nicht fertig bearbeitet (enthaelt noch TODOs) - wird NICHT kopiert"
+            uebersprungen=$((uebersprungen+1))
+            continue
+        fi
+
+        if [[ "$rel" == *.* ]]; then
+            orgrel="${rel%.*}.org.${rel##*.}"
+        else
+            orgrel="${rel}.org"
+        fi
+        mv "$destfile" "$DEST_DIR/$orgrel"
+        cp "$prevfile" "$destfile"
+        echo "  [gesichert] $rel -> $orgrel (neue Vorgabedatei mit TODOs gesichert)"
+        echo "  [kopiert]   $rel (geloeste Fassung aus Vorgaenger uebernommen)"
+        kopiert=$((kopiert+1))
+        gesichert=$((gesichert+1))
         continue
     fi
 
-    prevfile="$PREV_DIR/$rel"
     if [ -f "$prevfile" ]; then
         if grep -aqE "TODO [0-9]+:" "$prevfile" 2>/dev/null; then
             echo "  [WARNUNG]  $rel: Vorgaenger-Datei ist noch nicht fertig bearbeitet (enthaelt noch TODOs) - wird NICHT kopiert"
@@ -73,5 +98,5 @@ while IFS= read -r -d '' destfile; do
 done < <(find "$DEST_DIR" -type f -print0)
 
 echo
-echo "Fertig: $kopiert Datei(en) aus der eigenen Loesung uebernommen, $uebersprungen Datei(en) unveraendert gelassen (neue TODOs bzw. Vorgaenger-Datei noch nicht fertig)."
+echo "Fertig: $kopiert Datei(en) aus der eigenen Loesung uebernommen (davon $gesichert mit gesicherter neuer Vorgabedatei als *.org.*), $uebersprungen Datei(en) unveraendert gelassen (neue TODOs bzw. Vorgaenger-Datei noch nicht fertig)."
 echo "Weiter geht's mit README.md und _todos.md dieser Aufgabe."
