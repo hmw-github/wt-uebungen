@@ -1,6 +1,6 @@
 <?php
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 6: PROTOKOLL MIT AJAX - View GaestebuchView
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: PROTOKOLL MIT AJAX - View GaestebuchView
 */
 
 class GaestebuchView

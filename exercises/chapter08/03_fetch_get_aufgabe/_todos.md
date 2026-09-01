@@ -1,4 +1,4 @@
-# TODOs – Übung 4: Fetch-API mit GET
+# TODOs – Übung 3: Fetch-API mit GET
 
 ## index.html
 1. TODO 1: Mit `fetch("hinweis.php?praefix=" + wert)` den Server aufrufen. Im ersten `.then()` anhand von `response.ok` prüfen, ob die Antwort erfolgreich war; andernfalls mit `throw` einen neuen `Error` werfen (z.B. `new Error("Serverfehler")`).

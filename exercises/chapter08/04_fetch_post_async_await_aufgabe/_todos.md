@@ -1,4 +1,4 @@
-# TODOs – Übung 5: Fetch mit POST und async/await
+# TODOs – Übung 4: Fetch mit POST und async/await
 
 ## index.html
 1. TODO 1: `sende()` als `async function` deklarieren. Darin mit `await fetch("echo.php", {...})` eine POST-Anfrage senden, deren Header `Content-Type` auf `application/json` gesetzt ist und deren `body` mit `JSON.stringify()` aus den Werten der Felder "titelFeld" und "jahrFeld" gebildet wird. Den Aufruf in einem try/catch-Block kapseln.

@@ -1,6 +1,6 @@
 <?php
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 6: PROTOKOLL MIT AJAX - SERVERTEIL
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: PROTOKOLL MIT AJAX - SERVERTEIL
 */
 
 spl_autoload_register(function ($class) {

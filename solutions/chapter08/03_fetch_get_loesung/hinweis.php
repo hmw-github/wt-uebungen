@@ -1,6 +1,6 @@
 <?php
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 4: FETCH-API MIT GET - SERVERTEIL
+    LÖSUNGSVORSCHLAG - ÜBUNG 3: FETCH-API MIT GET - SERVERTEIL
     (identisch zu Übung 1)
 */
 

@@ -1,6 +1,6 @@
 <?php
 /*
-    ÜBUNG 6: PROTOKOLL MIT AJAX - SERVERTEIL (Kapitel 8.2/8.4 - AJAX-Prinzip)
+    ÜBUNG 5: PROTOKOLL MIT AJAX - SERVERTEIL (Kapitel 8.2/8.4 - AJAX-Prinzip)
 
     Aufgabenstellung:
     Dieses Skript verwaltet das Gästebuch (wiederverwendet dazu das bereits

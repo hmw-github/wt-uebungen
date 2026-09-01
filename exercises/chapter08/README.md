@@ -1,37 +1,35 @@
 # Übungsaufgaben zu Kapitel 8: AJAX
 
-Diese 6 Übungen decken alle Themen des Kapitels ab (8.1–8.6): das
+Diese 5 Übungen decken alle Themen des Kapitels ab (8.1–8.6): das
 AJAX-Prinzip und XMLHttpRequest, den Einsatz von AJAX am Beispiel eines
-Technologie-Vorschlags und einer IP-Abfrage, die moderne Fetch-API (GET und
+Technologie-Vorschlags, die moderne Fetch-API (GET und
 POST), Promises sowie async/await.
 
-**Durchgängiges Projekt:** Übung 6 greift direkt in die Portfolio-Website
+**Durchgängiges Projekt:** Übung 5 greift direkt in die Portfolio-Website
 ein (siehe unten) und besteht daher aus dem kompletten aktuellen Stand der
-Website. Die Übungen 1, 2, 4 und 5 sind eigenständige Mini-Projekte (Client
-und PHP-Server-Teil, jeweils in einem eigenen Ordner), Übung 3 ist eine rein
+Website. Die Übungen 1, 3 und 4 sind eigenständige Mini-Projekte (Client
+und PHP-Server-Teil, jeweils in einem eigenen Ordner), Übung 2 ist eine rein
 clientseitige einzelne HTML-Datei.
 
 | # | Thema (Kapitel) | Aufgabendatei/-ordner | Lösungsdatei/-ordner |
 |---|---|---|---|
 | 1 | AJAX-Prinzip & XMLHttpRequest (8.1–8.2) | `01_xhr_grundlagen_aufgabe/` | `../../solutions/chapter08/01_xhr_grundlagen_loesung/` |
-| 2 | Einsatz von AJAX - IP-Abfrage (8.2–8.3) | `02_xhr_ip_aufgabe/` | `../../solutions/chapter08/02_xhr_ip_loesung/` |
-| 3 | Promises (8.5) | `03_promises_aufgabe.html` | `../../solutions/chapter08/03_promises_loesung.html` |
-| 4 | Fetch API mit GET (8.4) | `04_fetch_get_aufgabe/` | `../../solutions/chapter08/04_fetch_get_loesung/` |
-| 5 | Fetch API mit POST & async/await (8.4/8.6) | `05_fetch_post_async_await_aufgabe/` | `../../solutions/chapter08/05_fetch_post_async_await_loesung/` |
-| 6 | Kapitelübergreifende Übung - Gästebuch mit AJAX (8.2/8.4) | `06_ajax_protokoll_aufgabe/` | `../../solutions/chapter08/06_ajax_protokoll_loesung/` |
+| 2 | Promises (8.5) | `02_promises_aufgabe.html` | `../../solutions/chapter08/02_promises_loesung.html` |
+| 3 | Fetch API mit GET (8.4) | `03_fetch_get_aufgabe/` | `../../solutions/chapter08/03_fetch_get_loesung/` |
+| 4 | Fetch API mit POST & async/await (8.4/8.6) | `04_fetch_post_async_await_aufgabe/` | `../../solutions/chapter08/04_fetch_post_async_await_loesung/` |
+| 5 | Kapitelübergreifende Übung - Gästebuch mit AJAX (8.2/8.4) | `05_ajax_protokoll_aufgabe/` | `../../solutions/chapter08/05_ajax_protokoll_loesung/` |
 
 ## Wie sich die Übungen aufteilen
 
 - **Übung 1** baut einen "Technologie-Finder" (Autocomplete über die
   Technologien von Alex Berger) mit klassischem `XMLHttpRequest`.
-- **Übung 2** fragt per `XMLHttpRequest` die eigene IP-Adresse beim Server ab.
-- **Übung 3** ist eine reine JavaScript-Übung zu Promises (kein Server nötig).
-- **Übung 4** löst genau dieselbe Aufgabe wie Übung 1 (derselbe
+- **Übung 2** ist eine reine JavaScript-Übung zu Promises (kein Server nötig).
+- **Übung 3** löst genau dieselbe Aufgabe wie Übung 1 (derselbe
   `hinweis.php`-Server-Endpunkt), diesmal aber mit der modernen Fetch-API
   statt `XMLHttpRequest`.
-- **Übung 5** sendet eine kleine "Projekt-Idee einreichen"-Eingabe per
+- **Übung 4** sendet eine kleine "Projekt-Idee einreichen"-Eingabe per
   Fetch/POST (JSON) an den Server und liest die Antwort mit async/await aus.
-- **Übung 6** ist der Höhepunkt des Kapitels und greift direkt in die
+- **Übung 5** ist der Höhepunkt des Kapitels und greift direkt in die
   Website ein: Das Gästebuch aus Kapitel 6 (Session-Handling/MVC2) lädt
   seine Einträge jetzt nicht mehr per Seitenneuladen, sondern per AJAX
   nach. Dazu kommt eine neue Datei `gaestebuch/api.php` hinzu, die
@@ -66,15 +64,15 @@ clientseitige einzelne HTML-Datei.
 
 ## Didaktischer Hinweis
 
-Die Übungen bauen inhaltlich leicht aufeinander auf: Übung 4 verwendet
+Die Übungen bauen inhaltlich leicht aufeinander auf: Übung 3 verwendet
 denselben Server-Endpunkt wie Übung 1, zeigt aber, wie derselbe
 Anwendungsfall mit der moderneren Fetch-API statt XMLHttpRequest gelöst
-wird; Übung 6 kombiniert POST-Requests, JSON-Kommunikation und
+wird; Übung 5 kombiniert POST-Requests, JSON-Kommunikation und
 serverseitige Sitzungsverwaltung zu einer kleinen, vollständigen
 AJAX-Anwendung. Die Übungen sind aber unabhängig voneinander lösbar und
 können auch einzeln passend zur jeweiligen Folienreihenfolge im
 Foliensatz eingesetzt werden. Der Schwierigkeitsgrad steigt leicht von
-Übung 1 (grundlegender XMLHttpRequest-Aufruf) zu Übung 6 (vollständiges
+Übung 1 (grundlegender XMLHttpRequest-Aufruf) zu Übung 5 (vollständiges
 AJAX-Gästebuch mit Sitzungsverwaltung).
 
 Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
@@ -114,12 +112,12 @@ voneinander lauffähig:
 
    ```
    http://localhost:8008/01_xhr_grundlagen_aufgabe/index.html
-   http://localhost:8018/06_ajax_protokoll_loesung/index.php
-   http://localhost:8008/06_ajax_protokoll_aufgabe/gaestebuch/index.php
+   http://localhost:8018/05_ajax_protokoll_loesung/index.php
+   http://localhost:8008/05_ajax_protokoll_aufgabe/gaestebuch/index.php
    ```
 
-   Die rein clientseitige Übung 3 (`03_promises_aufgabe.html` bzw.
-   `03_promises_loesung.html`) kann ebenfalls über den jeweiligen Server
+   Die rein clientseitige Übung 2 (`02_promises_aufgabe.html` bzw.
+   `02_promises_loesung.html`) kann ebenfalls über den jeweiligen Server
    geöffnet werden oder alternativ direkt als lokale Datei im Browser, da
    sie keinen PHP-Endpunkt benötigt.
 

@@ -1,6 +1,6 @@
 <?php
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 5: FETCH MIT POST UND ASYNC/AWAIT - SERVERTEIL
+    LÖSUNGSVORSCHLAG - ÜBUNG 4: FETCH MIT POST UND ASYNC/AWAIT - SERVERTEIL
 */
 
 $eingabe = json_decode(file_get_contents("php://input"), true);

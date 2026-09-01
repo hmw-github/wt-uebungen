@@ -1,6 +1,6 @@
 <?php
 /*
-    ÜBUNG 6: PROTOKOLL MIT AJAX (Kapitel 8.2/8.4 - AJAX-Prinzip)
+    ÜBUNG 5: PROTOKOLL MIT AJAX (Kapitel 8.2/8.4 - AJAX-Prinzip)
 
     Aufgabenstellung:
     Das Gästebuch soll nicht mehr bei jedem Eintrag die ganze Seite neu

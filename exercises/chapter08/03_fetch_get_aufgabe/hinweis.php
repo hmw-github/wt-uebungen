@@ -1,6 +1,6 @@
 <?php
 /*
-    ÜBUNG 4: FETCH-API MIT GET - SERVERTEIL (Kapitel 8.4 - Fetch API)
+    ÜBUNG 3: FETCH-API MIT GET - SERVERTEIL (Kapitel 8.4 - Fetch API)
 
     Dieses Skript ist bereits vollständig (identisch zu Übung 1): Es
     filtert das Array $technologien nach dem übergebenen Praefix und

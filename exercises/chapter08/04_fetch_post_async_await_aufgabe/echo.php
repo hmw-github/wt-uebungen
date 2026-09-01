@@ -1,6 +1,6 @@
 <?php
 /*
-    ÜBUNG 5: FETCH MIT POST UND ASYNC/AWAIT - SERVERTEIL
+    ÜBUNG 4: FETCH MIT POST UND ASYNC/AWAIT - SERVERTEIL
     (Kapitel 8.4/8.6 - Fetch API / async/await)
 
     Aufgabenstellung:
