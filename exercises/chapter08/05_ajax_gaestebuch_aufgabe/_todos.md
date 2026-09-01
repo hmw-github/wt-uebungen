@@ -1,4 +1,4 @@
-# TODOs – Übung 5: Protokoll mit AJAX (Gästebuch)
+# TODOs – Übung 5: Gästebuch mit AJAX
 
 ## gaestebuch/GaestebuchView.php
 1. TODO 1: `onLoad()` implementieren. Die Funktion soll per `fetch()` eine POST-Anfrage mit dem JSON-Body `{"action": "list"}` an `api.php` senden, die Antwort als JSON auslesen (`response.json()`) und mit `fillList(antwort.entries)` die Liste befüllen.

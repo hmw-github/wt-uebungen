@@ -17,7 +17,7 @@ clientseitige einzelne HTML-Datei.
 | 2 | Promises (8.5) | `02_promises_aufgabe.html` | `../../solutions/chapter08/02_promises_loesung.html` |
 | 3 | Fetch API mit GET (8.4) | `03_fetch_get_aufgabe/` | `../../solutions/chapter08/03_fetch_get_loesung/` |
 | 4 | Fetch API mit POST & async/await (8.4/8.6) | `04_fetch_post_async_await_aufgabe/` | `../../solutions/chapter08/04_fetch_post_async_await_loesung/` |
-| 5 | Kapitelübergreifende Übung - Gästebuch mit AJAX (8.2/8.4) | `05_ajax_protokoll_aufgabe/` | `../../solutions/chapter08/05_ajax_protokoll_loesung/` |
+| 5 | Kapitelübergreifende Übung - Gästebuch mit AJAX (8.2/8.4) | `05_ajax_gaestebuch_aufgabe/` | `../../solutions/chapter08/05_ajax_gaestebuch_loesung/` |
 
 ## Wie sich die Übungen aufteilen
 

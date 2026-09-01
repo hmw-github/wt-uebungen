@@ -1,22 +1,3 @@
-<!--
-    ÜBUNG 3: FETCH-API MIT GET - CLIENTTEIL (Kapitel 8.4 - Fetch API)
-
-    Aufgabenstellung:
-    Diese Übung nutzt denselben Server wie Übung 1 (hinweis.php), ruft ihn
-    aber statt mit XMLHttpRequest mit der modernen Fetch-API auf. Ergänzen
-    Sie an den TODO-Stellen:
-
-    TODO 1: Rufen Sie mit fetch("hinweis.php?praefix=" + wert) den Server
-            auf. Prüfen Sie im ersten .then() anhand von response.ok, ob
-            die Antwort erfolgreich war; werfen Sie andernfalls mit throw
-            einen neuen Error (z.B. new Error("Serverfehler")).
-    TODO 2: Lesen Sie den Antworttext mit response.text() aus (liefert
-            selbst wieder ein Promise) und geben Sie ihn im nächsten
-            .then() in das Ergebnis-Element (id="ergebnis") aus.
-    TODO 3: Fangen Sie Fehler mit .catch() ab und zeigen Sie eine für die
-            Nutzer/-innen sichtbare Fehlermeldung im Ergebnis-Element an
-            (z.B. "Fehler beim Laden der Vorschläge.").
--->
 <!DOCTYPE html>
 <html>
 <head>

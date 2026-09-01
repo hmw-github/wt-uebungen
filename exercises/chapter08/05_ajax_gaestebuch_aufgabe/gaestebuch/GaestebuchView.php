@@ -1,6 +1,28 @@
 <?php
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 5: PROTOKOLL MIT AJAX - View GaestebuchView
+    ÜBUNG 5: Gästebuch MIT AJAX (Kapitel 8.2/8.4 - AJAX-Prinzip)
+
+    Aufgabenstellung:
+    Das Gästebuch soll nicht mehr bei jedem Eintrag die ganze Seite neu
+    laden. Beim Laden der Seite sollen alle bisher gespeicherten Einträge
+    per AJAX vom Server geladen und angezeigt werden. Über den
+    "Speichern"-Button soll ein neuer Eintrag gespeichert und die Liste
+    anschließend aktualisiert werden - beides über die neue Datei
+    gaestebuch/api.php (siehe dort). Die Hilfsfunktionen fillList(),
+    clearList() und createListElement() sind bereits fertig vorgegeben.
+
+    TODO 1: Implementieren Sie onLoad(). Die Funktion soll per fetch() eine
+            POST-Anfrage mit dem JSON-Body {"action": "list"} an api.php
+            senden, die Antwort als JSON auslesen (response.json()) und
+            mit fillList(antwort.entries) die Liste befüllen.
+    TODO 2: Implementieren Sie addGaestebuchEintrag(). Die Funktion soll
+            den Wert des Eingabefelds (id="gbNachrichtFeld") auslesen. Ist
+            der Wert leer, soll ein alert() erscheinen und die Funktion
+            abgebrochen werden (return). Andernfalls soll per fetch() eine
+            POST-Anfrage mit dem JSON-Body
+            {"action": "save", "message": ...} an api.php gesendet werden;
+            aus der (aktualisierten) Antwort soll die Liste erneut mit
+            fillList(antwort.entries) aufgebaut werden.
 */
 
 class GaestebuchView
@@ -74,6 +96,7 @@ class GaestebuchView
             <script src="../js/main.js" defer></script>
 
             <script>
+                // Fertige Hilfsfunktionen zur Anzeige der Liste.
                 function createListElement(text) {
                     var li = document.createElement("li");
                     li.textContent = text;
@@ -92,45 +115,18 @@ class GaestebuchView
                     }
                 }
 
+                // TODO 1: onLoad() implementieren (POST {"action":"list"} an
+                //         api.php, Antwort per fillList() anzeigen)
                 function onLoad() {
-                    fetch("api.php", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({ action: "list" })
-                    })
-                        .then(function(response) {
-                            return response.json();
-                        })
-                        .then(function(antwort) {
-                            fillList(antwort.entries);
-                        });
+
                 }
 
+                // TODO 2: addGaestebuchEintrag() implementieren (Eingabefeld
+                //         auslesen, bei leerem Wert alert() + return, sonst
+                //         POST {"action":"save","message":...} senden und
+                //         Liste mit fillList() neu aufbauen)
                 function addGaestebuchEintrag() {
-                    var nachrichtFeld = document.getElementById("gbNachrichtFeld");
-                    var nachricht = nachrichtFeld.value;
 
-                    if (nachricht === "") {
-                        alert("Bitte geben Sie eine Nachricht ein.");
-                        return;
-                    }
-
-                    fetch("api.php", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({ action: "save", message: nachricht })
-                    })
-                        .then(function(response) {
-                            return response.json();
-                        })
-                        .then(function(antwort) {
-                            fillList(antwort.entries);
-                            nachrichtFeld.value = "";
-                        });
                 }
 
                 window.addEventListener("load", onLoad);

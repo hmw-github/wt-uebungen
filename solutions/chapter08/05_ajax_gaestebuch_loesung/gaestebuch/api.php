@@ -1,6 +1,6 @@
 <?php
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 5: PROTOKOLL MIT AJAX - SERVERTEIL
+    LÖSUNGSVORSCHLAG - ÜBUNG 5: Gästebuch MIT AJAX - SERVERTEIL
 */
 
 spl_autoload_register(function ($class) {
