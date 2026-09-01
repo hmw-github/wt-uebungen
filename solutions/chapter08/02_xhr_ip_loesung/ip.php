@@ -1,6 +1,0 @@
-<?php
-/*
-    LÖSUNGSVORSCHLAG - ÜBUNG 2: WIE IST MEINE IP? - SERVERTEIL
-*/
-
-echo $_SERVER['REMOTE_ADDR'];
