@@ -91,11 +91,6 @@ Der Schwierigkeitsgrad steigt leicht von Übung 1 (reine Sprachgrundlagen)
 zu Übung 5 (vollständige Aufteilung einer Anwendung nach dem MVC2-Muster
 mit Autoloading).
 
-Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
-Verständnisfragen (wie in den Folien bereits vorhanden) oder um eine
-Anbindung an eine Datenbank, sobald ein späteres Kapitel Datenbankzugriff
-(z.B. PDO/MySQLi) behandelt.
-
 ## Ausführung mit Docker
 
 Da PHP-Dateien einen Webserver mit PHP-Interpreter benötigen (ein Doppelklick

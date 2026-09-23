@@ -95,7 +95,3 @@ Foliensatz eingesetzt werden. Der Schwierigkeitsgrad steigt leicht von
 (Übungen 2–3) bis zum DOM-Zugriff, zunächst lesend beim Auswerten des
 Kontaktformulars (Übung 4) und dann schreibend bei der Erzeugung der
 Projekttabelle (Übung 5).
-
-Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
-Verständnisfragen (wie in den Folien bereits vorhanden) oder um eine
-Verknüpfung mit Kapitel 8 (AJAX/Fetch), sobald dieses behandelt wird.

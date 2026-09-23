@@ -85,7 +85,3 @@ möchte, kann jederzeit direkt mit der Musterlösung der vorherigen Übung als
 Ausgangspunkt weiterarbeiten. Der Schwierigkeitsgrad steigt leicht von
 Übung 1 (reines Grundgerüst für vier einfache Seiten) zu Übung 7
 (vollständiges Kontaktformular mit mehreren Eingabetypen).
-
-Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
-Verständnisfragen (wie in den Folien bereits vorhanden) oder um weitere
-eigene Unterseiten, sobald Kapitel 4 (CSS) behandelt wird.

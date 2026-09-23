@@ -81,7 +81,3 @@ jederzeit direkt mit der Musterlösung der vorherigen Übung als
 Ausgangspunkt weiterarbeiten. Der Schwierigkeitsgrad steigt leicht von
 Übung 1 (einfache Einbindung von CSS) zu Übung 7 (vollständiges
 responsives Verhalten über einen Media-Query-Breakpoint).
-
-Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
-Verständnisfragen (wie in den Folien bereits vorhanden) oder um eine
-Kombination mit JavaScript, sobald Kapitel 5 behandelt wird.

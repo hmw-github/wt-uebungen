@@ -82,11 +82,6 @@ Folienreihenfolge im Foliensatz eingesetzt werden. Der Schwierigkeitsgrad
 steigt leicht von Übung 1 (Container/Grid als Layout-Grundlage) zu Übung 7
 (Zusammenspiel aus Cards, Formularfeldern und JavaScript-gesteuertem Modal).
 
-Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um zusätzliche
-Verständnisfragen (wie in den Folien bereits vorhanden) oder um weitere
-Bootstrap-Komponenten (Alerts, Navbar, Badges), sobald diese im Kurs
-vertieft werden.
-
 ## Ausführung mit Docker
 
 Da jeder Übungsordner PHP-Endpunkte enthält (aus Kapitel 6 übernommen),
