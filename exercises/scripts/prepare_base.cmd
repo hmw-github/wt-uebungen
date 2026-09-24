@@ -61,6 +61,8 @@ for /r "%DEST_DIR%" %%F in (*) do (
     if /I "!rel!"=="prepare.cmd" set "skip=1"
     if /I "!rel!"=="_todos.md" set "skip=1"
     echo !rel!|findstr /I /E ".todos.md" >nul && set "skip=1"
+    if /I "!rel!"=="_fragen.md" set "skip=1"
+    echo !rel!|findstr /I /E ".fragen.md" >nul && set "skip=1"
     echo !rel!|findstr /I /E ".prepare.sh" >nul && set "skip=1"
     echo !rel!|findstr /I /E ".prepare.cmd" >nul && set "skip=1"
     echo !rel!|findstr /I /C:".org." >nul && set "skip=1"

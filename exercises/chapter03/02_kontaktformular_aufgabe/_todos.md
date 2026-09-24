@@ -1,4 +1,4 @@
-# TODOs – 07_formulare_aufgabe
+# TODOs – 02_kontaktformular_aufgabe
 
 ## kontakt.html
 1. TODO 1: form-Tag mit action="kontakt-verarbeiten.php" und method="post".
@@ -9,3 +9,6 @@
 6. TODO 6: Ein mehrzeiliges Textfeld (textarea, name="nachricht") für die Nachricht, ebenfalls required.
 7. TODO 7: Eine Checkbox (name="newsletter") für "Ich möchte den Newsletter erhalten", mit label.
 8. TODO 8: Einen Submit-Button mit dem Text "Absenden".
+
+## index.html, ueber-mich.html, projekte.html, rechtliches/impressum.html
+- (kein TODO-Marker) Übernommene Lösung aus Übung 1. Mit `prepare.sh` bzw. `prepare.cmd` können Sie stattdessen Ihre eigene Lösung aus `01_portfolio_aufgabe` übernehmen.

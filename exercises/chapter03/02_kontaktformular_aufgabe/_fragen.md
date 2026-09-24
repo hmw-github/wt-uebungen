@@ -1,4 +1,4 @@
-## 3.7 Formulare (`07_formulare_aufgabe`)
+## 3.2 Kontaktformular (`02_kontaktformular_aufgabe`)
 
 1. Wie funktioniert ein Formular?
 2. Was bedeuten die Attribute `action` und `method` eines Formulars?
@@ -13,7 +13,7 @@
 
 <details><summary>Erwartete Antworten</summary>
 
-1. Bei einem `submit`-Ergeignis (z.B. submit-Button gedrückt) wird das Formular an den mit `action` spezifizierten URL gesendet. `method` definiert, wie die Eingabefelder übertragen werden. Ist `action` leer (oder fehlt), so wird die selbe Seite nochmal angefordert.
+1. Bei einem `submit`-Ereignis (z.B. submit-Button gedrückt) wird das Formular an den mit `action` spezifizierten URL gesendet. `method` definiert, wie die Eingabefelder übertragen werden. Ist `action` leer (oder fehlt), so wird die selbe Seite nochmal angefordert.
 2. `action`: URL, an die die Daten gesendet werden. `method`: HTTP-Methode (GET oder POST).
 3. GET hängt die Daten sichtbar an die URL (Länge begrenzt, als Link teilbar). POST sendet sie im Request-Body.
 4. `name` ist der Schlüssel, unter dem der Wert gesendet wird. `id` identifiziert das Element eindeutig in der Seite (für label, CSS, JS).
@@ -23,6 +23,4 @@
 8. Mit dem Attribut `selected`.
 9. `input` ist einzeilig (leeres Element), `textarea` mehrzeilig mit Start- und End-Tag.
 10. Nichts: Das Feld fehlt komplett in den gesendeten Daten (wichtig für Kapitel 6).
-</details>
-
 </details>

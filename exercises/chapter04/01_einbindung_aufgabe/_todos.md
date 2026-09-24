@@ -32,4 +32,4 @@
 1. TODO 5: Blenden Sie die Elemente header, footer sowie Elemente mit der Klasse "btn" beim Druck aus (display: none).
 
 ## js/main.js
-Keine TODOs. Die Datei enthält bereits die fertige Steuerung des Burger-Menüs (Klick-Handler, der `#hauptnav` per Klasse ein-/ausblendet); ein sinnvoller Vergleich mit dem Vorkapitel ist nicht möglich, da `exercises/chapter03/07_formulare_aufgabe` keine JS-Datei enthält.
+Keine TODOs. Die Datei enthält bereits die fertige Steuerung des Burger-Menüs (Klick-Handler, der `#hauptnav` per Klasse ein-/ausblendet); ein sinnvoller Vergleich mit dem Vorkapitel ist nicht möglich, da `exercises/chapter03/02_kontaktformular_aufgabe` keine JS-Datei enthält.

@@ -52,7 +52,7 @@ uebersprungen=0
 while IFS= read -r -d '' destfile; do
     rel="${destfile#"$DEST_DIR"/}"
     case "$rel" in
-        prepare.sh|prepare.cmd|_todos.md|*.todos.md|*.prepare.sh|*.prepare.cmd|*.org.*)
+        prepare.sh|prepare.cmd|_todos.md|*.todos.md|_fragen.md|*.fragen.md|*.prepare.sh|*.prepare.cmd|*.org.*)
             continue
             ;;
     esac
