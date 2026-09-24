@@ -1,0 +1,105 @@
+/*
+    ÜBUNG 1: CSS-GRUNDLAGEN (Kapitel 4.2–4.4) - style.css
+
+    Dies ist das Haupt-Stylesheet Ihrer Portfolio-Website. In dieser Übung
+    füllen Sie es in vier Etappen, passend zur Folienreihenfolge:
+
+    - Reset (4.2):                      TODO 1–2
+    - Grundlagen CSS-Selektoren (4.3):  TODO 3–7
+    - Boxmodell (4.4):                  TODO 8–11
+    - Text und Schrift (4.4):           TODO 12–15
+
+    Die genaue Aufgabenstellung steht in _todos.md. Einige TODOs ergänzen
+    eine Regel aus einem früheren TODO (z.B. body, .btn, #hauptnav a):
+    Schreiben Sie die neuen Eigenschaften am besten direkt in diese Regel.
+*/
+
+/* ---------- Reset (4.2) ---------- */
+
+/* TODO 1: * { box-sizing: ... } */
+
+/* TODO 2: body { margin: ... } */
+
+/* ---------- Grundlagen CSS-Selektoren (4.3) ---------- */
+
+/* TODO 3: body { font-family: ...; color: ...; } (ergänzt TODO 2) */
+
+/* TODO 4: a { color: ...; text-decoration: ...; } */
+
+/* TODO 5: header { background-color: ...; color: ...; padding: ...; } */
+
+/* TODO 6: .btn { background-color: ...; color: ...; border: ...; padding: ...; } */
+
+/* TODO 7: #hauptnav a { color: ...; margin-right: ...; } */
+
+/* ---------- Boxmodell (4.4) ---------- */
+
+/* TODO 8: #hauptnav a { display: ...; padding: ...; border-radius: ...; } (ergänzt TODO 7) */
+
+/* TODO 9: .btn { display: ...; border-radius: ...; margin-top: ...; } (ergänzt TODO 6) */
+
+/* TODO 10: table td, table th { padding: ...; border: ...; } */
+
+/* TODO 11: footer { padding: ...; margin-top: ...; border-top: ...; } */
+
+/* ---------- Text und Schrift (4.4) ---------- */
+
+/* TODO 12: h1, h2 { font-family: ...; } */
+
+/* TODO 13: h1 { font-size: ...; letter-spacing: ...; } */
+
+/* TODO 14: p { line-height: ...; } */
+
+/* TODO 15: table caption { font-style: ...; margin-bottom: ...; } */
+
+/* Entfernt die Unterstreichung bei Links mit dieser Klasse */
+.no-text-decoration {
+    text-decoration: none;
+}
+
+/* Begrenzt die Inhaltsbreite und zentriert den Hauptbereich der Seite */
+main {
+    max-width: 500px;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+/* Formatiert die Überschrift eines aufklappbaren <details>-Elements */
+details summary {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Fügt Abstand vor dem GitHub-Badge hinzu */
+.github-badge {
+    margin-left: 30px;
+}
+
+/* Feste Breite für die Link-Spalte in der Projekte-Tabelle */
+.projekte-table-link-col {
+    width: 120px;
+}
+
+/* Burger-Menü-Button für die mobile Navigation (standardmäßig ausgeblendet,
+   wird per Media Query bei kleinen Bildschirmen eingeblendet) */
+.burger-button {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Die drei horizontalen Striche (Linien) innerhalb des Burger-Buttons */
+.burger-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+}

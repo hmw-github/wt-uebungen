@@ -1,0 +1,13 @@
+/*
+    ÜBUNG 1: CSS-GRUNDLAGEN (Kapitel 4.2–4.4) - druck.css
+
+    Dieses Stylesheet wird NUR beim Drucken angewendet (siehe media="print"
+    beim Einbinden). Beim Ausdrucken sind Navigation und Footer nicht
+    sinnvoll (Links funktionieren auf Papier nicht) - blenden Sie diese
+    Bereiche daher aus:
+
+    TODO 1: Blenden Sie die Elemente header, footer sowie Elemente mit der
+            Klasse "btn" beim Druck aus (display: none).
+*/
+
+/* TODO 1: header, footer, .btn { display: ... } */

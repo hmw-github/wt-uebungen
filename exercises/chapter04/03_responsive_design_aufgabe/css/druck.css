@@ -1,0 +1,9 @@
+/*
+    LÖSUNGSVORSCHLAG - ÜBUNG 1: CSS-GRUNDLAGEN - druck.css
+*/
+
+header,
+footer,
+.btn {
+    display: none;
+}

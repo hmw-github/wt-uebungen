@@ -1,8 +1,9 @@
 # Übungsaufgaben zu Kapitel 4: CSS
 
-Diese 7 Übungen decken die zentralen Themen des Kapitels ab (4.2–4.6) und
-sind so konzipiert, dass sie direkt nach der jeweiligen Wiederholung im
-Vorlesungsteil bearbeitet werden können.
+Diese 3 Übungen decken die zentralen Themen des Kapitels ab (4.2–4.6):
+Übung 1 behandelt die CSS-Grundlagen (Einbinden, Selektoren, Boxmodell,
+Text und Schrift, 4.2–4.4), Übung 2 Flexbox und fortgeschrittene
+Selektoren (4.4–4.5) und Übung 3 Responsive Web Design (4.6).
 
 **Durchgängiges Projekt:** Diese Übungen setzen die Portfolio-Website aus
 Kapitel 3 fort und gestalten sie mit CSS. Jede Übung besteht aus einem
@@ -14,41 +15,41 @@ kompletten aktuellen Stand der Website (vier HTML-Seiten,
 
 | # | Thema (Kapitel) | Aufgabenordner | Lösungsordner |
 |---|---|---|---|
-| 1 | Einbinden von CSS (4.2) | `01_einbindung_aufgabe/` | `../../solutions/chapter04/01_einbindung_loesung/` |
-| 2 | Grundlagen CSS-Selektoren (4.3) | `02_selektoren_grundlagen_aufgabe/` | `../../solutions/chapter04/02_selektoren_grundlagen_loesung/` |
-| 3 | Boxmodell (4.4) | `03_boxmodell_aufgabe/` | `../../solutions/chapter04/03_boxmodell_loesung/` |
-| 4 | Text und Schrift (4.4) | `04_text_und_schrift_aufgabe/` | `../../solutions/chapter04/04_text_und_schrift_loesung/` |
-| 5 | Display und Flexbox (4.4) | `05_display_und_flexbox_aufgabe/` | `../../solutions/chapter04/05_display_und_flexbox_loesung/` |
-| 6 | Fortgeschrittene Selektoren (4.5) | `06_fortgeschrittene_selektoren_aufgabe/` | `../../solutions/chapter04/06_fortgeschrittene_selektoren_loesung/` |
-| 7 | Responsive Web Design (4.6) | `07_responsive_design_aufgabe/` | `../../solutions/chapter04/07_responsive_design_loesung/` |
+| 1 | CSS-Grundlagen: Einbinden, Selektoren, Boxmodell, Text und Schrift (4.2–4.4) | `01_css_grundlagen_aufgabe/` | `../../solutions/chapter04/01_css_grundlagen_loesung/` |
+| 2 | Display und Flexbox, fortgeschrittene Selektoren (4.4–4.5) | `02_flexbox_und_selektoren_aufgabe/` | `../../solutions/chapter04/02_flexbox_und_selektoren_loesung/` |
+| 3 | Responsive Web Design (4.6) | `03_responsive_design_aufgabe/` | `../../solutions/chapter04/03_responsive_design_loesung/` |
 
 ## Wie die Website in diesem Kapitel weiterentwickelt wird
 
 Anders als in Kapitel 3 ändern sich die vier HTML-Seiten ab Übung 2 kaum
 noch – im Mittelpunkt steht die **eine gemeinsame Datei `css/style.css`**,
-die von Übung zu Übung um einen neuen Themenblock wächst (bereits gelöste
-Blöcke aus früheren Übungen bleiben dabei unverändert erhalten):
+die von Übung zu Übung wächst (bereits gelöste Regeln aus früheren
+Übungen bleiben dabei unverändert erhalten):
 
-- **Übung 1** bindet `css/style.css` sowie ein separates
-  Druck-Stylesheet `css/druck.css` (`media="print"`) in allen Seiten ein
-  und ergänzt einen minimalen Reset.
-- **Übung 2** vergibt über Typ-, Klassen- und ID-Selektoren die
-  Grundfarben und Schriftart der Seite.
-- **Übung 3** wendet das Boxmodell auf Navigation, Buttons, Tabellenzellen
-  und den Footer an (padding, border, margin, border-radius).
-- **Übung 4** verfeinert die Typografie (Schriftart der Überschriften,
-  Zeilenhöhe, Schriftgrad).
-- **Übung 5** bringt Header und Footer per Flexbox in Form (Logo und
-  Navigation nebeneinander, Footer-Links zentriert).
-- **Übung 6** ergänzt Pseudoklassen (`:hover`, `:nth-child`),
-  Attributselektoren (`input[type="..."]`) und ein Pseudoelement
-  (`::after`) für einen kleinen Pfeil hinter externen Links. Zusätzlich
-  wird die Projekttabelle mit einem farbig abgesetzten Tabellenkopf
-  (`thead`) und einer Hover-Hervorhebung der Zeilen (`tr:hover`)
-  verschönert.
-- **Übung 7** macht die Website mit einem Media Query
+- **Übung 1** legt die Grundlagen, gegliedert in vier Etappen:
+  - *Einbinden (4.2):* `css/style.css` sowie ein separates
+    Druck-Stylesheet `css/druck.css` (`media="print"`) in allen Seiten
+    einbinden und einen minimalen Reset ergänzen.
+  - *Selektoren (4.3):* über Typ-, Klassen- und ID-Selektoren die
+    Grundfarben und Schriftart der Seite vergeben.
+  - *Boxmodell (4.4):* Navigation, Buttons, Tabellenzellen und Footer mit
+    padding, border, margin und border-radius gestalten.
+  - *Text und Schrift (4.4):* die Typografie verfeinern (Schriftart der
+    Überschriften, Zeilenhöhe, Schriftgrad).
+- **Übung 2** bringt Header und Footer per Flexbox in Form (Logo und
+  Navigation nebeneinander, Footer-Links zentriert) und ergänzt
+  Pseudoklassen (`:hover`, `:nth-child`), Attributselektoren
+  (`input[type="..."]`) und ein Pseudoelement (`::after`) für einen
+  kleinen Pfeil hinter externen Links. Zusätzlich wird die Projekttabelle
+  mit einem farbig abgesetzten Tabellenkopf (`thead`) und einer
+  Hover-Hervorhebung der Zeilen (`tr:hover`) verschönert.
+- **Übung 3** macht die Website mit einem Media Query
   (`max-width: 600px`) für Smartphones nutzbar: Navigation und
   Formularfelder passen sich auf schmalen Bildschirmen an.
+
+Die TODO-Nummern zählen pro Datei; `_todos.md` ordnet sie zusätzlich den
+Kapitelthemen zu. Mit `prepare.sh` bzw. `prepare.cmd` lässt sich jeweils
+die eigene Lösung der vorherigen Übung übernehmen.
 
 ## Aufbau jeder Aufgabendatei
 
@@ -74,10 +75,12 @@ Blöcke aus früheren Übungen bleiben dabei unverändert erhalten):
 
 ## Didaktischer Hinweis
 
-Die Übungen bauen ab dieser Kapitelüberarbeitung bewusst eng aufeinander
-auf, da `style.css` von Übung zu Übung weiterwächst. Wer dennoch nur eine
-einzelne Übung passend zur Folienreihenfolge bearbeiten möchte, kann
-jederzeit direkt mit der Musterlösung der vorherigen Übung als
-Ausgangspunkt weiterarbeiten. Der Schwierigkeitsgrad steigt leicht von
-Übung 1 (einfache Einbindung von CSS) zu Übung 7 (vollständiges
-responsives Verhalten über einen Media-Query-Breakpoint).
+Die Übungen bauen bewusst eng aufeinander auf, da `style.css` von Übung
+zu Übung weiterwächst. Übung 1 ist umfangreich und lässt sich entlang der
+Themen in Etappen bearbeiten (die Gruppierung in `style.css` und
+`_todos.md` folgt der Folienreihenfolge). Wer eine Übung nicht vollständig
+gelöst hat, kann für die nächste direkt mit dem vorgegebenen Stand im
+Aufgabenordner (der der Musterlösung der vorherigen Übung entspricht)
+weiterarbeiten. Der Schwierigkeitsgrad steigt leicht von Übung 1
+(Einbindung und einfache Regeln) zu Übung 3 (responsives Verhalten über
+einen Media-Query-Breakpoint).
