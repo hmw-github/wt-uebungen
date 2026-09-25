@@ -1,24 +1,23 @@
 # Übungsaufgaben zu Kapitel 9: REST
 
-Diese 4 Übungen decken die Themen des Kapitels ab (9.1–9.4: REST-Grundprinzipien,
+Diese 3 Übungen decken die Themen des Kapitels ab (9.1–9.4: REST-Grundprinzipien,
 mehrere Repräsentationen und zustandslose Kommunikation) und bilden den
 Abschluss des Kurses: von der Planung einer REST-Schnittstelle über eine
-rein lesende Schnittstelle bis zu einer vollständigen CRUD-Schnittstelle,
-die **die Portfolio-Website tatsächlich mit echten Daten versorgt**.
+vollständige CRUD-Schnittstelle bis zu einem Client, der **die
+Portfolio-Website tatsächlich mit echten Daten versorgt**.
 
 **Durchgängiges Projekt:** Die Ressource dieser REST-Schnittstelle ist
 "Projekt" (id, titel, technologie, jahr, link) - genau die Daten, die seit
-Kapitel 5 auf der Seite "Projekte" angezeigt werden. Übung 4 ist der
+Kapitel 5 auf der Seite "Projekte" angezeigt werden. Übung 3 ist der
 Abschluss der gesamten Website: Die Projekte-Seite lädt, erstellt,
 bearbeitet und löscht ihre Projekte ab jetzt ausschließlich über die
-selbst gebaute REST-Schnittstelle aus Übung 3.
+selbst gebaute REST-Schnittstelle aus Übung 2.
 
 | # | Thema (Kapitel) | Aufgabendatei/-ordner | Lösungsdatei/-ordner |
 |---|---|---|---|
 | 1 | REST-Routendesign (9.1) | `01_rest_design_aufgabe/routen.php` | `../../solutions/chapter09/01_rest_design_loesung/routen.php` |
-| 2 | Lesende REST-Schnittstelle (9.2) | `02_rest_get_api_aufgabe/` (Website + `api/service.php`) | `../../solutions/chapter09/02_rest_get_api_loesung/` |
-| 3 | Vollständige CRUD-Schnittstelle (9.2) | `03_rest_crud_api_aufgabe/` (Website + `api/service.php`) | `../../solutions/chapter09/03_rest_crud_api_loesung/` |
-| 4 | REST-Client mit fetch (9.2, 9.3) | `04_rest_client_aufgabe/` (Website, `projekte.html` als REST-Client) | `../../solutions/chapter09/04_rest_client_loesung/` |
+| 2 | REST-Schnittstelle mit allen CRUD-Operationen (9.2) | `02_rest_api_aufgabe/` (Website + `api/service.php`) | `../../solutions/chapter09/02_rest_api_loesung/` |
+| 3 | REST-Client mit fetch (9.2, 9.3) | `03_rest_client_aufgabe/` (Website, `projekte.html` als REST-Client) | `../../solutions/chapter09/03_rest_client_loesung/` |
 
 ## Wie die Website in diesem Kapitel fertiggestellt wird
 
@@ -26,19 +25,20 @@ selbst gebaute REST-Schnittstelle aus Übung 3.
   Code-Ebene (ohne HTTP-Server) - eine Routentabelle für die Ressource
   "Projekt" sowie eine kleine Zuordnungslogik, die zu Methode+Pfad die
   passende Aktion findet.
-- **Übung 2** setzt eine rein lesende Schnittstelle dafür tatsächlich um:
-  Der komplette aktuelle Stand der Website bekommt einen neuen Unterordner
-  `api/` mit `service.php` (liefert `GET /projekte` und `GET /projekt/{id}`
-  als JSON). Damit die "schönen" REST-URLs wie `api/projekt/2` überhaupt
+- **Übung 2** setzt die Schnittstelle dafür tatsächlich um: Der komplette
+  aktuelle Stand der Website bekommt einen neuen Unterordner `api/` mit
+  `service.php`. Zuerst entstehen die lesenden Operationen
+  `GET /projekte` und `GET /projekt/{id}` (JSON), danach die schreibenden
+  Operationen `POST /projekt`, `PUT /projekt/{id}` und
+  `DELETE /projekt/{id}`. Die Projekte liegen dabei in der PHP-Session
+  (keine Datenbank nötig); Session-Initialisierung und CORS-Header sind
+  vorgegeben. Damit die "schönen" REST-URLs wie `api/projekt/2` überhaupt
   bei `service.php` ankommen, ist serverseitiges URL-Rewriting nötig - das
   übernimmt hier zentral die `nginx.conf` des Docker-Setups (siehe
   "Wie die Umleitung mit nginx funktioniert" unten), nicht die einzelne
   Übungsdatei. Die Projekte-Seite selbst nutzt diese Schnittstelle noch
-  nicht - das ist Gegenstand von Übung 4.
-- **Übung 3** erweitert `api/service.php` um die schreibenden Operationen
-  `POST /projekt`, `PUT /projekt/{id}` und `DELETE /projekt/{id}` mit
-  session-basierter Datenhaltung (keine Datenbank nötig) sowie CORS-Headern.
-- **Übung 4** ist der Abschluss des gesamten Kurses: `projekte.html`
+  nicht - das ist Gegenstand von Übung 3.
+- **Übung 3** ist der Abschluss des gesamten Kurses: `projekte.html`
   lädt seine Projekt-Karten (aus Kapitel 7) jetzt per `fetch()` von
   `api/projekte`, legt über den Button "Neues Projekt anlegen" per `POST`
   neue Projekte an, speichert Änderungen aus dem Bearbeiten-Modal (aus
@@ -70,24 +70,26 @@ selbst gebaute REST-Schnittstelle aus Übung 3.
 - Enthält eine vollständige, funktionsfähige Musterlösung ohne verbleibende
   TODO-Kommentare.
 - Kann als Referenz für die Korrektur, zur Selbstkontrolle oder – im Fall
-  von Übung 3 – als laufende Schnittstelle für den Client aus Übung 4
+  von Übung 2 – als laufende Schnittstelle für den Client aus Übung 3
   verwendet werden.
 
 ## Didaktischer Hinweis
 
 Die Übungen bauen inhaltlich aufeinander auf: Übung 1 entwirft die Routen
 einer REST-Schnittstelle rein auf Code-Ebene (ohne HTTP-Server), Übung 2
-setzt eine lesende Schnittstelle dafür tatsächlich um, Übung 3 erweitert
-diese um schreibende Operationen (Create, Update, Delete) mit
-session-basierter Datenhaltung, und Übung 4 konsumiert die Schnittstelle aus
-Übung 3 über einen fetch-basierten JavaScript-Client - direkt in der
-echten Projekte-Seite der Website. Der Schwierigkeitsgrad steigt
-entsprechend von Übung 1 (Routendesign ohne Server) zu Übung 4
-(vollständiges Zusammenspiel aus Client und CRUD-Schnittstelle).
+setzt die Schnittstelle mit lesenden und schreibenden Operationen (Read,
+Create, Update, Delete) und session-basierter Datenhaltung tatsächlich um,
+und Übung 3 konsumiert die Schnittstelle aus Übung 2 über einen
+fetch-basierten JavaScript-Client - direkt in der echten Projekte-Seite der
+Website. Der Schwierigkeitsgrad steigt entsprechend von Übung 1
+(Routendesign ohne Server) zu Übung 3 (vollständiges Zusammenspiel aus
+Client und CRUD-Schnittstelle).
 
 Die Übungen sind dennoch grundsätzlich unabhängig voneinander lösbar: Wer
-z.B. nur Übung 3 bearbeiten möchte, kann direkt die Musterlösung von Übung 2
-als Ausgangspunkt betrachten, ohne Übung 1 gelöst zu haben.
+z.B. nur Übung 3 bearbeiten möchte, findet in deren Aufgabenordner die
+fertige Schnittstelle aus Übung 2 vor, ohne Übung 1 oder 2 gelöst zu haben.
+Übung 2 lässt sich in zwei Etappen bearbeiten: erst die lesenden
+(TODO 1–2), dann die schreibenden Operationen (TODO 3–5).
 
 Bei Bedarf lassen sich die Übungen leicht erweitern, z.B. um eine
 XML-Repräsentation zusätzlich zu JSON (Kapitel 9.3), um eine echte
@@ -108,14 +110,14 @@ relevanten Blöcke in der `nginx.conf` dieses Ordners (analog in
 `../../solutions/chapter09/nginx.conf`) sehen vereinfacht so aus:
 
 ```nginx
-location ~ ^/(02_rest_get_api_aufgabe|03_rest_crud_api_aufgabe|04_rest_client_aufgabe)/api/service\.php$ {
+location ~ ^/(02_rest_api_aufgabe|03_rest_client_aufgabe)/api/service\.php$ {
     fastcgi_pass php:9000;
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     include fastcgi_params;
 }
 
-location ~ ^/(02_rest_get_api_aufgabe|03_rest_crud_api_aufgabe|04_rest_client_aufgabe)/api(/.*)?$ {
+location ~ ^/(02_rest_api_aufgabe|03_rest_client_aufgabe)/api(/.*)?$ {
     try_files $uri $uri/ /$1/api/service.php?_url=$2;
 }
 ```
@@ -136,7 +138,7 @@ location ~ ^/(02_rest_get_api_aufgabe|03_rest_crud_api_aufgabe|04_rest_client_au
   stehende.
 
 Diese Konfiguration ist für alle Übungsordner mit `api/`-Unterordner
-(Übung 2–4) bereits vollständig eingerichtet und ist kein Teil der
+(Übung 2 und 3) bereits vollständig eingerichtet und ist kein Teil der
 Übungen - Sie müssen also weder `nginx.conf` noch das Rewriting selbst
 bearbeiten, sondern nur `api/service.php`.
 
@@ -168,11 +170,11 @@ lauffähig ist:
    ```
 
 2. Anschließend sind die Übungsordner erreichbar, z.B.:
-   - `http://localhost:8019/02_rest_get_api_loesung/api/projekte` – lesende
+   - `http://localhost:8019/02_rest_api_loesung/api/projekte` – lesende
      GET-Anfrage, kann direkt im Browser geöffnet werden.
-   - `http://localhost:8019/03_rest_crud_api_loesung/api/projekt/1` – GET
+   - `http://localhost:8019/02_rest_api_loesung/api/projekt/1` – GET
      auf ein einzelnes Projekt.
-   - `http://localhost:8009/04_rest_client_aufgabe/projekte.html` – die
+   - `http://localhost:8009/03_rest_client_aufgabe/projekte.html` – die
      echte, um die REST-Schnittstelle ergänzte Projekte-Seite der Website.
      Client und Schnittstelle laufen hier im selben Ordner/Container und
      sprechen sich daher über einen einfachen, relativen (same-origin)
@@ -184,7 +186,7 @@ lauffähig ist:
    DELETE-Anfragen wird dagegen ein Werkzeug benötigt, das diese
    HTTP-Methoden senden kann, da der Browser beim einfachen Aufrufen einer
    Adresse immer nur GET-Anfragen sendet. Jeder Übungsordner mit
-   `api/`-Unterordner (Übung 2–4) enthält dafür bereits eine Datei
+   `api/`-Unterordner (Übung 2 und 3) enthält dafür bereits eine Datei
    `api/tests.http` mit vorbereiteten Requests für alle Operationen
    (inkl. Erfolgs- und Fehlerfällen wie einer nicht existierenden id).
    Sie lässt sich direkt im Editor ausführen, sofern eine passende
@@ -199,7 +201,7 @@ lauffähig ist:
    ```
    curl -i -X POST -H "Content-Type: application/json" \
         -d '{"titel":"Neues Projekt","technologie":"Vue.js","jahr":2027,"link":"https://example.com"}' \
-        http://localhost:8019/03_rest_crud_api_loesung/api/projekt
+        http://localhost:8019/02_rest_api_loesung/api/projekt
    ```
 
 3. Nach der Bearbeitung den jeweiligen Container wieder stoppen:

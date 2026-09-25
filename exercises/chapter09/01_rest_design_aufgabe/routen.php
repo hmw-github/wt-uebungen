@@ -5,7 +5,7 @@
     Aufgabenstellung:
     Für die Ressource "Projekt" (Attribute: id, titel, technologie, jahr)
     Ihrer Portfolio-Website soll eine REST-Schnittstelle entworfen werden -
-    genau die Schnittstelle, die Sie in den Übungen 2 bis 4 tatsächlich
+    genau die Schnittstelle, die Sie in den Übungen 2 und 3 tatsächlich
     umsetzen. Ergänzen Sie in der Tabelle $routen die fehlenden Routen
     (Methode + Pfad + Aktionsname) sowie anschließend die
     Zuordnungslogik, die zu einer gegebenen Methode/Pfad-Kombination die

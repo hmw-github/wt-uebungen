@@ -1,0 +1,40 @@
+### Testdatei für den REST-Client der Entwicklungsumgebung
+### (z.B. Erweiterung "REST Client" in VS Code oder der eingebaute
+### HTTP Client in PhpStorm/IntelliJ). Die Schnittstelle selbst ist hier
+### bereits die fertige Lösung aus Übung 2 - diese Datei eignet sich vor
+### allem, um beim Nachvollziehen des fetch()-Clients in projekte.html die
+### erwarteten Antworten der Schnittstelle direkt zu sehen.
+### Container vorher starten (siehe README, "docker compose up -d").
+
+@baseUrl = http://localhost:8019/03_rest_client_loesung/api
+
+### Alle Projekte abrufen
+GET {{baseUrl}}/projekte
+
+### Einzelnes Projekt abrufen
+GET {{baseUrl}}/projekt/1
+
+### Neues Projekt anlegen
+POST {{baseUrl}}/projekt
+Content-Type: application/json
+
+{
+    "titel": "Testprojekt",
+    "technologie": "PHP, REST",
+    "jahr": 2026,
+    "link": "https://github.com/alexberger/testprojekt"
+}
+
+### Bestehendes Projekt aktualisieren
+PUT {{baseUrl}}/projekt/1
+Content-Type: application/json
+
+{
+    "titel": "Wetter-App v2",
+    "technologie": "JavaScript, Fetch API, CSS",
+    "jahr": 2025,
+    "link": "https://github.com/alexberger/wetter-app"
+}
+
+### Projekt löschen
+DELETE {{baseUrl}}/projekt/5

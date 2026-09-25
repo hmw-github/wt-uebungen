@@ -54,7 +54,7 @@ Der Block für das Burger-Menü am Dateianfang ist bereits fertig (kein TODO).
 
 ## kontaktanfrage-bestaetigung.html (neu)
 
-- (kein TODO-Marker) Neue Seite mit vorgegebenen Platzhalter-Elementen (`#begruessung` sowie den `#detail...`-Spans), die von TODO 4 in `js/main.js` befüllt werden. Analog zu `solutions/chapter09/04_rest_client_loesung/kontakt-verarbeiten.php` aufgebaut (Begrüßungstext + Liste der übermittelten Werte + Link zurück zum Formular), liest die Daten hier jedoch aus dem localStorage statt aus `$_POST`.
+- (kein TODO-Marker) Neue Seite mit vorgegebenen Platzhalter-Elementen (`#begruessung` sowie den `#detail...`-Spans), die von TODO 4 in `js/main.js` befüllt werden. Analog zu `solutions/chapter09/03_rest_client_loesung/kontakt-verarbeiten.php` aufgebaut (Begrüßungstext + Liste der übermittelten Werte + Link zurück zum Formular), liest die Daten hier jedoch aus dem localStorage statt aus `$_POST`.
 
 ## projekte.html und projekte.json
 

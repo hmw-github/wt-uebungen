@@ -48,7 +48,7 @@ dafür die eigentlichen Website-Dateien anfassen müssen.
     gespeichert. Anschließend zeigt die neue Seite
     `kontaktanfrage-bestaetigung.html` die gespeicherten Daten wieder an –
     aufgebaut analog zu
-    `solutions/chapter09/04_rest_client_loesung/kontakt-verarbeiten.php`,
+    `solutions/chapter09/03_rest_client_loesung/kontakt-verarbeiten.php`,
     liest die Werte aber aus dem `localStorage` statt aus `$_POST`.
   - *DOM-Manipulation (5.5):* Die bisher statische Projekttabelle auf
     `projekte.html` wird durch echte DOM-Manipulation aus Daten erzeugt,
