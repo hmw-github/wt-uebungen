@@ -17,4 +17,4 @@ Innerhalb des am Ende der Datei bereits vorhandenen `@media (max-width: 600px)`-
 
 ## Übrige Dateien
 
-index.html, kontakt.html, projekte.html, ueber-mich.html, rechtliches/impressum.html, css/druck.css und js/main.js enthalten keine TODOs und sind bis auf die Titelzeile im Kopfkommentar identisch mit der Lösung von Übung 2 (02_flexbox_und_selektoren_aufgabe). Mit `prepare.sh` bzw. `prepare.cmd` können Sie Ihre eigene Lösung aus Übung 2 übernehmen.
+index.html, kontakt.html, projekte.html, ueber-mich.html, rechtliches/impressum.html, css/druck.css und js/main.js enthalten keine TODOs und sind bis auf die Titelzeile im Kopfkommentar identisch mit der Lösung von Übung 2 (02_flexbox_und_selektoren_aufgabe).

@@ -48,8 +48,7 @@ die von Übung zu Übung wächst (bereits gelöste Regeln aus früheren
   Formularfelder passen sich auf schmalen Bildschirmen an.
 
 Die TODO-Nummern zählen pro Datei; `_todos.md` ordnet sie zusätzlich den
-Kapitelthemen zu. Mit `prepare.sh` bzw. `prepare.cmd` lässt sich jeweils
-die eigene Lösung der vorherigen Übung übernehmen.
+Kapitelthemen zu.
 
 ## Aufbau jeder Aufgabendatei
 

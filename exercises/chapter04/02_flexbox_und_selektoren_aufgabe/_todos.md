@@ -26,4 +26,4 @@
 
 ## Übrige Dateien
 
-index.html, kontakt.html, projekte.html, ueber-mich.html, rechtliches/impressum.html, css/druck.css und js/main.js enthalten keine TODOs und sind bis auf die Titelzeile im Kopfkommentar identisch mit der Lösung von Übung 1 (01_css_grundlagen_aufgabe). Mit `prepare.sh` bzw. `prepare.cmd` können Sie Ihre eigene Lösung aus Übung 1 übernehmen.
+index.html, kontakt.html, projekte.html, ueber-mich.html, rechtliches/impressum.html, css/druck.css und js/main.js enthalten keine TODOs und sind bis auf die Titelzeile im Kopfkommentar identisch mit der Lösung von Übung 1 (01_css_grundlagen_aufgabe).

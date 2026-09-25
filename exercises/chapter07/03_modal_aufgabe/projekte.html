@@ -1,0 +1,211 @@
+<!--
+    ÜBUNG 3: MODAL (Kapitel 7.9 - Modal)
+
+    Aufgabenstellung:
+    Diese Übung baut auf Übung 1 (Cards) auf: Das Projekt-Karten-Deck ist
+    bereits fertig vorgegeben. Statt aber wie bisher nur eine Meldung
+    anzuzeigen, soll der "Bearbeiten"-Button jetzt ein Bootstrap-Modal mit
+    einem Bearbeitungsformular öffnen. Diese Änderungen sind rein
+    clientseitig (nach einem Neuladen der Seite sind sie wieder weg) -
+    in Kapitel 9 (REST) bauen Sie eine echte Schnittstelle, die
+    Änderungen dauerhaft speichert. Ergänzen Sie an den TODO-Stellen den
+    fehlenden Code:
+
+    TODO 1: Erstellen Sie die Modal-Grundstruktur:
+              div class="modal" id="bearbeitenModal"
+                > div class="modal-dialog"
+                  > div class="modal-content"
+                    > div class="modal-header" mit Titel "Projekt bearbeiten"
+                      und einem Schließen-Button (button class="btn-close"
+                      data-bs-dismiss="modal")
+                    > div class="modal-body" mit drei Formularfeldern
+                      (je label + input class="form-control"):
+                        - Titel        -> id="modalTitel"
+                        - Technologie  -> id="modalTechnologie"
+                        - Jahr         -> id="modalJahr" (type="number")
+                    > div class="modal-footer" mit zwei Buttons:
+                        - "Abbrechen" (class="btn btn-secondary",
+                          onclick="schließen()")
+                        - "Speichern" (class="btn btn-primary",
+                          onclick="speichern()")
+    TODO 2: Implementieren Sie die JavaScript-Funktion projektBearbeiten(cardId):
+              - Liest die aktuellen Werte aus den Elementen
+                cardId+"-titel", cardId+"-technologie", cardId+"-jahr" aus.
+              - Schreibt diese Werte in die Modal-Eingabefelder (modalTitel,
+                modalTechnologie, modalJahr).
+              - Merkt sich die cardId (z.B. in einer Modul-Variable), damit
+                speichern() später weiß, welche Karte aktualisiert werden soll.
+              - Zeigt das Modal an mittels
+                bootstrap.Modal.getOrCreateInstance(modalElement).show().
+    TODO 3: Implementieren Sie die JavaScript-Funktion schließen(), die das
+            Modal mittels bootstrap.Modal.getOrCreateInstance(modalElement).hide()
+            wieder ausblendet (ohne etwas zu speichern).
+    TODO 4: Implementieren Sie die JavaScript-Funktion speichern(), die die
+            aktuellen Werte aus den Modal-Eingabefeldern zurück in die
+            entsprechenden Karten-Elemente (cardId+"-titel" usw.) schreibt.
+            Aktualisieren Sie dabei auch das data-jahr-Attribut der Karte
+            selbst (document.getElementById(cardId).dataset.jahr) auf den
+            neuen Jahreswert - sonst findet der Hervorheben-Button
+            ([data-jahr="2026"]) die Karte nach einer Jahresänderung nicht
+            mehr. Schließen Sie das Modal anschließend ebenfalls (z.B.
+            durch Aufruf von schließen()).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Projekte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/druck.css" media="print">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="index.php">
+            <img src="images/logo.png" alt="Logo Alex Berger" height="50">
+        </a>
+
+        <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="hauptnav">
+            <a href="index.php">Startseite</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="kontakt.php">Kontakt</a>
+            <a href="technik-spielwiese.php">Technik-Spielwiese</a>
+        </nav>
+    </header>
+
+    <main>
+    <div class="container mt-4">
+
+        <h1>Projekte</h1>
+
+        <p>Auf dieser Seite stelle ich nach und nach einige meiner Projekte vor.</p>
+
+        <button id="filterButton" class="btn btn-secondary mb-3">Projekte aus 2026 hervorheben</button>
+
+        <div class="row" id="projekteKoerper">
+        </div>
+
+    </div>
+
+    <!-- TODO 1: Modal-Grundstruktur (modal / modal-dialog / modal-content) -->
+
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+    <script>
+        const projekte = [
+            { titel: "Wetter-App", technologie: "JavaScript, Fetch API", jahr: 2024, link: "https://github.com/alexberger/wetter-app" },
+            { titel: "Rezeptsammlung", technologie: "PHP, MySQL", jahr: 2025, link: "https://github.com/alexberger/rezeptsammlung" },
+            { titel: "Portfolio-Website", technologie: "HTML, CSS, JS, PHP, REST", jahr: 2026, link: "https://github.com/alexberger/portfolio" }
+        ];
+
+        var aktuelleCardId = null;
+
+        // TODO 2: Funktion projektBearbeiten(cardId) implementieren
+
+        // TODO 3: Funktion schließen() implementieren
+
+        // TODO 4: Funktion speichern() implementieren
+
+        const projekteKoerper = document.getElementById("projekteKoerper");
+
+        let index = 0;
+        for (const projekt of projekte) {
+            index++;
+            const cardId = "card" + index;
+
+            const spalte = document.createElement("div");
+            spalte.className = "col-md-6 mb-3";
+
+            const card = document.createElement("div");
+            card.id = cardId;
+            card.className = "card";
+            card.dataset.jahr = projekt.jahr;
+
+            const titel = document.createElement("div");
+            titel.className = "card-header";
+            titel.id = cardId + "-titel";
+            titel.textContent = projekt.titel;
+            card.appendChild(titel);
+
+            const body = document.createElement("div");
+            body.className = "card-body";
+
+            const technologieAbsatz = document.createElement("p");
+            technologieAbsatz.className = "card-text mb-1";
+            const technologieLabel = document.createElement("strong");
+            technologieLabel.textContent = "Technologie:";
+            const technologieWert = document.createElement("span");
+            technologieWert.id = cardId + "-technologie";
+            technologieWert.textContent = projekt.technologie;
+            technologieAbsatz.append(technologieLabel, " ", technologieWert);
+            body.appendChild(technologieAbsatz);
+
+            const jahrAbsatz = document.createElement("p");
+            jahrAbsatz.className = "card-text";
+            const jahrLabel = document.createElement("strong");
+            jahrLabel.textContent = "Jahr:";
+            const jahrWert = document.createElement("span");
+            jahrWert.id = cardId + "-jahr";
+            jahrWert.textContent = projekt.jahr;
+            jahrAbsatz.append(jahrLabel, " ", jahrWert);
+            body.appendChild(jahrAbsatz);
+
+            card.appendChild(body);
+
+            const footer = document.createElement("div");
+            footer.className = "card-footer";
+
+            const link = document.createElement("a");
+            link.href = projekt.link;
+            link.target = "_blank";
+            link.className = "btn btn-outline-secondary btn-sm";
+            link.textContent = "Repository";
+            footer.appendChild(link);
+
+            const bearbeitenButton = document.createElement("button");
+            bearbeitenButton.type = "button";
+            bearbeitenButton.className = "btn btn-primary btn-sm";
+            bearbeitenButton.textContent = "Bearbeiten";
+            bearbeitenButton.addEventListener("click", function() {
+                projektBearbeiten(cardId);
+            });
+            footer.appendChild(bearbeitenButton);
+
+            card.appendChild(footer);
+            spalte.appendChild(card);
+            projekteKoerper.appendChild(spalte);
+        }
+
+        const filterButton = document.getElementById("filterButton");
+        filterButton.addEventListener("click", function() {
+            const karten = document.querySelectorAll('[data-jahr="2026"]');
+            for (const karte of karten) {
+                karte.classList.toggle("hervorgehoben");
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -11,4 +11,4 @@
 8. TODO 8: Einen Submit-Button mit dem Text "Absenden".
 
 ## index.html, ueber-mich.html, projekte.html, rechtliches/impressum.html
-- (kein TODO-Marker) Übernommene Lösung aus Übung 1. Mit `prepare.sh` bzw. `prepare.cmd` können Sie stattdessen Ihre eigene Lösung aus `01_portfolio_aufgabe` übernehmen.
+- (kein TODO-Marker) Übernommene Lösung aus Übung 1.

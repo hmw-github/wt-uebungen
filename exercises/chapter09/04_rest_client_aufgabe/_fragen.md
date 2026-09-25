@@ -7,7 +7,7 @@
 5. Wozu dient `projekteCache`?
 6. Wie leert man einen Container vor dem Neuaufbau (z.B. `innerHTML = ""` oder `replaceChildren()`)?
 7. Warum muss man `ladeProjekte()` nach `await fetch(...)` aufrufen und nicht direkt danach ohne `await`?
-8. Was ändert sich gegenüber der Modal-Lösung aus Übung 7.7 für die Dauerhaftigkeit der Daten?
+8. Was ändert sich gegenüber der Modal-Lösung aus Übung 7.3 für die Dauerhaftigkeit der Daten?
 
 <details><summary>Erwartete Antworten</summary>
 

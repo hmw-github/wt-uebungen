@@ -59,8 +59,7 @@ dafür die eigentlichen Website-Dateien anfassen müssen.
     JSON-Antwort einer echten REST-Schnittstelle.
 
   Die TODO-Nummern zählen pro Datei; `_todos.md` ordnet sie zusätzlich den
-  Kapitelthemen zu. Mit `prepare.sh` bzw. `prepare.cmd` lässt sich die
-  eigene Lösung aus Kapitel 4 übernehmen.
+  Kapitelthemen zu.
 
 ## Aufbau jeder Aufgabendatei
 

@@ -46,8 +46,7 @@ nachvollziehen können.
   Menü navigierbar.
 - **Übung 2** ergänzt ein Kontaktformular auf der Seite "Kontakt", dessen
   `action` bereits auf eine `kontakt-verarbeiten.php` verweist, die in
-  Kapitel 6 (PHP) tatsächlich umgesetzt wird. Mit `prepare.sh` bzw.
-  `prepare.cmd` lässt sich die eigene Lösung aus Übung 1 übernehmen.
+  Kapitel 6 (PHP) tatsächlich umgesetzt wird.
 
 ## Aufbau jeder Aufgabendatei
 

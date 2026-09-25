@@ -1,7 +1,7 @@
 # Übungsaufgaben zu Kapitel 7: Bootstrap
 
-Diese 7 Übungen decken die zentralen Themen des Kapitels ab (7.2–7.9:
-Container, Grid, Tabellen, Buttons, Cards, Tabs, Formulare, Modal).
+Diese 3 Übungen decken die zentralen Themen des Kapitels ab (7.2–7.9:
+Container, Grid, Buttons, Cards, Tabs, Formulare, Modal).
 
 **Durchgängiges Projekt:** Die Portfolio-Website aus den Kapiteln 3–6 wird
 in diesem Kapitel Schritt für Schritt mit Bootstrap 5 überarbeitet. Jede
@@ -11,39 +11,40 @@ Stand der Website und einem gleichnamigen Lösungsordner im Ordner
 
 | # | Thema (Kapitel) | Aufgabenordner | Lösungsordner |
 |---|---|---|---|
-| 1 | Container & Grid (7.2–7.3) | `01_container_grid_aufgabe/` | `../../solutions/chapter07/01_container_grid_loesung/` |
-| 2 | Tabellen (7.4) | `02_tabellen_aufgabe/` | `../../solutions/chapter07/02_tabellen_loesung/` |
-| 3 | Buttons (7.5) | `03_buttons_aufgabe/` | `../../solutions/chapter07/03_buttons_loesung/` |
-| 4 | Cards (7.6) | `04_cards_aufgabe/` | `../../solutions/chapter07/04_cards_loesung/` |
-| 5 | Tabs (7.7) | `05_tabs_aufgabe/` | `../../solutions/chapter07/05_tabs_loesung/` |
-| 6 | Formulare (7.8) | `06_formulare_aufgabe/` | `../../solutions/chapter07/06_formulare_loesung/` |
-| 7 | Modal (7.9) | `07_modal_aufgabe/` | `../../solutions/chapter07/07_modal_loesung/` |
+| 1 | Container & Grid, Buttons, Cards, Tabs (7.2–7.7) | `01_grid_und_komponenten_aufgabe/` | `../../solutions/chapter07/01_grid_und_komponenten_loesung/` |
+| 2 | Formulare (7.8) | `02_formulare_aufgabe/` | `../../solutions/chapter07/02_formulare_loesung/` |
+| 3 | Modal (7.9) | `03_modal_aufgabe/` | `../../solutions/chapter07/03_modal_loesung/` |
 
 ## Wie die Website in diesem Kapitel überarbeitet wird
 
 - **Übung 1** bindet Bootstrap 5 site-weit über das offizielle CDN ein
-  (bereits fertig in allen Seiten ergänzt – kein TODO) und ergänzt auf der
-  Startseite einen Abschnitt "Meine Stärken" mit Bootstrap-Grid. Die
-  Gegenüberstellung von `container` und `container-fluid` findet auf der
-  neuen Seite `technik-spielwiese.php` statt (einer Sammlung kleiner
-  Code-Demos, die dort auch die PHP-/JavaScript-Schnipsel früherer Kapitel
-  bündelt, damit die Startseite aufgeräumt bleibt).
-- **Übung 2** gestaltet die Projekttabelle mit Bootstrap-Tabellenklassen.
-- **Übung 3** ersetzt die eigene CSS-Klasse `.btn` aus Kapitel 4 durch
-  echte Bootstrap-Button-Klassen (`btn-primary`, `btn-secondary`, ...) auf
-  der Startseite, der Projekte-Seite und der Kontaktseite.
-- **Übung 4** ist der große Umbau der Projekte-Seite: Statt der Tabelle
-  gibt es jetzt ein Karten-Deck (eine Card pro Projekt) mit
-  "Bearbeiten"-Button (der vorerst nur eine Meldung anzeigt).
-- **Übung 5** wandelt die Abschnitte "Werdegang", "Fähigkeiten" und
-  "Begriffe" auf der Seite "Über mich" in Bootstrap-Tabs um.
-- **Übung 6** gestaltet das Kontaktformular mit Bootstrap-Formularklassen
-  inkl. einer einfachen clientseitigen Prüfung des E-Mail-Felds.
-- **Übung 7** baut auf Übung 4 auf: Der "Bearbeiten"-Button der
-  Projekt-Karten öffnet jetzt ein Bootstrap-Modal mit einem
+  (bereits fertig in allen Seiten ergänzt – kein TODO) und überarbeitet
+  die Website in vier Etappen:
+  - *Container und Grid (7.2–7.3):* Auf der Startseite entsteht ein
+    Abschnitt "Meine Stärken" mit Bootstrap-Grid. Die Gegenüberstellung
+    von `container` und `container-fluid` findet auf der neuen Seite
+    `technik-spielwiese.php` statt (einer Sammlung kleiner Code-Demos, die
+    dort auch die PHP-/JavaScript-Schnipsel früherer Kapitel bündelt,
+    damit die Startseite aufgeräumt bleibt). Die Projekte-Seite bekommt
+    einen umschließenden `container`.
+  - *Buttons (7.5):* Die eigene CSS-Klasse `.btn` aus Kapitel 4 wird durch
+    echte Bootstrap-Button-Klassen (`btn-primary`, `btn-secondary`, ...)
+    auf der Startseite, der Projekte-Seite und der Kontaktseite ersetzt.
+  - *Cards (7.6):* Der große Umbau der Projekte-Seite: Statt der Tabelle
+    gibt es jetzt ein Karten-Deck (eine Card pro Projekt) mit
+    "Bearbeiten"-Button (der vorerst nur eine Meldung anzeigt).
+  - *Tabs (7.7):* Die Abschnitte "Werdegang", "Fähigkeiten" und
+    "Begriffe" auf der Seite "Über mich" werden zu Bootstrap-Tabs.
+- **Übung 2** gestaltet das Kontaktformular mit Bootstrap-Formularklassen
+  inkl. einer einfachen clientseitigen Prüfung der Eingabefelder.
+- **Übung 3** baut auf den Cards aus Übung 1 auf: Der "Bearbeiten"-Button
+  der Projekt-Karten öffnet jetzt ein Bootstrap-Modal mit einem
   Bearbeitungsformular. Diese Änderungen sind noch rein clientseitig und
   gehen beim Neuladen der Seite verloren – in Kapitel 9 (REST) entsteht
   die echte Schnittstelle, die Änderungen dauerhaft speichert.
+
+Die TODO-Nummern zählen pro Datei; `_todos.md` ordnet sie zusätzlich den
+Kapitelthemen zu.
 
 ## Aufbau jeder Aufgabendatei
 
@@ -73,14 +74,14 @@ Stand der Website und einem gleichnamigen Lösungsordner im Ordner
 
 ## Didaktischer Hinweis
 
-Die Übungen bauen inhaltlich aufeinander auf: Übung 4 (Cards) legt das
-Projekt-Karten-Deck an, das Übung 7 (Modal) wiederaufgreift und um ein
+Die Übungen bauen inhaltlich aufeinander auf: Übung 1 legt unter anderem
+das Projekt-Karten-Deck an, das Übung 3 (Modal) wiederaufgreift und um ein
 Bearbeitungsformular in einem Modal erweitert (statt der einfachen
-Platzhalter-Meldung aus Übung 4). Alle anderen Übungen sind unabhängig
-voneinander lösbar und können auch einzeln passend zur jeweiligen
-Folienreihenfolge im Foliensatz eingesetzt werden. Der Schwierigkeitsgrad
-steigt leicht von Übung 1 (Container/Grid als Layout-Grundlage) zu Übung 7
-(Zusammenspiel aus Cards, Formularfeldern und JavaScript-gesteuertem Modal).
+Platzhalter-Meldung aus Übung 1). Übung 1 ist umfangreich und lässt sich
+entlang der Themen in Etappen bearbeiten (die Gruppierung in `_todos.md`
+folgt der Folienreihenfolge). Der Schwierigkeitsgrad steigt leicht von
+Übung 1 (Container/Grid als Layout-Grundlage) zu Übung 3 (Zusammenspiel
+aus Cards, Formularfeldern und JavaScript-gesteuertem Modal).
 
 ## Ausführung mit Docker
 
@@ -117,8 +118,8 @@ in der IDE untersuchen lassen.
 2. Im Browser die gewünschte Übung öffnen, z.B.:
 
    ```
-   http://localhost:8007/01_container_grid_aufgabe/index.php
-   http://localhost:8017/07_modal_loesung/index.php
+   http://localhost:8007/01_grid_und_komponenten_aufgabe/index.php
+   http://localhost:8017/03_modal_loesung/index.php
    ```
 
 3. Nach dem Bearbeiten einer Aufgabendatei die Seite im Browser einfach neu

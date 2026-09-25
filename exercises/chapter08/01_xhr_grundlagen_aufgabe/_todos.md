@@ -10,4 +10,4 @@
 1. TODO 1: Das Array `$technologien` so filtern, dass nur Einträge übrig bleiben, deren Anfang (unabhängig von Groß-/Kleinschreibung) mit dem Wert aus `$_GET['praefix']` übereinstimmt (mit `strtolower()` und `strpos()`, Treffer bei Position 0).
 2. TODO 2: Die gefundenen Technologien als kommagetrennte Liste ausgeben (z.B. "PHP,PostgreSQL"), falls mindestens ein Treffer existiert, sonst den Text "kein Treffer!" ausgeben.
 
-Hinweis: Diese Teilübung ist eine eigenständige Beispielanwendung (kein Teil der fortlaufenden Portfolio-Website), ein Vergleich mit `chapter07/07_modal_aufgabe` liefert daher keine sinnvollen zusätzlichen Erkenntnisse; die TODO-Marker decken den gesamten zu ergänzenden Code ab.
+Hinweis: Diese Teilübung ist eine eigenständige Beispielanwendung (kein Teil der fortlaufenden Portfolio-Website), ein Vergleich mit `chapter07/03_modal_aufgabe` liefert daher keine sinnvollen zusätzlichen Erkenntnisse; die TODO-Marker decken den gesamten zu ergänzenden Code ab.

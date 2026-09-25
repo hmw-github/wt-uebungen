@@ -1,5 +1,5 @@
 <!--
-    LÖSUNGSVORSCHLAG - ÜBUNG 3: BUTTONS - Seite "Startseite"
+    LÖSUNGSVORSCHLAG - ÜBUNG 1: GRID UND KOMPONENTEN - Seite "Startseite"
 -->
 <!DOCTYPE html>
 <html>

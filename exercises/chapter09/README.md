@@ -42,7 +42,7 @@ selbst gebaute REST-Schnittstelle aus Übung 3.
   lädt seine Projekt-Karten (aus Kapitel 7) jetzt per `fetch()` von
   `api/projekte`, legt über den Button "Neues Projekt anlegen" per `POST`
   neue Projekte an, speichert Änderungen aus dem Bearbeiten-Modal (aus
-  Kapitel 7, Übung 7) jetzt tatsächlich per `PUT`, und der neue
+  Kapitel 7, Übung 3) jetzt tatsächlich per `PUT`, und der neue
   "Löschen"-Button auf jeder Karte entfernt ein Projekt per `DELETE`.
   Aus der anfangs rein statischen HTML-Seite aus Kapitel 3 ist damit eine
   vollständige Webanwendung mit eigener REST-Schnittstelle geworden.

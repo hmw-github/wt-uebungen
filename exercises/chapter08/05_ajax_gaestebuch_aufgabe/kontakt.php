@@ -1,5 +1,5 @@
 <!--
-    LÖSUNGSVORSCHLAG - ÜBUNG 6: FORMULARE - Seite "Kontakt"
+    LÖSUNGSVORSCHLAG - ÜBUNG 2: FORMULARE - Seite "Kontakt"
 -->
 <!DOCTYPE html>
 <html>
