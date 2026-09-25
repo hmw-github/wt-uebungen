@@ -8,4 +8,11 @@
 4. TODO 4: Im else-Zweig eine Fehlermeldung ausgeben, dass Name und E-Mail-Adresse Pflichtfelder sind.
 
 ## index.php, kontakt.html, projekte.html, ueber-mich.html, rechtliches/impressum.html
-Keine TODOs. `index.php` liegt bereits fertig als PHP-Startseite vor (kein Teil einer eigenen Übung - die PHP-Sprachgrundlagen werden stattdessen eigenständig in `01_php_basics_aufgabe.php` geübt). Die übrigen Seiten wurden gegenüber Kapitel 5 lediglich im Kopfkommentar aktualisiert; das Kontaktformular in `kontakt.html` verweist bereits (unverändert seit Kapitel 3) korrekt auf `action="kontakt-verarbeiten.php"` mit `method="post"`.
+Keine TODOs. `index.php` liegt bereits fertig als PHP-Startseite vor (kein Teil einer eigenen Übung - die PHP-Sprachgrundlagen werden stattdessen eigenständig in `01_php_basics_aufgabe.php` geübt). Alle Links auf die Startseite zeigen auf `index.php`, und das Kontaktformular in `kontakt.html` sendet wieder klassisch per `action="kontakt-verarbeiten.php"` und `method="post"` an den Server (statt wie in Kapitel 5 per JavaScript in den localStorage).
+
+## Nur bei Wiederverwendung der eigenen Dateien nötig (prepare.sh / prepare.cmd)
+`prepare.sh` bzw. `prepare.cmd` übernimmt Ihre Seiten aus Kapitel 5 (`chapter05/02_einbinden_und_dom_aufgabe`). Diese passen noch nicht zur PHP-Fassung der Website. Passen Sie sie daher wie folgt an (Vorlage: die Dateien in diesem Ordner vor dem Ausführen von prepare bzw. die Musterlösung):
+
+1. `kontakt.html`: Im `<form>`-Tag das Attribut `id="kontaktFormular"` entfernen und `action` auf `"kontakt-verarbeiten.php"` setzen (`method="post"` bleibt). Ohne die id greift der Submit-Handler aus Kapitel 5 in `js/main.js` nicht mehr, und das Formular wird wieder an den Server gesendet.
+2. Alle Seiten (`kontakt.html`, `projekte.html`, `ueber-mich.html`, `rechtliches/impressum.html`): Links auf die Startseite von `index.html` auf `index.php` ändern (im Impressum `../index.php`). Ihre alte `index.html` wird nicht mehr benötigt.
+3. `projekte.html`: Keine Änderung nötig. Ihre Fassung aus Kapitel 5 lädt die Projekte per `fetch()` aus `projekte.json`, die deshalb auch in diesem Ordner vorliegt.

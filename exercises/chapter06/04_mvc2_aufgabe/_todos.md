@@ -22,3 +22,5 @@ Keine TODOs.
 - (kein TODO-Marker) kontakt.php: Das bisher direkt eingebettete Session-Gästebuch-Formular samt Einträge-Liste (Übung 3) wurde entfernt und durch einen einfachen Link `<a href="gaestebuch/index.php" class="btn">Zum Gästebuch</a>` ersetzt, da das Gästebuch nun als eigenständige MVC2-Anwendung im Unterordner `gaestebuch/` läuft.
 
 Die übrigen Seiten (`index.php`, `projekte.html`, `ueber-mich.html`, `rechtliches/impressum.html`) sind gegenüber Übung 3 inhaltlich unverändert (bzw. nur Kopfkommentar aktualisiert).
+
+- (kein TODO-Marker) `projekte.json` liegt nur für den Fall bei, dass Sie per prepare.sh bzw. prepare.cmd Ihre eigene `projekte.html` aus Kapitel 5 weiterverwenden, die die Projekte per `fetch()` daraus lädt (siehe Übung 2).

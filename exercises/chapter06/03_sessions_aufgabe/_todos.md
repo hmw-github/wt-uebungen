@@ -17,3 +17,9 @@ Ergänzen Sie an den TODO-Stellen den fehlenden PHP-Code:
 
 ## kontakt-verarbeiten.php, index.php, projekte.html, ueber-mich.html, rechtliches/impressum.html
 Keine TODOs. `kontakt-verarbeiten.php` enthält bereits die fertig gelöste Fassung von Übung 2 (Kopfkommentar-Präfix "LÖSUNGSVORSCHLAG"). Die übrigen Seiten wurden gegenüber Übung 2 nur im Kopfkommentar aktualisiert und verweisen jetzt konsequent auf `kontakt.php` statt `kontakt.html` (Folge der Umstellung der Kontaktseite auf PHP für das Session-Gästebuch).
+
+- (kein TODO-Marker) `projekte.json` liegt nur für den Fall bei, dass Sie per prepare.sh bzw. prepare.cmd Ihre eigene `projekte.html` aus Kapitel 5 weiterverwenden, die die Projekte per `fetch()` daraus lädt (siehe Übung 2).
+
+## Nur bei Wiederverwendung der eigenen Dateien nötig (prepare.sh / prepare.cmd)
+
+1. In allen übernommenen Seiten (`projekte.html`, `ueber-mich.html`) die Links auf die Kontaktseite von `kontakt.html` auf `kontakt.php` ändern. Ihre alte `kontakt.html` wird nicht mehr benötigt.
