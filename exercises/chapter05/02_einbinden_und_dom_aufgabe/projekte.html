@@ -1,0 +1,94 @@
+<!--
+    ÜBUNG 2: JAVASCRIPT EINBINDEN UND DOM (Kapitel 5.2, 5.5) - Seite "Projekte"
+
+    Aufgabenstellung:
+    Die Projekttabelle wird nicht mehr von Hand ins HTML geschrieben,
+    sondern per DOM-Manipulation aus Daten erzeugt, die per fetch() aus
+    der Datei projekte.json geladen werden. Diese Daten haben bewusst
+    dieselbe Form (titel, technologie, jahr, link), die in Kapitel 6
+    (PHP) serverseitig und in Kapitel 9 (REST) als JSON-Antwort einer
+    echten Schnittstelle wiederkehrt.
+
+    Das Laden der Daten (loadProjects() in js/main.js) ist bereits
+    vorgegeben. Ergänzen Sie in js/main.js an den TODO-Stellen:
+
+    TODO 5: fillProjectTable(projekte) implementieren, um die Tabelle
+            (tbody#projekteKoerper) sowie die Zusammenfassungszelle
+            (tfoot#projekteAnzahl) mit den übergebenen Projektdaten zu
+            befüllen.
+    TODO 6: Klick-Handler für den Button #filterButton registrieren, der
+            Zeilen mit Jahr "2026" per classList.toggle("hervorgehoben")
+            hervorhebt.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Projekte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/druck.css" media="print">
+
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Alex Berger" height="50">
+        </a>
+
+        <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="hauptnav">
+            <a href="index.html">Startseite</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+    <h1>Projekte</h1>
+
+    <p>Auf dieser Seite stelle ich nach und nach einige meiner Projekte vor.</p>
+
+    <button id="filterButton" class="btn">Projekte aus 2026 hervorheben</button>
+
+    <table border="1">
+        <caption>Meine Projekte</caption>
+        <thead>
+            <tr>
+                <th>Projekt</th>
+                <th>Technologie</th>
+                <th>Jahr</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody id="projekteKoerper">
+        </tbody>
+        <tfoot>
+            <tr>
+                <td id="projekteAnzahl" colspan="4"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

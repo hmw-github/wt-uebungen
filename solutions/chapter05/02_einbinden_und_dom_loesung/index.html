@@ -1,0 +1,90 @@
+<!--
+    LÖSUNGSVORSCHLAG - ÜBUNG 2: JAVASCRIPT EINBINDEN UND DOM - Seite "Startseite"
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Startseite</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/druck.css" media="print">
+
+    <script>
+        console.log("Startseite wird geladen...");
+    </script>
+
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Alex Berger" height="50">
+        </a>
+
+        <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="hauptnav">
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="projekte.html">Projekte</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+    <h1>Alex Berger</h1>
+
+    <p>Ich studiere Angewandte Informatik mit Schwerpunkt Web-Technologien.</p>
+
+    <p>
+        <a href="projekte.html" class="btn">Projekte ansehen</a>
+    </p>
+
+    <div>
+        <p>Am liebsten arbeite ich mit <strong>HTML, CSS und JavaScript</strong>,
+            beschäftige mich aber genauso gerne mit <em>serverseitigen</em>
+            Themen wie PHP und REST-Schnittstellen.</p>
+    </div>
+
+    <p>Mein aktuelles Lieblingsthema ist gerade
+        <span style="color: darkblue;">REST-APIs</span>.</p>
+
+    <p>Angewandte Informatik<br>
+        Technische Hochschule Ingolstadt</p>
+
+    <pre>
+    function gruss(name) {
+        return "Hallo, " + name + "!";
+    }
+    </pre>
+
+    <a href="javascript:alert('Diese Seite wurde mit HTML, CSS und JavaScript gebaut.')">Kleinen Fakt anzeigen</a>
+
+    <p>
+        <button onclick="zeigeAlert()">Info anzeigen</button>
+    </p>
+
+    <hr>
+
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+    <script src="js/begruessung.js"></script>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

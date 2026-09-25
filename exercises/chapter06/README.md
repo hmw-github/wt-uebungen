@@ -34,7 +34,7 @@ gesamten Website bereits entsprechend auf `index.php` angepasst.
   `gettype()`, String-Verkettung und `date()`, gefolgt von Abschnitten zu
   Kontrollstrukturen/Arrays sowie Funktionen/Klassen (die Klassen
   `Projekt`/`Webprojekt` kennen Sie bereits aus JavaScript, Kapitel 5,
-  Übung 2 - hier entstehen sie in PHP). Diese Übung ersetzt die vormals
+  Übung 1 - hier entstehen sie in PHP). Diese Übung ersetzt die vormals
   drei eigenständigen Übungen "PHP-Grundlagen und Ausgabe",
   "Kontrollstrukturen und Arrays" sowie "Funktionen und Klassen".
 - **Übung 2** ist ebenfalls eine eigenständige Datei und behandelt
