@@ -7,7 +7,7 @@
 5. Warum muss `invalid-feedback` direkt nach dem Eingabefeld stehen? Warum braucht die Rückmeldung zusätzlich `d-block`?
 6. Wann tritt das Event `blur` auf? Wie registriert man einen Listener dafür?
 7. Was macht `trim()`? Warum prüft man `wert.trim().length`?
-8. Warum ersetzt die clientseitige Prüfung nicht die serverseitige aus Übung 6.3?
+8. Warum ersetzt die clientseitige Prüfung nicht die serverseitige aus Übung 6.2?
 
 <details><summary>Erwartete Antworten</summary>
 

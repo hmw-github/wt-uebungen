@@ -1,6 +1,6 @@
 ## 8.5 Gästebuch mit AJAX (`05_ajax_gaestebuch_aufgabe`)
 
-1. Was ändert sich für Nutzer/-innen gegenüber dem Gästebuch aus Übung 6.5?
+1. Was ändert sich für Nutzer/-innen gegenüber dem Gästebuch aus Übung 6.4?
 2. Warum gibt es eine eigene Datei `api.php` neben dem Controller? Welche Teile des MVC-Gästebuchs werden wiederverwendet?
 3. Wie unterscheidet `api.php` zwischen „Liste laden“ und „Eintrag speichern“?
 4. Wann wird `onLoad()` aufgerufen?

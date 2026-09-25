@@ -1,0 +1,112 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['gaestebucheintraege'])) {
+        $_SESSION['gaestebucheintraege'] = [];
+    }
+
+    if (isset($_POST['gbnachricht']) && $_POST['gbnachricht'] !== '') {
+        $_SESSION['gaestebucheintraege'][] = date("H:i:s d.m.Y") . " - " . htmlspecialchars($_POST['gbnachricht']);
+    }
+?>
+<!--
+    LÖSUNGSVORSCHLAG - ÜBUNG 3: SESSION-HANDLING - Seite "Kontakt"
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Berger - Portfolio - Kontakt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/druck.css" media="print">
+
+</head>
+<body>
+
+    <header>
+        <a href="index.php">
+            <img src="images/logo.png" alt="Logo Alex Berger" height="50">
+        </a>
+
+        <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="hauptnav">
+            <a href="index.php">Startseite</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="projekte.html">Projekte</a>
+        </nav>
+    </header>
+
+    <main>
+    <h1>Kontakt</h1>
+
+    <p>Ich freue mich über Nachrichten - schreiben Sie mir gerne!</p>
+
+    <form action="kontakt-verarbeiten.php" method="post">
+
+        <label for="nameFeld">Name:</label><br>
+        <input type="text" id="nameFeld" name="name" required><br><br>
+
+        <label for="emailFeld">E-Mail:</label><br>
+        <input type="email" id="emailFeld" name="email" required><br><br>
+
+        <p>Bevorzugte Rückmeldung:</p>
+        <input type="radio" id="rueckmeldungEmail" name="rueckmeldung" value="email">
+        <label for="rueckmeldungEmail">E-Mail</label><br>
+        <input type="radio" id="rueckmeldungTelefon" name="rueckmeldung" value="telefon">
+        <label for="rueckmeldungTelefon">Telefon</label><br><br>
+
+        <label for="betreffFeld">Betreff:</label><br>
+        <select id="betreffFeld" name="betreff">
+            <option value="anfrage" selected>Anfrage</option>
+            <option value="feedback">Feedback</option>
+            <option value="sonstiges">Sonstiges</option>
+        </select><br><br>
+
+        <label for="nachrichtFeld">Nachricht:</label><br>
+        <textarea id="nachrichtFeld" name="nachricht" rows="4" cols="30" required></textarea><br><br>
+
+        <input type="checkbox" id="newsletterFeld" name="newsletter" value="ja">
+        <label for="newsletterFeld">Ich möchte den Newsletter erhalten</label><br><br>
+
+        <input type="submit" value="Absenden" class="btn">
+
+    </form>
+
+    <h2>Gästebuch</h2>
+
+    <form action="" method="post">
+        <label for="gbNachrichtFeld">Kurze Nachricht:</label><br>
+        <input type="text" id="gbNachrichtFeld" name="gbnachricht">
+        <input type="submit" value="Eintragen" class="btn">
+    </form>
+
+    <ul>
+        <?php
+            foreach ($_SESSION['gaestebucheintraege'] as $eintrag) {
+                echo "<li>" . $eintrag . "</li>";
+            }
+        ?>
+    </ul>
+
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/alexberger" target="_blank">GitHub</a>
+            &middot;
+            <a href="rechtliches/impressum.html">Impressum</a>
+        </p>
+    </footer>
+
+    <!-- Autor: Alex Berger -->
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
