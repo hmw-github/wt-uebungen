@@ -1,0 +1,153 @@
+<!--
+    TASK 3: DATEN PER FETCH/POST AN EINEN ÖFFENTLICHEN SERVER SENDEN
+    (Kapitel 8.4/8.6 - Fetch API, async/await)
+
+    Aufgabenstellung:
+    Die Pinnwand lädt - wie das Benutzerverzeichnis aus Task 1 - Daten
+    von JSONPlaceholder und zeigt sie als Karten an. Das Laden
+    (ladeBeitraege, hier mit der Fetch-API statt XMLHttpRequest) und das
+    Erzeugen der Karten (erzeugeKarte) sind
+    bereits fertig. Ergänzen Sie, dass über das Formular ein neuer
+    Beitrag per POST an
+        https://jsonplaceholder.typicode.com/posts
+    gesendet und die Antwort des Servers als neue Karte angezeigt wird.
+
+    Der Server erwartet einen JSON-Body der Form
+        { "title": "...", "body": "...", "userId": 1 }
+    und antwortet mit Status 201 (Created) und dem gespeicherten Objekt
+    inklusive einer neuen id, z.B.
+        { "title": "...", "body": "...", "userId": 1, "id": 101 }
+    Achtung: JSONPlaceholder ist ein Test-Server. Er simuliert das
+    Speichern nur, d.h. nach einem Neuladen der Seite ist der Beitrag
+    wieder verschwunden, und jeder neue Beitrag erhält die id 101.
+
+    TODO 1: Verhindern Sie in sendeBeitrag(event) mit
+            event.preventDefault(), dass der Browser das Formular klassisch
+            absendet (Seitenneuladen). Bauen Sie aus den Feldern
+            "titelFeld", "textFeld" und "benutzerFeld" ein Objekt
+            neuerBeitrag mit den Eigenschaften title, body und userId
+            (als Zahl, Number(...)).
+    TODO 2: Deaktivieren Sie den Button (button.disabled = true) und zeigen
+            Sie "Beitrag wird gesendet ..." an. Senden Sie dann in einem
+            try-Block mit await fetch(API_URL, {...}) eine POST-Anfrage mit
+            dem Header "Content-Type: application/json" und dem mit
+            JSON.stringify() erzeugten Body. Prüfen Sie response.ok und
+            werfen Sie andernfalls einen Error.
+    TODO 3: Lesen Sie die Antwort mit await response.json() aus, erzeugen
+            Sie daraus mit erzeugeKarte() eine Karte, geben Sie ihr
+            zusätzlich die Klasse "neu" und fügen Sie sie mit prepend()
+            VOR den vorhandenen Karten ein. Zeigen Sie Statuscode und neue
+            id im Status an und leeren Sie das Formular (form.reset()).
+    TODO 4: Zeigen Sie im catch-Block die Fehlermeldung rot an und
+            aktivieren Sie den Button im finally-Block wieder.
+    TODO 5: Registrieren Sie sendeBeitrag mit addEventListener() als
+            Handler für das "submit"-Ereignis des Formulars.
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Pinnwand (Fetch POST)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Pinnwand</h1>
+
+    <form id="beitragForm">
+        <label for="titelFeld">Titel:</label>
+        <input type="text" id="titelFeld" required>
+
+        <label for="textFeld">Text:</label>
+        <textarea id="textFeld" rows="3" required></textarea>
+
+        <label for="benutzerFeld">Benutzer:</label>
+        <select id="benutzerFeld">
+            <option value="1">Benutzer 1</option>
+            <option value="2">Benutzer 2</option>
+            <option value="3">Benutzer 3</option>
+        </select>
+
+        <button type="submit" id="sendenButton">Beitrag veröffentlichen</button>
+    </form>
+
+    <p id="status">Beiträge werden geladen ...</p>
+
+    <div id="karten" class="karten"></div>
+
+    <script>
+        const API_URL = "https://jsonplaceholder.typicode.com/posts";
+
+        const status = document.getElementById("status");
+        const container = document.getElementById("karten");
+
+        function zeigeStatus(text, istFehler) {
+            status.textContent = text;
+            status.className = istFehler ? "fehler" : "";
+        }
+
+        // Erzeugt aus einem Beitrags-Objekt ein <article>-Element (Karte).
+        function erzeugeKarte(beitrag) {
+            const karte = document.createElement("article");
+            karte.className = "karte";
+
+            const titel = document.createElement("h2");
+            titel.textContent = beitrag.title;
+
+            const untertitel = document.createElement("p");
+            untertitel.className = "untertitel";
+            untertitel.textContent = "Beitrag #" + beitrag.id + " von Benutzer " + beitrag.userId;
+
+            const text = document.createElement("p");
+            text.textContent = beitrag.body;
+
+            karte.append(titel, untertitel, text);
+            return karte;
+        }
+
+        // Lädt die ersten 6 Beiträge (bereits fertig) - wie Task 1, aber mit fetch() statt XMLHttpRequest.
+        function ladeBeitraege() {
+            fetch(API_URL + "?_limit=6")
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("HTTP-Status " + response.status);
+                }
+                return response.json();
+            })
+            .then(function(beitraege) {
+                beitraege.forEach(function(beitrag) {
+                    container.appendChild(erzeugeKarte(beitrag));
+                });
+                zeigeStatus(beitraege.length + " Beiträge geladen.");
+            })
+            .catch(function(error) {
+                zeigeStatus("Fehler beim Laden: " + error.message, true);
+            });
+        }
+
+        async function sendeBeitrag(event) {
+            const form = document.getElementById("beitragForm");
+            const button = document.getElementById("sendenButton");
+
+            // TODO 1: Standardverhalten verhindern, Objekt neuerBeitrag
+            //         aus den Formularfeldern bauen
+
+            // TODO 2: Button deaktivieren, Status anzeigen, POST-Request
+            //         mit await fetch(...) im try-Block senden,
+            //         response.ok prüfen
+
+                // TODO 3: Antwort mit await response.json() lesen, Karte
+                //         (Klasse "neu") vorne einfügen, Status anzeigen,
+                //         Formular leeren
+
+            // TODO 4: catch: Fehler anzeigen; finally: Button aktivieren
+        }
+
+        // TODO 5: sendeBeitrag als submit-Handler des Formulars registrieren
+
+        ladeBeitraege();
+    </script>
+
+</body>
+</html>

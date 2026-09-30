@@ -1,0 +1,134 @@
+<!--
+    TASK 3: DATEN PER FETCH/POST AN EINEN ÖFFENTLICHEN SERVER SENDEN -
+    MUSTERLÖSUNG (Kapitel 8.4/8.6 - Fetch API, async/await)
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Pinnwand (Fetch POST)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Pinnwand</h1>
+
+    <form id="beitragForm">
+        <label for="titelFeld">Titel:</label>
+        <input type="text" id="titelFeld" required>
+
+        <label for="textFeld">Text:</label>
+        <textarea id="textFeld" rows="3" required></textarea>
+
+        <label for="benutzerFeld">Benutzer:</label>
+        <select id="benutzerFeld">
+            <option value="1">Benutzer 1</option>
+            <option value="2">Benutzer 2</option>
+            <option value="3">Benutzer 3</option>
+        </select>
+
+        <button type="submit" id="sendenButton">Beitrag veröffentlichen</button>
+    </form>
+
+    <p id="status">Beiträge werden geladen ...</p>
+
+    <div id="karten" class="karten"></div>
+
+    <script>
+        const API_URL = "https://jsonplaceholder.typicode.com/posts";
+
+        const status = document.getElementById("status");
+        const container = document.getElementById("karten");
+
+        function zeigeStatus(text, istFehler) {
+            status.textContent = text;
+            status.className = istFehler ? "fehler" : "";
+        }
+
+        // Erzeugt aus einem Beitrags-Objekt ein <article>-Element (Karte).
+        function erzeugeKarte(beitrag) {
+            const karte = document.createElement("article");
+            karte.className = "karte";
+
+            const titel = document.createElement("h2");
+            titel.textContent = beitrag.title;
+
+            const untertitel = document.createElement("p");
+            untertitel.className = "untertitel";
+            untertitel.textContent = "Beitrag #" + beitrag.id + " von Benutzer " + beitrag.userId;
+
+            const text = document.createElement("p");
+            text.textContent = beitrag.body;
+
+            karte.append(titel, untertitel, text);
+            return karte;
+        }
+
+        // Lädt die ersten 6 Beiträge (bereits fertig) - wie Task 1, aber mit fetch() statt XMLHttpRequest.
+        function ladeBeitraege() {
+            fetch(API_URL + "?_limit=6")
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error("HTTP-Status " + response.status);
+                }
+                return response.json();
+            })
+            .then(function(beitraege) {
+                beitraege.forEach(function(beitrag) {
+                    container.appendChild(erzeugeKarte(beitrag));
+                });
+                zeigeStatus(beitraege.length + " Beiträge geladen.");
+            })
+            .catch(function(error) {
+                zeigeStatus("Fehler beim Laden: " + error.message, true);
+            });
+        }
+
+        async function sendeBeitrag(event) {
+            event.preventDefault();
+
+            const form = document.getElementById("beitragForm");
+            const button = document.getElementById("sendenButton");
+
+            const neuerBeitrag = {
+                title: document.getElementById("titelFeld").value,
+                body: document.getElementById("textFeld").value,
+                userId: Number(document.getElementById("benutzerFeld").value)
+            };
+
+            button.disabled = true;
+            zeigeStatus("Beitrag wird gesendet ...");
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(neuerBeitrag)
+                });
+                if (!response.ok) {
+                    throw new Error("HTTP-Status " + response.status);
+                }
+                const gespeichert = await response.json();
+
+                const karte = erzeugeKarte(gespeichert);
+                karte.classList.add("neu");
+                container.prepend(karte);
+
+                zeigeStatus("Beitrag gespeichert (Status " + response.status
+                    + ", neue id " + gespeichert.id + ").");
+                form.reset();
+            } catch (error) {
+                zeigeStatus("Fehler beim Senden: " + error.message, true);
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        document.getElementById("beitragForm").addEventListener("submit", sendeBeitrag);
+
+        ladeBeitraege();
+    </script>
+
+</body>
+</html>

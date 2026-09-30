@@ -1,0 +1,133 @@
+<!--
+    TASK 2: PROMISES SELBST ERZEUGEN, VERKETTEN UND KOMBINIEREN -
+    MUSTERLÖSUNG (Kapitel 8.5/8.6 - Promises, async/await)
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Würfelspiel mit Promises</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 700px; margin: 0 auto; padding: 1rem; }
+        button { font: inherit; padding: 0.4rem 0.8rem; margin: 0 0.5rem 0.5rem 0; cursor: pointer; }
+        #ausgabe { background: #f4f5f7; padding: 0.75rem; min-height: 8rem; font-family: monospace; white-space: pre-wrap; }
+        .fehler { color: #b00020; }
+    </style>
+</head>
+<body>
+
+    <h1>Würfelspiel mit Promises</h1>
+
+    <button onclick="starteKette()">Teil 3: Kette mit .then()</button>
+    <button onclick="dreiWuerfel()">Teil 4: Drei Würfel mit Promise.all()</button>
+    <button onclick="starteKetteMitAwait()">Teil 5: Kette mit async/await</button>
+    <button onclick="leereAusgabe()">Ausgabe leeren</button>
+
+    <div id="ausgabe"></div>
+
+    <script>
+        // Fertige Hilfsfunktionen: schreiben eine Zeile (mit Zeitstempel)
+        // in #ausgabe bzw. leeren die Ausgabe.
+        const startzeit = Date.now();
+
+        function ausgabe(text, istFehler) {
+            const zeile = document.createElement("div");
+            const sekunden = ((Date.now() - startzeit) / 1000).toFixed(2);
+            zeile.textContent = "[" + sekunden + " s] " + text;
+            if (istFehler) {
+                zeile.className = "fehler";
+            }
+            document.getElementById("ausgabe").appendChild(zeile);
+        }
+
+        function leereAusgabe() {
+            document.getElementById("ausgabe").textContent = "";
+        }
+
+        // Teil 1: Promise, das nach ms Millisekunden erfüllt wird
+        function warte(ms) {
+            return new Promise(function(resolve) {
+                setTimeout(resolve, ms);
+            });
+        }
+
+        // Teil 2: Würfelt nach 300-1000 ms eine Zahl von 1 bis 6.
+        // Eine 1 gilt als Fehler.
+        function wuerfeln() {
+            return new Promise(function(resolve, reject) {
+                const verzoegerung = 300 + Math.random() * 700;
+                setTimeout(function() {
+                    const zahl = Math.floor(Math.random() * 6) + 1;
+                    if (zahl === 1) {
+                        reject(new Error("Eine 1 gewürfelt - verloren!"));
+                    } else {
+                        resolve(zahl);
+                    }
+                }, verzoegerung);
+            });
+        }
+
+        // Teil 3: Verkettung mit .then()
+        function starteKette() {
+            ausgabe("Kette gestartet, warte 1 Sekunde ...");
+            warte(1000)
+            .then(function() {
+                ausgabe("Wartezeit vorbei, würfle ...");
+                return wuerfeln();
+            })
+            .then(function(zahl) {
+                ausgabe("Gewürfelt: " + zahl);
+                if (zahl < 4) {
+                    throw new Error("Zahl zu klein: " + zahl);
+                }
+                return zahl * 10;
+            })
+            .then(function(punkte) {
+                ausgabe("Gewonnen! Punkte: " + punkte);
+            })
+            .catch(function(error) {
+                ausgabe("Fehler: " + error.message, true);
+            })
+            .finally(function() {
+                ausgabe("Kette beendet.");
+            });
+            ausgabe("starteKette() ist fertig (die Kette läuft noch).");
+        }
+
+        // Teil 4: Mehrere Promises parallel mit Promise.all()
+        function dreiWuerfel() {
+            ausgabe("Würfle drei Würfel gleichzeitig ...");
+            Promise.all([wuerfeln(), wuerfeln(), wuerfeln()])
+            .then(function(zahlen) {
+                const summe = zahlen[0] + zahlen[1] + zahlen[2];
+                ausgabe("Würfe: " + zahlen.join(", ") + " - Summe: " + summe);
+            })
+            .catch(function(error) {
+                ausgabe("Promise.all abgewiesen: " + error.message, true);
+            });
+        }
+
+        // Teil 5: Teil 3 mit async/await
+        async function starteKetteMitAwait() {
+            ausgabe("Kette (async/await) gestartet, warte 1 Sekunde ...");
+            try {
+                await warte(1000);
+                ausgabe("Wartezeit vorbei, würfle ...");
+                const zahl = await wuerfeln();
+                ausgabe("Gewürfelt: " + zahl);
+                if (zahl < 4) {
+                    throw new Error("Zahl zu klein: " + zahl);
+                }
+                const punkte = zahl * 10;
+                ausgabe("Gewonnen! Punkte: " + punkte);
+            } catch (error) {
+                ausgabe("Fehler: " + error.message, true);
+            } finally {
+                ausgabe("Kette beendet.");
+            }
+        }
+    </script>
+
+</body>
+</html>

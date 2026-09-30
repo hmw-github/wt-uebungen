@@ -1,0 +1,113 @@
+<!--
+    TASK 2: PROMISES SELBST ERZEUGEN, VERKETTEN UND KOMBINIEREN
+    (Kapitel 8.5/8.6 - Promises, async/await)
+
+    Aufgabenstellung:
+    Es soll ein kleines Würfelspiel entstehen, das ausschließlich mit
+    Promises arbeitet (kein Server nötig). Jeder Button startet einen
+    Teil der Aufgabe; alle Ausgaben erfolgen über die fertige Funktion
+    ausgabe(text, istFehler), die zusätzlich die seit dem Laden der Seite
+    vergangene Zeit anzeigt.
+
+    TODO 1: Implementieren Sie warte(ms). Die Funktion soll ein neues
+            Promise zurückgeben, das nach ms Millisekunden (setTimeout)
+            mit resolve() erfüllt wird.
+    TODO 2: Implementieren Sie wuerfeln(). Die Funktion soll ein Promise
+            zurückgeben, das nach einer zufälligen Verzögerung von
+            300 bis 1000 ms eine Zufallszahl von 1 bis 6 würfelt. Bei
+            einer 1 wird das Promise mit
+            reject(new Error("Eine 1 gewürfelt - verloren!")) abgewiesen,
+            sonst mit resolve(zahl) erfüllt.
+    TODO 3: Bauen Sie in starteKette() eine .then()-Kette:
+            warte(1000) -> "Wartezeit vorbei, würfle ..." ausgeben und
+            wuerfeln() zurückgeben -> gewürfelte Zahl ausgeben; ist sie
+            kleiner als 4, einen Error werfen, sonst zahl * 10 zurückgeben
+            -> "Gewonnen! Punkte: ..." ausgeben.
+            Fehler mit .catch() rot ausgeben und mit .finally() immer
+            "Kette beendet." ausgeben.
+            Geben Sie direkt NACH der Kette (am Ende der Funktion) noch
+            "starteKette() ist fertig (die Kette läuft noch)." aus und
+            beobachten Sie die Reihenfolge der Ausgaben.
+    TODO 4: Würfeln Sie in dreiWuerfel() mit Promise.all() drei Würfel
+            gleichzeitig. Geben Sie im .then() die drei Zahlen und deren
+            Summe aus, im .catch() die Fehlermeldung.
+    TODO 5: Implementieren Sie starteKetteMitAwait() als async function,
+            die genau dasselbe wie TODO 3 leistet, aber mit await statt
+            .then() und mit try/catch/finally statt .catch()/.finally().
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Würfelspiel mit Promises</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 700px; margin: 0 auto; padding: 1rem; }
+        button { font: inherit; padding: 0.4rem 0.8rem; margin: 0 0.5rem 0.5rem 0; cursor: pointer; }
+        #ausgabe { background: #f4f5f7; padding: 0.75rem; min-height: 8rem; font-family: monospace; white-space: pre-wrap; }
+        .fehler { color: #b00020; }
+    </style>
+</head>
+<body>
+
+    <h1>Würfelspiel mit Promises</h1>
+
+    <button onclick="starteKette()">Teil 3: Kette mit .then()</button>
+    <button onclick="dreiWuerfel()">Teil 4: Drei Würfel mit Promise.all()</button>
+    <button onclick="starteKetteMitAwait()">Teil 5: Kette mit async/await</button>
+    <button onclick="leereAusgabe()">Ausgabe leeren</button>
+
+    <div id="ausgabe"></div>
+
+    <script>
+        // Fertige Hilfsfunktionen: schreiben eine Zeile (mit Zeitstempel)
+        // in #ausgabe bzw. leeren die Ausgabe.
+        const startzeit = Date.now();
+
+        function ausgabe(text, istFehler) {
+            const zeile = document.createElement("div");
+            const sekunden = ((Date.now() - startzeit) / 1000).toFixed(2);
+            zeile.textContent = "[" + sekunden + " s] " + text;
+            if (istFehler) {
+                zeile.className = "fehler";
+            }
+            document.getElementById("ausgabe").appendChild(zeile);
+        }
+
+        function leereAusgabe() {
+            document.getElementById("ausgabe").textContent = "";
+        }
+
+        function warte(ms) {
+            // TODO 1: Promise zurückgeben, das nach ms Millisekunden
+            //         erfüllt wird
+        }
+
+        function wuerfeln() {
+            // TODO 2: Promise zurückgeben, das nach 300-1000 ms eine Zahl
+            //         von 1 bis 6 liefert (bei einer 1: reject)
+        }
+
+        function starteKette() {
+            ausgabe("Kette gestartet, warte 1 Sekunde ...");
+
+            // TODO 3: warte(1000) -> wuerfeln() -> Zahl prüfen -> Punkte
+            //         ausgeben; .catch() und .finally() ergänzen;
+            //         danach "starteKette() ist fertig ..." ausgeben
+        }
+
+        function dreiWuerfel() {
+            ausgabe("Würfle drei Würfel gleichzeitig ...");
+
+            // TODO 4: Promise.all() mit drei wuerfeln()-Promises,
+            //         Zahlen und Summe ausgeben, Fehler abfangen
+        }
+
+        // TODO 5: starteKetteMitAwait() als async function mit
+        //         await und try/catch/finally implementieren
+        function starteKetteMitAwait() {
+        }
+    </script>
+
+</body>
+</html>

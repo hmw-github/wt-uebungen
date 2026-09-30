@@ -1,0 +1,90 @@
+<!--
+    TASK 1: DATEN VON EINEM ÖFFENTLICHEN SERVER LADEN UND ALS KARTEN
+    ANZEIGEN (Kapitel 8.1-8.2 - AJAX, XMLHttpRequest)
+
+    Aufgabenstellung:
+    Die Seite soll beim Laden eine Liste von Benutzern vom öffentlichen
+    Test-Server JSONPlaceholder abrufen und jeden Datensatz als Karte
+    anzeigen. Der Server liefert unter
+        https://jsonplaceholder.typicode.com/users
+    ein JSON-Array mit 10 Objekten der Form (gekürzt):
+        {
+          "id": 1,
+          "name": "Leanne Graham",
+          "username": "Bret",
+          "email": "Sincere@april.biz",
+          "address": { "city": "Gwenborough", ... },
+          "company": { "name": "Romaguera-Crona", ... },
+          ...
+        }
+    Rufen Sie die URL zuerst einmal direkt im Browser auf, um sich die
+    Struktur der Daten anzusehen.
+
+    TODO 1: Vervollständigen Sie erzeugeKarte(benutzer): Erzeugen Sie mit
+            document.createElement() ein <article> mit der Klasse "karte",
+            das Name (<h2>), "@" + username (<p class="untertitel">),
+            E-Mail, Ort (address.city) und Firma (company.name) enthält.
+            Setzen Sie Texte mit textContent (nicht mit innerHTML) und
+            geben Sie die Karte mit return zurück.
+    TODO 2: Erzeugen Sie in ladeBenutzer() ein XMLHttpRequest-Objekt und
+            installieren Sie einen onreadystatechange-Handler, der nur
+            bei readyState 4 (Antwort vollständig empfangen) reagiert.
+    TODO 3: Wandeln Sie bei Status 200 den Antworttext
+            (xhr.responseText) mit JSON.parse() in ein Array um. Hängen
+            Sie für jeden Benutzer die mit erzeugeKarte() erzeugte Karte
+            an das Element mit der id "karten" an. Schreiben Sie
+            anschließend die Anzahl der geladenen Benutzer in das Element
+            mit der id "status".
+    TODO 4: Zeigen Sie bei jedem anderen Status eine Fehlermeldung mit dem
+            Statuscode im Element "status" an und setzen Sie dessen
+            Klasse auf "fehler" (rote Schrift).
+    TODO 5: Öffnen Sie die Verbindung mit xhr.open("GET", API_URL) und
+            senden Sie die Anfrage mit xhr.send().
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Benutzerverzeichnis (XMLHttpRequest)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Benutzerverzeichnis</h1>
+
+    <p id="status">Daten werden geladen ...</p>
+
+    <div id="karten" class="karten"></div>
+
+    <script>
+        const API_URL = "https://jsonplaceholder.typicode.com/users";
+
+        // Erzeugt aus einem Benutzer-Objekt ein <article>-Element (Karte).
+        function erzeugeKarte(benutzer) {
+            // TODO 1: Karte mit createElement()/textContent aufbauen
+            //         und zurückgeben
+        }
+
+        function ladeBenutzer() {
+            const status = document.getElementById("status");
+            const container = document.getElementById("karten");
+
+            // TODO 2: XMLHttpRequest-Objekt erzeugen, onreadystatechange-
+            //         Handler installieren (nur bei readyState 4 reagieren)
+
+                    // TODO 3: bei Status 200: responseText mit JSON.parse()
+                    //         umwandeln, für jeden Benutzer eine Karte
+                    //         anhängen, Anzahl in #status anzeigen
+
+                    // TODO 4: sonst: Fehlermeldung mit Statuscode in
+                    //         #status anzeigen, Klasse "fehler" setzen
+
+            // TODO 5: xhr.open("GET", API_URL) und xhr.send()
+        }
+
+        ladeBenutzer();
+    </script>
+
+</body>
+</html>
