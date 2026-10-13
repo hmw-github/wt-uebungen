@@ -1,39 +1,79 @@
 <!-- TODO 1: DOCTYPE hier ergänzen -->
+<!DOCTYPE html>
 <html>
 <head>
     <!-- TODO 2: title ergänzen -->
+    <title>Alex Berger - Portfolio - Startseite</title>
 
     <!-- TODO 3: meta charset ergänzen -->
+    <meta charset="utf-8">
 
     <!-- TODO 4: meta viewport ergänzen -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
     <header>
         <!-- TODO 5: Logo-Bild als Link zur Startseite -->
+        <img src="./images/logo.svg" alt="logo">
 
         <!-- TODO 6: nav mit Links zu ueber-mich.html, projekte.html, kontakt.html -->
-
+        <nav>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="projekte.html">Projekte</a>
+            <a href="kontakt.html">Kontakt</a>            
+        </nav>
     </header>
 
     <!-- TODO 7: Überschrift H1 und Absatz mit Begrüßungstext -->
+    <h1>Alex Berger</h1>
+    <p>Ich studiere angewandte Informatik mit Schwerpunkt Webtechnologien.</p>
 
     <!-- TODO 8: Button als Hyperlink zu projekte.html -->
-
+    <a href="projekte.html">
+        <button>
+            Projekte ansehen
+        </button>
+    </a>
     <!-- TODO 9: div mit Absatz, darin ein Wort strong und ein Wort em -->
+    <div>
+        Am liebsten arbeite ich mit <strong>
+            <span style="color: red">HTML, CSS und JS</span>
+        </strong>, 
+        beschäftige mich aber genauso 
+        gerne mit <em>serverseitigen</em> Themen...
+    </div>
 
     <!-- TODO 10: Absatz mit span und inline-style -->
+    <p>
+        Mein aktuelles Lieblingsthema ist gerade 
+        <span style="color: blue;">REST-APIs</span>.
+    </p>
 
     <!-- TODO 11: Absatz mit zwei Zeilen, getrennt durch br -->
+    <p>
+        Angewandte Informatik<br>
+        THI
+    </p>
 
     <!-- TODO 12: pre-Block -->
+    <pre>
+        function gruss(name) {
+            return "Hallo, " + name + "!";
+        }
+    </pre>
 
     <!-- TODO 13: hr -->
+     <hr>
 
     <!-- TODO 14: footer mit GitHub-Link (neuer Tab) und Impressum-Link -->
+    <footer>
+        <a href="github/alexberger">GitHub</a>
+        &#183;
+        <a href="rechtliches/impressum.html">Impressum</a>
+    </footer>
 
     <!-- TODO 15: Kommentar mit Autor/-in ergänzen -->
-
+    <!-- Autor: Hans-Michael Windisch -->
 </body>
 </html>
