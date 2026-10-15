@@ -8,7 +8,6 @@
 4. Was bedeutet `col-sm-4`? Was passiert unterhalb des Breakpoints `sm`?
 5. Welche Breakpoints gibt es?
 6. Was bedeutet die Klasse `mt-4`?
-7. Wie hängt das Bootstrap-Grid mit Flexbox und Media Queries aus Kapitel 4 zusammen?
 
 <details><summary>Erwartete Antworten</summary>
 
@@ -18,7 +17,6 @@
 4. Ab Breakpoint `sm` (≥ 576 px) nimmt die Spalte 4 von 12 Einheiten ein, darunter die volle Breite (untereinander).
 5. sm ≥ 576, md ≥ 768, lg ≥ 992, xl ≥ 1200, xxl ≥ 1400 px.
 6. margin-top Stufe 4 (1.5rem). Spacing-Klassen: `m`/`p` + Richtung (`t`, `b`, `s`, `e`, `x`, `y`) + Stufe 0–5.
-7. `row` ist ein Flex-Container, die Spaltenbreiten werden über Media Queries für die Breakpoints gesetzt.
 </details>
 
 ### Buttons

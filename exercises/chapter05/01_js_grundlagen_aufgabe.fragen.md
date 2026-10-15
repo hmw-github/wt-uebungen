@@ -14,7 +14,7 @@
 10. Was ist der Unterschied zwischen einer klassischen `for`-Schleife und `for...of`?
 11. Welche Array-Methoden werden gebraucht? Was machen sie?
 12. Warum braucht `sort()` für Zahlen eine Vergleichsfunktion? Wie sieht sie aus?
-13. Was ist Destrukturierung, z.B. `const [a, b] = liste.alsArray();`?
+13. Was ist Destrukturierung, z.B. `const [a, b] = [1, 2];`?
 14. Wie ist ein `switch` aufgebaut? Warum braucht man `break`?
 
 <details><summary>Erwartete Antworten</summary>
