@@ -6,7 +6,7 @@
 2. Wo sieht man die Ausgabe von `console.log()`?
 3. Was ist das `javascript:`-Pseudo-Protokoll und warum wird es heute kaum noch verwendet?
 4. Was ist ein Event-Handler-Attribut wie `onclick`?
-5. Warum bindet man Skripte oft am Ende des `<body>` ein? Welche Alternative gibt es (`defer`)?
+5. Warum bindet man Skripte oft am Ende des `<body>` ein? Welche Alternative gibt es?
 6. Wie ruft man aus der HTML-Seite eine Funktion auf, die in einer externen Datei steht (`zeigeAlert()` in `js/begruessung.js`)? Was passiert, wenn die Datei noch nicht geladen ist?
 7. Wie definiert man eine Funktion in JavaScript?
 
@@ -24,7 +24,7 @@
 ### DOM-Werte lesen
 
 1. Was ist das DOM?
-2. Wie findet man Elemente (`getElementById`, `querySelector`, `querySelectorAll`)?
+2. Wie findet man Elemente im DOM?
 3. Was liefert `.value` bei Textfeld, `select` und `textarea`? Wie prüft man eine Checkbox?
 4. Wie ermittelt man den ausgewählten Radiobutton? Warum kann das Ergebnis `null` sein, und wie geht man damit um?
 5. Wie registriert man einen Submit-Handler? Was macht `event.preventDefault()`?

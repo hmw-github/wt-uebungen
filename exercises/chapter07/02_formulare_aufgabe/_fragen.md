@@ -1,6 +1,6 @@
 ## 7.2 Formulare (`02_formulare_aufgabe`)
 
-1. Welche Bootstrap-Klassen gibt es für Formularelemente (`form-control`, `form-select`, `form-check`, `form-check-input`, `form-check-label`)?
+1. Welche Bootstrap-Klassen gibt es für Formularelemente?
 2. Warum werden Radiobuttons und Checkboxen anders gestaltet als Textfelder?
 3. Was bewirkt `form-check-inline`?
 4. Wie funktionieren `is-valid`, `is-invalid` und `invalid-feedback` zusammen?

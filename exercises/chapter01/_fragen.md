@@ -76,7 +76,7 @@
 2. Mit welchen drei Maßnahmen wurde dieses Problem gelöst?
 3. Ordnen Sie Backbone, WAN und LAN von der schnellsten zur langsamsten Verbindung. Wie hängen sie zusammen?
 4. Was ist ein Backbone und woraus besteht es technisch?
-5. Was sind Peering Points und welche Rolle spielen sie (z.B. DE-CIX in Frankfurt)?
+5. Was sind Peering Points und welche Rolle spielen sie?
 6. Wie ist ein Endkunde (z.B. Ihr Heimanschluss) an das Internet angebunden?
 
 <details><summary>Erwartete Antworten</summary>

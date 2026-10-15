@@ -33,7 +33,7 @@ class GaestebuchView
                     <img src="../images/logo.png" alt="Logo Alex Berger" height="50">
                 </a>
 
-                <button id="burgerButton" class="burger-button" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+                <button id="burgerButton" class="burger-button" type="button">
                     <span></span>
                     <span></span>
                     <span></span>

@@ -1,7 +1,7 @@
 ## 6.3 Sessions (`03_sessions_aufgabe`)
 
-1. Warum „vergisst“ der Server ohne Sessions alles zwischen zwei Anfragen ?
-2. Wie funktioniert eine PHP-Session ?
+1. Warum „vergisst“ der Server ohne Sessions alles zwischen zwei Anfragen?
+2. Wie funktioniert eine PHP-Session?
 3. Warum muss `session_start()` vor jeder Ausgabe stehen?
 4. Wie liest und schreibt man Werte in `$_SESSION`?
 5. Warum muss man `$_SESSION['gaestebucheintraege']` zuerst als leeres Array initialisieren?

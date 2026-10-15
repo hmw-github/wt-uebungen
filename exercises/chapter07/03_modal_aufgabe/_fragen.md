@@ -1,9 +1,9 @@
 ## 7.3 Modal (`03_modal_aufgabe`)
 
 1. Was ist ein Modal-Dialog? Wann setzt man ihn ein?
-2. Wie ist ein Bootstrap-Modal aufgebaut (`modal` > `modal-dialog` > `modal-content` > header/body/footer)?
+2. Wie ist ein Bootstrap-Modal aufgebaut?
 3. Was bewirkt `data-bs-dismiss="modal"`?
-4. Wie öffnet und schließt man ein Modal per JavaScript (`bootstrap.Modal.getOrCreateInstance(...).show()`/`.hide()`)?
+4. Wie öffnet und schließt man ein Modal per JavaScript?
 5. Warum muss man sich die `cardId` zwischen `projektBearbeiten()` und `speichern()` merken? Wo speichert man sie?
 6. Wie liest man einen Wert aus einem `span` und wie schreibt man ihn in ein Eingabefeld (und umgekehrt)?
 7. Warum muss `dataset.jahr` der Card nach dem Speichern aktualisiert werden?

@@ -2,12 +2,12 @@
 
 ### Lesende Operationen (GET)
 
-1. Wie gelangen alle Anfragen unter `api/` zu `service.php` (URL-Rewriting)?
-2. Wie ermittelt `service.php` Methode und Pfad (`$_SERVER['REQUEST_METHOD']`, `$_REQUEST['_url']`)?
-3. Wie setzt man den HTTP-Statuscode in PHP (`http_response_code()`)?
+1. Wie gelangen alle Anfragen unter `api/` zu `service.php`?
+2. Wie ermittelt `service.php` Methode und Pfad?
+3. Wie setzt man den HTTP-Statuscode in PHP?
 4. Was bedeuten die Statuscodes 200, 201, 204, 400, 404 und 500?
 5. Warum antwortet man bei einer unbekannten ID mit 404 und nicht mit 200 und leerem Body?
-6. Wie sucht man in `$_SESSION['projekte']` nach dem Projekt mit passender ID? Warum muss man beim Vergleich auf den Typ achten (String aus URL ↔ int im Array)?
+6. Wie sucht man in `$_SESSION['projekte']` nach dem Projekt mit passender ID? Warum muss man beim Vergleich auf den Typ achten?
 7. Wie benutzt man die Datei `tests.http` zum Testen?
 
 <details><summary>Erwartete Antworten</summary>
@@ -26,10 +26,10 @@
 1. Wie liest man den JSON-Body einer POST- oder PUT-Anfrage in PHP?
 2. Wie vergibt man eine neue fortlaufende ID? Warum ist `count($projekte) + 1` problematisch, wenn schon Projekte gelöscht wurden?
 3. Warum antwortet POST mit dem neu angelegten Projekt? Welcher Statuscode wäre eigentlich passender?
-4. Wie ändert man ein Element in einem Array innerhalb einer `foreach`-Schleife (Referenz `&` bzw. Zugriff über den Index)?
-5. Wie entfernt man ein Element aus einem Array (`array_splice` vs. `unset`)? Was passiert mit den Indizes?
+4. Wie ändert man ein Element in einem Array innerhalb einer `foreach`-Schleife?
+5. Wie entfernt man ein Element aus einem Array? Was passiert dabei mit den Indizes?
 6. Warum werden die Projekte in `$_SESSION` gespeichert? Welche Nachteile hat das?
-7. Was ist CORS, und wozu dient die OPTIONS-Anfrage (Preflight)?
+7. Was ist CORS, und wozu dient die OPTIONS-Anfrage?
 
 <details><summary>Erwartete Antworten</summary>
 

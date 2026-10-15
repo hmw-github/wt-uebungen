@@ -29,7 +29,7 @@
 4. Wie setzt man ein Inline-Style, z.B. für die Schriftfarbe? Warum ist das auf Dauer keine gute Lösung?
 5. Warum wird ein Zeilenumbruch im HTML-Quelltext nicht angezeigt? Wann ist `<br>` angebracht und wann nicht?
 6. Was ist das Besondere an `<pre>`? Was muss man beachten, wenn der Code darin `<` oder `>` enthält?
-7. Welche Elemente sind „leere Elemente“ ohne End-Tag wie z.B. `<link ...>`?
+7. Welche Elemente sind „leere Elemente“ ohne End-Tag?
 
 <details><summary>Erwartete Antworten</summary>
 
@@ -99,7 +99,7 @@
 
 ### Tabellen
 
-1. Aus welchen Elementen besteht eine Tabelle (`table`, `tr`, `th`, `td`)?
+1. Aus welchen Elementen besteht eine Tabelle?
 2. Wozu dienen `caption`, `thead`, `tbody` und `tfoot`?
 3. Was ist der Unterschied zwischen `th` und `td`?
 4. Was bewirken `rowspan` und `colspan`? Welche Zellen muss man in den Folgezeilen dann weglassen?

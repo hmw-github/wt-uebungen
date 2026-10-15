@@ -5,7 +5,7 @@
 3. Woran erkennt `speichern()`, ob ein neues Projekt angelegt oder ein bestehendes geändert werden soll?
 4. Warum lädt man nach jeder Änderung die Liste mit `ladeProjekte()` neu, statt die Karte direkt zu ändern? Welche Nachteile hat das?
 5. Wozu dient `projekteCache`?
-6. Wie leert man einen Container vor dem Neuaufbau (z.B. `innerHTML = ""` oder `replaceChildren()`)?
+6. Wie leert man einen Container vor dem Neuaufbau?
 7. Warum muss man `ladeProjekte()` nach `await fetch(...)` aufrufen und nicht direkt danach ohne `await`?
 8. Was ändert sich gegenüber der Modal-Lösung aus Übung 7.3 für die Dauerhaftigkeit der Daten?
 

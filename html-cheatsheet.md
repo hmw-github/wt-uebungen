@@ -217,7 +217,7 @@ Das Kontaktformular (ab Kap. 3, ab Kap. 6 per PHP ausgewertet). Der
 | `<textarea>` | 3 | Mehrzeiliges Textfeld | `id`, `name`, `rows`, `cols`, `required`, `class` |
 | `<select>` | 3 | Auswahlliste | `id`, `name`, `class` |
 | `<option>` | 3 | Eintrag einer Auswahlliste | `value`, `selected` |
-| `<button>` | 3 | Schaltfläche | `type`, `class`, `id`, `onclick`, `aria-label`, `aria-expanded`, `aria-controls` |
+| `<button>` | 3 | Schaltfläche | `type`, `class`, `id`, `onclick` |
 
 Verwendete `input`-Typen: `text`, `email`, `number`, `radio`,
 `checkbox`, `submit`.

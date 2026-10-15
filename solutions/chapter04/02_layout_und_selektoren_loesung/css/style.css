@@ -1,5 +1,5 @@
 /*
-    LÖSUNGSVORSCHLAG - ÜBUNG 2: FLEXBOX UND FORTGESCHRITTENE SELEKTOREN - style.css
+    LÖSUNGSVORSCHLAG - ÜBUNG 2: LAYOUT UND FORTGESCHRITTENE SELEKTOREN - style.css
 */
 
 * {
@@ -21,9 +21,6 @@ header {
     background-color: #2b2d42;
     color: #ffffff;
     padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .btn {
@@ -45,8 +42,8 @@ header {
 }
 
 #hauptnav {
-    display: flex;
-    align-items: center;
+    float: right;
+    margin-top: 8px;
 }
 
 table {
@@ -67,9 +64,7 @@ footer {
 }
 
 footer p {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    text-align: center;
 }
 
 h1,
@@ -154,10 +149,7 @@ details summary {
    wird per Media Query bei kleinen Bildschirmen eingeblendet) */
 .burger-button {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
     width: 28px;
-    height: 20px;
     background: none;
     border: none;
     padding: 0;
@@ -171,4 +163,9 @@ details summary {
     width: 100%;
     background-color: #ffffff;
     border-radius: 2px;
+}
+
+/* Abstand zwischen den Strichen: jeder Strich außer dem ersten erhält oben 5px */
+.burger-button span + span {
+    margin-top: 5px;
 }

@@ -15,7 +15,7 @@ gemeinsamem Navigationsmenü, und wächst über den gesamten Kurs hinweg:
 | Kapitel | Was mit der Website passiert |
 |---|---|
 | 3 – HTML | Grundgerüst aller vier Seiten, Navigationsmenü, Bilder, Projekttabelle, Kontaktformular |
-| 4 – CSS | Eigenes Stylesheet: Farben, Boxmodell, Flexbox-Layout, Media Query für Mobilgeräte |
+| 4 – CSS | Eigenes Stylesheet: Farben, Boxmodell, Layout mit Float, Media Query für Mobilgeräte |
 | 5 – JavaScript | Externes Skript, Sprachgrundlagen anhand der Projektdaten, DOM-generierte Projekttabelle |
 | 6 – PHP | Startseite wird `index.php`, Kontaktformular wird ausgewertet, Gästebuch mit Session-Handling im MVC2-Muster |
 | 7 – Bootstrap | Komplettes Reskinning: Grid, Bootstrap-Tabellen/-Buttons, Projekt-Karten, Tabs, Formulare, Bearbeiten-Modal |

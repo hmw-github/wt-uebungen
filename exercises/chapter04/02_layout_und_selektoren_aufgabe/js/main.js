@@ -1,5 +1,5 @@
 /*
-    ÜBUNG 2: FLEXBOX UND FORTGESCHRITTENE SELEKTOREN (Kapitel 4.4–4.5) - main.js
+    ÜBUNG 2: LAYOUT UND FORTGESCHRITTENE SELEKTOREN (Kapitel 4.4–4.5) - main.js
 
     Steuert das Burger-Menü: Ein Klick auf den Button blendet die
     Navigation (#hauptnav) auf schmalen Bildschirmen ein bzw. aus. Die
@@ -17,6 +17,5 @@ document.addEventListener("DOMContentLoaded", () => {
     burgerButton.addEventListener("click", () => {
         const istOffen = hauptnav.classList.toggle("offen");
         burgerButton.classList.toggle("offen", istOffen);
-        burgerButton.setAttribute("aria-expanded", istOffen);
     });
 });

@@ -41,7 +41,7 @@ werden können.
 4. Wie setzt man ein Inline-Style, z.B. für die Schriftfarbe? Warum ist das auf Dauer keine gute Lösung?
 5. Warum wird ein Zeilenumbruch im HTML-Quelltext nicht angezeigt? Wann ist `<br>` angebracht und wann nicht?
 6. Was ist das Besondere an `<pre>`? Was muss man beachten, wenn der Code darin `<` oder `>` enthält?
-7. Welche Elemente sind „leere Elemente“ ohne End-Tag wie z.B. `<link ...>`?
+7. Welche Elemente sind „leere Elemente“ ohne End-Tag?
 
 <details><summary>Erwartete Antworten</summary>
 
@@ -111,7 +111,7 @@ werden können.
 
 ### Tabellen
 
-1. Aus welchen Elementen besteht eine Tabelle (`table`, `tr`, `th`, `td`)?
+1. Aus welchen Elementen besteht eine Tabelle?
 2. Wozu dienen `caption`, `thead`, `tbody` und `tfoot`?
 3. Was ist der Unterschied zwischen `th` und `td`?
 4. Was bewirken `rowspan` und `colspan`? Welche Zellen muss man in den Folgezeilen dann weglassen?
@@ -167,7 +167,7 @@ werden können.
 2. Wie sieht das `link`-Tag für ein externes Stylesheet aus?
 3. Was bewirkt `media="print"`? Wie kann man das testen?
 4. Warum braucht `impressum.html` den Pfad `../css/style.css`?
-5. Wie ist eine CSS-Regel aufgebaut (Selektor, Eigenschaft, Wert)?
+5. Wie ist eine CSS-Regel aufgebaut?
 6. Warum setzt man `margin: 0` für `body`?
 7. Was bewirkt `display: none`?
 
@@ -187,7 +187,7 @@ werden können.
 1. Nennen Sie Typ-, Klassen- und ID-Selektor mit je einem Beispiel aus der Übung.
 2. Wann verwendet man eine Klasse und wann eine ID?
 3. Was bedeutet das Leerzeichen in `#hauptnav a`?
-4. Wie gibt man Farben in CSS an (z.B. `#2b2d42`)?
+4. Wie gibt man Farben in CSS an?
 5. Was bedeutet „Vererbung“ in CSS? Warum wird die Linkfarbe nicht von `body` übernommen?
 6. Was ist Spezifität? Welche Regel gewinnt: `a { color: … }` oder `#hauptnav a { color: … }`?
 7. TODO 2 und TODO 3 betreffen beide `body`. Was passiert, wenn es zwei Regeln mit demselben Selektor gibt? Warum fasst man sie trotzdem besser zusammen?
@@ -234,7 +234,7 @@ werden können.
 2. Was ist der Unterschied zwischen Serifen- und serifenlosen Schriften?
 3. Was ist die Einheit `em`? Worauf bezieht sich `2.5em`? Was ist der Unterschied zu `px` und `rem`?
 4. Warum schreibt man `line-height: 1.6` ohne Einheit?
-5. Welche Eigenschaften gibt es für Schrift und Text (`font-style`, `font-weight`, `letter-spacing`, `text-align` …)?
+5. Welche Eigenschaften gibt es für Schrift und Text?
 6. Wie spricht man die `caption` einer Tabelle an?
 
 <details><summary>Erwartete Antworten</summary>
@@ -247,30 +247,28 @@ werden können.
 6. Mit `table caption` (Nachfahrenselektor) oder einfach `caption`.
 </details>
 
-## 4.2 Flexbox und fortgeschrittene Selektoren (`02_flexbox_und_selektoren_aufgabe`)
+## 4.2 Layout und fortgeschrittene Selektoren (`02_layout_und_selektoren_aufgabe`)
 
-### Display und Flexbox
+### Display und Float
 
-1. Welche Werte von `display` kennen Sie (`block`, `inline`, `inline-block`, `none`, `flex`)?
-2. Was ist ein Flex-Container, was sind Flex-Items? Wirkt `display: flex` auf Kinder oder Enkel?
-3. Was ist Hauptachse und Querachse? Welche Eigenschaft richtet entlang welcher Achse aus?
-4. Was bewirken `justify-content: space-between` und `justify-content: center`?
-5. Was bewirkt `align-items: center`?
-6. Was ist `gap`, und welchen Vorteil hat es gegenüber `margin` an jedem Element?
+1. Welche Werte von `display` kennen Sie?
+2. Was bewirkt `float: right`? Wie verhalten sich die nachfolgenden Inhalte?
+3. Wie richtet man die gefloatete Navigation vertikal ungefähr an der Mitte des Logos aus?
+4. Wie zentriert man Links und Text innerhalb eines Absatzes?
+5. Warum stehen die Navigationslinks nebeneinander, obwohl `#hauptnav` selbst ein Block-Element ist?
 
 <details><summary>Erwartete Antworten</summary>
 
-1. block: eigene Zeile, volle Breite; inline: im Textfluss; inline-block: im Textfluss mit Box-Eigenschaften; none: unsichtbar; flex: Flex-Container.
-2. Das Element mit `display: flex` ist der Container, seine **direkten** Kinder sind die Items. Enkel sind nicht betroffen.
-3. Die Hauptachse folgt `flex-direction` (standardmäßig waagerecht), die Querachse steht senkrecht dazu. `justify-content` wirkt auf der Hauptachse, `align-items` auf der Querachse.
-4. `space-between`: erstes und letztes Item am Rand, Rest gleichmäßig verteilt. `center`: alle Items in der Mitte.
-5. Items werden auf der Querachse mittig ausgerichtet (z.B. Logo und Navigation vertikal zentriert).
-6. Abstand nur **zwischen** den Items, ohne zusätzlichen Rand außen.
+1. block: eigene Zeile, volle Breite; inline: im Textfluss; inline-block: im Textfluss mit Box-Eigenschaften; none: unsichtbar.
+2. Das Element wird aus dem normalen Fluss genommen und an den rechten Rand des Elternelements geschoben. Nachfolgender Inhalt umfließt es auf der linken Seite.
+3. Über einen passenden `margin-top`, hier 8px: Das Logo ist 50px hoch, die Links mit Padding etwa 34px.
+4. Mit `text-align: center` am umgebenden Block-Element, denn Links und Text sind Inline-Inhalte.
+5. Die Links selbst sind `inline-block` und liegen daher im Textfluss nebeneinander. `display` von `#hauptnav` wirkt nur auf das `nav`-Element.
 </details>
 
 ### Fortgeschrittene Selektoren
 
-1. Was ist eine Pseudoklasse? Nennen Sie Beispiele (`:hover`, `:nth-child()`, …).
+1. Was ist eine Pseudoklasse? Nennen Sie Beispiele.
 2. Was bedeutet `tr:nth-child(even)`? Wie würde man jede dritte Zeile ansprechen?
 3. Was bewirkt `opacity: 0.85`?
 4. Was ist ein Attributselektor? Was trifft `input[type="email"]`?
@@ -294,8 +292,8 @@ werden können.
 1. Was versteht man unter Responsive Web Design?
 2. Wie ist eine Media Query aufgebaut? Wann greift `@media (max-width: 600px)`?
 3. Warum muss die Media Query am Ende des Stylesheets stehen?
-4. Was bewirkt `flex-direction: column`? Wie ändern sich dadurch Haupt- und Querachse?
-5. Was bedeutet `align-items: flex-start` in einer Spalte?
+4. Warum stehen Logo und Navigation untereinander, sobald `#hauptnav` `float: none` erhält? Was ändert sich bei den Navigationslinks durch `display: block` statt `inline-block`?
+5. Wie wird der Burger-Button oben rechts platziert? Welche Rolle spielt dabei `position: relative` am Header?
 6. Worauf bezieht sich `width: 100%`?
 7. Welche Rolle spielt das viewport-Meta-Tag aus Übung 3.1 dabei?
 8. Wie testet man eine Seite in verschiedenen Bildschirmgrößen?
@@ -305,8 +303,8 @@ werden können.
 1. Die Seite passt sich an verschiedene Bildschirmgrößen an (Layout, Schrift, Bilder).
 2. `@media (bedingung) { regeln }`. Sie greift, wenn der Viewport höchstens 600 px breit ist.
 3. Sonst würden spätere Regeln mit gleicher Spezifität die Werte wieder überschreiben.
-4. Items werden untereinander angeordnet. Die Hauptachse ist nun senkrecht, die Querachse waagerecht.
-5. Items stehen links (am Anfang der Querachse) statt zentriert oder gestreckt.
+4. Ohne Float gilt der normale Dokumentfluss: Block-Elemente wie `<nav>` beginnen eine neue Zeile und nehmen die volle Breite ein, daher steht die Navigation unter dem Logo. Links mit `inline-block` liegen nebeneinander im Textfluss, mit `block` erhält jeder Link eine eigene Zeile.
+5. Mit `position: absolute` und `top`/`right` wird der Button aus dem Fluss genommen und relativ zum nächsten positionierten Vorfahren platziert. Durch `position: relative` ist das der Header (sonst der Viewport bzw. das Dokument).
 6. Auf die Inhaltsbreite des Elternelements.
 7. Ohne das Tag meldet ein Smartphone eine Breite von ca. 980 px, und die Media Query greift nie.
 8. Gerätesymbolleiste / responsive Ansicht in den DevTools oder Fenster verkleinern.
@@ -330,7 +328,7 @@ werden können.
 8. Was prüft `instanceof`?
 9. Wie funktionieren `throw` und `try...catch`?
 10. Was ist der Unterschied zwischen einer klassischen `for`-Schleife und `for...of`?
-11. Welche Array-Methoden werden gebraucht (`push`, `find`, `splice`, `sort`)? Was machen sie?
+11. Welche Array-Methoden werden gebraucht? Was machen sie?
 12. Warum braucht `sort()` für Zahlen eine Vergleichsfunktion? Wie sieht sie aus?
 13. Was ist Destrukturierung, z.B. `const [a, b] = liste.alsArray();`?
 14. Wie ist ein `switch` aufgebaut? Warum braucht man `break`?
@@ -382,7 +380,7 @@ werden können.
 2. Wo sieht man die Ausgabe von `console.log()`?
 3. Was ist das `javascript:`-Pseudo-Protokoll und warum wird es heute kaum noch verwendet?
 4. Was ist ein Event-Handler-Attribut wie `onclick`?
-5. Warum bindet man Skripte oft am Ende des `<body>` ein? Welche Alternative gibt es (`defer`)?
+5. Warum bindet man Skripte oft am Ende des `<body>` ein? Welche Alternative gibt es?
 6. Wie ruft man aus der HTML-Seite eine Funktion auf, die in einer externen Datei steht (`zeigeAlert()` in `js/begruessung.js`)? Was passiert, wenn die Datei noch nicht geladen ist?
 7. Wie definiert man eine Funktion in JavaScript?
 
@@ -400,7 +398,7 @@ werden können.
 ### DOM-Werte lesen
 
 1. Was ist das DOM?
-2. Wie findet man Elemente (`getElementById`, `querySelector`, `querySelectorAll`)?
+2. Wie findet man Elemente im DOM?
 3. Was liefert `.value` bei Textfeld, `select` und `textarea`? Wie prüft man eine Checkbox?
 4. Wie ermittelt man den ausgewählten Radiobutton? Warum kann das Ergebnis `null` sein, und wie geht man damit um?
 5. Wie registriert man einen Submit-Handler? Was macht `event.preventDefault()`?
@@ -456,11 +454,11 @@ werden können.
 5. Was bedeutet das Format `"H:i:s d.m.Y"` bei `date()`?
 6. Was ist der Unterschied zwischen einem indizierten und einem assoziativen Array? Wie sieht `foreach` jeweils aus?
 7. Was ist der Unterschied zwischen `switch` und `match`?
-8. Was ist der Unterschied zwischen Wert- und Referenzparameter (`&$ergebnis`)?
-9. Wie definiert man in PHP eine Klasse mit Konstruktor und privaten Eigenschaften? Wie greift man auf sie zu (`$this->`)?
+8. Was ist der Unterschied zwischen Wert- und Referenzparameter? Wie kennzeichnet man einen Referenzparameter?
+9. Wie definiert man in PHP eine Klasse mit Konstruktor und privaten Eigenschaften? Wie greift man auf sie zu?
 10. Was bewirkt `__toString()`?
-11. Wie ruft man Konstruktor und Methoden der Basisklasse auf (`parent::`)?
-12. Wie erzeugt man ein Objekt und ruft eine Methode auf (`new`, `->`)?
+11. Wie ruft man Konstruktor und Methoden der Basisklasse auf?
+12. Wie erzeugt man ein Objekt und ruft eine Methode auf?
 
 <details><summary>Erwartete Antworten</summary>
 
@@ -487,7 +485,7 @@ werden können.
 5. Wofür verwendet man `??` bei `betreff` und `rueckmeldung`?
 6. Was ist XSS? Was macht `htmlspecialchars()` genau?
 7. Warum reicht die `required`-Prüfung im Browser nicht aus?
-8. Was ist der Unterschied zwischen `$_POST` und `$_GET`? Wann wäre ein Formular mit `method="get"` die bessere Wahl (z.B. ein Suchformular)?
+8. Was ist der Unterschied zwischen `$_POST` und `$_GET`? Wann wäre ein Formular mit `method="get"` die bessere Wahl?
 
 <details><summary>Erwartete Antworten</summary>
 
@@ -503,8 +501,8 @@ werden können.
 
 ## 6.3 Sessions (`03_sessions_aufgabe`)
 
-1. Warum „vergisst“ der Server ohne Sessions alles zwischen zwei Anfragen (HTTP ist zustandslos)?
-2. Wie funktioniert eine PHP-Session (Session-ID, Cookie, Speicherung auf dem Server)?
+1. Warum „vergisst“ der Server ohne Sessions alles zwischen zwei Anfragen?
+2. Wie funktioniert eine PHP-Session?
 3. Warum muss `session_start()` vor jeder Ausgabe stehen?
 4. Wie liest und schreibt man Werte in `$_SESSION`?
 5. Warum muss man `$_SESSION['gaestebucheintraege']` zuerst als leeres Array initialisieren?
@@ -531,7 +529,7 @@ werden können.
 3. Welche Klasse darf auf `$_POST` zugreifen, welche auf `$_SESSION`, welche gibt HTML aus?
 4. Wie läuft eine Anfrage vom Aufruf von `gaestebuch/index.php` bis zur fertigen Seite?
 5. Warum bekommt die View das Model im Konstruktor übergeben?
-6. Was ist Autoloading (`spl_autoload_register()`)?
+6. Was ist Autoloading und wie richtet man es in PHP ein?
 7. Warum müssen die Pfade in der View um `../` ergänzt werden?
 8. Welche Vorteile bringt die Trennung gegenüber der Lösung aus Übung 6.3?
 
@@ -555,11 +553,11 @@ werden können.
 
 ### Container und Grid
 
-1. Was ist Bootstrap und wie wird es hier eingebunden (CDN)? Wozu dient das JS-Bundle?
+1. Was ist Bootstrap und wie wird es hier eingebunden? Wozu dient das JS-Bundle?
 2. Was ist der Unterschied zwischen `container` und `container-fluid`?
-3. Wie ist das Grid aufgebaut (`container` → `row` → `col`)? Warum 12 Spalten?
+3. Wie ist das Grid aufgebaut? Warum 12 Spalten?
 4. Was bedeutet `col-sm-4`? Was passiert unterhalb des Breakpoints `sm`?
-5. Welche Breakpoints gibt es (`sm`, `md`, `lg`, `xl`, `xxl`)?
+5. Welche Breakpoints gibt es?
 6. Was bedeutet die Klasse `mt-4`?
 7. Wie hängt das Bootstrap-Grid mit Flexbox und Media Queries aus Kapitel 4 zusammen?
 
@@ -593,10 +591,10 @@ werden können.
 
 ### Cards
 
-1. Wie ist eine Bootstrap-Card aufgebaut (`card`, `card-header`, `card-body`, `card-text`, `card-footer`)?
+1. Wie ist eine Bootstrap-Card aufgebaut?
 2. Warum steckt jede Card in einer Spalte `col-md-6`? Wie viele Cards stehen nebeneinander?
-3. Wie erzeugt man per JavaScript ein Element mit Klassen und ID (`className`, `id`)?
-4. Was sind `data-*`-Attribute? Wie greift man mit `dataset` darauf zu (`dataset.jahr` ↔ `data-jahr`)?
+3. Wie erzeugt man per JavaScript ein Element mit Klassen und ID?
+4. Was sind `data-*`-Attribute? Wie greift man mit `dataset` darauf zu?
 5. Warum bekommt jede Card eine eindeutige `cardId` und die Elemente IDs wie `card1-titel`?
 6. Wie übergibt man beim `addEventListener` einen Parameter an eine Funktion (`projektBearbeiten(cardId)`)?
 7. Wie erzeugt man „Technologie:“ fett gefolgt von einem `span`?
@@ -614,8 +612,8 @@ werden können.
 
 ### Tabs
 
-1. Wie sind Bootstrap-Tabs aufgebaut (Navigation und Inhalt)?
-2. Wie wird ein Tab-Link mit seinem Inhaltsbereich verknüpft (`href="#id"` ↔ `id`)?
+1. Wie sind Bootstrap-Tabs aufgebaut?
+2. Wie wird ein Tab-Link mit seinem Inhaltsbereich verknüpft?
 3. Was bewirkt `data-bs-toggle="tab"`? Warum wird dafür das Bootstrap-JS-Bundle benötigt?
 4. Warum müssen Link und Pane beim Start die Klasse `active` haben?
 5. Warum bringen Tabs hier einen Vorteil gegenüber dem langen Text in Kapitel 5?
@@ -633,7 +631,7 @@ werden können.
 
 ## 7.2 Formulare (`02_formulare_aufgabe`)
 
-1. Welche Bootstrap-Klassen gibt es für Formularelemente (`form-control`, `form-select`, `form-check`, `form-check-input`, `form-check-label`)?
+1. Welche Bootstrap-Klassen gibt es für Formularelemente?
 2. Warum werden Radiobuttons und Checkboxen anders gestaltet als Textfelder?
 3. Was bewirkt `form-check-inline`?
 4. Wie funktionieren `is-valid`, `is-invalid` und `invalid-feedback` zusammen?
@@ -657,9 +655,9 @@ werden können.
 ## 7.3 Modal (`03_modal_aufgabe`)
 
 1. Was ist ein Modal-Dialog? Wann setzt man ihn ein?
-2. Wie ist ein Bootstrap-Modal aufgebaut (`modal` > `modal-dialog` > `modal-content` > header/body/footer)?
+2. Wie ist ein Bootstrap-Modal aufgebaut?
 3. Was bewirkt `data-bs-dismiss="modal"`?
-4. Wie öffnet und schließt man ein Modal per JavaScript (`bootstrap.Modal.getOrCreateInstance(...).show()`/`.hide()`)?
+4. Wie öffnet und schließt man ein Modal per JavaScript?
 5. Warum muss man sich die `cardId` zwischen `projektBearbeiten()` und `speichern()` merken? Wo speichert man sie?
 6. Wie liest man einen Wert aus einem `span` und wie schreibt man ihn in ein Eingabefeld (und umgekehrt)?
 7. Warum muss `dataset.jahr` der Card nach dem Speichern aktualisiert werden?
@@ -685,12 +683,12 @@ werden können.
 
 1. Was ist AJAX? Was ist der Unterschied zu einem normalen Seitenaufruf?
 2. Was bedeutet „asynchron“?
-3. Welche Schritte braucht eine XHR-Anfrage (`new`, `onreadystatechange`, `open`, `send`)?
+3. Welche Schritte braucht eine XHR-Anfrage?
 4. Was bedeuten `readyState == 4` und `status == 200`?
-5. Wo steht die Antwort des Servers (`responseText`)?
+5. Wo steht die Antwort des Servers?
 6. Wie liest `hinweis.php` den Parameter `praefix`? Warum müsste man ihn eigentlich mit `encodeURIComponent()` kodieren?
 7. Was liefert `strpos()`, und warum muss man mit `=== 0` statt `== 0` bzw. `!strpos()` vergleichen?
-8. Wie baut man aus einem Array eine kommagetrennte Liste (`implode`)?
+8. Wie baut man aus einem Array eine kommagetrennte Liste?
 9. Warum muss man die Übung über einen Webserver (Docker) statt per `file://` öffnen?
 
 <details><summary>Erwartete Antworten</summary>
@@ -776,7 +774,7 @@ werden können.
 3. Wie unterscheidet `api.php` zwischen „Liste laden“ und „Eintrag speichern“?
 4. Wann wird `onLoad()` aufgerufen?
 5. Wie sieht die JSON-Antwort des Servers aus, und wie greift man in JavaScript auf `entries` zu?
-6. Warum bleiben die Einträge auch mit AJAX erhalten (Session)? Schickt `fetch()` das Session-Cookie mit?
+6. Warum bleiben die Einträge auch mit AJAX erhalten? Schickt `fetch()` das Session-Cookie mit?
 7. Warum schützt `htmlspecialchars()` im Model weiterhin vor XSS, obwohl die Einträge jetzt per JavaScript eingefügt werden? Worauf muss `fillList()` achten?
 
 <details><summary>Erwartete Antworten</summary>
@@ -819,12 +817,12 @@ werden können.
 
 ### Lesende Operationen (GET)
 
-1. Wie gelangen alle Anfragen unter `api/` zu `service.php` (URL-Rewriting)?
-2. Wie ermittelt `service.php` Methode und Pfad (`$_SERVER['REQUEST_METHOD']`, `$_REQUEST['_url']`)?
-3. Wie setzt man den HTTP-Statuscode in PHP (`http_response_code()`)?
+1. Wie gelangen alle Anfragen unter `api/` zu `service.php`?
+2. Wie ermittelt `service.php` Methode und Pfad?
+3. Wie setzt man den HTTP-Statuscode in PHP?
 4. Was bedeuten die Statuscodes 200, 201, 204, 400, 404 und 500?
 5. Warum antwortet man bei einer unbekannten ID mit 404 und nicht mit 200 und leerem Body?
-6. Wie sucht man in `$_SESSION['projekte']` nach dem Projekt mit passender ID? Warum muss man beim Vergleich auf den Typ achten (String aus URL ↔ int im Array)?
+6. Wie sucht man in `$_SESSION['projekte']` nach dem Projekt mit passender ID? Warum muss man beim Vergleich auf den Typ achten?
 7. Wie benutzt man die Datei `tests.http` zum Testen?
 
 <details><summary>Erwartete Antworten</summary>
@@ -843,10 +841,10 @@ werden können.
 1. Wie liest man den JSON-Body einer POST- oder PUT-Anfrage in PHP?
 2. Wie vergibt man eine neue fortlaufende ID? Warum ist `count($projekte) + 1` problematisch, wenn schon Projekte gelöscht wurden?
 3. Warum antwortet POST mit dem neu angelegten Projekt? Welcher Statuscode wäre eigentlich passender?
-4. Wie ändert man ein Element in einem Array innerhalb einer `foreach`-Schleife (Referenz `&` bzw. Zugriff über den Index)?
-5. Wie entfernt man ein Element aus einem Array (`array_splice` vs. `unset`)? Was passiert mit den Indizes?
+4. Wie ändert man ein Element in einem Array innerhalb einer `foreach`-Schleife?
+5. Wie entfernt man ein Element aus einem Array? Was passiert dabei mit den Indizes?
 6. Warum werden die Projekte in `$_SESSION` gespeichert? Welche Nachteile hat das?
-7. Was ist CORS, und wozu dient die OPTIONS-Anfrage (Preflight)?
+7. Was ist CORS, und wozu dient die OPTIONS-Anfrage?
 
 <details><summary>Erwartete Antworten</summary>
 
@@ -866,7 +864,7 @@ werden können.
 3. Woran erkennt `speichern()`, ob ein neues Projekt angelegt oder ein bestehendes geändert werden soll?
 4. Warum lädt man nach jeder Änderung die Liste mit `ladeProjekte()` neu, statt die Karte direkt zu ändern? Welche Nachteile hat das?
 5. Wozu dient `projekteCache`?
-6. Wie leert man einen Container vor dem Neuaufbau (z.B. `innerHTML = ""` oder `replaceChildren()`)?
+6. Wie leert man einen Container vor dem Neuaufbau?
 7. Warum muss man `ladeProjekte()` nach `await fetch(...)` aufrufen und nicht direkt danach ohne `await`?
 8. Was ändert sich gegenüber der Modal-Lösung aus Übung 7.3 für die Dauerhaftigkeit der Daten?
 

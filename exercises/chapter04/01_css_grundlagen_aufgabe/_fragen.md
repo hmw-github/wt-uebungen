@@ -6,7 +6,7 @@
 2. Wie sieht das `link`-Tag für ein externes Stylesheet aus?
 3. Was bewirkt `media="print"`? Wie kann man das testen?
 4. Warum braucht `impressum.html` den Pfad `../css/style.css`?
-5. Wie ist eine CSS-Regel aufgebaut (Selektor, Eigenschaft, Wert)?
+5. Wie ist eine CSS-Regel aufgebaut?
 6. Warum setzt man `margin: 0` für `body`?
 7. Was bewirkt `display: none`?
 
@@ -26,7 +26,7 @@
 1. Nennen Sie Typ-, Klassen- und ID-Selektor mit je einem Beispiel aus der Übung.
 2. Wann verwendet man eine Klasse und wann eine ID?
 3. Was bedeutet das Leerzeichen in `#hauptnav a`?
-4. Wie gibt man Farben in CSS an (z.B. `#2b2d42`)?
+4. Wie gibt man Farben in CSS an?
 5. Was bedeutet „Vererbung“ in CSS? Warum wird die Linkfarbe nicht von `body` übernommen?
 6. Was ist Spezifität? Welche Regel gewinnt: `a { color: … }` oder `#hauptnav a { color: … }`?
 7. TODO 2 und TODO 3 betreffen beide `body`. Was passiert, wenn es zwei Regeln mit demselben Selektor gibt? Warum fasst man sie trotzdem besser zusammen?
@@ -73,7 +73,7 @@
 2. Was ist der Unterschied zwischen Serifen- und serifenlosen Schriften?
 3. Was ist die Einheit `em`? Worauf bezieht sich `2.5em`? Was ist der Unterschied zu `px` und `rem`?
 4. Warum schreibt man `line-height: 1.6` ohne Einheit?
-5. Welche Eigenschaften gibt es für Schrift und Text (`font-style`, `font-weight`, `letter-spacing`, `text-align` …)?
+5. Welche Eigenschaften gibt es für Schrift und Text?
 6. Wie spricht man die `caption` einer Tabelle an?
 
 <details><summary>Erwartete Antworten</summary>

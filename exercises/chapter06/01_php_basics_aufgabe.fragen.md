@@ -7,11 +7,11 @@
 5. Was bedeutet das Format `"H:i:s d.m.Y"` bei `date()`?
 6. Was ist der Unterschied zwischen einem indizierten und einem assoziativen Array? Wie sieht `foreach` jeweils aus?
 7. Was ist der Unterschied zwischen `switch` und `match`?
-8. Was ist der Unterschied zwischen Wert- und Referenzparameter (`&$ergebnis`)?
-9. Wie definiert man in PHP eine Klasse mit Konstruktor und privaten Eigenschaften? Wie greift man auf sie zu (`$this->`)?
+8. Was ist der Unterschied zwischen Wert- und Referenzparameter? Wie kennzeichnet man einen Referenzparameter?
+9. Wie definiert man in PHP eine Klasse mit Konstruktor und privaten Eigenschaften? Wie greift man auf sie zu?
 10. Was bewirkt `__toString()`?
-11. Wie ruft man Konstruktor und Methoden der Basisklasse auf (`parent::`)?
-12. Wie erzeugt man ein Objekt und ruft eine Methode auf (`new`, `->`)?
+11. Wie ruft man Konstruktor und Methoden der Basisklasse auf?
+12. Wie erzeugt man ein Objekt und ruft eine Methode auf?
 
 <details><summary>Erwartete Antworten</summary>
 

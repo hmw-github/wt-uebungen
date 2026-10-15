@@ -2,11 +2,11 @@
 
 ### Container und Grid
 
-1. Was ist Bootstrap und wie wird es hier eingebunden (CDN)? Wozu dient das JS-Bundle?
+1. Was ist Bootstrap und wie wird es hier eingebunden? Wozu dient das JS-Bundle?
 2. Was ist der Unterschied zwischen `container` und `container-fluid`?
-3. Wie ist das Grid aufgebaut (`container` → `row` → `col`)? Warum 12 Spalten?
+3. Wie ist das Grid aufgebaut? Warum 12 Spalten?
 4. Was bedeutet `col-sm-4`? Was passiert unterhalb des Breakpoints `sm`?
-5. Welche Breakpoints gibt es (`sm`, `md`, `lg`, `xl`, `xxl`)?
+5. Welche Breakpoints gibt es?
 6. Was bedeutet die Klasse `mt-4`?
 7. Wie hängt das Bootstrap-Grid mit Flexbox und Media Queries aus Kapitel 4 zusammen?
 
@@ -40,10 +40,10 @@
 
 ### Cards
 
-1. Wie ist eine Bootstrap-Card aufgebaut (`card`, `card-header`, `card-body`, `card-text`, `card-footer`)?
+1. Wie ist eine Bootstrap-Card aufgebaut?
 2. Warum steckt jede Card in einer Spalte `col-md-6`? Wie viele Cards stehen nebeneinander?
-3. Wie erzeugt man per JavaScript ein Element mit Klassen und ID (`className`, `id`)?
-4. Was sind `data-*`-Attribute? Wie greift man mit `dataset` darauf zu (`dataset.jahr` ↔ `data-jahr`)?
+3. Wie erzeugt man per JavaScript ein Element mit Klassen und ID?
+4. Was sind `data-*`-Attribute? Wie greift man mit `dataset` darauf zu?
 5. Warum bekommt jede Card eine eindeutige `cardId` und die Elemente IDs wie `card1-titel`?
 6. Wie übergibt man beim `addEventListener` einen Parameter an eine Funktion (`projektBearbeiten(cardId)`)?
 7. Wie erzeugt man „Technologie:“ fett gefolgt von einem `span`?
@@ -61,8 +61,8 @@
 
 ### Tabs
 
-1. Wie sind Bootstrap-Tabs aufgebaut (Navigation und Inhalt)?
-2. Wie wird ein Tab-Link mit seinem Inhaltsbereich verknüpft (`href="#id"` ↔ `id`)?
+1. Wie sind Bootstrap-Tabs aufgebaut?
+2. Wie wird ein Tab-Link mit seinem Inhaltsbereich verknüpft?
 3. Was bewirkt `data-bs-toggle="tab"`? Warum wird dafür das Bootstrap-JS-Bundle benötigt?
 4. Warum müssen Link und Pane beim Start die Klasse `active` haben?
 5. Warum bringen Tabs hier einen Vorteil gegenüber dem langen Text in Kapitel 5?

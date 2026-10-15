@@ -1,33 +1,27 @@
-## 4.2 Flexbox und fortgeschrittene Selektoren (`02_flexbox_und_selektoren_aufgabe`)
+## 4.2 Layout und fortgeschrittene Selektoren (`02_layout_und_selektoren_aufgabe`)
 
-### Display und Flexbox
+### Display und Float
 
-1. Welche Werte von `display` kennen Sie (`block`, `inline`, `inline-block`, `none`, `flex`)?
-2. Was ist ein Flex-Container, was sind Flex-Items? Wirkt `display: flex` auf Kinder oder Enkel?
-3. Was ist Hauptachse und Querachse? Welche Eigenschaft richtet entlang welcher Achse aus?
-4. Was bewirken `justify-content: space-between` und `justify-content: center`?
-5. Was bewirkt `align-items: center`?
-6. Was ist `gap`, und welchen Vorteil hat es gegenüber `margin` an jedem Element?
+1. Welche Werte von `display` kennen Sie?
+2. Was bewirkt `float: right`? Wie verhalten sich die nachfolgenden Inhalte?
+3. Wie zentriert man Links und Text innerhalb eines Absatzes?
 
 <details><summary>Erwartete Antworten</summary>
 
-1. block: eigene Zeile, volle Breite; inline: im Textfluss; inline-block: im Textfluss mit Box-Eigenschaften; none: unsichtbar; flex: Flex-Container.
-2. Das Element mit `display: flex` ist der Container, seine **direkten** Kinder sind die Items. Enkel sind nicht betroffen.
-3. Die Hauptachse folgt `flex-direction` (standardmäßig waagerecht), die Querachse steht senkrecht dazu. `justify-content` wirkt auf der Hauptachse, `align-items` auf der Querachse.
-4. `space-between`: erstes und letztes Item am Rand, Rest gleichmäßig verteilt. `center`: alle Items in der Mitte.
-5. Items werden auf der Querachse mittig ausgerichtet (z.B. Logo und Navigation vertikal zentriert).
-6. Abstand nur **zwischen** den Items, ohne zusätzlichen Rand außen.
+1. block: eigene Zeile, volle Breite; inline: im Textfluss; inline-block: im Textfluss mit Box-Eigenschaften; none: unsichtbar.
+2. Das Element wird aus dem normalen Fluss genommen und an den rechten Rand des Elternelements geschoben. Nachfolgender Inhalt umfließt es auf der linken Seite.
+3. Mit `text-align: center` am umgebenden Block-Element, denn Links und Text sind Inline-Inhalte.
+
 </details>
 
 ### Fortgeschrittene Selektoren
 
-1. Was ist eine Pseudoklasse? Nennen Sie Beispiele (`:hover`, `:nth-child()`, …).
+1. Was ist eine Pseudoklasse? Nennen Sie Beispiele.
 2. Was bedeutet `tr:nth-child(even)`? Wie würde man jede dritte Zeile ansprechen?
 3. Was bewirkt `opacity: 0.85`?
 4. Was ist ein Attributselektor? Was trifft `input[type="email"]`?
 5. Was ist ein Pseudoelement? Was ist der Unterschied zwischen `:` und `::`?
-6. Was macht `::after` zusammen mit `content`? Was bedeutet `"\2197"`?
-7. Warum kann die Reihenfolge der Regeln wichtig sein (z.B. Zebra-Streifen und `tr:hover`)?
+6. Warum kann die Reihenfolge der Regeln wichtig sein?
 
 <details><summary>Erwartete Antworten</summary>
 
@@ -36,6 +30,6 @@
 3. Deckkraft 85 %: Das Element wird leicht durchsichtig.
 4. Er wählt Elemente anhand eines Attributs oder Attributwerts. `input[type="email"]` trifft alle E-Mail-Eingabefelder.
 5. Pseudoelemente sprechen einen Teil eines Elements an bzw. erzeugen zusätzlichen Inhalt. `:` für Pseudoklassen, `::` für Pseudoelemente.
-6. Fügt nach dem Inhalt des Elements den Text aus `content` ein. `\2197` ist der Unicode-Codepunkt für „↗“.
-7. Bei gleicher Spezifität gewinnt die spätere Regel. `tr:hover` muss also nach der Zebra-Regel stehen, sonst wirkt der Hover bei geraden Zeilen nicht.
+6. Bei gleicher Spezifität gewinnt die spätere Regel.
+
 </details>

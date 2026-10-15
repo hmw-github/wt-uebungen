@@ -73,27 +73,25 @@ table caption {
     margin-bottom: 10px;
 }
 
-/* ---------- Display und Flexbox (4.4) ---------- */
+/* ---------- Display und Float (4.4) ---------- */
 
-/* TODO 1: header { display: ...; align-items: ...; justify-content: ...; } */
+/* TODO 1: #hauptnav { float: ...; margin-top: ...; } */
 
-/* TODO 2: #hauptnav { display: ...; align-items: ...; } */
-
-/* TODO 3: footer p { display: ...; justify-content: ...; gap: ...; } */
+/* TODO 2: footer p { text-align: ...; } */
 
 /* ---------- Fortgeschrittene Selektoren (4.5) ---------- */
 
-/* TODO 4: #hauptnav a:hover, .btn:hover { opacity: ...; } */
+/* TODO 3: #hauptnav a:hover, .btn:hover { opacity: ...; } */
 
-/* TODO 5: table tbody tr:nth-child(even) { background-color: ...; } */
+/* TODO 4: table tbody tr:nth-child(even) { background-color: ...; } */
 
-/* TODO 6: input[type="text"], input[type="email"], textarea, select { border: ...; padding: ...; border-radius: ...; } */
+/* TODO 5: input[type="text"], input[type="email"], textarea, select { border: ...; padding: ...; border-radius: ...; } */
 
-/* TODO 7: a[target="_blank"]::after { content: ...; } */
+/* TODO 6: a[target="_blank"]::after { content: ...; } */
 
-/* TODO 8: thead { background-color: ...; color: ...; } */
+/* TODO 7: thead { background-color: ...; color: ...; } */
 
-/* TODO 9: table tbody tr:hover { background-color: ...; } */
+/* TODO 8: table tbody tr:hover { background-color: ...; } */
 
 .no-text-decoration {
     text-decoration: none;
@@ -127,10 +125,7 @@ details summary {
    wird per Media Query bei kleinen Bildschirmen eingeblendet) */
 .burger-button {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
     width: 28px;
-    height: 20px;
     background: none;
     border: none;
     padding: 0;
@@ -144,4 +139,9 @@ details summary {
     width: 100%;
     background-color: #ffffff;
     border-radius: 2px;
+}
+
+/* Abstand zwischen den Strichen: jeder Strich außer dem ersten erhält oben 5px */
+.burger-button span + span {
+    margin-top: 5px;
 }

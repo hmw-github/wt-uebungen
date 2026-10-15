@@ -7,7 +7,7 @@
 5. Wofür verwendet man `??` bei `betreff` und `rueckmeldung`?
 6. Was ist XSS? Was macht `htmlspecialchars()` genau?
 7. Warum reicht die `required`-Prüfung im Browser nicht aus?
-8. Was ist der Unterschied zwischen `$_POST` und `$_GET`? Wann wäre ein Formular mit `method="get"` die bessere Wahl (z.B. ein Suchformular)?
+8. Was ist der Unterschied zwischen `$_POST` und `$_GET`? Wann wäre ein Formular mit `method="get"` die bessere Wahl?
 
 <details><summary>Erwartete Antworten</summary>
 

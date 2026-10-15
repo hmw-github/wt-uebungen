@@ -2,12 +2,12 @@
 
 1. Was ist AJAX? Was ist der Unterschied zu einem normalen Seitenaufruf?
 2. Was bedeutet „asynchron“?
-3. Welche Schritte braucht eine XHR-Anfrage (`new`, `onreadystatechange`, `open`, `send`)?
+3. Welche Schritte braucht eine XHR-Anfrage?
 4. Was bedeuten `readyState == 4` und `status == 200`?
-5. Wo steht die Antwort des Servers (`responseText`)?
+5. Wo steht die Antwort des Servers?
 6. Wie liest `hinweis.php` den Parameter `praefix`? Warum müsste man ihn eigentlich mit `encodeURIComponent()` kodieren?
 7. Was liefert `strpos()`, und warum muss man mit `=== 0` statt `== 0` bzw. `!strpos()` vergleichen?
-8. Wie baut man aus einem Array eine kommagetrennte Liste (`implode`)?
+8. Wie baut man aus einem Array eine kommagetrennte Liste?
 9. Warum muss man die Übung über einen Webserver (Docker) statt per `file://` öffnen?
 
 <details><summary>Erwartete Antworten</summary>

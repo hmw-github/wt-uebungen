@@ -18,9 +18,6 @@ header {
     background-color: #2b2d42;
     color: #ffffff;
     padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .btn {
@@ -42,8 +39,8 @@ header {
 }
 
 #hauptnav {
-    display: flex;
-    align-items: center;
+    float: right;
+    margin-top: 8px;
 }
 
 table {
@@ -64,9 +61,7 @@ footer {
 }
 
 footer p {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    text-align: center;
 }
 
 h1,
@@ -151,10 +146,7 @@ details summary {
    wird per Media Query bei kleinen Bildschirmen eingeblendet) */
 .burger-button {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
     width: 28px;
-    height: 20px;
     background: none;
     border: none;
     padding: 0;
@@ -170,6 +162,11 @@ details summary {
     border-radius: 2px;
 }
 
+/* Abstand zwischen den Strichen: jeder Strich außer dem ersten erhält oben 5px */
+.burger-button span + span {
+    margin-top: 5px;
+}
+
 /* Passt das Layout für Bildschirme bis 600px Breite an (z. B. Smartphones) */
 @media (max-width: 600px) {
 
@@ -182,21 +179,22 @@ details summary {
 
     /* Blendet die Navigation ein, sobald sie per Burger-Button geöffnet wurde (Klasse "offen") */
     #hauptnav.offen {
-        display: flex;
+        display: block;
     }
 
-    /* Zeigt den Burger-Button an und positioniert ihn oben rechts im Header */
+    /* Zeigt den Burger-Button an und positioniert ihn absolut oben rechts im Header
+       (Bezugspunkt ist der Header, da dieser position: relative hat) */
     .burger-button {
-        display: flex;
+        display: block;
         position: absolute;
         top: 14px;
         right: 20px;
     }
 
 
-    /* TODO 1: header { flex-direction: ...; align-items: ...; } */
+    /* TODO 1: #hauptnav { float: ...; } */
 
-    /* TODO 2: #hauptnav { flex-direction: ...; align-items: ...; } */
+    /* TODO 2: #hauptnav a { display: ...; } */
 
     /* TODO 3: #hauptnav a { margin-right: ...; margin-bottom: ...; } */
 

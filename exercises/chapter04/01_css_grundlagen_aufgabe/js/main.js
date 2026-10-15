@@ -17,6 +17,5 @@ document.addEventListener("DOMContentLoaded", () => {
     burgerButton.addEventListener("click", () => {
         const istOffen = hauptnav.classList.toggle("offen");
         burgerButton.classList.toggle("offen", istOffen);
-        burgerButton.setAttribute("aria-expanded", istOffen);
     });
 });

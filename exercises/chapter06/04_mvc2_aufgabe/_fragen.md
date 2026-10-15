@@ -5,7 +5,7 @@
 3. Welche Klasse darf auf `$_POST` zugreifen, welche auf `$_SESSION`, welche gibt HTML aus?
 4. Wie läuft eine Anfrage vom Aufruf von `gaestebuch/index.php` bis zur fertigen Seite?
 5. Warum bekommt die View das Model im Konstruktor übergeben?
-6. Was ist Autoloading (`spl_autoload_register()`)?
+6. Was ist Autoloading und wie richtet man es in PHP ein?
 7. Warum müssen die Pfade in der View um `../` ergänzt werden?
 8. Welche Vorteile bringt die Trennung gegenüber der Lösung aus Übung 6.3?
 

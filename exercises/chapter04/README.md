@@ -2,7 +2,7 @@
 
 Diese 3 Übungen decken die zentralen Themen des Kapitels ab (4.2–4.6):
 Übung 1 behandelt die CSS-Grundlagen (Einbinden, Selektoren, Boxmodell,
-Text und Schrift, 4.2–4.4), Übung 2 Flexbox und fortgeschrittene
+Text und Schrift, 4.2–4.4), Übung 2 Layout mit Float und fortgeschrittene
 Selektoren (4.4–4.5) und Übung 3 Responsive Web Design (4.6).
 
 **Durchgängiges Projekt:** Diese Übungen setzen die Portfolio-Website aus
@@ -16,7 +16,7 @@ kompletten aktuellen Stand der Website (vier HTML-Seiten,
 | # | Thema (Kapitel) | Aufgabenordner | Lösungsordner |
 |---|---|---|---|
 | 1 | CSS-Grundlagen: Einbinden, Selektoren, Boxmodell, Text und Schrift (4.2–4.4) | `01_css_grundlagen_aufgabe/` | `../../solutions/chapter04/01_css_grundlagen_loesung/` |
-| 2 | Display und Flexbox, fortgeschrittene Selektoren (4.4–4.5) | `02_flexbox_und_selektoren_aufgabe/` | `../../solutions/chapter04/02_flexbox_und_selektoren_loesung/` |
+| 2 | Display und Float, fortgeschrittene Selektoren (4.4–4.5) | `02_layout_und_selektoren_aufgabe/` | `../../solutions/chapter04/02_layout_und_selektoren_loesung/` |
 | 3 | Responsive Web Design (4.6) | `03_responsive_design_aufgabe/` | `../../solutions/chapter04/03_responsive_design_loesung/` |
 
 ## Wie die Website in diesem Kapitel weiterentwickelt wird
@@ -36,8 +36,9 @@ die von Übung zu Übung wächst (bereits gelöste Regeln aus früheren
     padding, border, margin und border-radius gestalten.
   - *Text und Schrift (4.4):* die Typografie verfeinern (Schriftart der
     Überschriften, Zeilenhöhe, Schriftgrad).
-- **Übung 2** bringt Header und Footer per Flexbox in Form (Logo und
-  Navigation nebeneinander, Footer-Links zentriert) und ergänzt
+- **Übung 2** bringt Header und Footer mit `float` und `text-align` in
+  Form (Logo links, Navigation rechts daneben,
+  Footer-Links zentriert) und ergänzt
   Pseudoklassen (`:hover`, `:nth-child`), Attributselektoren
   (`input[type="..."]`) und ein Pseudoelement (`::after`) für einen
   kleinen Pfeil hinter externen Links. Zusätzlich wird die Projekttabelle

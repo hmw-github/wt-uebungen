@@ -5,7 +5,7 @@
 3. Wie unterscheidet `api.php` zwischen „Liste laden“ und „Eintrag speichern“?
 4. Wann wird `onLoad()` aufgerufen?
 5. Wie sieht die JSON-Antwort des Servers aus, und wie greift man in JavaScript auf `entries` zu?
-6. Warum bleiben die Einträge auch mit AJAX erhalten (Session)? Schickt `fetch()` das Session-Cookie mit?
+6. Warum bleiben die Einträge auch mit AJAX erhalten? Schickt `fetch()` das Session-Cookie mit?
 7. Warum schützt `htmlspecialchars()` im Model weiterhin vor XSS, obwohl die Einträge jetzt per JavaScript eingefügt werden? Worauf muss `fillList()` achten?
 
 <details><summary>Erwartete Antworten</summary>

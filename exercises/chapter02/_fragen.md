@@ -80,7 +80,7 @@
 
 1. Beschreiben Sie in drei Schritten, wie eine Interaktion zwischen Browser und Webserver abläuft.
 2. Was ist der Unterschied zwischen einer statischen Webseite und einer, die von einem Generator-Skript erzeugt wird?
-3. Welche Komponenten müssen in einer Webarchitektur mindestens vorhanden sein? Welche sind optional (Application Server, Firewall, Proxy, Gateway)?
+3. Welche Komponenten müssen in einer Webarchitektur mindestens vorhanden sein? Welche sind optional?
 4. Nennen Sie je drei populäre Webbrowser und Webserver.
 5. Welche Interpreter enthält ein Webbrowser standardmäßig und wofür?
 6. Was sind Software-Bausteine des WWW: „HTTP-Client und -Server“, „URL und URI“ oder „Webbrowser und Webserver“?
