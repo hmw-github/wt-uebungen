@@ -52,22 +52,57 @@
     <p>Ich freue mich über Nachrichten - schreiben Sie mir gerne!</p>
 
     <!-- TODO 1: form-Tag öffnen -->
+    <form action="kontakt-verarbeiten.php" 
+        method="post">
 
         <!-- TODO 2: Textfeld Name (required) -->
-
+        <p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required>
+        </p>
         <!-- TODO 3: E-Mail-Feld (required) -->
+        <p>
+            <label for="email">E-Mail:</label><br>
+            <input type="email" id="email" name="email" required>
+        </p>
 
         <!-- TODO 4: Radiobuttons bevorzugte Rückmeldung -->
+        <p>
+            Bevorzugte Rückmeldung:<br>
+            <input type="radio" id="r-email" name="rueckmeldung">
+            <label for="r-email">E-Mail</label> <br>
+            
+            <input type="radio" id="r-telefon" name="rueckmeldung" checked>
+            <label for="r-telefon">Telefon</label> <br>
+        </p>
 
         <!-- TODO 5: Auswahlliste Betreff -->
+        <p>
+            Betreff: <br>
+            <select name="betreff">
+                <option value="0">Anfrage</option>
+                <option value="1">Feedback</option>
+                <option value="2" selected>Sonstiges</option>
+            </select>            
+        </p>
 
         <!-- TODO 6: Textarea Nachricht (required) -->
+        <p>
+            <label for="nachricht">Nachricht:</label><br>
+            <textarea id="nachricht" name="nachricht"></textarea>
+        </p>
 
         <!-- TODO 7: Checkbox Newsletter -->
+        <p>
+            <input type="checkbox" id="newsletter" name="newsletter" checked>
+            <label for="newsletter">Ich möchte den Newsletter erhalten</label>
+        </p>
 
         <!-- TODO 8: Submit-Button -->
+        <button>Absenden</button>
 
     <!-- form-Tag schließen -->
+    </form>
 
     <footer>
         <p>

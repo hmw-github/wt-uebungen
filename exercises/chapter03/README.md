@@ -73,6 +73,33 @@ nachvollziehen können.
 - Kann als Referenz für die Korrektur oder zur Selbstkontrolle verwendet
   werden.
 
+## Ausführung mit Docker (nur für das Absenden des Kontaktformulars)
+
+Alle Seiten lassen sich wie oben beschrieben direkt im Browser öffnen. Nur
+das Absenden des Kontaktformulars aus Übung 2 benötigt einen Webserver mit
+PHP: Die beiliegende `kontakt-verarbeiten.php` gibt alle übermittelten
+Formularfelder samt `name`-Attribut aus und bietet einen Link zurück zum
+Formular. Sie ist eine Hilfsdatei und nicht Teil der Aufgabe. In Kapitel 6
+schreiben Sie diese Datei selbst.
+
+Analog zu Kapitel 6 liegt sowohl diesem Ordner als auch
+`../../solutions/chapter03/` je eine eigene `docker-compose.yml` bei (nginx
+und PHP-FPM):
+
+| Ordner | Port | docker-compose.yml |
+|---|---|---|
+| `exercises/chapter03/` (Aufgaben) | `8003` | in diesem Ordner |
+| `solutions/chapter03/` (Lösungen) | `8013` | in `../../solutions/chapter03/` |
+
+```
+cd exercises/chapter03
+docker compose up -d
+```
+
+Danach im Browser z.B. `http://localhost:8003/02_kontaktformular_aufgabe/kontakt.html`
+bzw. `http://localhost:8013/02_kontaktformular_loesung/kontakt.html` aufrufen,
+das Formular ausfüllen und absenden. Beenden mit `docker compose down`.
+
 ## Didaktischer Hinweis
 
 Übung 1 ist bewusst umfangreich und lässt sich entlang der Themen in
