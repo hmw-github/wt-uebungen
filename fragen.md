@@ -199,7 +199,7 @@ werden können.
 1. Typ: `body`, `a`, `header`. Klasse: `.btn`. ID: `#hauptnav`.
 2. Klassen sind mehrfach verwendbar, IDs nur einmal pro Seite.
 3. Nachfahrenselektor: alle `a`, die irgendwo innerhalb von `#hauptnav` liegen.
-4. Hexadezimal `#rrggbb`, außerdem `rgb()`, `hsl()` oder Farbnamen.
+4. Hexadezimal `#rrggbb`, außerdem `rgb()` oder Farbnamen.
 5. Manche Eigenschaften (z.B. `color`, `font-family`) werden an Kind-Elemente vererbt. Links bekommen aber vom Browser-Stylesheet eine eigene Farbe, die die geerbte überschreibt.
 6. Spezifität bestimmt, welche Regel bei Konflikten gewinnt (ID > Klasse > Typ). `#hauptnav a` gewinnt.
 7. Beide Regeln gelten. Setzen sie dieselbe Eigenschaft, gewinnt bei gleicher Spezifität die spätere (Kaskade). Eine Regel pro Selektor ist übersichtlicher und leichter zu warten (so in der Musterlösung).
