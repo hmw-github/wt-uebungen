@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Demo 1</title>
+    <style>
+        /* Tag-Selektoren */
+        div, h1 /* Selektoren */ { 
+
+            /* ab hier: Eigenschaften */
+            background-color: yellow;
+            border: 1px solid red; 
+            font-size: 20px;
+        }
+
+        /* ID-Selektoren */
+        #wichtig {
+            background-color: orange;
+        }
+
+        /* class-Selektor */
+        .geheim {
+            border: 1px dotted red;
+        }
+        .dringend {
+            font-weight: bold;
+        }
+
+        /* Attribut-Selektoren */
+        input[type="text"] {
+            color: white;
+            background-color: blue;
+        }
+
+        a[target="_blank"] {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>Überschrift</h1>
+
+    <div>Dies ist ein DIV</div>
+
+    <p id="wichtig">Dies ist total wichtig und geheim!</p>
+
+    <p class="geheim">Dies ist nicht für Jedermann/frau bestimmt!</p>
+
+    <p class="geheim dringend">Dies ist nicht für Jedermann/frau bestimmt und muss gestern erledigt werden!</p>
+
+    <input type="text">
+
+    <a href="http://www.thi.de" target="_blank">zur THI</a>
+</body>
+</html>
