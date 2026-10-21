@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+        .div1 {
+            display: block; /* default  bei DIV */
+        }
+        .div2 {
+            display: inline-block;
+            width: 300px;
+        }        
+        .div3 {
+            display: inline; /* bleibt auf selber Zeile */
+            width: 200px; /* wird ignoriert! */
+        }
+    </style>
+</head>
+<body>
+    <!-- Block: div, h1-h6, p, form, ... -->
+    <!-- inline: span, a, ... -->
+    <div class="div1">1</div>
+    <div class="div2">2</div>
+    <div class="div3">3</div>
+</body>
+</html>

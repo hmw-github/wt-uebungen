@@ -22,9 +22,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- TODO 1: <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- TODO 2: <link rel="stylesheet" href="css/druck.css" media="print"> -->
+    <link rel="stylesheet" type="text/css" href="css/druck.css" media="print">
 
+    <style>
+        #lieblingsthema {
+            color: orange;
+        }
+
+        .lieblingsthema {
+            color: orange;
+        }
+    </style>
 </head>
 <body>
 
@@ -67,7 +78,10 @@
         </div>
 
         <p>Mein aktuelles Lieblingsthema ist gerade
-            <span style="color: orange;">REST-APIs</span>.</p>
+            <!-- span style="color: orange;" -->
+            <span class="lieblingsthema">
+                REST-APIs
+            </span>.</p>
 
         <p>JavaScript finde ich cool, so sieht eine JS-Funktion aus:</p>
 

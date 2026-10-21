@@ -61,7 +61,7 @@ Prüfen Sie anschließend, ob `<main>` als zentrierter Block dargestellt wird.
 12. TODO 12: "h1, h2": font-family auf "Georgia, serif" setzen (abweichend vom Fließtext), damit sich Überschriften optisch abheben.
 13. TODO 13: "h1": font-size: 2.5em sowie letter-spacing: 1px.
 14. TODO 14: "p": line-height: 1.6, damit Absätze besser lesbar sind.
-15. TODO 15: "table caption": font-style: italic sowie margin-bottom: 10px.
+15. TODO 15: setzte die Tabellen-Caption kursiv und einen Abstand
 
 ## js/main.js
 

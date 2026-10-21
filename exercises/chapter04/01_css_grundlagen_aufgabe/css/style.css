@@ -17,40 +17,111 @@
 /* ---------- Reset (4.2) ---------- */
 
 /* TODO 1: * { box-sizing: ... } */
+* {
+    box-sizing: border-box;
+}
 
 /* TODO 2: body { margin: ... } */
+body {
+    /*
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px; */
+    margin: 0px 0px 0px 0px; /* top - right - bottom - left */
+}
+
 
 /* ---------- Grundlagen CSS-Selektoren (4.3) ---------- */
 
 /* TODO 3: body { font-family: ...; color: ...; } (ergänzt TODO 2) */
+body {
+    font-family: Arial, sans-serif; 
+    color: #2b2d42;
+}
 
 /* TODO 4: a { color: ...; text-decoration: ...; } */
+a {
+    color: #2b2d42;
+    text-decoration: none; /* keine Unterstreichung */
+}
 
 /* TODO 5: header { background-color: ...; color: ...; padding: ...; } */
+header {
+  /* Hintergrundfarbe "#2b2d42", Textfarbe "#ffffff" sowie etwas Innenabstand (padding: 10px 20px). */
+  background-color: #2b2d42;
+  color: #ffffff;
+  padding: 10px 20px; /* top=10px, right=20px, bottom=10px, left=20px */
+}
 
 /* TODO 6: .btn { background-color: ...; color: ...; border: ...; padding: ...; } */
+.btn {
+    /* Hintergrundfarbe "#ef233c", Textfarbe "#ffffff", kein Rahmen (border: none) sowie Innenabstand (padding: 8px 16px). */
+    background-color: #ef233c;
+    color: #ffffff; 
+    border: none; 
+    padding: 8px 16px;
+}
 
 /* TODO 7: #hauptnav a { color: ...; margin-right: ...; } */
+#hauptnav a { /* alle a, die Kinder von Element mit ID "hauptnav" sind */
+    color: #ffffff;
+    margin-right: 15px;
+}
 
 /* ---------- Boxmodell (4.4) ---------- */
 
 /* TODO 8: #hauptnav a { display: ...; padding: ...; border-radius: ...; } (ergänzt TODO 7) */
+#hauptnav a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid white;
+}
 
 /* TODO 9: .btn { display: ...; border-radius: ...; margin-top: ...; } (ergänzt TODO 6) */
+.btn {
+    display: inline-block;
+    border-radius: 4px; 
+    margin-top: 10px;
+}
 
 /* TODO 10: table td, table th { padding: ...; border: ...; } */
+table td, table th { 
+    padding: 8px; 
+    border: 1px solid #8d99ae; 
+}
 
 /* TODO 11: footer { padding: ...; margin-top: ...; border-top: ...; } */
+footer { 
+    padding: 20px; 
+    margin-top: 40px; 
+    border-top: 1px solid #8d99ae; 
+}
 
 /* ---------- Text und Schrift (4.4) ---------- */
 
 /* TODO 12: h1, h2 { font-family: ...; } */
+h1, h2 { 
+    font-family: Georgia, serif; 
+}
 
 /* TODO 13: h1 { font-size: ...; letter-spacing: ...; } */
+h1 { 
+    font-size: 2.5em; 
+    letter-spacing: 1px; 
+}
 
 /* TODO 14: p { line-height: ...; } */
+p { 
+    line-height: 1.6; 
+}
 
-/* TODO 15: table caption { font-style: ...; margin-bottom: ...; } */
+/* TODO 15:  */
+table caption { 
+    font-style: italic; 
+    margin-bottom: 10px; 
+}
 
 /* Entfernt die Unterstreichung bei Links mit dieser Klasse */
 .no-text-decoration {
