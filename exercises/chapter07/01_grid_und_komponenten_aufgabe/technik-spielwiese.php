@@ -6,17 +6,16 @@
     ÜBUNG 1: GRID UND KOMPONENTEN (Kapitel 7.2–7.7) - Technik-Spielwiese
 
     Aufgabenstellung:
-    TODO 1: Erstellen Sie im Abschnitt "Container-Vergleich" ein div der
-            Klasse "container" mit sichtbarer Hintergrundfarbe (Klasse
-            "beispiel-container"), das den Text "Ich bin ein 'container' -
-            zentriert mit fester maximaler Breite" enthält.
-    TODO 2: Erstellen Sie direkt darunter ein div der Klasse
-            "container-fluid" mit sichtbarer Hintergrundfarbe (Klasse
-            "beispiel-fluid"), das den Text "Ich bin ein 'container-fluid'
-            - immer 100% Bildschirmbreite" enthält, damit der Unterschied
-            zu TODO 1 optisch erkennbar ist. Platzieren Sie beide bewusst
-            AUSSERHALB des "container mt-4"-Wrappers oben auf dieser
-            Seite, damit der Unterschied sichtbar bleibt.
+    TODO 1: Im Abschnitt "Container-Vergleich" steht ein farbig hinterlegter
+            Kasten (Klasse "beispiel-container") mit dem Text "Ich bin ein
+            'container' - zentriert mit fester maximaler Breite". Er ist
+            zentriert und wächst auf breiten Bildschirmen nur bis zu einer
+            festen Maximalbreite.
+    TODO 2: Direkt darunter steht ein farbig hinterlegter Kasten (Klasse
+            "beispiel-fluid") mit dem Text "Ich bin ein 'container-fluid' -
+            immer 100% Bildschirmbreite". Er nimmt immer die volle
+            Fensterbreite ein. Ändert man die Fensterbreite, wird der
+            Unterschied zu TODO 1 deutlich.
 -->
 <!DOCTYPE html>
 <html>
@@ -110,9 +109,9 @@
     <div>
         <h2 class="mt-4">Container-Vergleich</h2>
 
-        <!-- TODO 1: div class="container" mit Klasse "beispiel-container" -->
+        <!-- TODO 1: zentrierter Kasten mit fester Maximalbreite -->
 
-        <!-- TODO 2: div class="container-fluid" mit Klasse "beispiel-fluid" -->
+        <!-- TODO 2: Kasten über die volle Fensterbreite -->
     </div>
 
     <footer>

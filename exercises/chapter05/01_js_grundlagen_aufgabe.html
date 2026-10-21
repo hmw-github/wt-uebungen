@@ -22,15 +22,14 @@
 
         // ==== Teil 1: Klassen Projekt und Webprojekt ====
 
-        // TODO 1: Klasse Projekt implementieren (Konstruktor mit id, titel,
-        //         jahr; get id; get/set titel; get/set jahr inkl. throw bei
-        //         jahr < 2000; toString())
+        // TODO 1: Klasse Projekt (id nur lesbar, titel und jahr änderbar,
+        //         Jahre vor 2000 werden als Fehler abgewiesen, sinnvolle
+        //         Textdarstellung)
 
 
-        // TODO 2: Klasse Webprojekt implementieren (extends Projekt;
-        //         zusätzliche Eigenschaft technologie mit get/set;
-        //         Konstruktor ruft super(id, titel, jahr) auf; toString()
-        //         überschrieben, nutzt super.toString())
+        // TODO 2: Klasse Webprojekt: ein Projekt mit zusätzlicher, änderbarer
+        //         technologie; die Textdarstellung erweitert die eines
+        //         Projekts
 
 
         // ==== Teil 2: Klasse Projektliste ====
@@ -48,66 +47,58 @@
                 return [...this._projekte];
             }
 
-            // TODO 3: hinzufuegen(projekt) implementieren
+            // TODO 3: hinzufuegen(projekt): Projekt in die Liste aufnehmen
+            //         und bestätigen
 
 
-            // TODO 4: aktualisieren(id, aenderungen) implementieren
+            // TODO 4: aktualisieren(id, aenderungen): übergebene Werte im
+            //         passenden Projekt übernehmen
 
 
-            // TODO 5: entfernen(id) implementieren
+            // TODO 5: entfernen(id): Projekt aus der Liste löschen
 
 
-            // TODO 6: auflisten(id) implementieren
+            // TODO 6: auflisten(id): alle Projekte bzw. nur das Projekt mit
+            //         dieser id ausgeben
 
 
-            // TODO 7: sortierenNachJahr() implementieren
+            // TODO 7: sortierenNachJahr(): Liste chronologisch ordnen
 
         }
 
         // ==== Teil 3: Hauptteil - Projektliste verwenden ====
 
-        // TODO 8: naechsteId (let), listenName (const), istInitialisiert
-        //         (var) deklarieren und jeweils Name+typeof ausgeben;
-        //         "Kapitel " + 5 bilden und Wert+Typ ausgeben; naechsteId
-        //         einmal mit === und einmal mit == gegen "1" vergleichen
-        //         und beide Ergebnisse ausgeben
+        // TODO 8: Unterschiede zwischen let/const/var, Typen und == vs. ===
+        //         in der Ausgabe sichtbar machen
 
 
-        // TODO 9: Projektliste sowie mind. 3 Projekte (mind. 1 Webprojekt)
-        //         mit aufsteigenden ids erzeugen und per hinzufuegen()
-        //         einfügen
+        // TODO 9: Projektliste mit mindestens drei Projekten (davon
+        //         mindestens ein Webprojekt) befüllen
 
 
-        // TODO 10: sortierenNachJahr() aufrufen, danach alle Projekte per
-        //         auflisten() ausgeben
+        // TODO 10: Alle Projekte chronologisch sortiert ausgeben
 
 
-        // TODO 11: aktualisieren() einmal erfolgreich aufrufen; ein
-        //         zweites Mal in try/catch mit ungültigem jahr (< 2000)
-        //         aufrufen und abgefangene Fehlermeldung ausgeben
+        // TODO 11: Ein Projekt erfolgreich ändern; eine ungültige Änderung
+        //         führt zu einer Fehlermeldung statt zum Abbruch
 
 
-        // TODO 12: Ergebnis von alsArray() per Destrukturierung in zwei
-        //         benannte Variablen zerlegen und deren toString() ausgeben
+        // TODO 12: Die ersten beiden Projekte als eigene Variablen ausgeben
 
 
-        // TODO 13: entfernen() für eine vorhandene und eine nicht
-        //         vorhandene id aufrufen; switch-Statement über
-        //         projektliste.anzahl mit Kategorisierung schreiben
+        // TODO 13: Löschen (erfolgreich und erfolglos) zeigen, danach die
+        //         Listengröße in Worten bewerten
 
 
         // ==== Teil 4: JSON und localStorage ====
 
-        // TODO 14: Objekt-Literal projekt (titel, technologie, jahr)
-        //         erstellen, mit JSON.stringify umwandeln und ausgeben
+        // TODO 14: Projektdaten als JSON-Text ausgeben
 
 
-        // TODO 15: JSON-String mit localStorage.setItem unter dem
-        //         Schlüssel "letztesProjekt" speichern
+        // TODO 15: JSON-Text dauerhaft im Browser ablegen
 
 
-        // TODO 16: Wert mit localStorage.getItem lesen, mit JSON.parse
-        //         parsen und mind. zwei Eigenschaften ausgeben
+        // TODO 16: Gespeicherte Daten wiederherstellen und als Objekt nutzen
 
     </script>
 

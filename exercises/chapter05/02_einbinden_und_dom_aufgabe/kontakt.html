@@ -12,20 +12,15 @@
     Ergänzen Sie in js/main.js im Submit-Handler des Formulars
     (id="kontaktFormular") an den TODO-Stellen:
 
-    TODO 1: Lesen Sie die Werte der Formularfelder per getElementById(...)
-            aus: nameFeld.value, emailFeld.value, betreffFeld.value und
-            nachrichtFeld.value. Ermitteln Sie außerdem das ausgewählte
-            Radio-Button-Element für die Rückmeldung per
-            document.querySelector('input[name="rueckmeldung"]:checked')
-            (kann null sein, falls nichts ausgewählt wurde) sowie den
-            Zustand der Newsletter-Checkbox per newsletterFeld.checked.
-            Bauen Sie daraus ein Objekt mit den Eigenschaften name, email,
-            betreff, rueckmeldung, nachricht und newsletter.
-    TODO 2: Wandeln Sie das Objekt mit JSON.stringify in einen JSON-String
-            um und speichern Sie ihn mit localStorage.setItem unter dem
-            Schlüssel "kontaktanfrage".
-    TODO 3: Leiten Sie per location.href zur Seite
-            "kontaktanfrage-bestaetigung.html" weiter.
+    TODO 1: Beim Absenden werden alle Eingaben des Formulars erfasst: Name,
+            E-Mail, Betreff, Nachricht, die gewählte Rückmeldungsart (falls
+            eine gewählt wurde) und ob der Newsletter angekreuzt ist. Sie
+            werden zu einem Objekt mit den Eigenschaften name, email, betreff,
+            rueckmeldung, nachricht und newsletter zusammengefasst.
+    TODO 2: Dieses Objekt liegt danach als JSON-Text unter dem Schlüssel
+            "kontaktanfrage" im localStorage des Browsers.
+    TODO 3: Anschließend landet der Benutzer auf der Seite
+            "kontaktanfrage-bestaetigung.html".
 -->
 <!DOCTYPE html>
 <html>

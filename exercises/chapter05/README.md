@@ -81,6 +81,12 @@ dafür die eigentlichen Website-Dateien anfassen müssen.
 - Die Dateien bzw. Ordner sind vollständig lauffähig (wenn auch
   unvollständig) – Studierende können sie direkt im Browser öffnen und
   ihren Fortschritt sofort visuell und in der Konsole überprüfen.
+- Die TODOs beschreiben nur den **zu erzielenden Effekt** (was am Ende im
+  Browser, in der Konsole oder in der Server-Antwort zu sehen sein soll),
+  nicht den Lösungsweg. Welche Elemente, Selektoren, Eigenschaften,
+  Funktionen oder Sprachmittel Sie dafür einsetzen, entscheiden Sie selbst.
+  Vorgegebene Namen (Funktionen, ids, Variablen, Schlüssel) sind
+  einzuhalten, weil anderer Code darauf zugreift.
 
 ## Aufbau jeder Lösungsdatei
 

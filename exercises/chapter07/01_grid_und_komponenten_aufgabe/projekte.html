@@ -13,34 +13,28 @@
     Wetter-App) am Ende per JavaScript erzeugt werden sollen. Ergänzen Sie
     an den TODO-Stellen den fehlenden Code:
 
-    TODO 1: Umschließen Sie den gesamten Seiteninhalt zwischen <main> und
-            </main> mit einem div class="container mt-4".
-    TODO 2: Ersetzen Sie beim Button "Projekte aus 2026 hervorheben" die
-            Klasse "btn" durch "btn btn-secondary" (die Klasse "mb-3" für
-            den Abstand nach unten bleibt).
-    TODO 3: Erzeugen Sie pro Durchlauf der Schleife über projekte eine
-            Spalte (div class="col-md-6 mb-3") mit darin verschachteltem
-            div class="card" (mit dataset.jahr = projekt.jahr) und darin
-            wiederum einem card-header (Klasse "card-header", id
-            cardId+"-titel", Textinhalt projekt.titel). cardId ist dabei
-            "card" + laufende Nummer (1, 2, 3, ...), siehe Beispielkarte.
-    TODO 4: Erzeugen Sie den card-body mit zwei Absätzen (je p class=
-            "card-text"): einer für "Technologie:" (fett, per strong-
-            Element) gefolgt von einem span mit id cardId+"-technologie"
-            und dem Wert projekt.technologie, einer analog für "Jahr:"
-            mit id cardId+"-jahr" und Wert projekt.jahr (siehe
-            Beispielkarte für die genaue Struktur).
-    TODO 5: Erzeugen Sie den card-footer mit einem Link "Repository"
-            (href projekt.link, target="_blank", Klasse "btn
-            btn-outline-secondary btn-sm") sowie einem Button
-            "Bearbeiten" (Klasse "btn btn-primary btn-sm"), der beim
-            Klick projektBearbeiten(cardId) aufruft. Fügen Sie die
-            fertige Karte anschließend in projekteKoerper ein.
-    TODO 6: Implementieren Sie die JavaScript-Funktion
-            projektBearbeiten(cardId), die (als Platzhalter für eine
-            spätere Bearbeitungsfunktion, siehe Übung 3) einfach eine
-            Meldung mit dem übergebenen cardId anzeigt, z.B. per alert(...)
-            oder console.log(...).
+    TODO 1: Der gesamte Seiteninhalt ist zentriert, hat seitlichen Abstand zum
+            Fensterrand und etwas Abstand nach oben.
+    TODO 2: Der Button "Projekte aus 2026 hervorheben" erscheint als
+            Bootstrap-Button in der Sekundärfarbe (grau), mit unverändertem
+            Abstand nach unten.
+    TODO 3: Für jedes Projekt im Array projekte erscheint eine Karte, die
+            genauso aufgebaut ist wie die Beispielkarte (gleiche Elemente,
+            Klassen, ids und data-jahr). Ab mittlerer Fensterbreite stehen
+            zwei Karten nebeneinander. In diesem Schritt: Spalte, Karte und
+            Kopfzeile mit dem Projekttitel. cardId ist dabei "card" + laufende
+            Nummer (1, 2, 3, ...).
+    TODO 4: Die Karte zeigt im Inhaltsbereich die Technologie und das Jahr des
+            Projekts, jeweils mit fett gedruckter Beschriftung "Technologie:"
+            bzw. "Jahr:" und den ids wie in der Beispielkarte.
+    TODO 5: Die Fußzeile der Karte enthält einen kleinen, umrandeten
+            Link-Button "Repository", der das Projekt-Repository in einem
+            neuen Tab öffnet, sowie einen kleinen Button "Bearbeiten", der
+            projektBearbeiten(cardId) für genau diese Karte aufruft. Die
+            fertige Karte erscheint im Karten-Deck.
+    TODO 6: Ein Klick auf "Bearbeiten" zeigt (als Platzhalter für Übung 3)
+            eine Meldung mit der cardId der Karte an, z.B. "Bearbeiten von
+            card2".
 -->
 <!DOCTYPE html>
 <html>
@@ -76,13 +70,13 @@
     </header>
 
     <main>
-    <!-- TODO 1: div class="container mt-4" öffnen -->
+    <!-- TODO 1: Seiteninhalt zentrieren (Beginn) -->
 
         <h1>Projekte</h1>
 
         <p>Auf dieser Seite stelle ich nach und nach einige meiner Projekte vor.</p>
 
-        <!-- TODO 2: Klasse "btn" durch "btn btn-secondary" ersetzen -->
+        <!-- TODO 2: Bootstrap-Button in Sekundärfarbe -->
         <button id="filterButton" class="btn mb-3">Projekte aus 2026 hervorheben</button>
 
         <div class="row" id="projekteKoerper">
@@ -105,7 +99,7 @@
 
         </div>
 
-    <!-- Ende container (TODO 1) -->
+    <!-- Ende des Bereichs aus TODO 1 -->
 
     </main>
 
@@ -126,7 +120,7 @@
             { titel: "Portfolio-Website", technologie: "HTML, CSS, JS, PHP, REST", jahr: 2026, link: "https://github.com/alexberger/portfolio" }
         ];
 
-        // TODO 6: Funktion projektBearbeiten(cardId) implementieren
+        // TODO 6: projektBearbeiten(cardId) meldet die cardId der Karte
 
         const projekteKoerper = document.getElementById("projekteKoerper");
 
@@ -135,13 +129,13 @@
             index++;
             const cardId = "card" + index;
 
-            // TODO 3: Spalte (col-md-6) + card (mit dataset.jahr) + card-header erzeugen
+            // TODO 3: Spalte, Karte und Kopfzeile mit Titel (wie
+            //         Beispielkarte)
 
-            // TODO 4: card-body mit Technologie- und Jahr-Absätzen erzeugen
+            // TODO 4: Technologie und Jahr im Inhaltsbereich
 
-            // TODO 5: card-footer mit Repository-Link und Bearbeiten-Button
-            //         erzeugen, Karte zusammensetzen und in projekteKoerper
-            //         einfügen
+            // TODO 5: Fußzeile mit Repository-Link und Bearbeiten-Button,
+            //         Karte anzeigen
         }
 
         const filterButton = document.getElementById("filterButton");

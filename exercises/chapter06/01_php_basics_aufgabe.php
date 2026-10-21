@@ -22,24 +22,26 @@
     <h2>Steckbrief</h2>
 
     <?php
-        // TODO 1: Variablen $name, $studiengang, $eingeschrieben anlegen
+        // TODO 1: Steckbriefdaten (Name, Studiengang, eingeschrieben ja/nein)
+        //         bereitstellen
     ?>
 
     <ul>
         <?php
-            // TODO 2: Datentypen mit gettype() als <li>-Einträge ausgeben
+            // TODO 2: Datentyp jeder Steckbriefangabe als Listeneintrag
+            //         anzeigen
         ?>
     </ul>
 
     <p>
         <?php
-            // TODO 3: Begrüßungssatz mit echo und . (Verkettung) ausgeben
+            // TODO 3: Begrüßungssatz mit Name und Studiengang anzeigen
         ?>
     </p>
 
     <p>
         <?php
-            // TODO 4: aktuelles Datum/Uhrzeit mit date() als "Stand: ..." ausgeben
+            // TODO 4: Aktuellen Zeitpunkt als "Stand: ..." anzeigen
         ?>
     </p>
 
@@ -48,7 +50,7 @@
     <h3>Summe eines Arrays</h3>
     <p>
         <?php
-            // TODO 5: Array $jahre anlegen, mit foreach summieren, Summe ausgeben
+            // TODO 5: Summe der Projektjahre 2022 bis 2026 anzeigen
         ?>
     </p>
 
@@ -56,47 +58,49 @@
     <table border="1">
         <tr><th>Technologie</th><th>Erfahrung (Jahre)</th></tr>
         <?php
-            // TODO 6: assoziatives Array $technologien anlegen und als Tabellenzeilen ausgeben
+            // TODO 6: Technologien mit Erfahrung in Jahren als Tabellenzeilen
+            //         anzeigen
         ?>
     </table>
 
     <h3>Notentext</h3>
     <p>
         <?php
-            // TODO 7: $note anlegen und mit switch/match den Notentext ausgeben
+            // TODO 7: Eine Note (1-6) als Notentext anzeigen
         ?>
     </p>
 
     <h3>Kleines Einmaleins</h3>
     <ul>
         <?php
-            // TODO 8: $basiszahl anlegen und mit for-Schleife das Einmaleins ausgeben
+            // TODO 8: Einmaleins einer Zahl als Liste anzeigen
         ?>
     </ul>
 
     <h2>Funktionen und Klassen</h2>
 
     <?php
-        // TODO 9: Funktion pruefeVorzeichen($zahl, &$ergebnis) definieren
+        // TODO 9: Funktion pruefeVorzeichen: liefert
+        //         "positiv"/"negativ"/"null" über ihren zweiten Parameter
     ?>
 
     <h3>Vorzeichenprüfung</h3>
     <p>
         <?php
-            // TODO 10: Funktion aufrufen und Ergebnis ausgeben
+            // TODO 10: Vorzeichen einer Beispielzahl ermitteln und anzeigen
         ?>
     </p>
 
     <?php
-        // TODO 11: Klasse Projekt definieren
+        // TODO 11: Klasse Projekt (Titel, Technologie, Textdarstellung)
 
-        // TODO 12: Klasse Webprojekt definieren (extends Projekt)
+        // TODO 12: Klasse Webprojekt: Projekt mit zusätzlichem Jahr
     ?>
 
     <h3>Projekte</h3>
     <p>
         <?php
-            // TODO 13: Projekt und Webprojekt instanziieren und ausgeben
+            // TODO 13: Ein Projekt und ein Webprojekt anzeigen
         ?>
     </p>
 

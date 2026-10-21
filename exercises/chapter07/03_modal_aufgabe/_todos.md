@@ -1,34 +1,27 @@
 # TODOs – Modal
 
 ## projekte.html
-1. TODO 1: Modal-Grundstruktur erstellen: `div class="modal"
-   id="bearbeitenModal"` > `div class="modal-dialog"` >
-   `div class="modal-content"` mit `modal-header` (Titel "Projekt
-   bearbeiten", Schließen-Button `button class="btn-close"
-   data-bs-dismiss="modal"`), `modal-body` mit drei Formularfeldern
-   (je label + `input class="form-control"`): Titel (`id="modalTitel"`),
-   Technologie (`id="modalTechnologie"`), Jahr (`id="modalJahr"`,
-   `type="number"`), sowie `modal-footer` mit den Buttons "Abbrechen"
-   (Klasse "btn btn-secondary", `onclick="schließen()"`) und "Speichern"
-   (Klasse "btn btn-primary", `onclick="speichern()"`).
-2. TODO 2: JavaScript-Funktion `projektBearbeiten(cardId)` implementieren:
-   liest die aktuellen Werte aus den Elementen `cardId+"-titel"`,
-   `cardId+"-technologie"`, `cardId+"-jahr"` aus, schreibt sie in die
-   Modal-Eingabefelder (modalTitel, modalTechnologie, modalJahr), merkt
-   sich die cardId (z.B. in einer Modul-Variable) und zeigt das Modal via
-   `bootstrap.Modal.getOrCreateInstance(modalElement).show()` an.
-3. TODO 3: JavaScript-Funktion `schließen()` implementieren, die das
-   Modal via `bootstrap.Modal.getOrCreateInstance(modalElement).hide()`
-   wieder ausblendet, ohne etwas zu speichern.
-4. TODO 4: JavaScript-Funktion `speichern()` implementieren, die die
-   aktuellen Werte aus den Modal-Eingabefeldern zurück in die
-   entsprechenden Karten-Elemente (`cardId+"-titel"` usw.) schreibt. Dabei
-   auch das `data-jahr`-Attribut der Karte selbst
-   (`document.getElementById(cardId).dataset.jahr`) auf den neuen
-   Jahreswert aktualisieren, damit der Hervorheben-Button
-   (`[data-jahr="2026"]`) die Karte nach einer Jahresänderung weiterhin
-   findet. Anschließend das Modal ebenfalls schließen (z.B. durch Aufruf
-   von `schließen()`).
+1. TODO 1: Auf der Seite gibt es ein Bootstrap-Dialogfenster (Modal),
+   das zunächst unsichtbar ist. Es hat die Überschrift "Projekt
+   bearbeiten" und oben rechts ein Schließen-Kreuz, das den Dialog
+   schließt. Im Inhaltsbereich steht ein Formular mit den beschrifteten
+   Feldern Titel, Technologie und Jahr (nur Zahlen erlaubt), alle im
+   Bootstrap-Stil. Unten stehen die Buttons "Abbrechen" (grau) und
+   "Speichern" (Primärfarbe), die `schließen()` bzw. `speichern()`
+   aufrufen.
+2. TODO 2: Ein Klick auf "Bearbeiten" bei einer Karte ruft
+   `projektBearbeiten(cardId)` auf und öffnet den Dialog. Die drei Felder
+   sind mit den aktuell auf genau dieser Karte angezeigten Werten
+   vorausgefüllt, auch wenn die Karte zuvor schon bearbeitet wurde.
+   Danach ist klar, welche Karte gerade bearbeitet wird.
+3. TODO 3: `schließen()` blendet den Dialog wieder aus. Änderungen in den
+   Feldern werden verworfen, die Karte bleibt unverändert.
+4. TODO 4: `speichern()` übernimmt die Werte aus dem Dialog in die gerade
+   bearbeitete Karte (Titel, Technologie, Jahr) und schließt den Dialog.
+   Andere Karten bleiben unverändert. Auch der vorhandene Button
+   "Projekte aus 2026 hervorheben" berücksichtigt danach das geänderte
+   Jahr: Eine Karte, deren Jahr auf 2026 geändert wurde, wird
+   hervorgehoben, eine von 2026 auf ein anderes Jahr geänderte nicht mehr.
 
 (ueber-mich.html und rechtliches/impressum.html unterscheiden sich nur
 durch den aktualisierten Kopfkommentar-Titel bzw. sind unverändert;

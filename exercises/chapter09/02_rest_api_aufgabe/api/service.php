@@ -23,30 +23,27 @@
 
     Lesende Operationen:
 
-    TODO 1: Implementieren Sie "GET /projekte": Geben Sie alle Projekte aus
-            $_SESSION['projekte'] als JSON aus und setzen Sie den
-            HTTP-Status auf 200.
-    TODO 2: Implementieren Sie "GET /projekt/{id}": Suchen Sie das Projekt
-            mit passender id. Wird es gefunden, geben Sie es als JSON mit
-            Status 200 aus, andernfalls antworten Sie mit Status 404 und
-            leerem Body.
+    TODO 1: "GET /projekte" liefert mit Status 200 alle aktuell gespeicherten
+            Projekte als JSON-Array.
+    TODO 2: "GET /projekt/{id}" liefert mit Status 200 genau das Projekt mit
+            dieser id als JSON-Objekt. Gibt es keins, lautet die Antwort
+            Status 404 mit leerem Body.
 
     Schreibende Operationen:
 
-    TODO 3: Implementieren Sie "POST /projekt": Lesen Sie den JSON-Body der
-            Anfrage (file_get_contents('php://input') + json_decode),
-            vergeben Sie eine neue, fortlaufende id, hängen Sie das neue
-            Projekt an $_SESSION['projekte'] an und antworten Sie mit
-            Status 200 sowie dem neu angelegten Projekt als JSON.
-    TODO 4: Implementieren Sie "PUT /projekt/{id}": Suchen Sie das Projekt
-            mit passender id, aktualisieren Sie titel, technologie, jahr
-            und link aus dem JSON-Body und antworten Sie mit Status 200
-            und dem aktualisierten Projekt als JSON. Existiert die id
-            nicht, antworten Sie mit Status 404.
-    TODO 5: Implementieren Sie "DELETE /projekt/{id}": Entfernen Sie das
-            Projekt mit passender id aus $_SESSION['projekte'] und
-            antworten Sie mit Status 200 und leerem Body. Existiert die id
-            nicht, antworten Sie mit Status 404.
+    TODO 3: "POST /projekt" legt aus den im Body als JSON gesendeten Daten
+            (titel, technologie, jahr, link) ein neues Projekt an. Es erhält
+            eine neue id, die größer ist als alle bisherigen. Die Antwort
+            (Status 200) ist das neue Projekt inklusive id. Ein anschließendes
+            "GET /projekte" enthält es.
+    TODO 4: "PUT /projekt/{id}" überschreibt titel, technologie, jahr und link
+            des Projekts mit dieser id mit den im Body gesendeten Werten. Die
+            id bleibt gleich. Antwort: Status 200 mit dem aktualisierten
+            Projekt als JSON, bzw. Status 404, falls die id nicht existiert.
+    TODO 5: "DELETE /projekt/{id}" entfernt das Projekt mit dieser id.
+            Antwort: Status 200 mit leerem Body, bzw. Status 404, falls die id
+            nicht existiert. Ein anschließendes "GET /projekte" enthält es
+            nicht mehr.
 
     Hinweis: Der von nginx weitergeleitete Pfad steht in $_REQUEST['_url']
     (z.B. "/projekt/2"). Die Zuordnung von Methode und Pfad zur passenden
@@ -83,30 +80,27 @@ $pfad = '/' . ltrim($pfad, '/'); // nginx liefert den Pfad ohne führenden Schr�
 
 if ($methode === 'GET' && $pfad === '/projekte') {
 
-    // TODO 1: Alle Projekte als JSON zurückgeben (Status 200)
+    // TODO 1: alle Projekte liefern (Status 200)
 
 } elseif ($methode === 'GET' && preg_match('#^/projekt/([0-9]+)$#', $pfad, $treffer)) {
     $id = (int) $treffer[1];
 
-    // TODO 2: Projekt mit passender id suchen und als JSON zurückgeben
-    //         (Status 200) bzw. mit Status 404 antworten, falls nicht gefunden
+    // TODO 2: Projekt mit dieser id liefern (200) bzw. 404
 
 } elseif ($methode === 'POST' && $pfad === '/projekt') {
 
-    // TODO 3: Neues Projekt aus dem JSON-Body anlegen und mit Status 200
-    //         zurückgeben
+    // TODO 3: neues Projekt mit neuer id anlegen und zurückliefern (200)
 
 } elseif ($methode === 'PUT' && preg_match('#^/projekt/([0-9]+)$#', $pfad, $treffer)) {
     $id = (int) $treffer[1];
 
-    // TODO 4: Projekt mit passender id aktualisieren (Status 200) bzw.
-    //         Status 404, falls die id nicht existiert
+    // TODO 4: Projekt mit dieser id aktualisieren und zurückliefern (200)
+    //         bzw. 404
 
 } elseif ($methode === 'DELETE' && preg_match('#^/projekt/([0-9]+)$#', $pfad, $treffer)) {
     $id = (int) $treffer[1];
 
-    // TODO 5: Projekt mit passender id löschen (Status 200) bzw.
-    //         Status 404, falls die id nicht existiert
+    // TODO 5: Projekt mit dieser id löschen (200, leerer Body) bzw. 404
 
 } else {
     http_response_code(404);

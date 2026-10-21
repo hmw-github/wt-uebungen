@@ -1,47 +1,45 @@
 # TODOs – Formulare
 
 ## kontakt.php
-1. TODO 1: Dem Textfeld für den Namen die Klasse "form-control" hinzufügen.
-2. TODO 2: Dem E-Mail-Feld (id="emailFeld") die Klasse "form-control"
-   hinzufügen.
-3. TODO 3: Die beiden Radiobuttons "Bevorzugte Rückmeldung" mit Bootstrap
-   gestalten: je ein umschließendes div class="form-check
-   form-check-inline", die Klasse "form-check-input" auf dem input
-   type="radio" sowie die Klasse "form-check-label" auf dem zugehörigen
-   label.
-4. TODO 4: Der Auswahlliste "Betreff" die Klasse "form-select" hinzufügen.
-5. TODO 5: Dem textarea für die Nachricht die Klasse "form-control"
-   hinzufügen.
-6. TODO 6: Die Newsletter-Checkbox mit Bootstrap gestalten: ein
-   umschließendes div class="form-check", die Klasse "form-check-input"
-   auf dem input type="checkbox" sowie die Klasse "form-check-label" auf
-   dem zugehörigen label.
-7. TODO 7: Bei den vier Feldern Name, E-Mail, "Bevorzugte Rückmeldung" und
-   Nachricht jeweils ein div class="invalid-feedback" mit passendem
-   Hinweistext direkt nach dem jeweiligen Eingabeelement ergänzen (bei der
-   Rückmeldung: nach den beiden Radiobutton-divs, mit
-   id="rueckmeldungFeedback", da sich hier zwei Eingabeelemente ein
-   gemeinsames Feedback-Element teilen).
-8. TODO 8: Im vorgegebenen script-Block ein JavaScript-Snippet ergänzen,
-   das beim Verlassen des E-Mail-Feldes (Event "blur") prüft, ob der
-   eingegebene Wert ein "@"-Zeichen enthält: wenn ja, Klasse "is-invalid"
-   entfernen und Klasse "is-valid" setzen; wenn nein, Klasse "is-valid"
-   entfernen und Klasse "is-invalid" setzen (bewusst eine einfache
-   clientseitige Demo-Prüfung, keine vollständige E-Mail-Validierung).
-9. TODO 9: Analoges JavaScript-Snippet für das Namensfeld (Event "blur"):
-   prüft, ob der (getrimmte) Wert mindestens 5 Zeichen lang ist, und
-   setzt je nach Ergebnis "is-valid"/"is-invalid".
-10. TODO 10: JavaScript-Snippet für die beiden Rückmeldung-Radiobuttons
-    (`document.querySelectorAll('input[name="rueckmeldung"]')`): bei
-    "blur" eines der beiden prüfen, ob mindestens einer checked ist, dann
-    bei beiden "is-valid"/"is-invalid" setzen sowie zusätzlich "d-block"
-    auf `rueckmeldungFeedback` bei Ungültigkeit setzen bzw. entfernen (das
-    Feedback-Element ist hier kein direktes Geschwisterelement eines
-    einzelnen Eingabefelds, daher blendet Bootstrap es nicht automatisch
-    ein).
-11. TODO 11: Analoges JavaScript-Snippet für das Nachrichtenfeld (Event
-    "blur"): prüft, ob der (getrimmte) Wert nicht leer ist, und setzt je
-    nach Ergebnis "is-valid"/"is-invalid".
+1. TODO 1: Das Textfeld für den Namen erscheint im Bootstrap-Stil (volle
+   Breite, abgerundeter Rahmen, farbiges Leuchten beim Fokussieren).
+2. TODO 2: Das E-Mail-Feld (id="emailFeld") erscheint ebenso im
+   Bootstrap-Stil.
+3. TODO 3: Die beiden Radiobuttons "Bevorzugte Rückmeldung" erscheinen im
+   Bootstrap-Stil und stehen samt Beschriftung nebeneinander in einer
+   Zeile. Ein Klick auf die Beschriftung wählt den jeweiligen Radiobutton
+   aus.
+4. TODO 4: Die Auswahlliste "Betreff" erscheint im Bootstrap-Stil (volle
+   Breite, Bootstrap-eigener Auswahlpfeil).
+5. TODO 5: Das Nachrichtenfeld erscheint im Bootstrap-Stil.
+6. TODO 6: Die Newsletter-Checkbox erscheint im Bootstrap-Stil, mit sauber
+   daneben ausgerichteter Beschriftung.
+7. TODO 7: Für die vier Felder Name, E-Mail, "Bevorzugte Rückmeldung" und
+   Nachricht gibt es je einen passenden Hinweistext (z.B. "Bitte geben Sie
+   eine gültige E-Mail-Adresse ein."). Er ist zunächst unsichtbar und
+   erscheint rot direkt unter dem Feld, sobald das Feld als ungültig
+   markiert ist (siehe TODO 8–11). Die beiden Radiobuttons teilen sich
+   einen gemeinsamen Hinweis, der über die id "rueckmeldungFeedback"
+   erreichbar ist.
+8. TODO 8: Verlässt man das E-Mail-Feld, wird die Eingabe sofort
+   bewertet: Enthält sie ein "@", erscheint das Feld grün umrandet mit
+   Häkchen; andernfalls rot umrandet mit dem Hinweistext aus TODO 7.
+   Beim erneuten Verlassen wird neu bewertet, das Feld ist also nie
+   gleichzeitig als gültig und ungültig markiert. Der Code steht im
+   vorgegebenen script-Block. (Bewusst eine einfache clientseitige
+   Demo-Prüfung, keine vollständige E-Mail-Validierung.)
+9. TODO 9: Gleiches Verhalten für das Namensfeld: gültig ab mindestens 5
+   Zeichen, wobei Leerzeichen am Anfang und Ende nicht mitzählen
+   ("   Al   " ist also ungültig).
+10. TODO 10: Verlässt man einen der beiden Rückmeldung-Radiobuttons,
+    werden beide bewertet: grün, sobald einer von ihnen ausgewählt ist,
+    sonst rot. Zusätzlich ist der gemeinsame Hinweistext
+    "rueckmeldungFeedback" genau dann sichtbar, wenn keiner ausgewählt
+    ist. Hinweis: Bootstrap blendet diesen Hinweis hier nicht automatisch
+    ein, da er zu keinem einzelnen Eingabefeld gehört. Sie müssen also
+    selbst für seine Sichtbarkeit sorgen.
+11. TODO 11: Gleiches Verhalten für das Nachrichtenfeld: gültig, wenn es
+    mehr als nur Leerzeichen enthält, sonst ungültig.
 
 ## ueber-mich.html
 - (kein TODO-Marker) Die Seite enthält bereits die vollständige Lösung

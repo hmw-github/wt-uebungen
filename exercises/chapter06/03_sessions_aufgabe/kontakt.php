@@ -1,9 +1,12 @@
 <?php
-    // TODO 1: Session starten (session_start())
+    // TODO 1: Die Seite kann sich Daten eines Besuchers über mehrere Aufrufe
+    //         hinweg merken
 
-    // TODO 2: $_SESSION['gaestebucheintraege'] initialisieren, falls noch nicht vorhanden
+    // TODO 2: Gästebuch in $_SESSION['gaestebucheintraege'] steht bereit
+    //         (anfangs leer, bestehende Einträge bleiben erhalten)
 
-    // TODO 3: neuen Eintrag anhängen, falls Gästebuch-Formular mit nicht-leerer Nachricht abgeschickt wurde
+    // TODO 3: Abgeschickte, nicht leere Nachricht als neuer Eintrag mit
+    //         Zeitstempel ins Gästebuch übernehmen
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,7 +85,7 @@
 
     <ul>
         <?php
-            // TODO 4: alle Einträge aus $_SESSION['gaestebucheintraege'] als <li> ausgeben
+            // TODO 4: Alle Gästebuch-Einträge als Liste anzeigen
         ?>
     </ul>
 

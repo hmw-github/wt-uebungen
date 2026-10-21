@@ -6,23 +6,14 @@
     sondern als drei Registerkarten (Tabs) dargestellt werden. Ergänzen
     Sie an den TODO-Stellen den fehlenden Code:
 
-    TODO 1: Erstellen Sie die Tab-Navigation als ul class="nav nav-tabs"
-            mit drei li class="nav-item", die je einen a class="nav-link"
-            enthalten:
-              - "Werdegang" -> href="#werdegang", data-bs-toggle="tab",
-                zusätzlich Klasse "active" (dieser Tab ist beim Laden
-                aktiv)
-              - "Fähigkeiten" -> href="#fähigkeiten", data-bs-toggle="tab"
-              - "Begriffe" -> href="#begriffe", data-bs-toggle="tab"
-    TODO 2: Erstellen Sie darunter ein div class="tab-content" mit drei
-            div class="tab-pane" (jeweils mit passender id, die exakt zum
-            href aus TODO 1 passt), das erste zusätzlich mit der Klasse
-            "active":
-              - id="werdegang" (aktiv): die bereits vorhandene ol mit den
-                Stationen des Werdegangs
-              - id="fähigkeiten": die bereits vorhandene verschachtelte ul
-              - id="begriffe": die bereits vorhandene dl mit den
-                Fachbegriffen
+    TODO 1: Über den Inhalten erscheinen drei Registerkarten-Reiter
+            "Werdegang", "Fähigkeiten" und "Begriffe". Beim Laden der Seite
+            ist "Werdegang" ausgewählt.
+    TODO 2: Es ist immer nur der Inhalt des ausgewählten Reiters sichtbar: bei
+            "Werdegang" die vorhandene nummerierte Liste, bei "Fähigkeiten"
+            die verschachtelte Liste, bei "Begriffe" die Begriffsliste. Ein
+            Klick auf einen Reiter wechselt den Inhalt ohne Neuladen der
+            Seite.
 -->
 <!DOCTYPE html>
 <html>
@@ -67,10 +58,10 @@
         <p>Seit dem Abitur beschäftige ich mich mit der Entwicklung von Webseiten
             und Webanwendungen.</p>
 
-        <!-- TODO 1: Tab-Navigation (ul.nav.nav-tabs) mit Werdegang/Fähigkeiten/Begriffe -->
+        <!-- TODO 1: Reiter Werdegang/Fähigkeiten/Begriffe -->
 
         <div class="tab-content mt-3">
-            <!-- TODO 2: drei tab-pane-Elemente (werdegang/fähigkeiten/begriffe) -->
+            <!-- TODO 2: pro Reiter einen eigenen Inhaltsbereich -->
 
             <ol>
                 <li>2022: Abitur</li>

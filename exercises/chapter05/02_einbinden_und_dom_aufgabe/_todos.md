@@ -12,16 +12,16 @@
 
 *JavaScript einbinden (5.2)*
 
-1. TODO 1: Ergänzen Sie im `<script>`-Block im `<head>` ein `console.log()`, das eine Begrüßung ausgibt (z.B. "Startseite wird geladen...").
-2. TODO 2: Ergänzen Sie einen Link, der als href das `javascript:`-Pseudo-Protokoll verwendet, um beim Klick direkt eine `alert()`-Meldung mit einem kurzen Fakt über diese Website anzuzeigen, z.B. `href="javascript:alert('Diese Seite wurde mit HTML, CSS und JavaScript gebaut.')"`.
-3. TODO 3: Ergänzen Sie einen Button mit dem Text "Info anzeigen", der über das Attribut `onclick` die Funktion `zeigeAlert()` aufruft. (Diese Funktion wird in `js/begruessung.js` definiert, siehe unten.)
-4. TODO 4: Binden Sie am Ende des `<body>` die externe Datei "js/begruessung.js" per `<script src="..."></script>` ein.
+1. TODO 1: Beim Laden der Startseite erscheint in der Entwicklerkonsole eine Begrüßung (z.B. "Startseite wird geladen..."). Der Code dafür steht im bereits vorhandenen `<script>`-Block im `<head>`.
+2. TODO 2: Auf der Startseite gibt es einen Link, der beim Anklicken eine Meldung mit einem kurzen Fakt über diese Website anzeigt (z.B. "Diese Seite wurde mit HTML, CSS und JavaScript gebaut."). Der Link verlässt die Seite nicht. Der JavaScript-Code steckt vollständig im Linkziel selbst, es gibt keinen separaten Skriptblock dafür.
+3. TODO 3: Auf der Startseite gibt es einen Button mit dem Text "Info anzeigen". Ein Klick darauf ruft die Funktion `zeigeAlert()` auf, die in `js/begruessung.js` definiert ist (siehe unten). Die Verknüpfung von Button und Funktion steht direkt im HTML-Tag des Buttons.
+4. TODO 4: Die Funktionen aus der externen Datei `js/begruessung.js` stehen auf der Startseite zur Verfügung, sodass der Button aus TODO 3 funktioniert. Die Einbindung erfolgt am Ende des `<body>`.
 
 ## js/begruessung.js
 
 *JavaScript einbinden (5.2)*
 
-1. TODO 1: Implementieren Sie die Funktion `zeigeAlert()`, die per `alert()` den Text "Hallo aus der externen Datei!" anzeigt.
+1. TODO 1: Ein Aufruf von `zeigeAlert()` öffnet ein Meldungsfenster mit dem Text "Hallo aus der externen Datei!".
 
 ## js/main.js
 
@@ -29,24 +29,23 @@ Der Block für das Burger-Menü am Dateianfang ist bereits fertig (kein TODO).
 
 *DOM-Werte lesen (5.5) – Kontaktformular*
 
-1. TODO 1 (Submit-Handler des Kontaktformulars): Werte der Formularfelder auslesen (`nameFeld.value`, `emailFeld.value`, `betreffFeld.value`, `nachrichtFeld.value`), das ausgewählte Radio-Button-Element für die Rückmeldung per `document.querySelector('input[name="rueckmeldung"]:checked')` ermitteln (kann `null` sein) sowie den Zustand der Newsletter-Checkbox per `newsletterFeld.checked` lesen. Daraus ein Objekt mit den Eigenschaften `name`, `email`, `betreff`, `rueckmeldung`, `nachricht` und `newsletter` erstellen.
-2. TODO 2: Das Objekt mit `JSON.stringify` in einen JSON-String umwandeln und mit `localStorage.setItem` unter dem Schlüssel `"kontaktanfrage"` speichern.
-3. TODO 3: Mit `location.href` zu `"kontaktanfrage-bestaetigung.html"` weiterleiten.
-4. TODO 4 (auf kontaktanfrage-bestaetigung.html): Den JSON-String unter dem Schlüssel `"kontaktanfrage"` per `localStorage.getItem` lesen. Falls kein Wert vorhanden ist, in `#begruessung` einen Hinweistext anzeigen und abbrechen (`return`). Andernfalls mit `JSON.parse` zurück in ein Objekt wandeln und dessen Eigenschaften per `textContent` in die vorgegebenen Platzhalter-Elemente (`#begruessung`, `#detailEmail`, `#detailBetreff`, `#detailRueckmeldung`, `#detailNachricht`, `#detailNewsletter`) eintragen.
+1. TODO 1 (Submit-Handler des Kontaktformulars): Beim Absenden werden alle Eingaben erfasst: Name, E-Mail, Betreff, Nachricht, die gewählte Rückmeldungsart und ob die Newsletter-Checkbox angekreuzt ist. Wurde keine Rückmeldungsart gewählt, darf das Skript nicht abbrechen. Die Werte stehen danach in einem Objekt mit den Eigenschaften `name`, `email`, `betreff`, `rueckmeldung`, `nachricht` und `newsletter` (letztere als Wahrheitswert).
+2. TODO 2: Das Objekt liegt anschließend als JSON-Text unter dem Schlüssel `"kontaktanfrage"` im localStorage des Browsers (prüfbar in den Entwicklertools).
+3. TODO 3: Danach landet der Benutzer auf der Seite `"kontaktanfrage-bestaetigung.html"`.
+4. TODO 4 (auf kontaktanfrage-bestaetigung.html): Die Seite zeigt die gespeicherte Kontaktanfrage in den vorgegebenen Platzhalter-Elementen an:
+    - `#begruessung`: "Vielen Dank, <name>! Ihre Nachricht wurde empfangen."
+    - `#detailEmail`, `#detailBetreff`, `#detailNachricht`: die jeweiligen Werte
+    - `#detailRueckmeldung`: die gewählte Rückmeldungsart oder "keine Angabe"
+    - `#detailNewsletter`: "ja" oder "nein"
+
+    Liegt keine gespeicherte Anfrage vor, zeigt `#begruessung` stattdessen "Es wurde keine Kontaktanfrage gefunden. Bitte füllen Sie zuerst das Kontaktformular aus.", und die übrigen Elemente bleiben leer. Benutzereingaben werden dabei als reiner Text angezeigt, nicht als HTML interpretiert.
 
 *DOM-Manipulation (5.5) – Projekttabelle*
 
 `loadProjects()` ist vorgegeben: lädt `projekte.json` per fetch() und übergibt die Daten an `fillProjectTable(projekte)`.
 
-5. TODO 5: `fillProjectTable(projekte)` implementieren.
-    - Ermitteln Sie per `getElementById` Referenzen auf den tbody-Bereich (`id="projekteKoerper"`) sowie auf die Zusammenfassungszelle im tfoot (`id="projekteAnzahl"`).
-    - Iterieren Sie das übergebene Array `projekte` mit einer `for...of`-Schleife.
-    - Erzeugen Sie pro Projekt per `document.createElement("tr")` eine neue Tabellenzeile mit 4 Zellen (`createElement("td")`): Titel, Technologie, Jahr sowie ein Link-Element (`createElement("a")`) mit href auf `projekt.link`, `target="_blank"` und dem Text "Repository".
-    - Hängen Sie die Zellen an die Zeile und die Zeile an den tbody an.
-    - Setzen Sie anschließend den Text der Zusammenfassungszelle auf `"Anzahl Projekte: " + projekte.length`.
-6. TODO 6:
-    - Ermitteln Sie den Button mit `id="filterButton"` und registrieren Sie per `addEventListener("click", ...)` einen Handler.
-    - Der Handler soll ALLE Zeilen des tbody (`querySelectorAll("tr")`) durchlaufen und bei jeder Zeile, deren dritte Zelle (Jahr) den Text "2026" enthält, die CSS-Klasse "hervorgehoben" per `classList.toggle` umschalten.
+5. TODO 5: Nach dem Aufruf von `fillProjectTable(projekte)` enthält der Tabellenkörper (`id="projekteKoerper"`) für jedes übergebene Projekt eine Zeile mit vier Zellen: Titel, Technologie, Jahr und einen Link mit dem Text "Repository", der auf `projekt.link` verweist und in einem neuen Tab öffnet. Die Zusammenfassungszelle im Tabellenfuß (`id="projekteAnzahl"`) zeigt "Anzahl Projekte: 3" (bzw. die tatsächliche Anzahl).
+6. TODO 6: Ein Klick auf den Button "filterButton" hebt alle Tabellenzeilen mit dem Jahr 2026 gelb hervor (die CSS-Klasse "hervorgehoben" ist vorgegeben). Ein weiterer Klick nimmt die Hervorhebung wieder zurück. Andere Zeilen bleiben unverändert.
 
 ## kontakt.html
 
@@ -63,7 +62,7 @@ Der Block für das Burger-Menü am Dateianfang ist bereits fertig (kein TODO).
 
 ## css/style.css
 
-- (kein TODO-Marker) Enthält die Regel `tr.hervorgehoben { background-color: #ffd60a; }` als visuelle Grundlage für das per TODO 6 umzuschaltende `classList.toggle("hervorgehoben")`.
+- (kein TODO-Marker) Enthält die Regel `tr.hervorgehoben { background-color: #ffd60a; }` als visuelle Grundlage für die Hervorhebung aus TODO 6.
 
 ## ueber-mich.html
 

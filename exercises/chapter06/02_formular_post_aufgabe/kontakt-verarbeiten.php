@@ -6,27 +6,24 @@
     (action="kontakt-verarbeiten.php", method="post" - siehe dort). Ergänzen
     Sie an den TODO-Stellen den fehlenden PHP-Code:
 
-    TODO 1: Prüfen Sie mittels isset() und einer Leer-Prüfung, ob die
-            PFLICHTFELDER $_POST['name'] und $_POST['email'] gesetzt UND
-            nicht leer sind. Nur wenn das der Fall ist, wird der Block aus
-            TODO 2 und TODO 3 ausgeführt (siehe die if/else-Struktur
-            unten).
-    TODO 2: Lesen Sie im if-Zweig alle Formularwerte in Variablen ein:
-            $name, $email, $nachricht (direkt aus $_POST), $betreff und
-            $rueckmeldung (mit dem Null-Coalescing-Operator ?? und
-            sinnvollen Standardwerten, z.B. "anfrage" bzw. "email", falls
-            nicht gesetzt) sowie $newsletter (Boolean: true, falls die
-            Checkbox "newsletter" in $_POST vorkommt, sonst false -
-            Checkboxen werden nur bei Auswahl mitgesendet, daher isset()
-            statt eines Standardwerts verwenden).
-    TODO 3: Geben Sie im if-Zweig eine Bestätigung aus, die $name, $email,
-            $betreff, $rueckmeldung, $nachricht sowie den Newsletter-Status
-            zusammenfasst. WICHTIG: Verpacken Sie dabei jeden Wert, der
-            direkt vom Benutzer stammt, in htmlspecialchars(...), damit
-            kein Cross-Site-Scripting (XSS) über das Formular möglich
-            ist.
-    TODO 4: Geben Sie im else-Zweig eine Fehlermeldung aus, dass Name und
-            E-Mail-Adresse Pflichtfelder sind.
+    TODO 1: Die Bestätigung (TODO 2 und 3) erscheint nur, wenn Name UND
+            E-Mail-Adresse übermittelt wurden und nicht leer sind. Andernfalls
+            erscheint die Fehlermeldung aus TODO 4. Das gilt auch, wenn die
+            Seite direkt (ohne Formular) aufgerufen wird.
+    TODO 2: Alle Formularwerte stehen in Variablen bereit: $name, $email,
+            $nachricht, $betreff, $rueckmeldung und $newsletter (true/false).
+            Fehlt ein optionales Feld in der Anfrage, gibt es keine Warnung,
+            sondern einen sinnvollen Standardwert (z.B. "anfrage" bzw.
+            "email"). $newsletter ist nur true, wenn die Checkbox angekreuzt
+            wurde.
+    TODO 3: Eine Bestätigung fasst Name, E-Mail, Betreff, Rückmeldungsart,
+            Nachricht und Newsletter-Status zusammen. WICHTIG: Eingaben werden
+            immer wörtlich angezeigt und nie als HTML ausgeführt. Gibt man
+            z.B. als Namen <b>Test</b> oder <script>alert(1)</script> ein,
+            erscheint genau dieser Text auf der Seite (Schutz vor
+            Cross-Site-Scripting, XSS).
+    TODO 4: Fehlen Name oder E-Mail-Adresse, erscheint eine Fehlermeldung,
+            dass beide Pflichtfelder sind.
 -->
 <!DOCTYPE html>
 <html>
@@ -63,13 +60,17 @@
     <h1>Kontaktanfrage</h1>
 
     <?php
-        // TODO 1: prüfen, ob $_POST['name'] und $_POST['email'] gesetzt UND nicht leer sind (if/else selbst schreiben)
+        // TODO 1: Bestätigung nur, wenn Name und E-Mail vorhanden und nicht
+        //         leer sind, sonst Fehlermeldung
 
-            // TODO 2: im if-Zweig Formularwerte in Variablen einlesen ($name, $email, $nachricht, $betreff, $rueckmeldung, $newsletter)
+            // TODO 2: Alle Formularwerte in Variablen bereitstellen ($name,
+            //         $email, $nachricht, $betreff, $rueckmeldung,
+            //         $newsletter)
 
-            // TODO 3: im if-Zweig Bestätigung mit htmlspecialchars(...) ausgeben
+            // TODO 3: Bestätigung mit allen Werten anzeigen, Eingaben dabei
+            //         nie als HTML ausführen
 
-            // TODO 4: im else-Zweig Fehlermeldung ausgeben (Name und E-Mail sind Pflichtfelder)
+            // TODO 4: Fehlermeldung (Name und E-Mail sind Pflichtfelder)
     ?>
 
     <p><a href="kontakt.html">Zurück zum Kontaktformular</a></p>

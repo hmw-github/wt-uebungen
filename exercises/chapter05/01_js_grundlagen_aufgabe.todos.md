@@ -5,46 +5,37 @@ Diese Übung entwickelt eine Klasse `Projektliste`, die ein Array von
 und Operationen zum Einfügen, Aktualisieren, Löschen und Auflisten
 anbietet. Anschließend werden Projektdaten als JSON im `localStorage`
 gespeichert und wieder gelesen. In diesem zusammenhängenden Szenario
-werden folgende Sprachkonzepte eingeübt:
-
-- **Variablen, Datentypen, Operatoren** (TODO 8): `let`/`const`/`var`,
-  `typeof`, String-Verkettung, `===` vs. `==`.
-- **Kontrollstrukturen**: `if...else` (TODO 4), `for`-Schleife mit Index
-  (TODO 5), `for...of`-Schleife (TODO 6), `switch` (TODO 13).
-- **Arrays**: `push()` (TODO 3), `sort()` mit Vergleichsfunktion (TODO 7),
-  Array-Destrukturierung (TODO 12).
-- **Objekte**: Objekt-Literal als Parameter `aenderungen` (TODO 4, 11),
-  Punktnotation.
-- **Klassen und Vererbung**: `class`, `extends`, `super`, get/set,
-  `instanceof`, `throw`/`try...catch` (TODO 1, 2, 11).
-- **JSON**: `JSON.stringify`/`JSON.parse` und `localStorage` (TODO 14–16).
+werden Variablen, Datentypen und Operatoren, Kontrollstrukturen, Arrays,
+Objekte, Klassen mit Vererbung sowie JSON und `localStorage` eingeübt.
+Welches Sprachmittel Sie an welcher Stelle einsetzen, entscheiden Sie
+selbst.
 
 Nutzen Sie für alle Textausgaben die vorhandene Funktion `ausgabe(text)`.
 
 ## 01_js_grundlagen_aufgabe.html – Teil 1: Klassen Projekt und Webprojekt
-1. TODO 1: Klasse `Projekt` implementieren (Konstruktor mit `id`, `titel`, `jahr`; (reiner) Getter für `id`; get/set für `titel`; get/set für `jahr` inkl. `throw` bei `jahr < 2000`; `toString()`).
-2. TODO 2: Klasse `Webprojekt` implementieren (`extends Projekt`; zusätzliche Eigenschaft `technologie` mit get/set; Konstruktor ruft `super(id, titel, jahr)` auf; `toString()` überschrieben, nutzt `super.toString()`).
+1. TODO 1: Es gibt eine Klasse `Projekt`. Ein Projekt wird mit `id`, `titel` und `jahr` erzeugt. Die `id` kann von außen gelesen, aber nicht geändert werden; `titel` und `jahr` können gelesen und geändert werden. Ein Jahr vor 2000 wird abgewiesen: Der Versuch erzeugt einen Fehler, den der Aufrufer abfangen kann. Wird ein Projekt in einen String umgewandelt, erhält man eine lesbare Zusammenfassung (z.B. `Portfolio-Website (2024)`).
+2. TODO 2: Es gibt eine Klasse `Webprojekt`. Ein Webprojekt ist ein Projekt (alles aus TODO 1 gilt weiterhin) und hat zusätzlich eine lesbare und änderbare `technologie`. Es wird mit `id`, `titel`, `jahr` und `technologie` erzeugt. Seine Textdarstellung ist die eines Projekts, ergänzt um die Technologie (z.B. `Portfolio-Website (2024), Technologie: HTML, CSS`), ohne dass dieser Teil doppelt programmiert wird.
 
 ## Teil 2: Klasse Projektliste
 Der Konstruktor (`this._projekte = []`) sowie die Hilfsmethoden `anzahl` (Getter) und `alsArray()` sind bereits vorgegeben.
 
-3. TODO 3: `hinzufuegen(projekt)` implementieren: `projekt` per `push()` an `this._projekte` anhängen, Bestätigung per `ausgabe(...)`.
-4. TODO 4: `aktualisieren(id, aenderungen)` implementieren: Projekt per `find()` suchen (nicht gefunden -> Fehlermeldung + `return`); für jede vorhandene Eigenschaft in `aenderungen` (`titel`, `jahr`, `technologie`) den passenden Setter aufrufen (`technologie` nur bei `instanceof Webprojekt`); Bestätigung ausgeben.
-5. TODO 5: `entfernen(id)` implementieren: klassische `for`-Schleife über `this._projekte`, bei Treffer `splice(i, 1)` + Bestätigung + `return`, sonst nach der Schleife Fehlermeldung.
-6. TODO 6: `auflisten(id)` implementieren: ohne `id` alle Projekte per `for...of` auflisten (inkl. Gesamtanzahl), mit `id` nur das gefundene Projekt (oder Fehlermeldung) ausgeben.
-7. TODO 7: `sortierenNachJahr()` implementieren: `this._projekte.sort()` mit Vergleichsfunktion aufsteigend nach `jahr`, danach Bestätigung ausgeben.
+3. TODO 3: `hinzufuegen(projekt)` nimmt ein Projekt am Ende der Liste auf und bestätigt dies in der Ausgabe.
+4. TODO 4: `aktualisieren(id, aenderungen)` übernimmt die Werte aus dem Objekt `aenderungen` (mögliche Eigenschaften: `titel`, `jahr`, `technologie`) in das Projekt mit der passenden `id`. Nur die übergebenen Eigenschaften werden geändert. Eine `technologie` wird nur bei Webprojekten übernommen. Gibt es keine passende `id`, erscheint eine Fehlermeldung und nichts wird geändert; sonst eine Bestätigung.
+5. TODO 5: `entfernen(id)` löscht das Projekt mit der passenden `id` aus der Liste und bestätigt dies. Gibt es kein solches Projekt, erscheint eine Fehlermeldung.
+6. TODO 6: `auflisten(id)` gibt ohne Argument alle Projekte (je eine Zeile) und die Gesamtanzahl aus. Mit `id` wird nur dieses eine Projekt ausgegeben, oder eine Fehlermeldung, falls es nicht existiert.
+7. TODO 7: Nach `sortierenNachJahr()` stehen die Projekte nach Jahr aufsteigend geordnet in der Liste. Die Sortierung wird in der Ausgabe bestätigt.
 
 ## Teil 3: Hauptteil – Projektliste verwenden
 
-8. TODO 8 - Variablen definieren:
-    - `naechsteId` (`let`, Start 1), 
-    - `listenName` (`const`), `istInitialisiert` (`var`) deklarieren und mit Name+`typeof` ausgeben; `"Kapitel " + 5` bilden und Wert+Typ ausgeben; 
-    - `naechsteId` einmal mit `===` und einmal mit `==` gegen `"1"` vergleichen und beide Ergebnisse ausgeben.
-9. TODO 9: `Projektliste` sowie mind. 3 Projekte (mind. 1 `Webprojekt`) mit aufsteigenden ids erzeugen und per `hinzufuegen()` einfügen.
-10. TODO 10: `sortierenNachJahr()` aufrufen, danach alle Projekte per `auflisten()` ausgeben.
-11. TODO 11: `aktualisieren()` einmal erfolgreich aufrufen; ein zweites Mal in `try...catch` mit ungültigem `jahr` (< 2000) aufrufen und abgefangene Fehlermeldung ausgeben.
-12. TODO 12: Ergebnis von `alsArray()` per Destrukturierung in zwei benannte Variablen zerlegen und deren `toString()`-Ergebnis ausgeben.
-13. TODO 13: `entfernen()` für eine vorhandene und eine nicht vorhandene id aufrufen; `switch`-Statement über `projektliste.anzahl` mit Kategorisierung (0/1/2/default) schreiben.
+8. TODO 8: Die Ausgabe zeigt Folgendes:
+    - Variablen `naechsteId` (Startwert 1, später änderbar), `listenName` (unveränderlich) und `istInitialisiert`, deklariert mit den drei verschiedenen Schlüsselwörtern von JavaScript. Zu jeder Variablen werden Name und Datentyp ausgegeben.
+    - Wert und Datentyp des Ausdrucks `"Kapitel " + 5`.
+    - Das Ergebnis eines Vergleichs von `naechsteId` mit dem String `"1"`, einmal mit und einmal ohne Typprüfung.
+9. TODO 9: Eine `Projektliste` enthält mindestens drei Projekte mit aufsteigenden ids, davon mindestens ein Webprojekt.
+10. TODO 10: Die Ausgabe zeigt alle Projekte chronologisch nach Jahr geordnet.
+11. TODO 11: Ein Projekt wird erfolgreich geändert. Ein zweiter Änderungsversuch mit einem Jahr vor 2000 bringt das Skript nicht zum Absturz: Stattdessen erscheint die Fehlermeldung aus der Klasse `Projekt` in der Ausgabe, und das Skript läuft weiter.
+12. TODO 12: Die ersten beiden Projekte der Liste stehen in zwei eigenen, sprechend benannten Variablen (in einer einzigen Anweisung aus `alsArray()` gewonnen) und werden ausgegeben.
+13. TODO 13: Die Ausgabe zeigt, wie ein vorhandenes Projekt gelöscht wird und der Löschversuch für eine nicht vorhandene id scheitert. Danach wird die aktuelle Listengröße in Worten bewertet: eigener Text für 0, 1 und 2 Projekte sowie ein Text für alle anderen Fälle.
 
 ## Teil 4: JSON und localStorage
 
@@ -57,6 +48,6 @@ Beim Öffnen dieser Datei direkt über `file://` funktioniert dies i.d.R.
 zuverlässig, solange Sie dieselbe Datei erneut laden bzw. dieselbe
 Browser-Registerkarte verwenden.
 
-14. TODO 14: Erstellen Sie ein Objekt-Literal "projekt" mit den drei Eigenschaften titel ("Portfolio-Website"), technologie ("PHP, REST") und jahr (2026). Wandeln Sie es mit `JSON.stringify` in einen JSON-String um und geben Sie diesen String mit `ausgabe(...)` aus.
-15. TODO 15: Speichern Sie den JSON-String unter dem Schlüssel "letztesProjekt" mit `localStorage.setItem` im lokalen Speicher des Browsers.
-16. TODO 16: Lesen Sie den Wert unter demselben Schlüssel mit `localStorage.getItem` wieder aus, wandeln Sie ihn mit `JSON.parse` zurück in ein Objekt um und geben Sie mindestens zwei Eigenschaften des wiederhergestellten Objekts mit `ausgabe(...)` aus, um zu zeigen, dass der Rundgang (Objekt -> JSON-String -> Objekt) funktioniert hat.
+14. TODO 14: Ein Projekt mit titel "Portfolio-Website", technologie "PHP, REST" und jahr 2026 erscheint als JSON-Text in der Ausgabe.
+15. TODO 15: Dieser JSON-Text liegt anschließend unter dem Schlüssel "letztesProjekt" im lokalen Speicher des Browsers (prüfbar in den Entwicklertools unter „Application/Speicher“). Er bleibt auch nach einem Neuladen der Seite erhalten.
+16. TODO 16: Der gespeicherte Wert wird wieder aus dem lokalen Speicher geholt und in ein Objekt zurückverwandelt. Mindestens zwei seiner Eigenschaften erscheinen einzeln in der Ausgabe. Damit ist der Rundgang Objekt -> JSON-Text -> Objekt vollständig.

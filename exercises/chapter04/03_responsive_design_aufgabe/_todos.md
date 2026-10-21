@@ -8,10 +8,10 @@
 
 Innerhalb des am Ende der Datei bereits vorhandenen `@media (max-width: 600px)`-Blocks:
 
-1. TODO 1: "#hauptnav": float auf "none" setzen. Damit wird der Float aus Übung 2 aufgehoben und es gilt wieder der normale Dokumentfluss: Das Block-Element `<nav>` beginnt eine neue Zeile, Logo und Navigation stehen auf schmalen Bildschirmen UNTEREINANDER statt nebeneinander.
-2. TODO 2: "#hauptnav a": display auf "block" setzen (statt "inline-block"), damit jeder Navigationslink eine eigene Zeile einnimmt und die Links untereinander stehen.
-3. TODO 3: "#hauptnav a": außerdem margin-right auf 0 und stattdessen margin-bottom: 8px, damit der Abstand auch im gestapelten Zustand stimmt.
-4. TODO 4: "input[type="text"], input[type="email"], textarea, select": width: 100%, damit Formularfelder die volle Breite ausnutzen.
+1. TODO 1: Auf schmalen Bildschirmen steht die Navigation nicht mehr rechts neben dem Logo, sondern darunter in einer eigenen Zeile.
+2. TODO 2: Jeder Navigationslink nimmt auf schmalen Bildschirmen eine eigene Zeile ein, die Links stehen also untereinander. Padding und abgerundete Ecken der Links bleiben erhalten.
+3. TODO 3: Die gestapelten Links haben keinen Abstand mehr nach rechts, dafür aber 8px Abstand zum jeweils nächsten Link darunter.
+4. TODO 4: Die Text-, E-Mail- und mehrzeiligen Textfelder sowie die Auswahllisten nehmen auf schmalen Bildschirmen die gesamte verfügbare Breite ein.
 
 - (kein TODO-Marker) Bereits vorgegeben sind `position: relative` für `header` sowie im Media Query die Regeln für das Burger-Menü (`#hauptnav` ausgeblendet, `#hauptnav.offen` mit `display: block`, `.burger-button` mit `display: block` und `position: absolute` oben rechts im Header), die mit `js/main.js` zusammenarbeiten. Die drei Striche des Burger-Buttons sind Block-Elemente, die über `.burger-button span + span { margin-top: 5px; }` Abstand zueinander erhalten.
 

@@ -9,17 +9,17 @@
 
 *Display und Float (4.4)*
 
-1. TODO 1: "#hauptnav": float: right sowie margin-top: 8px, damit die Navigation rechts neben dem Logo liegt und ungefähr auf Höhe der Logomitte steht. Die Links bleiben inline-block und stehen dadurch in einer Reihe.
-2. TODO 2: "footer p": text-align: center, damit die Footer-Links mittig angezeigt werden.
+1. TODO 1: Die Hauptnavigation steht auf breiten Bildschirmen in derselben Zeile wie das Logo, ganz rechts im Header. Vertikal liegt sie ungefähr auf Höhe der Logomitte (ca. 8px tiefer als die Oberkante des Headers). Die Navigationslinks stehen weiterhin nebeneinander in einer Reihe.
+2. TODO 2: Die Links im Footer erscheinen horizontal zentriert.
 
 *Fortgeschrittene Selektoren (4.5)*
 
-3. TODO 3: Pseudoklasse ":hover" auf "#hauptnav a" UND ".btn" (kombiniert als Selektorliste): opacity: 0.85, damit sich beim Überfahren mit der Maus eine leichte Reaktion zeigt.
-4. TODO 4: Pseudoklasse "table tbody tr:nth-child(even)": background-color "#edf2f4", damit die Projekttabelle abwechselnd eingefärbte Zeilen bekommt (Zebra-Streifen).
-5. TODO 5: Attributselektor, der ALLE folgenden Formularfelder gruppiert anspricht: input[type="text"], input[type="email"], textarea und select. Setzen Sie border: 1px solid "#8d99ae", padding: 6px sowie border-radius: 4px.
-6. TODO 6: Attributselektor kombiniert mit Pseudoelement: "a[target="_blank"]::after" mit content: " ...", das nach jedem Link, der in einem neuen Tab öffnet, ein kleines Pfeil-Symbol anzeigt (z.B. content: " \2197").
-7. TODO 7: Typselektor "thead": Hintergrundfarbe "#2b2d42" und Textfarbe "#ffffff", damit sich der Tabellenkopf farblich vom restlichen Tabelleninhalt abhebt.
-8. TODO 8: Pseudoklasse "table tbody tr:hover": background-color "#d8dee6", damit sich beim Überfahren einer Tabellenzeile mit der Maus eine leichte Hervorhebung zeigt.
+3. TODO 3: Fährt man mit der Maus über einen Navigationslink oder einen Button, wird dieser leicht transparent (85 % Deckkraft). Ohne Mauskontakt sehen beide aus wie bisher.
+4. TODO 4: Die Projekttabelle bekommt Zebra-Streifen: Jede zweite Zeile im Tabellenkörper (beginnend mit der zweiten) hat den Hintergrund #edf2f4. Der Tabellenkopf ist davon nicht betroffen.
+5. TODO 5: Alle Felder, in die man Text eingibt oder aus denen man auswählt (einzeilige Text- und E-Mail-Felder, mehrzeilige Textfelder, Auswahllisten), erhalten ein einheitliches Aussehen: dünner Rahmen in #8d99ae (1px), 6px Innenabstand und leicht abgerundete Ecken (4px). Checkboxen, Radiobuttons und der Absende-Button bleiben unverändert. Das HTML wird dafür nicht angepasst.
+6. TODO 6: Hinter jedem Link, der sich in einem neuen Tab öffnet, erscheint automatisch ein kleines Pfeil-Symbol (↗, Unicode 2197) mit einem Leerzeichen Abstand. Links, die im selben Tab öffnen, bekommen keinen Pfeil. Das HTML wird dafür nicht angepasst.
+7. TODO 7: Der Tabellenkopf der Projekttabelle hebt sich deutlich vom Tabelleninhalt ab: dunkler Hintergrund #2b2d42, weiße Schrift.
+8. TODO 8: Fährt man mit der Maus über eine Zeile im Tabellenkörper, wird diese mit dem Hintergrund #d8dee6 hervorgehoben (auch bei den Zebra-Streifen-Zeilen).
 
 - (kein TODO-Marker) Neu vorgegeben ist die Regel `table { border-collapse: collapse; width: 100%; }`, damit die Tabellenrahmen zu einfachen Linien zusammenfallen und die Tabelle die volle Breite nutzt.
 

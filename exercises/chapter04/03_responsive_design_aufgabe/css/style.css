@@ -192,12 +192,12 @@ details summary {
     }
 
 
-    /* TODO 1: #hauptnav { float: ...; } */
+    /* TODO 1: Logo und Navigation untereinander statt nebeneinander */
 
-    /* TODO 2: #hauptnav a { display: ...; } */
+    /* TODO 2: Jeder Navigationslink in einer eigenen Zeile */
 
-    /* TODO 3: #hauptnav a { margin-right: ...; margin-bottom: ...; } */
+    /* TODO 3: Passende Abstände zwischen den gestapelten Links */
 
-    /* TODO 4: input[type="text"], input[type="email"], textarea, select { width: ...; } */
+    /* TODO 4: Formularfelder nutzen die volle Breite */
 
 }

@@ -11,44 +11,25 @@
     Änderungen dauerhaft speichert. Ergänzen Sie an den TODO-Stellen den
     fehlenden Code:
 
-    TODO 1: Erstellen Sie die Modal-Grundstruktur:
-              div class="modal" id="bearbeitenModal"
-                > div class="modal-dialog"
-                  > div class="modal-content"
-                    > div class="modal-header" mit Titel "Projekt bearbeiten"
-                      und einem Schließen-Button (button class="btn-close"
-                      data-bs-dismiss="modal")
-                    > div class="modal-body" mit drei Formularfeldern
-                      (je label + input class="form-control"):
-                        - Titel        -> id="modalTitel"
-                        - Technologie  -> id="modalTechnologie"
-                        - Jahr         -> id="modalJahr" (type="number")
-                    > div class="modal-footer" mit zwei Buttons:
-                        - "Abbrechen" (class="btn btn-secondary",
-                          onclick="schließen()")
-                        - "Speichern" (class="btn btn-primary",
-                          onclick="speichern()")
-    TODO 2: Implementieren Sie die JavaScript-Funktion projektBearbeiten(cardId):
-              - Liest die aktuellen Werte aus den Elementen
-                cardId+"-titel", cardId+"-technologie", cardId+"-jahr" aus.
-              - Schreibt diese Werte in die Modal-Eingabefelder (modalTitel,
-                modalTechnologie, modalJahr).
-              - Merkt sich die cardId (z.B. in einer Modul-Variable), damit
-                speichern() später weiß, welche Karte aktualisiert werden soll.
-              - Zeigt das Modal an mittels
-                bootstrap.Modal.getOrCreateInstance(modalElement).show().
-    TODO 3: Implementieren Sie die JavaScript-Funktion schließen(), die das
-            Modal mittels bootstrap.Modal.getOrCreateInstance(modalElement).hide()
-            wieder ausblendet (ohne etwas zu speichern).
-    TODO 4: Implementieren Sie die JavaScript-Funktion speichern(), die die
-            aktuellen Werte aus den Modal-Eingabefeldern zurück in die
-            entsprechenden Karten-Elemente (cardId+"-titel" usw.) schreibt.
-            Aktualisieren Sie dabei auch das data-jahr-Attribut der Karte
-            selbst (document.getElementById(cardId).dataset.jahr) auf den
-            neuen Jahreswert - sonst findet der Hervorheben-Button
-            ([data-jahr="2026"]) die Karte nach einer Jahresänderung nicht
-            mehr. Schließen Sie das Modal anschließend ebenfalls (z.B.
-            durch Aufruf von schließen()).
+    TODO 1: Auf der Seite gibt es ein (zunächst unsichtbares) Bootstrap-
+            Dialogfenster "Projekt bearbeiten". Es enthält ein Formular mit
+            den beschrifteten Feldern Titel, Technologie und Jahr (nur
+            Zahlen erlaubt) im Bootstrap-Stil, oben rechts ein
+            Schließen-Kreuz und unten die Buttons "Abbrechen" (grau) und
+            "Speichern" (Primärfarbe). Das Kreuz schließt den Dialog, die
+            beiden Buttons rufen schließen() bzw. speichern() auf.
+    TODO 2: Ein Klick auf "Bearbeiten" einer Karte (projektBearbeiten(cardId))
+            öffnet den Dialog. Die Felder sind mit den aktuellen Werten
+            genau dieser Karte vorausgefüllt (auch nach früheren
+            Änderungen). Der Dialog weiß danach, welche Karte er bearbeitet.
+    TODO 3: schließen() blendet den Dialog wieder aus. Änderungen in den
+            Feldern werden dabei verworfen, die Karte bleibt unverändert.
+    TODO 4: speichern() übernimmt die Werte aus dem Dialog in die gerade
+            bearbeitete Karte (Titel, Technologie, Jahr) und schließt den
+            Dialog. Andere Karten bleiben unverändert. Auch der Button
+            "Projekte aus 2026 hervorheben" berücksichtigt danach das neue
+            Jahr: Eine Karte, die auf 2026 geändert wurde, wird
+            hervorgehoben, eine von 2026 weg geänderte nicht mehr.
 -->
 <!DOCTYPE html>
 <html>
@@ -97,7 +78,7 @@
 
     </div>
 
-    <!-- TODO 1: Modal-Grundstruktur (modal / modal-dialog / modal-content) -->
+    <!-- TODO 1: Dialogfenster "Projekt bearbeiten" (Titel, Technologie, Jahr; Abbrechen/Speichern) -->
 
     </main>
 
@@ -120,11 +101,13 @@
 
         var aktuelleCardId = null;
 
-        // TODO 2: Funktion projektBearbeiten(cardId) implementieren
+        // TODO 2: projektBearbeiten(cardId): Dialog mit den Werten dieser
+        //         Karte öffnen
 
-        // TODO 3: Funktion schließen() implementieren
+        // TODO 3: schließen(): Dialog ohne Speichern ausblenden
 
-        // TODO 4: Funktion speichern() implementieren
+        // TODO 4: speichern(): Werte in die bearbeitete Karte übernehmen,
+        //         Dialog schließen
 
         const projekteKoerper = document.getElementById("projekteKoerper");
 

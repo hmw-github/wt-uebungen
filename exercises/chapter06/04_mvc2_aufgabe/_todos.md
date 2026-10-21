@@ -3,16 +3,20 @@
 Das Gästebuch aus Übung 3 wird hier als eigene kleine MVC2-Anwendung im Unterordner `gaestebuch/` neu strukturiert (Model/View/Controller getrennt statt einer einzelnen Datei). Zu bearbeiten sind `gaestebuch/Gaestebuch.php` (Model), `gaestebuch/GaestebuchView.php` (View) und `gaestebuch/Controller.php` (Controller) – in dieser Reihenfolge, da der Controller auf Model und View aufbaut.
 
 ## gaestebuch/Gaestebuch.php (Model)
-1. TODO 1: Konstruktor `__construct()` implementieren. Er soll `$_SESSION['gaestebucheintraege']` als leeres Array initialisieren, falls es noch nicht existiert (`isset()` verwenden).
-2. TODO 2: Methode `hinzufuegen($text)` implementieren. Sie soll einen neuen Eintrag der Form `date("H:i:s d.m.Y") . " - " . $text` (mit `$text` bereits per `htmlspecialchars()` abgesichert) an `$_SESSION['gaestebucheintraege']` anhängen.
-3. TODO 3: Methode `alleEintraege()` implementieren, die das Array `$_SESSION['gaestebucheintraege']` zurückgibt.
+1. TODO 1: Sobald ein `Gaestebuch`-Objekt erzeugt wurde, steht in `$_SESSION['gaestebucheintraege']` eine Liste der Einträge bereit: beim allerersten Mal leer (ohne PHP-Warnung), danach mit allen bisherigen Einträgen.
+2. TODO 2: Nach einem Aufruf von `hinzufuegen($text)` steht am Ende des Gästebuchs ein neuer Eintrag der Form `14:05:09 21.10.2026 - <text>`. HTML in `$text` wird bei der späteren Anzeige wörtlich dargestellt und nie ausgeführt (XSS-Schutz).
+3. TODO 3: `alleEintraege()` liefert die Liste aller bisherigen Einträge (in der Reihenfolge ihres Eintragens).
 
 ## gaestebuch/GaestebuchView.php (View)
-1. TODO 1: Konstruktor `__construct($gaestebuch)` implementieren, der das übergebene Model-Objekt in der Eigenschaft `$this->gaestebuch` speichert.
-2. TODO 2: Methode `render()` implementieren. Sie soll ein komplettes HTML-Dokument mit demselben Seitenrahmen wie die übrigen Portfolio-Seiten ausgeben (CSS-Einbindung, `<header>` mit Logo/Burger-Button/Navigation, `<main>` mit dem eigentlichen Inhalt, `<footer>` - siehe z.B. `../kontakt.php` als Vorlage, Pfade dabei um ein `../` ergänzen): eine Überschrift "Gästebuch", ein Formular (`method="post"`, Textfeld "gbnachricht", Submit-Button "Eintragen"), darunter eine HTML-Liste aller Einträge, abgerufen über `$this->gaestebuch->alleEintraege()`, sowie einen Link zurück zu `../kontakt.php`.
+1. TODO 1: Eine View wird mit dem Model erzeugt, das sie darstellen soll (`new GaestebuchView($gaestebuch)`), und merkt es sich in der vorhandenen Eigenschaft `$gaestebuch`.
+2. TODO 2: `render()` gibt eine vollständige HTML-Seite aus, die genauso aussieht wie die übrigen Portfolio-Seiten (Stylesheet, `<header>` mit Logo, Burger-Button und Navigation, `<footer>`; Vorlage z.B. `../kontakt.php`). Alle Links, Bilder und Stylesheets funktionieren auch aus dem Unterordner `gaestebuch/` heraus. Der Inhalt besteht aus:
+    - der Überschrift "Gästebuch",
+    - einem Formular mit Textfeld "gbnachricht" und Button "Eintragen", das per POST an diese Seite zurücksendet,
+    - darunter allen Einträgen des Models als Aufzählungsliste,
+    - einem Link zurück zur Kontaktseite.
 
 ## gaestebuch/Controller.php (Controller)
-1. TODO 1: Methode `verarbeiteAnfrage()` implementieren. Sie soll: ein Gästebuch-Objekt (Model) erzeugen; falls `$_POST['gbnachricht']` gesetzt und nicht leer ist, die Nachricht über `hinzufuegen()` des Models hinzufügen; anschließend ein `GaestebuchView`-Objekt (View) erzeugen, dem das Model übergeben wird; und dessen `render()`-Methode aufrufen.
+1. TODO 1: `verarbeiteAnfrage()` beantwortet einen Aufruf des Gästebuchs. Wurde eine nicht leere Nachricht (Feld "gbnachricht") abgeschickt, landet sie im Gästebuch. In jedem Fall erscheint danach die Gästebuch-Seite mit allen Einträgen. Der Controller erzeugt selbst kein HTML und greift nicht direkt auf die Session zu: Das übernehmen Model und View.
 
 ## gaestebuch/index.php
 Keine TODOs. Diese Datei ist laut Aufgabenstellung bereits vollständig fertig verdrahtet (Einstiegspunkt): sie registriert per `spl_autoload_register()` das Autoloading der Klassen, startet die Session mit `session_start()` und ruft `(new Controller())->verarbeiteAnfrage()` auf.

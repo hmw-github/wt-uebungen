@@ -75,23 +75,23 @@ table caption {
 
 /* ---------- Display und Float (4.4) ---------- */
 
-/* TODO 1: #hauptnav { float: ...; margin-top: ...; } */
+/* TODO 1: Navigation rechts neben dem Logo, etwa auf Höhe der Logomitte */
 
-/* TODO 2: footer p { text-align: ...; } */
+/* TODO 2: Footer-Links zentriert */
 
 /* ---------- Fortgeschrittene Selektoren (4.5) ---------- */
 
-/* TODO 3: #hauptnav a:hover, .btn:hover { opacity: ...; } */
+/* TODO 3: Navigationslinks und Buttons reagieren auf Mausberührung */
 
-/* TODO 4: table tbody tr:nth-child(even) { background-color: ...; } */
+/* TODO 4: Projekttabelle mit Zebra-Streifen */
 
-/* TODO 5: input[type="text"], input[type="email"], textarea, select { border: ...; padding: ...; border-radius: ...; } */
+/* TODO 5: Einheitlicher Look der Texteingabefelder */
 
-/* TODO 6: a[target="_blank"]::after { content: ...; } */
+/* TODO 6: Pfeil-Symbol hinter Links, die einen neuen Tab öffnen */
 
-/* TODO 7: thead { background-color: ...; color: ...; } */
+/* TODO 7: Tabellenkopf farblich abgesetzt */
 
-/* TODO 8: table tbody tr:hover { background-color: ...; } */
+/* TODO 8: Tabellenzeile unter der Maus hervorheben */
 
 .no-text-decoration {
     text-decoration: none;

@@ -1,12 +1,16 @@
 # TODOs – Übung 5: Gästebuch mit AJAX
 
 ## gaestebuch/GaestebuchView.php
-1. TODO 1: `onLoad()` implementieren. Die Funktion soll per `fetch()` eine POST-Anfrage mit dem JSON-Body `{"action": "list"}` an `api.php` senden, die Antwort als JSON auslesen (`response.json()`) und mit `fillList(antwort.entries)` die Liste befüllen.
-2. TODO 2: `addGaestebuchEintrag()` implementieren. Die Funktion soll den Wert des Eingabefelds (`id="gbNachrichtFeld"`) auslesen. Ist der Wert leer, soll ein `alert()` erscheinen und die Funktion abgebrochen werden (`return`). Andernfalls soll per `fetch()` eine POST-Anfrage mit dem JSON-Body `{"action": "save", "message": ...}` an `api.php` gesendet werden; aus der (aktualisierten) Antwort soll die Liste erneut mit `fillList(antwort.entries)` aufgebaut werden.
+Die Hilfsfunktionen `fillList()`, `clearList()` und `createListElement()` sind bereits fertig vorgegeben.
+
+1. TODO 1: Direkt nach dem Laden der Seite holt `onLoad()` die bisherigen Einträge im Hintergrund von `api.php`. Gesendet wird per POST der JSON-Text `{"action": "list"}`. Die Einträge erscheinen anschließend in der Liste. Im Netzwerk-Reiter der Entwicklertools ist genau eine solche Anfrage zu sehen.
+2. TODO 2: Ein Klick auf "Speichern" ruft `addGaestebuchEintrag()` auf. Der Text aus dem Eingabefeld (`id="gbNachrichtFeld"`) geht als `{"action": "save", "message": "..."}` an `api.php`. Danach zeigt die Liste den aktuellen Stand inklusive des neuen Eintrags, ohne dass die Seite neu geladen wird. Ist das Eingabefeld leer, erscheint stattdessen eine Meldung (Hinweisfenster), und es wird keine Anfrage gesendet.
 
 ## gaestebuch/api.php
-1. TODO 1: Den JSON-Request-Body dekodieren (`file_get_contents("php://input")`, `json_decode(..., true)`) und das Feld "action" auswerten: bei "save" prüfen, ob "message" gesetzt und nicht leer ist, und in diesem Fall `$gaestebuch->hinzufuegen($message)` aufrufen (bei leerer Nachricht nichts tun); bei "list" (und nach "save") nichts weiter tun.
-2. TODO 2: Den Response-Header auf `"Content-Type: application/json"` setzen und mit `echo json_encode(["entries" => ...])` die aktuellen Einträge zurückgeben (`$gaestebuch->alleEintraege()`).
+Das Protokoll (Request `{"action": ...}`, Antwort `{"entries": [...]}`) ist im Kopfkommentar der Datei beschrieben.
+
+1. TODO 1: Bei `"save"` mit nicht leerer `"message"` landet die Nachricht als neuer, zeitgestempelter Eintrag im Gästebuch (über das vorhandene Model `Gaestebuch`). Bei leerer Nachricht und bei `"list"` ändert sich am Gästebuch nichts.
+2. TODO 2: Die Antwort ist als JSON gekennzeichnet (Content-Type `application/json`) und enthält in jedem Fall alle aktuellen Einträge, z.B. `{"entries": ["12:00:00 21.07.2026 - Hallo"]}`.
 
 ## Weitere Dateien ohne TODO-Marker
 Die übrigen Dateien (u.a. `gaestebuch/Controller.php`, `gaestebuch/Gaestebuch.php`, `gaestebuch/index.php`, `js/begruessung.js`, `js/main.js`, `kontakt.php`, `kontakt-verarbeiten.php`) sind laut Diff gegenüber der Vorgänger-Teilübung (`chapter07/03_modal_aufgabe/`, da `04_fetch_post_async_await_aufgabe/` keine vergleichbare Portfolio-Struktur besitzt) unverändert bzw. bereits als Lösung vorgegeben und enthalten keine TODOs.

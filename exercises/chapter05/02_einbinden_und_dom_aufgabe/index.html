@@ -5,16 +5,17 @@
     Auf der Startseite lernen Sie die verschiedenen Wege kennen, JavaScript
     in eine Seite einzubinden. Ergänzen Sie an den TODO-Stellen:
 
-    TODO 1: Im <script>-Block im <head> ein console.log(), das eine
-            Begrüßung ausgibt (z.B. "Startseite wird geladen...").
-    TODO 2: Einen Link, der als href das javascript:-Pseudo-Protokoll
-            verwendet und per alert() einen kurzen Fakt über diese Website
-            anzeigt.
-    TODO 3: Einen Button "Info anzeigen", der per onclick die Funktion
-            zeigeAlert() aufruft (definiert in js/begruessung.js, TODO 1
-            dort).
-    TODO 4: Am Ende des <body> die externe Datei "js/begruessung.js" per
-            <script src="..."></script> einbinden.
+    TODO 1: Beim Laden der Startseite erscheint in der Entwicklerkonsole eine
+            Begrüßung (z.B. "Startseite wird geladen..."), ausgelöst durch den
+            Skriptblock im <head>.
+    TODO 2: Ein Link zeigt beim Anklicken eine Meldung mit einem kurzen Fakt
+            über diese Website an. Der JavaScript-Code steckt dabei
+            vollständig im Linkziel selbst.
+    TODO 3: Ein Button "Info anzeigen" ruft beim Anklicken die Funktion
+            zeigeAlert() auf (definiert in js/begruessung.js, TODO 1 dort).
+            Der Aufruf steht direkt im HTML-Tag des Buttons.
+    TODO 4: Die Funktionen aus der externen Datei js/begruessung.js stehen auf
+            der Startseite zur Verfügung (Einbindung am Ende des <body>).
 
     Die DOM-Aufgaben (TODO 1-6 in js/main.js) sind auf den Seiten
     kontakt.html und projekte.html beschrieben.
@@ -30,7 +31,7 @@
     <link rel="stylesheet" href="css/druck.css" media="print">
 
     <script>
-        // TODO 1: console.log mit Begrüßung ergänzen
+        // TODO 1: Begrüßung in der Konsole ausgeben
     </script>
 
 </head>
@@ -81,10 +82,10 @@
     }
     </pre>
 
-    <!-- TODO 2: Link mit javascript:-Pseudo-Protokoll ergänzen -->
+    <!-- TODO 2: Link, der beim Klick einen Fakt über die Website meldet -->
 
     <p>
-        <!-- TODO 3: Button mit onclick="zeigeAlert()" ergänzen -->
+        <!-- TODO 3: Button "Info anzeigen", der zeigeAlert() auslöst -->
     </p>
 
     <hr>
@@ -101,7 +102,7 @@
 
     <!-- Autor: Alex Berger -->
 
-    <!-- TODO 4: script src für js/begruessung.js ergänzen -->
+    <!-- TODO 4: js/begruessung.js auf dieser Seite verfügbar machen -->
 
     <script src="js/main.js" defer></script>
 </body>

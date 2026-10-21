@@ -6,20 +6,17 @@
     allen Seiten ergänzt - kein TODO). Ergänzen Sie an den TODO-Stellen
     den fehlenden Code:
 
-    TODO 1: Umschließen Sie den Abschnitt "Meine Stärken" (Überschrift
-            und die drei Vorteils-Boxen) mit einem div der Klasse
-            "container", damit der Inhalt zentriert und responsive
-            dargestellt wird.
-    TODO 2: Erstellen Sie innerhalb dieses Containers eine Bootstrap-Grid-
-            Zeile (div class="row") mit drei Spalten (je div
-            class="col-sm-4"), die je eine der drei vorgegebenen Stärken
-            (Sauberer Code, Moderne Technologien, Zuverlässig) mit
-            Überschrift und kurzem Text enthalten. Die drei Spalten
-            müssen sich zu 12 aufsummieren.
+    TODO 1: Der Abschnitt "Meine Stärken" (Überschrift und Stärken-Boxen) ist
+            zentriert, hat links und rechts etwas Abstand zum Fensterrand und
+            wird auf sehr breiten Bildschirmen nicht beliebig breit.
+    TODO 2: Die drei Stärken (Sauberer Code, Moderne Technologien,
+            Zuverlässig, je mit Überschrift und kurzem Text) stehen ab einer
+            Fensterbreite von 576px als drei gleich breite Spalten
+            nebeneinander, auf schmaleren Bildschirmen untereinander.
 
-    TODO 3: Ersetzen Sie bei "Projekte ansehen" die eigene Klasse "btn"
-            aus Kapitel 4 durch "btn btn-primary btn-lg" (großer,
-            auffälliger Haupt-Button).
+    TODO 3: "Projekte ansehen" erscheint als großer, auffälliger Haupt-Button
+            im Bootstrap-Stil (Primärfarbe) statt im eigenen Button-Stil aus
+            Kapitel 4.
 
     Weitere TODOs dieser Übung finden Sie in technik-spielwiese.php
     (container vs. container-fluid), projekte.html (Buttons, Cards),
@@ -69,7 +66,7 @@
     <p>Ich studiere Angewandte Informatik mit Schwerpunkt Web-Technologien.</p>
 
     <p>
-        <!-- TODO 3: Klasse "btn" durch "btn btn-primary btn-lg" ersetzen -->
+        <!-- TODO 3: großer Haupt-Button im Bootstrap-Stil -->
         <a href="projekte.html" class="btn">Projekte ansehen</a>
     </p>
 
@@ -82,13 +79,13 @@
     <p>Mein aktuelles Lieblingsthema ist gerade
         <span style="color: darkblue;">REST-APIs</span>.</p>
 
-    <!-- TODO 1: div class="container" öffnen -->
+    <!-- TODO 1: "Meine Stärken" zentriert mit begrenzter Breite -->
 
         <h3>Meine Stärken</h3>
 
-        <!-- TODO 2: Grid-Zeile mit drei col-sm-4 Spalten (Sauberer Code, Moderne Technologien, Zuverlässig) -->
+        <!-- TODO 2: drei Stärken nebeneinander (ab 576px), sonst untereinander -->
 
-    <!-- Ende container (TODO 1) -->
+    <!-- Ende des Bereichs aus TODO 1 -->
 
     </main>
 

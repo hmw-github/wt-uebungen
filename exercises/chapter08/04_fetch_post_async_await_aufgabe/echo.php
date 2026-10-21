@@ -8,15 +8,14 @@
     {"titel": "...", "jahr": ...} entgegennehmen und eine JSON-Bestätigung
     zurücksenden.
 
-    TODO 1: Lesen Sie den rohen Request-Body mit file_get_contents("php://input")
-            aus und wandeln Sie ihn mit json_decode(..., true) in ein
-            assoziatives PHP-Array um.
-    TODO 2: Setzen Sie den Response-Header auf "Content-Type: application/json"
-            und geben Sie mit echo json_encode(...) eine Bestätigung im
-            Format {"status":"ok","titel":"...","jahr":...} zurück (nutzen
-            Sie dafür die Werte aus dem in TODO 1 dekodierten Array).
+    TODO 1: Die als JSON gesendeten Daten (titel, jahr) stehen im Skript als
+            PHP-Array zur Verfügung.
+    TODO 2: Die Antwort ist als JSON gekennzeichnet (Content-Type
+            application/json) und hat die Form
+            {"status":"ok","titel":"...","jahr":...}, mit den empfangenen
+            Werten.
 */
 
-// TODO 1: Request-Body lesen und JSON dekodieren
+// TODO 1: gesendete JSON-Daten als PHP-Array bereitstellen
 
-// TODO 2: Content-Type-Header setzen und JSON-Bestätigung zurückgeben
+// TODO 2: als JSON gekennzeichnete Bestätigung zurückgeben

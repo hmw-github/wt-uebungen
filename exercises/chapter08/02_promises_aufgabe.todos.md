@@ -1,7 +1,7 @@
 # TODOs – Übung 2: Promises
 
 ## 02_promises_aufgabe.html
-1. TODO 1: 10 Promises erzeugen (z.B. in einer Schleife), indem `erzeugeZahlenPromise()` zehnmal aufgerufen wird.
-2. TODO 2: An jedes der 10 Promises ein `.then()` anhängen, das den JSON-String parst (`JSON.parse`) und die enthaltene Zahl nur dann mit `console.log()` ausgibt, wenn sie gerade ist. Zusätzlich ein `.catch()` anhängen, das einen eventuellen Fehler mit `console.error()` protokolliert.
+1. TODO 1: Es laufen zehn voneinander unabhängige asynchrone Vorgänge, die jeweils mit der vorgegebenen Funktion `erzeugeZahlenPromise()` gestartet werden.
+2. TODO 2: Sobald einer der zehn Vorgänge sein Ergebnis liefert (einen JSON-Text wie `{"number": 42}`), erscheint die enthaltene Zahl in der Konsole, aber nur, wenn sie gerade ist. Die Zahlen erscheinen in der Reihenfolge ihres Eintreffens, nicht in der Reihenfolge des Starts (bei jedem Neuladen anders). Schlägt ein Vorgang fehl, erscheint der Fehler als Fehlermeldung (rot) in der Konsole, und die übrigen Vorgänge laufen trotzdem weiter.
 
 Hinweis: Diese Teilübung ist eine eigenständige, in sich geschlossene Demo (kein Teil der fortlaufenden Portfolio-Website); die TODO-Marker decken den gesamten zu ergänzenden Code ab.

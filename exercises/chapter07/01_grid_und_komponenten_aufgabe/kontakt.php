@@ -5,10 +5,10 @@
     Ersetzen Sie die eigene CSS-Klasse "btn" aus Kapitel 4 durch die
     passenden Bootstrap-Button-Klassen:
 
-    TODO 1: Beim Submit-Button des Kontaktformulars die Klasse "btn" durch
-            "btn btn-primary" ersetzen.
-    TODO 2: Beim Link-Button "Zum Gästebuch" die Klasse "btn" durch
-            "btn btn-secondary" ersetzen.
+    TODO 1: Der Absende-Button des Kontaktformulars erscheint als
+            Bootstrap-Button in der Primärfarbe.
+    TODO 2: Der Link "Zum Gästebuch" erscheint als Bootstrap-Button in der
+            Sekundärfarbe (grau).
 -->
 <!DOCTYPE html>
 <html>
@@ -75,14 +75,14 @@
         <input type="checkbox" id="newsletterFeld" name="newsletter" value="ja">
         <label for="newsletterFeld">Ich möchte den Newsletter erhalten</label><br><br>
 
-        <!-- TODO 1: Klasse "btn" durch "btn btn-primary" ersetzen -->
+        <!-- TODO 1: Bootstrap-Button in Primärfarbe -->
         <input type="submit" value="Absenden" class="btn">
 
     </form>
 
     <h2>Gästebuch</h2>
 
-    <!-- TODO 2: Klasse "btn" durch "btn btn-secondary" ersetzen -->
+    <!-- TODO 2: Bootstrap-Button in Sekundärfarbe -->
     <p><a href="gaestebuch/index.php" class="btn">Zum Gästebuch</a></p>
 
     </main>

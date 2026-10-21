@@ -66,6 +66,12 @@ Kapitelthemen zu.
   schließenden body-Tag) – das Einbinden von Bootstrap selbst ist kein
   TODO, da es reine Boilerplate und nicht das eigentliche Lernziel der
   Übung ist.
+- Die TODOs beschreiben nur den **zu erzielenden Effekt** (was am Ende im
+  Browser, in der Konsole oder in der Server-Antwort zu sehen sein soll),
+  nicht den Lösungsweg. Welche Elemente, Selektoren, Eigenschaften,
+  Funktionen oder Sprachmittel Sie dafür einsetzen, entscheiden Sie selbst.
+  Vorgegebene Namen (Funktionen, ids, Variablen, Schlüssel) sind
+  einzuhalten, weil anderer Code darauf zugreift.
 
 ## Aufbau jeder Lösungsdatei
 

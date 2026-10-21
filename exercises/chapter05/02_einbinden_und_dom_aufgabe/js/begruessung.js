@@ -1,8 +1,8 @@
 // ÜBUNG 2: JAVASCRIPT EINBINDEN UND DOM - externe Datei
 //
-// TODO 1: Implementieren Sie die Funktion zeigeAlert(), die per alert()
-// den Text "Hallo aus der externen Datei!" anzeigt.
+// TODO 1: Beim Aufruf von zeigeAlert() erscheint ein Meldungsfenster mit
+// dem Text "Hallo aus der externen Datei!".
 
 function zeigeAlert() {
-    // TODO 1: alert() hier ergänzen
+    // TODO 1: Meldungsfenster anzeigen
 }

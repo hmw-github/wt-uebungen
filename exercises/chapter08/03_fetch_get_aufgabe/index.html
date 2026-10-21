@@ -17,14 +17,14 @@
         function ladeVorschlag() {
             var wert = document.getElementById("praefixFeld").value;
 
-            // TODO 1: fetch("hinweis.php?praefix=" + wert) aufrufen,
-            //         response.ok prüfen, sonst Error werfen
+            // TODO 1: Vorschläge per Fetch bei hinweis.php (Parameter
+            //         praefix) anfragen; eine Antwort mit Fehlerstatus (z.B.
+            //         404/500) gilt als Fehler
 
-                // TODO 2: response.text() auslesen und Ergebnis in
-                //         #ergebnis schreiben
+                // TODO 2: Bei Erfolg den Antworttext in #ergebnis anzeigen
 
-            // TODO 3: .catch() für Fehlerbehandlung ergänzen
-            //         (sichtbare Fehlermeldung in #ergebnis anzeigen)
+            // TODO 3: Bei jedem Fehler (auch Netzwerkfehler) eine sichtbare
+            //         Fehlermeldung in #ergebnis anzeigen
         }
     </script>
 

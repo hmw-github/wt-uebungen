@@ -66,6 +66,9 @@ Kapitelthemen zu.
 - Die Ordner sind vollständig lauffähige (wenn auch unvollständige)
   Websites – Studierende können `index.html` direkt im Browser öffnen und
   ihren Fortschritt sofort visuell überprüfen.
+- Ab Übung 2 beschreiben die TODOs nur den **zu erzielenden Effekt** (was
+  am Ende im Browser zu sehen sein soll), nicht den Lösungsweg. Welche
+  Selektoren und Eigenschaften Sie dafür einsetzen, entscheiden Sie selbst.
 
 ## Aufbau jeder Lösungsdatei
 

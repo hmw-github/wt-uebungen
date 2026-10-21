@@ -1,9 +1,11 @@
 # TODOs – Übung 3: Fetch-API mit GET
 
 ## index.html
-1. TODO 1: Mit `fetch("hinweis.php?praefix=" + wert)` den Server aufrufen. Im ersten `.then()` anhand von `response.ok` prüfen, ob die Antwort erfolgreich war; andernfalls mit `throw` einen neuen `Error` werfen (z.B. `new Error("Serverfehler")`).
-2. TODO 2: Den Antworttext mit `response.text()` auslesen (liefert selbst wieder ein Promise) und im nächsten `.then()` in das Ergebnis-Element (`id="ergebnis"`) schreiben.
-3. TODO 3: Fehler mit `.catch()` abfangen und eine für die Nutzer/-innen sichtbare Fehlermeldung im Ergebnis-Element anzeigen (z.B. "Fehler beim Laden der Vorschläge.").
+Verhalten wie in Übung 1, diesmal jedoch mit der Fetch-API statt mit XMLHttpRequest.
+
+1. TODO 1: Bei jedem Tastendruck wird `hinweis.php` mit dem eingegebenen Text als Parameter `praefix` angefragt. Antwortet der Server mit einem Fehlerstatus (z.B. 404 oder 500), wird das als Fehler behandelt und nicht als Ergebnis angezeigt. Zum Testen z.B. den Dateinamen vorübergehend falsch schreiben.
+2. TODO 2: Bei einer erfolgreichen Antwort erscheint der Antworttext des Servers im Ergebnis-Element (`id="ergebnis"`).
+3. TODO 3: Bei jedem Fehler (Fehlerstatus aus TODO 1 oder ein Netzwerkfehler, z.B. bei gestopptem Server) erscheint im Ergebnis-Element eine für Nutzer/-innen verständliche Fehlermeldung (z.B. "Fehler beim Laden der Vorschläge.") statt einer stillen Fehlermeldung in der Konsole.
 
 ## hinweis.php
 Keine TODOs – das Skript ist laut Kopfkommentar bereits vollständig (identisch zu Übung 1) und muss nicht bearbeitet werden.

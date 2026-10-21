@@ -12,13 +12,14 @@
     Das Laden der Daten (loadProjects() in js/main.js) ist bereits
     vorgegeben. Ergänzen Sie in js/main.js an den TODO-Stellen:
 
-    TODO 5: fillProjectTable(projekte) implementieren, um die Tabelle
-            (tbody#projekteKoerper) sowie die Zusammenfassungszelle
-            (tfoot#projekteAnzahl) mit den übergebenen Projektdaten zu
-            befüllen.
-    TODO 6: Klick-Handler für den Button #filterButton registrieren, der
-            Zeilen mit Jahr "2026" per classList.toggle("hervorgehoben")
-            hervorhebt.
+    TODO 5: Nach dem Laden der Seite zeigt die Tabelle (tbody#projekteKoerper)
+            für jedes Projekt aus projekte.json eine Zeile mit Titel,
+            Technologie, Jahr und einem Link "Repository", der in einem neuen
+            Tab öffnet. Die Zusammenfassungszelle (tfoot#projekteAnzahl) zeigt
+            die Anzahl der Projekte.
+    TODO 6: Ein Klick auf den Button #filterButton hebt alle Projekte aus dem
+            Jahr 2026 farblich hervor (CSS-Klasse "hervorgehoben"), ein
+            erneuter Klick nimmt die Hervorhebung wieder zurück.
 -->
 <!DOCTYPE html>
 <html>

@@ -68,6 +68,12 @@ gesamten Website bereits entsprechend auf `index.php` angepasst.
   `gaestebuch/index.php` ist bereits vollständig fertig, damit sich die
   Studierenden auf die eigentlichen MVC-Verantwortlichkeiten konzentrieren
   können.
+- Die TODOs beschreiben nur den **zu erzielenden Effekt** (was am Ende im
+  Browser, in der Konsole oder in der Server-Antwort zu sehen sein soll),
+  nicht den Lösungsweg. Welche Elemente, Selektoren, Eigenschaften,
+  Funktionen oder Sprachmittel Sie dafür einsetzen, entscheiden Sie selbst.
+  Vorgegebene Namen (Funktionen, ids, Variablen, Schlüssel) sind
+  einzuhalten, weil anderer Code darauf zugreift.
 
 ## Aufbau jeder Lösungsdatei
 

@@ -8,17 +8,19 @@
     vom Server zurückgesendete Bestätigung an. Verwenden Sie dafür
     async/await statt .then()-Ketten.
 
-    TODO 1: Deklarieren Sie sende() als async function. Senden Sie darin
-            mit await fetch("echo.php", {...}) eine POST-Anfrage, deren
-            Header "Content-Type" auf "application/json" gesetzt ist und
-            deren body mit JSON.stringify() aus den Werten der Felder
-            "titelFeld" und "jahrFeld" gebildet wird. Kapseln Sie den
-            Aufruf in einem try/catch-Block.
-    TODO 2: Lesen Sie die Antwort mit await response.json() aus und zeigen
-            Sie eine Bestätigungsmeldung (z.B. mit den Werten aus dem
-            Antwortobjekt) im Element mit der id "ergebnis" an.
-    TODO 3: Zeigen Sie im catch-Block eine für die Nutzer/-innen sichtbare
-            Fehlermeldung im Element mit der id "ergebnis" an.
+    TODO 1: Ein Klick auf "Absenden" ruft sende() auf und schickt Titel und
+            Jahr aus dem Formular als JSON per POST an echo.php. In den
+            Entwicklertools (Reiter Netzwerk) sieht man: Methode POST,
+            Content-Type application/json, Body z.B.
+            {"titel":"Wetter-App","jahr":"2026"}. Die Seite wird dabei nicht
+            neu geladen.
+    TODO 2: Nach erfolgreicher Antwort erscheint im Element mit der id
+            "ergebnis" eine Bestätigung, die die vom Server zurückgemeldeten
+            Werte enthält (z.B. "Server bestätigt: Wetter-App (2026)").
+    TODO 3: Schlägt die Anfrage fehl (z.B. Server gestoppt oder ungültige
+            Antwort), erscheint stattdessen im Element "ergebnis" eine
+            verständliche Fehlermeldung, und das Skript läuft ohne
+            unbehandelten Fehler weiter.
 -->
 <!DOCTYPE html>
 <html>
@@ -45,13 +47,12 @@
     <p id="ergebnis"></p>
 
     <script>
-        // TODO 1: sende() als async function deklarieren, POST-Request
-        //         mit await fetch(...) senden (try/catch)
+        // TODO 1: sende(): Titel und Jahr als JSON per POST an echo.php
+        //         schicken
 
-            // TODO 2: Antwort mit await response.json() auslesen und
-            //         Bestätigung in #ergebnis anzeigen
+            // TODO 2: Bestätigung des Servers in #ergebnis anzeigen
 
-            // TODO 3: im catch-Block Fehlermeldung in #ergebnis anzeigen
+            // TODO 3: bei Fehlern verständliche Meldung in #ergebnis anzeigen
     </script>
 
 </body>

@@ -11,18 +11,16 @@
     gaestebuch/api.php (siehe dort). Die Hilfsfunktionen fillList(),
     clearList() und createListElement() sind bereits fertig vorgegeben.
 
-    TODO 1: Implementieren Sie onLoad(). Die Funktion soll per fetch() eine
-            POST-Anfrage mit dem JSON-Body {"action": "list"} an api.php
-            senden, die Antwort als JSON auslesen (response.json()) und
-            mit fillList(antwort.entries) die Liste befüllen.
-    TODO 2: Implementieren Sie addGaestebuchEintrag(). Die Funktion soll
-            den Wert des Eingabefelds (id="gbNachrichtFeld") auslesen. Ist
-            der Wert leer, soll ein alert() erscheinen und die Funktion
-            abgebrochen werden (return). Andernfalls soll per fetch() eine
-            POST-Anfrage mit dem JSON-Body
-            {"action": "save", "message": ...} an api.php gesendet werden;
-            aus der (aktualisierten) Antwort soll die Liste erneut mit
-            fillList(antwort.entries) aufgebaut werden.
+    TODO 1: onLoad(): Direkt nach dem Laden der Seite holt sich die Seite im
+            Hintergrund die bisherigen Einträge von api.php (Anfrage
+            {"action": "list"} als JSON per POST) und zeigt sie in der Liste
+            an.
+    TODO 2: addGaestebuchEintrag(): Ein Klick auf "Speichern" schickt den Text
+            aus dem Eingabefeld (id="gbNachrichtFeld") als {"action": "save",
+            "message": ...} an api.php. Danach zeigt die Liste den aktuellen
+            Stand inklusive des neuen Eintrags, ohne dass die Seite neu
+            geladen wird. Ist das Feld leer, erscheint stattdessen eine
+            Meldung und es wird nichts gesendet.
 */
 
 class GaestebuchView
@@ -115,16 +113,15 @@ class GaestebuchView
                     }
                 }
 
-                // TODO 1: onLoad() implementieren (POST {"action":"list"} an
-                //         api.php, Antwort per fillList() anzeigen)
+                // TODO 1: onLoad(): beim Laden der Seite bisherige Einträge
+                //         holen und anzeigen
                 function onLoad() {
 
                 }
 
-                // TODO 2: addGaestebuchEintrag() implementieren (Eingabefeld
-                //         auslesen, bei leerem Wert alert() + return, sonst
-                //         POST {"action":"save","message":...} senden und
-                //         Liste mit fillList() neu aufbauen)
+                // TODO 2: addGaestebuchEintrag(): neuen Eintrag speichern,
+                //         Liste ohne Neuladen aktualisieren; bei leerem Feld
+                //         nur eine Meldung
                 function addGaestebuchEintrag() {
 
                 }

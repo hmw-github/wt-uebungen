@@ -10,22 +10,22 @@
     bereits fertig vorgegeben. Ergänzen Sie an den TODO-Stellen die drei
     JavaScript-Funktionen, die tatsächlich mit der Schnittstelle sprechen:
 
-    TODO 1: ladeProjekte() - Laden Sie per fetch() alle Projekte
-            (GET "api/projekte"), leeren Sie #projekteListe und fügen Sie
-            für jedes Projekt per erzeugeKarte(projekt) eine Karte ein.
-            Speichern Sie ausserdem die geladenen Projekte in der Variable
-            projekteCache (wird von projektBearbeiten() benötigt).
-    TODO 2: speichern() - Liest Titel, Technologie, Jahr und Link aus den
-            Modal-Eingabefeldern. Ist aktuelleProjektId null, senden Sie
-            per fetch() eine POST-Anfrage (API_URL + "/projekt") mit den
-            Daten als JSON-Body (neues Projekt anlegen). Andernfalls senden
-            Sie eine PUT-Anfrage (API_URL + "/projekt/" + aktuelleProjektId)
-            mit denselben Daten (bestehendes Projekt aktualisieren). Laden
-            Sie in beiden Fällen anschließend die Liste neu
-            (ladeProjekte()) und schließen Sie das Modal (schließen()).
-    TODO 3: projektLoeschen(id) - Senden Sie per fetch() eine DELETE-Anfrage
-            (API_URL + "/projekt/" + id) und laden Sie anschließend die
-            Liste neu (ladeProjekte()).
+    TODO 1: ladeProjekte() - Die Projektliste (#projekteListe) zeigt für jedes
+            Projekt, das die Schnittstelle aktuell kennt, genau eine Karte
+            (Darstellung über das vorgegebene erzeugeKarte()). Mehrfaches
+            Laden erzeugt keine doppelten Karten. Die geladenen Projekte
+            stehen danach auch in projekteCache bereit (wird von
+            projektBearbeiten() benötigt).
+    TODO 2: speichern() - Ein Klick auf "Speichern" im Dialog übernimmt Titel,
+            Technologie, Jahr und Link dauerhaft in die Schnittstelle: als
+            neues Projekt, wenn der Dialog über "Neues Projekt" geöffnet wurde
+            (aktuelleProjektId ist null), sonst als Änderung des bearbeiteten
+            Projekts. Danach schließt sich der Dialog, und die Liste zeigt den
+            neuen Stand. Dieser bleibt auch nach einem Neuladen der Seite
+            erhalten.
+    TODO 3: projektLoeschen(id) - Ein Klick auf "Löschen" entfernt das Projekt
+            aus der Schnittstelle. Danach verschwindet die Karte aus der
+            Liste, auch nach einem Neuladen der Seite.
 
     Verwenden Sie durchgehend async/await mit try/catch zur Fehlerbehandlung.
 -->
@@ -187,9 +187,8 @@
             return spalte;
         }
 
-        // TODO 1: ladeProjekte() implementieren (GET API_URL + "/projekte",
-        //         #projekteListe leeren und mit erzeugeKarte() neu befüllen,
-        //         Ergebnis in projekteCache speichern)
+        // TODO 1: ladeProjekte(): alle Projekte der Schnittstelle als Karten
+        //         anzeigen, projekteCache aktualisieren
         async function ladeProjekte() {
             try {
 
@@ -232,9 +231,9 @@
             modal.hide();
         }
 
-        // TODO 2: speichern() implementieren (POST bei neuem Projekt,
-        //         PUT bei bestehendem Projekt, anschließend ladeProjekte()
-        //         und schließen())
+        // TODO 2: speichern(): neues Projekt anlegen bzw. bearbeitetes
+        //         Projekt ändern, danach Liste aktualisieren und Dialog
+        //         schließen
         async function speichern() {
             try {
 
@@ -243,8 +242,8 @@
             }
         }
 
-        // TODO 3: projektLoeschen(id) implementieren (DELETE-Anfrage,
-        //         anschließend ladeProjekte())
+        // TODO 3: projektLoeschen(id): Projekt in der Schnittstelle löschen,
+        //         danach Liste aktualisieren
         async function projektLoeschen(id) {
             try {
 

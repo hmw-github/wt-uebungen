@@ -54,6 +54,12 @@ clientseitige einzelne HTML-Datei.
   unvollständige) Anwendungen – Studierende können sie direkt über den in
   Docker laufenden PHP-Server aufrufen und ihren Fortschritt sofort im
   Browser überprüfen.
+- Die TODOs beschreiben nur den **zu erzielenden Effekt** (was am Ende im
+  Browser, in der Konsole oder in der Server-Antwort zu sehen sein soll),
+  nicht den Lösungsweg. Welche Elemente, Selektoren, Eigenschaften,
+  Funktionen oder Sprachmittel Sie dafür einsetzen, entscheiden Sie selbst.
+  Vorgegebene Namen (Funktionen, ids, Variablen, Schlüssel) sind
+  einzuhalten, weil anderer Code darauf zugreift.
 
 ## Aufbau jeder Lösungsdatei
 

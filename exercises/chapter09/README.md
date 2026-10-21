@@ -64,6 +64,12 @@ selbst gebaute REST-Schnittstelle aus Übung 2.
   die `nginx.conf` eingerichtet, siehe unten), auch wenn einzelne
   Operationen erst nach Bearbeitung der TODOs die erwartete Antwort
   liefern.
+- Die TODOs beschreiben nur den **zu erzielenden Effekt** (was am Ende im
+  Browser, in der Konsole oder in der Server-Antwort zu sehen sein soll),
+  nicht den Lösungsweg. Welche Elemente, Selektoren, Eigenschaften,
+  Funktionen oder Sprachmittel Sie dafür einsetzen, entscheiden Sie selbst.
+  Vorgegebene Namen (Funktionen, ids, Variablen, Schlüssel) sind
+  einzuhalten, weil anderer Code darauf zugreift.
 
 ## Aufbau jeder Lösungsdatei
 
