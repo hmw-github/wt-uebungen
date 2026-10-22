@@ -19,7 +19,7 @@
 1. Was ist eine Pseudoklasse? Nennen Sie Beispiele.
 2. Was bedeutet `tr:nth-child(even)`? Wie würde man jede dritte Zeile ansprechen?
 3. Was bewirkt `opacity: 0.85`?
-4. Was ist ein Attributselektor? Was trifft `input[type="email"]`?
+4. Was ist ein Attributselektor? Was wird durch `input[type="email"]` selektiert?
 5. Was ist ein Pseudoelement? Was ist der Unterschied zwischen `:` und `::`?
 6. Warum kann die Reihenfolge der Regeln wichtig sein?
 
