@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <style>
+            .flex-container {
+                display: flex;
+                gap: 10px;
+                border: 2px solid blue;
+                padding: 10px;
+                flex-wrap: wrap;
+            }
+            /* ??? */
+            [class*='flex-item-'] {
+                min-width: 200px;
+            }
+            .flex-item-1 {
+                background-color: lightblue;
+                padding: 20px;
+                flex: 1; /* normale Grösse */
+            }
+            .flex-item-2 {
+                background-color: lightblue;
+                padding: 20px;
+                flex: 2; /* doppelte Grösse */
+            }
+            .flex-item-3 {
+                background-color: lightblue;
+                padding: 20px;
+                flex: 1; /* normale Grösse */
+                order: -1; /* an erster Stelle (andere Items haben order: 0) */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='flex-container'>
+            <div class='flex-item-1'>Box 1</div>
+            <div class='flex-item-2'>Box 2</div>
+            <div class='flex-item-3'>Box 3</div>
+        </div>
+    </body>
+</html>
