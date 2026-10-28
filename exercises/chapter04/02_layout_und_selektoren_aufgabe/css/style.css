@@ -76,13 +76,25 @@ table caption {
 /* ---------- Display und Float (4.4) ---------- */
 
 /* TODO 1: Navigation rechts neben dem Logo, etwa auf Höhe der Logomitte */
-
+nav {
+    /* display: inline-block; */
+    position: relative;
+    top: 8px;
+    float: right;
+}
 /* TODO 2: Footer-Links zentriert */
+footer p {
+    text-align: center;
+}
+
 
 /* ---------- Fortgeschrittene Selektoren (4.5) ---------- */
 
-/* TODO 3: Navigationslinks und Buttons reagieren auf Mausberührung */
-
+/* TODO 3: Navigationslinks und Buttons 
+    reagieren auf Mausberührung */
+button:hover, a:hover {
+    opacity: 85%;
+}
 /* TODO 4: Projekttabelle mit Zebra-Streifen */
 
 /* TODO 5: Einheitlicher Look der Texteingabefelder */
