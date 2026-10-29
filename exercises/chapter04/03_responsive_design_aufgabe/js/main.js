@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     burgerButton.addEventListener("click", () => {
+        // Klasse "offen" hinzunehmen oder löschen aus Klassenliste
         const istOffen = hauptnav.classList.toggle("offen");
+        // Klasse offen bei Burger-Button setzen/löschen
         burgerButton.classList.toggle("offen", istOffen);
     });
 });

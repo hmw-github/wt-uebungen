@@ -180,6 +180,7 @@ details summary {
     /* Blendet die Navigation ein, sobald sie per Burger-Button geöffnet wurde (Klasse "offen") */
     #hauptnav.offen {
         display: block;
+        background-color: #2b2d42;
     }
 
     /* Zeigt den Burger-Button an und positioniert ihn absolut oben rechts im Header
@@ -193,11 +194,24 @@ details summary {
 
 
     /* TODO 1: Logo und Navigation untereinander statt nebeneinander */
+    #hauptnav.offen {
+        position: absolute;
+        left: 0px;
+    }
 
     /* TODO 2: Jeder Navigationslink in einer eigenen Zeile */
+    #hauptnav a {
+        display: block;
+    }
 
     /* TODO 3: Passende Abstände zwischen den gestapelten Links */
+    #hauptnav a {
+        padding: 4px 0px 4px 10px;
+    }
 
     /* TODO 4: Formularfelder nutzen die volle Breite */
+    input[type="text"], input[type="email"], textarea, select {
+        width: 100%;
+    }
 
 }

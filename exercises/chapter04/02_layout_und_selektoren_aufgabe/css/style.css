@@ -96,14 +96,37 @@ button:hover, a:hover {
     opacity: 85%;
 }
 /* TODO 4: Projekttabelle mit Zebra-Streifen */
+table tbody tr:nth-child(even) {
+    background-color: #edf2f4;
+}
 
 /* TODO 5: Einheitlicher Look der Texteingabefelder */
+/* Alle Felder, in die man Text eingibt oder aus denen 
+man auswählt (einzeilige Text- und E-Mail-Felder, 
+mehrzeilige Textfelder, Auswahllisten), erhalten ein 
+einheitliches Aussehen: dünner Rahmen in #8d99ae (1px), 
+6px Innenabstand und leicht abgerundete Ecken (4px) */
+input[type="text"], input[type="email"], textarea, select {
+    border: 1px solid #8d99ae;
+    padding: 6px;
+    border-radius: 4px;
+}
 
 /* TODO 6: Pfeil-Symbol hinter Links, die einen neuen Tab öffnen */
+a[target="_blank"]::after {
+    content: '\2197';
+}
 
 /* TODO 7: Tabellenkopf farblich abgesetzt */
+thead > tr {
+    background-color: #2b2d42;
+    color: white;
+}
 
 /* TODO 8: Tabellenzeile unter der Maus hervorheben */
+tbody > tr:hover {
+    background-color: #d8dee6;
+}
 
 .no-text-decoration {
     text-decoration: none;

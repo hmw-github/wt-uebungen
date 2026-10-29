@@ -100,10 +100,24 @@
             background-color: #0099cc;
         }
 
+        .burger-menu {
+            display: none; /* auf Desktop nicht anzeigen */
+        }
+
         /**
-          * TODO: Wie erreichen wir die Umschaltung, d.h. Anzeige Burger-Menü anstelle des normalen Menüs?
+          * TODO: Wie erreichen wir die Umschaltung, d.h. 
+          * Anzeige Burger-Menü anstelle des normalen Menüs?
           */
-        
+        @media (max-width: 600px) {
+            /* Smartphone */
+            .burger-menu {
+                display: block; /* anzeigen */
+            }
+
+            .menu {
+                display: none;
+            }
+        }
     </style>
 </head>
 
