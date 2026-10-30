@@ -22,29 +22,31 @@
 
         // ==== Teil 1: Klassen Projekt und Webprojekt ====
 
-        // TODO 1: Klasse Projekt (id nur lesbar, titel und jahr änderbar,
-        //         Jahre vor 2000 werden als Fehler abgewiesen, sinnvolle
-        //         Textdarstellung)
+        // TODO 1: Klasse Projekt (private Attribute, id nur lesbar, titel
+        //         und jahr änderbar, Jahre vor 2000 werden als Fehler
+        //         abgewiesen, sinnvolle Textdarstellung)
 
 
         // TODO 2: Klasse Webprojekt: ein Projekt mit zusätzlicher, änderbarer
-        //         technologie; die Textdarstellung erweitert die eines
-        //         Projekts
+        //         technologie (privates Attribut); die Textdarstellung
+        //         erweitert die eines Projekts
 
 
         // ==== Teil 2: Klasse Projektliste ====
 
         class Projektliste {
+            #projekte;
+
             constructor() {
-                this._projekte = [];
+                this.#projekte = [];
             }
 
             get anzahl() {
-                return this._projekte.length;
+                return this.#projekte.length;
             }
 
             alsArray() {
-                return [...this._projekte];
+                return [...this.#projekte];
             }
 
             // TODO 3: hinzufuegen(projekt): Projekt in die Liste aufnehmen

@@ -7,7 +7,7 @@
 3. Was ergibt `"Kapitel " + 5`? Warum?
 4. Was ist der Unterschied zwischen `==` und `===`? Was ergeben `1 == "1"` und `1 === "1"`?
 5. Wie definiert man eine Klasse mit Konstruktor? Wozu dient `this`?
-6. Was sind Getter und Setter? Warum speichert man Werte oft in `this._titel`?
+6. Was sind Getter und Setter? Was bedeutet das `#` in `this.#titel`? Warum kann der Getter `titel` nicht einfach `this.titel` zurückgeben?
 7. Was bedeuten `extends` und `super`? Wann muss `super(...)` aufgerufen werden?
 8. Was prüft `instanceof`?
 9. Wie funktionieren `throw` und `try...catch`?
@@ -23,8 +23,8 @@
 2. `number`, `string`, `boolean`, `undefined`, `null`, `bigint`, `symbol`, `object` (inkl. Arrays, Funktionen: `typeof` liefert `"function"`). `typeof` gibt den Typ als String zurück.
 3. `"Kapitel 5"` (String): Beim `+` mit einem String wird die Zahl umgewandelt und verkettet.
 4. `==` vergleicht nach Typumwandlung, `===` ohne. `true` bzw. `false`.
-5. `class Projekt { constructor(id, titel, jahr) { this._id = id; … } }`. `this` ist das aktuelle Objekt.
-6. Methoden, die wie Eigenschaften benutzt werden (`p.titel`, `p.titel = …`) und dabei prüfen oder umrechnen können. Der Unterstrich verhindert, dass der Setter sich selbst aufruft (Endlosschleife).
+5. `class Projekt { #id; … constructor(id, titel, jahr) { this.#id = id; … } }`. `this` ist das aktuelle Objekt.
+6. Methoden, die wie Eigenschaften benutzt werden (`p.titel`, `p.titel = …`) und dabei prüfen oder umrechnen können. `#titel` ist ein privates Attribut: Es muss im Klassenrumpf deklariert werden und ist nur innerhalb der Klasse zugänglich (`p.#titel` außerhalb ist ein Syntaxfehler), auch nicht in Unterklassen. So kann z.B. die Jahresprüfung nicht umgangen werden. Da `#titel` ein anderer Name als `titel` ist, ruft sich der Getter bzw. Setter nicht selbst auf (`this.titel` im Getter wäre eine Endlosschleife).
 7. `extends` erbt von einer Klasse, `super(...)` ruft den Konstruktor der Basisklasse auf (vor dem ersten Zugriff auf `this`), `super.methode()` die Methode der Basisklasse.
 8. Ob ein Objekt eine Instanz einer Klasse (oder Unterklasse) ist.
 9. `throw new Error("…")` löst einen Fehler aus. Im `try` ausgelöste Fehler werden im `catch (e)` abgefangen, `e.message` enthält die Meldung.

@@ -13,11 +13,11 @@ selbst.
 Nutzen Sie für alle Textausgaben die vorhandene Funktion `ausgabe(text)`.
 
 ## 01_js_grundlagen_aufgabe.html – Teil 1: Klassen Projekt und Webprojekt
-1. TODO 1: Es gibt eine Klasse `Projekt`. Ein Projekt wird mit `id`, `titel` und `jahr` erzeugt. Die `id` kann von außen gelesen, aber nicht geändert werden; `titel` und `jahr` können gelesen und geändert werden. Ein Jahr vor 2000 wird abgewiesen: Der Versuch erzeugt einen Fehler, den der Aufrufer abfangen kann. Wird ein Projekt in einen String umgewandelt, erhält man eine lesbare Zusammenfassung (z.B. `Portfolio-Website (2024)`).
-2. TODO 2: Es gibt eine Klasse `Webprojekt`. Ein Webprojekt ist ein Projekt (alles aus TODO 1 gilt weiterhin) und hat zusätzlich eine lesbare und änderbare `technologie`. Es wird mit `id`, `titel`, `jahr` und `technologie` erzeugt. Seine Textdarstellung ist die eines Projekts, ergänzt um die Technologie (z.B. `Portfolio-Website (2024), Technologie: HTML, CSS`), ohne dass dieser Teil doppelt programmiert wird.
+1. TODO 1: Es gibt eine Klasse `Projekt`. Ein Projekt wird mit `id`, `titel` und `jahr` erzeugt. Die drei Werte werden in privaten Attributen (`#id`, `#titel`, `#jahr`) gespeichert, sodass von außen nur über Getter und Setter darauf zugegriffen werden kann. Die `id` kann von außen gelesen, aber nicht geändert werden; `titel` und `jahr` können gelesen und geändert werden. Ein Jahr vor 2000 wird abgewiesen: Der Versuch erzeugt einen Fehler, den der Aufrufer abfangen kann. Wird ein Projekt in einen String umgewandelt, erhält man eine lesbare Zusammenfassung (z.B. `Portfolio-Website (2024)`).
+2. TODO 2: Es gibt eine Klasse `Webprojekt`. Ein Webprojekt ist ein Projekt (alles aus TODO 1 gilt weiterhin) und hat zusätzlich eine lesbare und änderbare `technologie`, die ebenfalls in einem privaten Attribut (`#technologie`) liegt. Es wird mit `id`, `titel`, `jahr` und `technologie` erzeugt. Seine Textdarstellung ist die eines Projekts, ergänzt um die Technologie (z.B. `Portfolio-Website (2024), Technologie: HTML, CSS`), ohne dass dieser Teil doppelt programmiert wird.
 
 ## Teil 2: Klasse Projektliste
-Der Konstruktor (`this._projekte = []`) sowie die Hilfsmethoden `anzahl` (Getter) und `alsArray()` sind bereits vorgegeben.
+Das private Attribut `#projekte`, der Konstruktor (`this.#projekte = []`) sowie die Hilfsmethoden `anzahl` (Getter) und `alsArray()` sind bereits vorgegeben.
 
 3. TODO 3: `hinzufuegen(projekt)` nimmt ein Projekt am Ende der Liste auf und bestätigt dies in der Ausgabe.
 4. TODO 4: `aktualisieren(id, aenderungen)` übernimmt die Werte aus dem Objekt `aenderungen` (mögliche Eigenschaften: `titel`, `jahr`, `technologie`) in das Projekt mit der passenden `id`. Nur die übergebenen Eigenschaften werden geändert. Eine `technologie` wird nur bei Webprojekten übernommen. Gibt es keine passende `id`, erscheint eine Fehlermeldung und nichts wird geändert; sonst eine Bestätigung.

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM-Demo</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+        section {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        button {
+            margin: 3px;
+            font-family: monospace;
+        }
+        #spielwiese {
+            border: 2px dashed blue;
+            padding: 10px;
+        }
+        #code {
+            display: block;
+            background: #f4f4f4;
+            padding: 8px;
+            min-height: 1.2em;
+            white-space: pre-wrap;
+        }
+        /* Hervorhebung gefundener Elemente */
+        .markiert {
+            outline: 3px solid red;
+            background-color: yellow;
+        }
+        .hide {
+            display: none;
+        }
+        .show-border {
+            border: 3px solid green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM-Demo</h1>
+
+    <p>Ausgeführter Code:</p>
+    <code id="code"></code>
+
+    <!-- ==== Die Elemente, mit denen die Buttons arbeiten ==== -->
+    <h2>Spielwiese</h2>
+    <div id="spielwiese">
+        <p id="test">Absatz mit id="test"</p>
+        <p class="info">Absatz mit class="info"</p>
+        <p class="info">Noch ein Absatz mit class="info"</p>
+        <ul id="liste">
+            <li>Eintrag A</li>
+            <li class="info">Eintrag B (class="info")</li>
+        </ul>
+        <input type="text" name="vorname" placeholder='name="vorname"'>
+        <input type="text" name="vorname" placeholder='name="vorname"'>
+        <button id="okButton">OK (id="okButton")</button>
+        <a id="link" href="https://www.thi.de">Link zur THI</a>
+    </div>
+
+    <!-- ==== 1. Elemente finden ==== -->
+    <h2>1. Elemente finden</h2>
+    <section>
+        <button onclick="zeige(`document.getElementById('okButton')`)">getElementById('okButton')</button>
+        <button onclick="zeige(`document.getElementsByName('vorname')`)">getElementsByName('vorname')</button>
+        <button onclick="zeige(`document.getElementsByTagName('p')`)">getElementsByTagName('p')</button>
+        <button onclick="zeige(`document.getElementsByClassName('info')`)">getElementsByClassName('info')</button>
+        <button onclick="zeige(`document.querySelector('.info')`)">querySelector('.info')</button>
+        <button onclick="zeige(`document.querySelectorAll('.info')`)">querySelectorAll('.info')</button>
+        <button onclick="zeige(`document.querySelectorAll('#liste li')`)">querySelectorAll('#liste li')</button>
+    </section>
+
+    <!-- ==== 2. Knoten erzeugen, einfügen, entfernen ==== -->
+    <h2>2. Wichtige Operationen an Knoten</h2>
+    <section>
+        <button onclick="anhaengen()">createElement + appendChild</button>
+        <button onclick="davorEinfuegen()">insertBefore</button>
+        <button onclick="entfernen()">removeChild</button>
+        <button onclick="attributSetzen()">setAttribute</button>
+        <button onclick="attributLesen()">getAttribute</button>
+    </section>
+
+    <!-- ==== 3. CSS setzen ==== -->
+    <h2>3. CSS-Attribute setzen</h2>
+    <section>
+        <button onclick="farbeSetzen()">style.color = 'red'</button>
+        <button onclick="klasseAnhaengen()">className += ' hide'</button>
+        <button onclick="klasseHinzufuegen()">classList.add('show-border')</button>
+        <button onclick="klasseEntfernen()">classList.remove(...)</button>
+        <button onclick="klasseUmschalten()">classList.toggle('show-border')</button>
+    </section>
+
+    <!-- ==== 4. Ereignisbehandlung ==== -->
+    <h2>4. Ereignisbehandlung</h2>
+    <section>
+        <!-- Handler per HTML-Attribut -->
+        <button onclick="ausgeben('click per onclick-Attribut')">onclick="..."</button>
+        <!-- Handler per addEventListener (siehe Skript unten) -->
+        <button id="listenerButton">addEventListener('click', ...)</button>
+        <span id="mausFeld" style="padding: 5px; border: 1px solid gray;">Maus hierher (mouseover)</span>
+        <input id="eingabe" type="text" placeholder="Tippen (keyup)">
+    </section>
+
+    <script>
+        function ausgeben(text) {
+            document.getElementById('code').textContent = text;
+        }
+
+        // Alte Hervorhebungen entfernen und neue setzen
+        function markieren(elemente) {
+            for (const el of document.querySelectorAll('.markiert')) {
+                el.classList.remove('markiert');
+            }
+            for (const el of elemente) {
+                el.classList.add('markiert');
+            }
+        }
+
+        // ---- 1. Elemente finden ----
+
+        // Führt den Ausdruck aus und hebt das Ergebnis hervor.
+        // Ergebnis ist entweder ein Element oder eine Liste von Elementen.
+        function zeige(ausdruck) {
+            const ergebnis = eval(ausdruck);
+            if (ergebnis === null) {
+                markieren([]);
+                ausgeben(ausdruck + '\n// -> null (nichts gefunden)');
+            } else if (ergebnis instanceof Element) {
+                markieren([ergebnis]);
+                ausgeben(ausdruck + '\n// -> ein Element: <' + ergebnis.tagName.toLowerCase() + '>');
+            } else {
+                markieren(ergebnis);
+                ausgeben(ausdruck + '\n// -> ' + ergebnis.constructor.name + ' mit ' + ergebnis.length + ' Elementen');
+            }
+        }
+
+        // ---- 2. Wichtige Operationen an Knoten ----
+
+        let zaehler = 0;
+
+        function anhaengen() {
+            zaehler++;
+            const li = document.createElement('li');
+            li.textContent = 'Neuer Eintrag ' + zaehler;
+            document.getElementById('liste').appendChild(li);
+            markieren([li]);
+            ausgeben("const li = document.createElement('li');\n"
+                + "li.textContent = 'Neuer Eintrag " + zaehler + "';\n"
+                + "document.getElementById('liste').appendChild(li);");
+        }
+
+        function davorEinfuegen() {
+            zaehler++;
+            const liste = document.getElementById('liste');
+            const li = document.createElement('li');
+            li.textContent = 'Eingefügt ' + zaehler;
+            liste.insertBefore(li, liste.firstElementChild);
+            markieren([li]);
+            ausgeben("const liste = document.getElementById('liste');\n"
+                + "const li = document.createElement('li');\n"
+                + "li.textContent = 'Eingefügt " + zaehler + "';\n"
+                + "liste.insertBefore(li, liste.firstElementChild);  // vor dem ersten Eintrag");
+        }
+
+        function entfernen() {
+            const liste = document.getElementById('liste');
+            if (liste.lastElementChild) {
+                liste.removeChild(liste.lastElementChild);
+            }
+            markieren([liste]);
+            ausgeben("const liste = document.getElementById('liste');\n"
+                + "liste.removeChild(liste.lastElementChild);  // letzter Eintrag weg");
+        }
+
+        function attributSetzen() {
+            const link = document.getElementById('link');
+            link.setAttribute('href', 'https://developer.mozilla.org');
+            link.textContent = 'Link zu MDN';
+            markieren([link]);
+            ausgeben("const link = document.getElementById('link');\n"
+                + "link.setAttribute('href', 'https://developer.mozilla.org');\n"
+                + "link.textContent = 'Link zu MDN';");
+        }
+
+        function attributLesen() {
+            const link = document.getElementById('link');
+            const wert = link.getAttribute('href');
+            markieren([link]);
+            ausgeben("document.getElementById('link').getAttribute('href')\n// -> '" + wert + "'");
+        }
+
+        // ---- 3. CSS-Attribute setzen ----
+
+        function farbeSetzen() {
+            const test = document.getElementById('test');
+            test.style.color = 'red';
+            markieren([]);
+            ausgeben("document.getElementById('test').style.color = 'red';");
+        }
+
+        function klasseAnhaengen() {
+            const test = document.getElementById('test');
+            // Leerzeichen nötig, sonst entsteht z.B. "markierthide"
+            test.className += ' hide';
+            ausgeben("document.getElementById('test').className += ' hide';\n"
+                + "// -> className ist jetzt '" + test.className + "'\n"
+                + "// Wieder sichtbar machen: classList.remove(...)");
+        }
+
+        function klasseHinzufuegen() {
+            const test = document.getElementById('test');
+            test.classList.add('show-border');
+            ausgeben("document.getElementById('test').classList.add('show-border');\n"
+                + "// -> className ist jetzt '" + test.className + "'");
+        }
+
+        function klasseEntfernen() {
+            const test = document.getElementById('test');
+            test.classList.remove('hide', 'show-border');
+            test.style.color = '';
+            ausgeben("const test = document.getElementById('test');\n"
+                + "test.classList.remove('hide', 'show-border');\n"
+                + "test.style.color = '';  // Inline-Stil zurücksetzen");
+        }
+
+        function klasseUmschalten() {
+            const test = document.getElementById('test');
+            const jetztAn = test.classList.toggle('show-border');
+            ausgeben("document.getElementById('test').classList.toggle('show-border');\n"
+                + "// -> " + jetztAn + " (Klasse ist jetzt " + (jetztAn ? 'gesetzt' : 'entfernt') + ")");
+        }
+
+        // ---- 4. Ereignisbehandlung per addEventListener ----
+
+        const listenerButton = document.getElementById('listenerButton');
+        listenerButton.addEventListener('click', function() {
+            ausgeben("listenerButton.addEventListener('click', function() { ... });\n// -> click ausgelöst");
+        });
+
+        const mausFeld = document.getElementById('mausFeld');
+        mausFeld.addEventListener('mouseover', function() {
+            markieren([mausFeld]);
+            ausgeben("mausFeld.addEventListener('mouseover', function() { ... });\n// -> mouseover ausgelöst");
+        });
+
+        const eingabe = document.getElementById('eingabe');
+        eingabe.addEventListener('keyup', function(event) {
+            ausgeben("eingabe.addEventListener('keyup', function(event) { ... });\n"
+                + "// -> Taste '" + event.key + "', Feldinhalt: '" + eingabe.value + "'");
+        });
+    </script>
+
+</body>
+</html>

@@ -25,81 +25,89 @@
         // ==== Teil 1: Klassen Projekt und Webprojekt ====
 
         class Projekt {
+            #id;
+            #titel;
+            #jahr;
+
             constructor(id, titel, jahr) {
-                this._id = id;
-                this._titel = titel;
+                this.#id = id;
+                this.#titel = titel;
                 this.jahr = jahr;
             }
 
             get id() {
-                return this._id;
+                return this.#id;
             }
 
             get titel() {
-                return this._titel;
+                return this.#titel;
             }
 
             set titel(neuerTitel) {
-                this._titel = neuerTitel;
+                this.#titel = neuerTitel;
             }
 
             get jahr() {
-                return this._jahr;
+                return this.#jahr;
             }
 
             set jahr(neuesJahr) {
                 if (neuesJahr < 2000) {
                     throw "Jahr darf nicht vor 2000 liegen!";
                 }
-                this._jahr = neuesJahr;
+                this.#jahr = neuesJahr;
             }
 
             toString() {
-                return this._titel + " (" + this._jahr + ")";
+                return this.#titel + " (" + this.#jahr + ")";
             }
         }
 
         class Webprojekt extends Projekt {
+            #technologie;
+
             constructor(id, titel, jahr, technologie) {
                 super(id, titel, jahr);
-                this._technologie = technologie;
+                this.#technologie = technologie;
             }
 
             get technologie() {
-                return this._technologie;
+                return this.#technologie;
             }
 
             set technologie(neueTechnologie) {
-                this._technologie = neueTechnologie;
+                this.#technologie = neueTechnologie;
             }
 
             toString() {
-                return super.toString() + ", Technologie: " + this._technologie;
+                return super.toString() + ", Technologie: " + this.#technologie;
             }
         }
 
         // ==== Teil 2: Klasse Projektliste ====
 
         class Projektliste {
+            #projekte;
+
             constructor() {
-                this._projekte = [];
+                this.#projekte = [];
             }
 
             get anzahl() {
-                return this._projekte.length;
+                return this.#projekte.length;
             }
 
             alsArray() {
-                return [...this._projekte];
+                return [...this.#projekte];
             }
 
             hinzufuegen(projekt) {
-                this._projekte.push(projekt);
+                this.#projekte.push(projekt);
                 ausgabe("Hinzugefügt: " + projekt.toString());
             }
 
             aktualisieren(id, aenderungen) {
-                const projekt = this._projekte.find(function(p) {
+                const projekt = this.#projekte.find(function(p) {
                     return p.id === id;
                 });
 
@@ -122,9 +130,9 @@
             }
 
             entfernen(id) {
-                for (let i = 0; i < this._projekte.length; i++) {
-                    if (this._projekte[i].id === id) {
-                        const entferntesProjekt = this._projekte.splice(i, 1)[0];
+                for (let i = 0; i < this.#projekte.length; i++) {
+                    if (this.#projekte[i].id === id) {
+                        const entferntesProjekt = this.#projekte.splice(i, 1)[0];
                         ausgabe("Entfernt: " + entferntesProjekt.toString());
                         return;
                     }
@@ -135,20 +143,20 @@
             auflisten(id) {
                 if (id === undefined) {
                     ausgabe("Anzahl Projekte: " + this.anzahl);
-                    for (const projekt of this._projekte) {
+                    for (const projekt of this.#projekte) {
                         ausgabe("- " + projekt.toString());
                     }
                     return;
                 }
 
-                const projekt = this._projekte.find(function(p) {
+                const projekt = this.#projekte.find(function(p) {
                     return p.id === id;
                 });
                 ausgabe(projekt ? projekt.toString() : "Kein Projekt mit id " + id + " gefunden.");
             }
 
             sortierenNachJahr() {
-                this._projekte.sort(function(a, b) {
+                this.#projekte.sort(function(a, b) {
                     return a.jahr - b.jahr;
                 });
                 ausgabe("Projektliste nach Jahr sortiert.");

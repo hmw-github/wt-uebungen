@@ -1,468 +1,86 @@
 # CSS Cheat-Sheet
 
-Alle CSS-Selektoren, -Eigenschaften und -Techniken, die in den Übungen und
+Alle CSS-Selektortypen und -Eigenschaften, die in den Übungen und
 Musterlösungen (Kapitel 4–9) vorkommen – mit Beispielen aus dem
-Portfolio-Projekt. **Kap.** = Kapitel der ersten Verwendung.
+Portfolio-Projekt, den Demos und der Selektoren-Übung.
 
-- [CSS einbinden](#css-einbinden)
-- [Regelaufbau, Kaskade & Spezifität](#regelaufbau-kaskade--spezifität)
 - [Selektoren](#selektoren)
-- [Farben & Einheiten](#farben--einheiten)
-- [Boxmodell](#boxmodell)
-- [Text & Schrift](#text--schrift)
-- [Display, Float & Position](#display-float--position)
-- [Flexbox](#flexbox)
-- [Tabellen & Formulare](#tabellen--formulare)
-- [Responsive Design](#responsive-design)
-- [CSS und JavaScript](#css-und-javascript)
-- [Bootstrap-Klassen](#bootstrap-klassen)
-
----
-
-## CSS einbinden
-
-| Weg | Kap. | Beispiel im Projekt | Einsatz |
-|---|---|---|---|
-| Inline | 3 | `<ul style="list-style-type: circle;">` | Einzelfall, schwer wartbar |
-| Intern | 4 | `<style> … </style>` im `<head>` (`demos/demo1.html`) | Demos, einzelne Seite |
-| Extern | 4 | `<link rel="stylesheet" href="css/style.css">` | **Standard**: eine Datei für alle Seiten, wird gecacht |
-
-```html
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/druck.css" media="print">
-<!-- aus rechtliches/impressum.html: Pfad relativ zur HTML-Datei -->
-<link rel="stylesheet" href="../css/style.css">
-```
-
-```css
-/* druck.css – beim Drucken Kopf, Fuß und Buttons ausblenden */
-header,
-footer,
-.btn {
-    display: none;
-}
-```
-
-- Ab Kap. 7 kommt Bootstrap per CDN **vor** der eigenen `style.css` dazu,
-  damit eigene Regeln Bootstrap überschreiben können.
-- Seitenspezifische Stylesheets: `index.css`, `projekte.css`,
-  `technik-spielwiese.css` (Kap. 7–9).
-
----
-
-## Regelaufbau, Kaskade & Spezifität
-
-```css
-selektor {
-    eigenschaft: wert;
-}
-```
-
-| Begriff | Bedeutung |
-|---|---|
-| **Kaskade** | Bei gleicher Spezifität gewinnt die *spätere* Regel → Media Queries ans Ende. |
-| **Spezifität** | Inline-`style` > ID (`#hauptnav`) > Klasse/Attribut/Pseudoklasse (`.btn`, `[type]`, `:hover`) > Typ (`a`). |
-| **Vererbung** | `color`, `font-family`, `line-height` … werden an Kinder vererbt; `padding`, `margin`, `border` nicht. Links haben eine eigene Browser-Farbe und erben `color` daher nicht. |
-
-```css
-a           { color: #2b2d42; }   /* Spezifität: 0-0-1 */
-#hauptnav a { color: #ffffff; }   /* Spezifität: 1-0-1 → gewinnt */
-```
+- [Eigenschaften](#eigenschaften)
 
 ---
 
 ## Selektoren
 
-| Selektor | Kap. | Trifft | Beispiel im Projekt |
-|---|---|---|---|
-| `*` | 4 | Alle Elemente (Universal) | `* { box-sizing: border-box; }` |
-| `element` | 4 | Typ-Selektor | `body`, `header`, `footer`, `p` |
-| `.klasse` | 4 | Elemente mit `class` | `.btn`, `.github-badge` |
-| `#id` | 4 | Element mit `id` (einmal pro Seite) | `#hauptnav` |
-| `a, b` | 4 | Selektorliste: beide | `h1, h2`, `table td, table th` |
-| `a b` | 4 | Nachfahre: `b` irgendwo in `a` | `#hauptnav a`, `footer p`, `table caption` |
-| `a + b` | 4 | Direkter Nachfolger (nächstes Geschwister) | `.burger-button span + span` |
-| `a.klasse` | 5 | Element *mit* dieser Klasse (verkettet) | `tr.hervorgehoben`, `#hauptnav.offen`, `.card.hervorgehoben` |
-| `[attr="wert"]` | 4 | Attribut-Selektor | `input[type="email"]`, `a[target="_blank"]` |
-| `:hover` | 4 | Pseudoklasse: Maus über Element | `#hauptnav a:hover`, `tr:hover` |
-| `:nth-child(even)` | 4 | Pseudoklasse: jedes 2. Kind (`odd`, `3n` …) | `table tbody tr:nth-child(even)` |
-| `::after` | 4 | Pseudoelement: erzeugt Inhalt hinter dem Element | `a[target="_blank"]::after` |
-
-```css
-#hauptnav a:hover,
-.btn:hover {
-    opacity: 0.85;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #edf2f4;
-}
-
-/* Pfeil ↗ hinter externen Links */
-a[target="_blank"]::after {
-    content: " \2197";
-}
-
-/* Abstand zwischen den Burger-Strichen (jeder außer dem ersten) */
-.burger-button span + span {
-    margin-top: 5px;
-}
-```
-
-- `:` = Pseudo**klasse** (Zustand/Position), `::` = Pseudo**element** (Teil eines Elements).
-- Klasse ist mehrfach verwendbar, ID nur einmal pro Seite. Mehrere Klassen: `class="geheim dringend"`.
+| Selektortyp | Beispiel aus dem Projekt | Welche HTML-Elemente werden gestylt? |
+| --- | --- | --- |
+| **Universal** `*` | `* { box-sizing: border-box; }` | **Jedes** Element der Seite – von `<html>` bis zum letzten `<span>`. |
+| **Typ** `element` | `thead { background-color: #2b2d42; color: #ffffff; }` | Jedes `<thead>`-Element, d. h. der Kopfbereich jeder Tabelle. Die Textfarbe wird an die enthaltenen `<tr>`/`<th>` vererbt. |
+| **Klasse** `.klasse` | `.burger-button { display: none; … }` | Alle Elemente mit `class="burger-button"`, hier `<button class="burger-button">`. Eine Klasse darf auf beliebig vielen Elementen stehen. |
+| **ID** `#id` | `#hauptnav { display: flex; }` | Genau das eine Element mit `id="hauptnav"`, hier `<nav id="hauptnav">`. Eine ID darf pro Seite nur einmal vorkommen. |
+| **Verkettung** `a.b`, `#id.b`, `.a.b` | `#hauptnav.offen { display: flex; }` | Nur das Element, das **gleichzeitig** `id="hauptnav"` **und** die Klasse `offen` hat – also `<nav id="hauptnav" class="offen">`, nachdem JavaScript die Klasse gesetzt hat. Ebenso: `tr.hervorgehoben` (nur `<tr class="hervorgehoben">`), `.card.hervorgehoben` (nur `<div class="card hervorgehoben">`). |
+| **Selektorliste** `a, b` | `input[type="text"], input[type="email"], textarea, select { … }` | **Jedes** Element, auf das **einer** der Teilselektoren passt: Textfelder, E-Mail-Felder, alle `<textarea>` und alle `<select>`. Spart doppelte Regeln. |
+| **Nachfahre** `a b` (Leerzeichen) | `.container p { color: green; }` | Alle `<p>` **irgendwo** innerhalb von `<div class="container">` – egal wie tief verschachtelt: der Einleitungstext, die `<p>` in den `<article>` und auch das `<p>` in `<div class="info">`. |
+| **Kind** `a > b` | `.container > p { background-color: blue; }` | Nur `<p>`, die **direkte Kinder** von `.container` sind (hier nur der Einleitungstext) – **nicht** die `<p>` innerhalb von `<article>`. Ebenso: `thead > tr`, `tbody > tr:hover`. |
+| **Direkter Nachbar** `a + b` | `h2 + p.wichtig { color: red; font-weight: bold; }` | Ein `<p class="wichtig">`, das **unmittelbar nach** einem `<h2>` mit demselben Elternelement steht. Weiteres Beispiel: `.burger-button span + span` trifft das 2. und 3. `<span>` (jedes `<span>`, vor dem direkt ein `<span>` steht) – also alle Striche außer dem ersten. |
+| **Allgemeiner Geschwister** `a ~ b` | `article ~ article { border: 1px solid gray; }` | Jedes `<article>`, das **irgendwann nach** einem anderen `<article>` im selben Elternelement steht – also alle Artikel außer dem ersten. |
+| **Attribut** `[attr="wert"]` | `a[target="_blank"]::after { content: " \2197"; }` | Alle `<a>` mit genau `target="_blank"`, d. h. Links, die in einem neuen Tab öffnen. Ebenso: `input[type="email"]` trifft nur `<input type="email">`, nicht andere `<input>`. |
+| **Attribut enthält** `[attr*="wert"]` | `[class*='col-'] { float: left; padding: 15px; }` | Alle Elemente, deren `class`-Attribut die Zeichenfolge `col-` **irgendwo enthält**: `<div class="col-3">`, `<div class="col-12">` usw. (Grid-Spalten in `rwd-uebung.html`). Ebenso `[class*='flex-item-']` in `flex-demo.html`. |
+| **Pseudoklasse** `:hover` | `#hauptnav a:hover, .btn:hover { opacity: 0.85; }` | Ein Navigationslink bzw. Button **nur solange die Maus darüber steht**. Ebenso: `table tbody tr:hover` (Tabellenzeile unter der Maus), `.menu li:hover`. |
+| **Pseudoklasse** `:nth-child()` | `table tbody tr:nth-child(even) { background-color: #edf2f4; }` | Jede **zweite** Zeile (2., 4., 6. …) im `<tbody>` jeder Tabelle („Zebrastreifen“). Mögliche Argumente: `even` (gerade), `odd` (ungerade), `3` (genau das 3. Kind), `3n` (jedes 3.), `2n+1` (= `odd`). |
+| **Pseudoelement** `::after` | `.row::after { content: ''; clear: both; display: table; }` | Kein echtes HTML-Element: CSS erzeugt einen **zusätzlichen, unsichtbaren Inhalt am Ende** jedes `<div class="row">`, der die gefloateten Spalten „einfängt“ (Clearfix). Bei `a[target="_blank"]::after` wird so der Pfeil ↗ hinter den Linktext gesetzt. |
+| **Media Query** `@media` *(At-Regel, kein Selektor)* | `@media (max-width: 600px) { #hauptnav { display: none; } #hauptnav.offen { display: flex; } }` | Die Regeln **innerhalb** gelten nur, wenn das Browserfenster höchstens 600px breit ist (Smartphone). Hier: Navigation ausblenden und nur bei geöffnetem Burger-Menü anzeigen. Weitere: `@media (max-width: 761px)` für `.projekt-card`, `media="print"` am `<link>` für `druck.css`. |
 
 ---
 
-## Farben & Einheiten
+## Eigenschaften
 
-| Schreibweise | Kap. | Beispiel |
-|---|---|---|
-| Hex | 4 | `#2b2d42`, `#ffffff` |
-| `rgb()` | 7 | `rgb(244, 241, 241)` |
-| Farbname | 3 | `lightblue`, `darkblue`, `orange`, `red` |
-
-**Farbpalette des Projekts**
-
-| Farbe | Verwendung |
-|---|---|
-| `#2b2d42` | Text, Header, `thead` (dunkelblau) |
-| `#ef233c` | `.btn` (rot) |
-| `#8d99ae` | Rahmen (grau) |
-| `#edf2f4` | gerade Tabellenzeilen |
-| `#d8dee6` | Tabellenzeile bei Hover |
-| `#ffd60a` | `.hervorgehoben` (gelb) |
-
-| Einheit | Kap. | Bezug | Beispiel |
-|---|---|---|---|
-| `px` | 4 | absolut | `padding: 8px` |
-| `em` | 4 | Schriftgröße des Elternelements | `font-size: 2.5em` |
-| `rem` | – | Schriftgröße von `html` | (in Fragen erwähnt) |
-| `%` | 4 | Breite des Elternelements | `width: 100%` |
-| ohne Einheit | 4 | Faktor der eigenen Schriftgröße | `line-height: 1.6` |
-
----
-
-## Boxmodell
-
-```
-┌──────────── margin ────────────┐
-│ ┌────────── border ──────────┐ │
-│ │ ┌──────── padding ───────┐ │ │
-│ │ │        Inhalt          │ │ │
-│ │ └────────────────────────┘ │ │
-│ └────────────────────────────┘ │
-└────────────────────────────────┘
-```
-
-| Eigenschaft | Kap. | Beispiel im Projekt |
-|---|---|---|
-| `box-sizing` | 4 | `border-box` – padding + border zählen zur Breite |
-| `padding` | 4 | `10px 20px` (oben/unten, links/rechts) |
-| `margin` | 4 | `0` (body), `5px auto` (zentriert `main`) |
-| `margin-top` / `-bottom` / `-left` / `-right` | 4 | `margin-top: 40px` |
-| `border` | 4 | `1px solid #8d99ae` (Breite Stil Farbe) |
-| `border-top` | 4 | nur oberer Rahmen am Footer |
-| `border-radius` | 4 | `4px` – abgerundete Ecken |
-| `width` / `height` | 4 | `width: 28px`, `width: 100%` |
-| `max-width` | 4 | `main { max-width: 500px; }` |
-| `min-height` | 9 | `.projekt-card { min-height: 250px; }` |
-| `overflow` | 9 | `hidden` – überstehenden Inhalt abschneiden |
-
-**Kurzschreibweise** (`margin` / `padding`):
-
-| Werte | Bedeutung |
-|---|---|
-| `10px` | alle vier Seiten |
-| `10px 20px` | oben/unten · links/rechts |
-| `10px 20px 5px` | oben · links/rechts · unten |
-| `10px 20px 5px 0` | oben · rechts · unten · links (im Uhrzeigersinn) |
-
-```css
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;               /* Browser-Standard von ca. 8px entfernen */
-}
-
-main {
-    max-width: 500px;
-    margin: 5px auto;        /* auto links/rechts = horizontal zentriert */
-    padding: 10px;
-}
-```
+| Eigenschaft | Beispiel aus dem Projekt | Erklärung & mögliche Werte |
+| --- | --- | --- |
+| `align-items` | `header { display: flex; align-items: center; }` | Ausrichtung der Flex-Items **quer** zur Hauptachse (bei `row` vertikal). Werte: `stretch` (Standard, volle Höhe), `flex-start` (oben/links), `center`, `flex-end`, `baseline`. |
+| `background` | `.burger-button { background: none; }` | Kurzschreibweise für alle Hintergrund-Eigenschaften (Farbe, Bild, …). `none` entfernt den grauen Standard-Hintergrund des Buttons. |
+| `background-color` | `table tbody tr:nth-child(even) { background-color: #edf2f4; }` | Hintergrundfarbe. Werte: Farbname (`lightblue`), Hex (`#2b2d42`), `rgb(244, 241, 241)`, `rgba(…)` mit Transparenz, `transparent`. |
+| `border` | `table td, table th { border: 1px solid #8d99ae; }` | Rahmen auf allen vier Seiten, Kurzschreibweise **Breite Stil Farbe**. Stile: `solid`, `dotted`, `dashed`, `double`; `none` entfernt den Rahmen (z. B. bei `.btn`). |
+| `border-collapse` | `table { border-collapse: collapse; }` | Rahmen benachbarter Tabellenzellen. `collapse`: zu einer Linie zusammenfassen; `separate` (Standard): jede Zelle hat einen eigenen Rahmen (Doppellinien). |
+| `border-radius` | `#hauptnav a { border-radius: 4px; }` | Abgerundete Ecken. Werte: Länge (`4px`) oder `%` (`50%` ergibt bei quadratischen Elementen einen Kreis). |
+| `border-top` | `footer { border-top: 1px solid #8d99ae; }` | Rahmen nur oben (analog `border-right`, `border-bottom`, `border-left`); Syntax wie `border`. |
+| `box-shadow` | `.menu li { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }` | Schatten um die Box: **x-Versatz y-Versatz Unschärfe Farbe**, mehrere Schatten kommagetrennt. `none` = kein Schatten. |
+| `box-sizing` | `* { box-sizing: border-box; }` | Worauf sich `width`/`height` beziehen. `content-box` (Standard): nur Inhalt – Padding und Rahmen kommen **dazu**; `border-box`: Inhalt + Padding + Rahmen – die Box wird nie breiter als angegeben. |
+| `clear` | `.row::after { clear: both; }` | Element darf nicht neben gefloateten Elementen stehen, sondern rutscht darunter. Werte: `left`, `right`, `both`, `none`. |
+| `color` | `#hauptnav a { color: #ffffff; }` | Textfarbe (wird vererbt – außer bei Links, die eine eigene Browserfarbe haben). Werte wie bei `background-color`. Im Projekt auch inline: `<span style="color: red;">`. |
+| `content` | `a[target="_blank"]::after { content: " \2197"; }` | Inhalt, den `::before`/`::after` erzeugen. Werte: Text in Anführungszeichen, Unicode-Escape (`\2197` = ↗), `''` (leer, z. B. für Clearfix). Ohne `content` erscheint das Pseudoelement nicht. |
+| `cursor` | `.burger-button { cursor: pointer; }` | Mauszeiger über dem Element. Werte: `auto`, `default` (Pfeil), `pointer` (Hand wie bei Links), `text`, `not-allowed`, `move`. |
+| `display` | `.burger-button { display: none; }` → in Media Query `display: flex;` | Wie das Element angezeigt wird: `block` (neue Zeile, volle Breite, z. B. `<div>`, `<p>`); `inline` (im Textfluss, `width`/`height` wirken nicht, z. B. `<a>`, `<span>`); `inline-block` (im Textfluss, aber `width`, `height`, `padding` wirken – z. B. `#hauptnav a`, `.btn`); `flex` (Flexbox-Container); `grid` (Grid-Container); `table` (verhält sich wie eine Tabelle, im Clearfix); `none` (ausgeblendet, nimmt keinen Platz ein). |
+| `flex` | `.flex-item-2 { flex: 2; }` | Wie stark ein Flex-Item im Verhältnis zu den anderen wächst. `flex: 1` bei allen = gleich breit; `flex: 2` = doppelt so viel freier Platz wie ein Item mit `flex: 1`. |
+| `flex-direction` | `@media (max-width: 600px) { header { flex-direction: column; } }` | Hauptachse des Flex-Containers. Werte: `row` (Standard, nebeneinander), `column` (untereinander), `row-reverse`, `column-reverse`. |
+| `flex-wrap` | `.flex-container { display: flex; flex-wrap: wrap; }` | Ob Items in eine neue Zeile umbrechen dürfen. `nowrap` (Standard, alle in einer Zeile, werden ggf. gestaucht), `wrap` (Umbruch, wenn der Platz nicht reicht). |
+| `float` | `[class*='col-'] { float: left; }` | Element aus dem normalen Fluss nach links/rechts schieben; nachfolgender Inhalt umfließt es. Werte: `left`, `right`, `none`. Heute meist durch Flexbox/Grid ersetzt (z. B. `#hauptnav { float: right; }` in Übung 4.3). |
+| `font-family` | `h1, h2 { font-family: Georgia, serif; }` | Schriftart als Liste mit Ausweichschriften; die erste installierte wird genutzt. Letzter Eintrag ist eine generische Familie: `serif`, `sans-serif`, `monospace`. Namen mit Leerzeichen in Anführungszeichen (`'Lucida Sans'`). |
+| `font-size` | `h1 { font-size: 2.5em; }` | Schriftgröße. Werte: `px` (absolut, `20px`), `em` (relativ zur Schriftgröße des Elternelements, `1.5em`), `rem` (relativ zu `<html>`), `%`. |
+| `font-style` | `table caption { font-style: italic; }` | Schriftschnitt: `normal`, `italic` (kursiv), `oblique`. |
+| `font-weight` | `h2 + p.wichtig { font-weight: bold; }` | Schriftstärke: `normal` (= 400), `bold` (= 700), `lighter`, `bolder` oder Zahl `100`–`900`. |
+| `gap` | `footer p { display: flex; gap: 15px; }` | Abstand **zwischen** Flex- bzw. Grid-Items (nicht am Rand). Ein Wert für beide Richtungen oder `zeile spalte` (`10px 20px`). |
+| `grid-template-columns` | `.grid-container { display: grid; grid-template-columns: 2fr 1fr 3fr 2fr 1fr 3fr; }` | Anzahl und Breite der Grid-Spalten. Einheiten: `fr` (Anteil am freien Platz), `px`, `%`, `auto`, `repeat(3, 1fr)`. Im Beispiel: 6 Spalten mit 2/12, 1/12, 3/12 … der Breite. |
+| `height` | `.burger-button span { height: 3px; }` | Höhe der Box. Werte: Länge (`px`, `em`), `%` (der Elternhöhe), `auto` (Standard, ergibt sich aus dem Inhalt). Wirkt nicht bei `display: inline`. |
+| `justify-content` | `header { display: flex; justify-content: space-between; }` | Verteilung der Flex-Items **entlang** der Hauptachse. Werte: `flex-start` (Standard), `center`, `flex-end`, `space-between` (erstes/letztes Item am Rand, Rest gleichmäßig), `space-around`, `space-evenly`. |
+| `letter-spacing` | `h1 { letter-spacing: 1px; }` | Zusätzlicher Abstand zwischen den Buchstaben (`normal` oder Länge, auch negativ). |
+| `line-height` | `p { line-height: 1.6; }` | Zeilenhöhe. Werte: Zahl **ohne Einheit** (Faktor der eigenen Schriftgröße, empfohlen), `px`, `em`, `normal`. |
+| `list-style-type` | `<ul style="list-style-type: circle;">` / `.menu ul { list-style-type: none; }` | Aufzählungszeichen von Listen. Werte: `disc` (Standard bei `<ul>`), `circle`, `square`, `decimal` (Standard bei `<ol>`), `lower-alpha`, `upper-roman`, `none` (keine Zeichen, z. B. für Menüs). |
+| `margin` | `main { margin: 5px auto; }` | **Außen**abstand. 1 Wert: alle Seiten; 2 Werte: `oben/unten links/rechts`; 4 Werte: `oben rechts unten links` (Uhrzeigersinn). `auto` links/rechts zentriert ein Block-Element mit fester/maximaler Breite. |
+| `margin-top`, `margin-right`, `margin-bottom`, `margin-left` | `.burger-button span + span { margin-top: 5px; }` | Außenabstand nur auf einer Seite. Werte: Länge, `%`, `auto`, `0`. Im Projekt z. B. `.github-badge { margin-left: 30px; }`, `#hauptnav a { margin-right: 15px; }`. |
+| `max-width` | `main { max-width: 600px; }` | Maximale Breite: auf großen Bildschirmen höchstens 600px, auf kleinen schrumpft das Element mit. Werte: Länge, `%`, `none`. |
+| `min-height` | `.projekt-card { min-height: 250px; }` | Mindesthöhe – das Element wird bei mehr Inhalt höher, aber nie niedriger. Werte: Länge, `%`. |
+| `min-width` | `[class*='flex-item-'] { min-width: 200px; }` | Mindestbreite – das Flex-Item wird nicht schmaler gestaucht (zusammen mit `flex-wrap: wrap` bricht es stattdessen um). |
+| `opacity` | `.btn:hover { opacity: 0.85; }` | Deckkraft des ganzen Elements inkl. Inhalt: `0` (unsichtbar) bis `1` (voll sichtbar), auch als `%` (`85%`). |
+| `order` | `.flex-item-3 { order: -1; }` | Reihenfolge eines Flex-/Grid-Items unabhängig vom HTML. Standard `0`; kleinere Werte kommen zuerst, `-1` setzt das Item an den Anfang. |
+| `overflow` | `.staerke-box { overflow: hidden; }` | Was mit Inhalt passiert, der über die Box hinausragt: `visible` (Standard, ragt heraus), `hidden` (abschneiden), `scroll` (immer Scrollbalken), `auto` (Scrollbalken nur bei Bedarf). |
+| `padding` | `.btn { padding: 8px 16px; }` | **Innen**abstand zwischen Inhalt und Rahmen; Hintergrundfarbe reicht bis in das Padding. Schreibweise wie `margin` (1, 2 oder 4 Werte), aber **kein** `auto` und keine negativen Werte. |
+| `position` | `header { position: relative; }` + `.burger-button { position: absolute; }` | Positionierungsart: `static` (Standard, normaler Fluss); `relative` (bleibt im Fluss, dient als Bezugspunkt für absolute Kinder); `absolute` (aus dem Fluss genommen, Position relativ zum nächsten positionierten Vorfahren – hier dem `<header>`); `fixed` (relativ zum Browserfenster); `sticky`. |
+| `top`, `right`, `left` | `.burger-button { position: absolute; top: 14px; right: 20px; }` | Abstand zum jeweiligen Rand des Bezugselements (analog `bottom`); wirkt nur zusammen mit `position` ≠ `static`. Im Beispiel: 14px von oben, 20px von rechts im `<header>`. |
+| `text-align` | `.grid-item { text-align: center; }` | Horizontale Ausrichtung von Text und Inline-Inhalten **innerhalb** des Elements: `left`, `right`, `center`, `justify` (Blocksatz). |
+| `text-decoration` | `a { text-decoration: none; }` | Linien am Text: `none` (z. B. Unterstreichung von Links entfernen), `underline`, `line-through`, `overline`. |
+| `width` | `.projekte-table-link-col { width: 120px; }` | Breite der Box. Werte: Länge (`px`), `%` der Elternbreite (z. B. `.col-4 { width: 33.33%; }`, `table { width: 100%; }`), `auto` (Standard). Wirkt nicht bei `display: inline`; ob Padding/Rahmen dazuzählen, regelt `box-sizing`. |
 
 ---
 
-## Text & Schrift
-
-| Eigenschaft | Kap. | Beispiel im Projekt |
-|---|---|---|
-| `color` | 4 | `#2b2d42` |
-| `font-family` | 4 | `Arial, sans-serif` / `Georgia, serif` (mit Fallback) |
-| `font-size` | 4 | `2.5em`, `1.5em` |
-| `font-style` | 4 | `italic` (Tabellen-`caption`) |
-| `font-weight` | 4 | `bold` (Demo) |
-| `line-height` | 4 | `1.6` |
-| `letter-spacing` | 4 | `1px` |
-| `text-decoration` | 4 | `none` – Unterstreichung bei Links entfernen |
-| `text-align` | 4 | `center` – Inline-Inhalt zentrieren |
-| `list-style-type` | 3 | `circle` (inline im HTML) |
-| `content` | 4 | nur mit `::before` / `::after` |
-
-```css
-body {
-    font-family: Arial, sans-serif;
-    color: #2b2d42;
-}
-
-h1,
-h2 {
-    font-family: Georgia, serif;
-}
-
-h1 {
-    font-size: 2.5em;
-    letter-spacing: 1px;
-}
-
-p {
-    line-height: 1.6;
-}
-```
-
----
-
-## Display, Float & Position
-
-| Wert | Kap. | Verhalten |
-|---|---|---|
-| `display: block` | 4 | eigene Zeile, volle Breite |
-| `display: inline` | – | im Textfluss, vertikales padding verschiebt nichts |
-| `display: inline-block` | 4 | im Textfluss, aber mit Box-Eigenschaften (Nav-Links, `.btn`) |
-| `display: none` | 4 | unsichtbar, nimmt keinen Platz ein |
-| `display: flex` | 5 | Flex-Container (siehe [Flexbox](#flexbox)) |
-| `float: right` | 4 | aus dem Fluss nehmen, nach rechts schieben, Inhalt umfließt links |
-| `float: none` | 4 | Float aufheben |
-| `position: relative` | 4 | Bezugspunkt für absolut positionierte Kinder |
-| `position: absolute` | 4 | aus dem Fluss, Platzierung mit `top` / `right` … zum nächsten positionierten Vorfahren |
-| `opacity` | 4 | Deckkraft `0`–`1` |
-| `cursor: pointer` | 4 | Hand-Cursor |
-
-```css
-header {
-    position: relative;      /* Bezugspunkt für den Burger-Button */
-}
-
-.burger-button {
-    position: absolute;
-    top: 14px;
-    right: 20px;
-}
-
-/* Kap. 4.2: Navigation rechts neben dem Logo */
-#hauptnav {
-    float: right;
-    margin-top: 8px;
-}
-```
-
----
-
-## Flexbox
-
-Ab Kap. 5 ersetzt Flexbox das Float-Layout in Header, Navigation, Footer und
-Burger-Button.
-
-| Eigenschaft | Kap. | Werte im Projekt | Wirkung |
-|---|---|---|---|
-| `display: flex` | 5 | – | Kinder werden Flex-Items |
-| `flex-direction` | 5 | `row` (Standard), `column` | Hauptachse |
-| `justify-content` | 5 | `space-between`, `center` | Verteilung auf der Hauptachse |
-| `align-items` | 5 | `center`, `flex-start` | Ausrichtung auf der Querachse |
-| `gap` | 5 | `15px` | Abstand zwischen den Items |
-
-```css
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;   /* Logo links, Navigation rechts */
-}
-
-footer p {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-/* Drei Striche des Burger-Buttons gleichmäßig verteilen */
-.burger-button {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 20px;
-}
-```
-
----
-
-## Tabellen & Formulare
-
-| Eigenschaft / Selektor | Kap. | Beispiel |
-|---|---|---|
-| `border-collapse` | 4 | `collapse` – Doppelrahmen zusammenfassen |
-| `background-color` | 4 | `thead`, gerade Zeilen, Hover |
-| `background` | 4 | `none` – Button-Hintergrund entfernen |
-| `input[type="…"]`, `textarea`, `select` | 4 | Formularfelder einheitlich gestalten |
-
-```css
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-table td,
-table th {
-    padding: 8px;
-    border: 1px solid #8d99ae;
-}
-
-thead {
-    background-color: #2b2d42;
-    color: #ffffff;
-}
-
-table tbody tr:hover {
-    background-color: #d8dee6;
-}
-
-input[type="text"],
-input[type="email"],
-textarea,
-select {
-    border: 1px solid #8d99ae;
-    padding: 6px;
-    border-radius: 4px;
-}
-```
-
----
-
-## Responsive Design
-
-```html
-<!-- Voraussetzung im <head>, sonst meldet ein Smartphone ca. 980px Breite -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-```
-
-```css
-/* Am Ende des Stylesheets: gilt bei Viewport-Breite ≤ 600px */
-@media (max-width: 600px) {
-    #hauptnav {
-        display: none;            /* Navigation zunächst ausblenden */
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    #hauptnav.offen {             /* per JavaScript gesetzte Klasse */
-        display: flex;
-    }
-
-    .burger-button {
-        display: flex;            /* Burger-Button einblenden */
-    }
-
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    select {
-        width: 100%;
-    }
-}
-```
-
-| Media Query | Kap. | Einsatz |
-|---|---|---|
-| `@media (max-width: 600px)` | 4 | Smartphone-Layout der Portfolio-Seite |
-| `@media (max-width: 761px)` | 9 | kleinere `.projekt-card` |
-| `media="print"` (am `<link>`) | 4 | Druck-Stylesheet |
-
-- Media Query **ans Ende**, sonst überschreiben spätere Regeln gleicher Spezifität sie.
-- Testen: Gerätesymbolleiste / responsive Ansicht in den DevTools.
-
----
-
-## CSS und JavaScript
-
-| Methode | Kap. | Beispiel im Projekt |
-|---|---|---|
-| `classList.toggle(k)` | 4 | Burger-Menü: `hauptnav.classList.toggle("offen")` |
-| `classList.toggle(k, bool)` | 4 | `burgerButton.classList.toggle("offen", istOffen)` |
-| `classList.add` / `remove` | 7 | Validierung: `is-valid` / `is-invalid` |
-| `className = "…"` | 7 | Karten erzeugen: `div.className = "card"` |
-
-```js
-burgerButton.addEventListener("click", () => {
-    const istOffen = hauptnav.classList.toggle("offen");
-    burgerButton.classList.toggle("offen", istOffen);
-});
-
-// Kap. 5: Zeile per Klick hervorheben (CSS: tr.hervorgehoben)
-zeile.classList.toggle("hervorgehoben");
-```
-
-- Lieber Klassen umschalten als `element.style.…` setzen – das Aussehen bleibt im Stylesheet.
-
----
-
-## Bootstrap-Klassen
-
-Ab Kap. 7 über CDN eingebunden (`bootstrap@5.3.3`, `bootstrap-icons@1.11.3`).
-
-| Bereich | Klassen im Projekt |
-|---|---|
-| Grid | `container`, `container-fluid`, `row`, `col-6`, `col-sm-4`, `col-md-6` |
-| Abstände | `mt-3`, `mt-4`, `mb-3`, `mb-4`, `mb-5`, `mx-1` (`m`/`p` + `t b s e x y` + `0–5`) |
-| Flex & Anzeige | `d-flex`, `d-block`, `justify-content-center`, `align-items-center` |
-| Buttons | `btn` + `btn-primary`, `btn-secondary`, `btn-success`, `btn-danger`, `btn-warning`, `btn-outline-secondary`, Größe `btn-sm` / `btn-lg`, `btn-close` |
-| Karten | `card`, `card-header`, `card-body`, `card-title`, `card-text`, `card-footer` |
-| Tabs | `nav`, `nav-tabs`, `nav-item`, `nav-link`, `active`, `tab-content`, `tab-pane` |
-| Formulare | `form-label`, `form-control`, `form-select`, `form-check`, `form-check-input`, `form-check-label`, `form-check-inline` |
-| Validierung | `is-valid`, `is-invalid`, `invalid-feedback` |
-| Modal | `modal`, `modal-dialog`, `modal-content`, `modal-header`, `modal-title`, `modal-body`, `modal-footer` |
-| Icons | `bi bi-pencil`, `bi bi-trash` |
-
-```html
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4"><div class="staerke-box">...</div></div>
-        <div class="col-sm-4"><div class="staerke-box">...</div></div>
-        <div class="col-sm-4"><div class="staerke-box">...</div></div>
-    </div>
-</div>
-
-<div class="mb-3">
-    <label for="emailFeld" class="form-label">E-Mail:</label>
-    <input type="email" id="emailFeld" name="email" class="form-control" required>
-    <div class="invalid-feedback">Die E-Mail-Adresse muss ein @-Zeichen enthalten.</div>
-</div>
-
-<button class="btn btn-primary btn-sm">Bearbeiten</button>
-```
-
-- Grid: 12 Spalten pro `row`; `col-sm-4` = ab Breakpoint `sm` (≥ 576px) ein Drittel, darunter volle Breite.
-- `container` hat eine feste Maximalbreite je Breakpoint, `container-fluid` immer 100%.
-- Eigene Klassen wie `.staerke-box` oder `.card.hervorgehoben` ergänzen Bootstrap in `index.css` / `style.css`.
-
----
-
-*Erhoben aus allen `.css`-, `.html`-, `.php`- und `.js`-Dateien in
-`exercises/` und `solutions/` (Stand Oktober 2026).*
+*Erhoben aus allen `.css`-Dateien sowie `<style>`-Blöcken und
+`style`-Attributen in `exercises/` und `solutions/` (Stand Oktober 2026).*
