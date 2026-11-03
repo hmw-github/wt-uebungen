@@ -25,7 +25,25 @@
         // TODO 1: Klasse Projekt (private Attribute, id nur lesbar, titel
         //         und jahr änderbar, Jahre vor 2000 werden als Fehler
         //         abgewiesen, sinnvolle Textdarstellung)
+        class Projekt {
+            #id
+            #titel
+            #jahr
 
+            constructor(id, titel, jahr) {
+                this.#id = id;
+                this.#titel = titel;
+                this.#jahr = jahr;
+            }
+
+            // analog zu Java: wird implizit genutzt
+            toString() {
+                return `Projekt (${this.#id}, ${this.#titel}, ${this.#jahr})`;
+            }
+        }
+
+        const p1 = new Projekt(1, "Webportfolio", 2026);
+        ausgabe(p1);
 
         // TODO 2: Klasse Webprojekt: ein Projekt mit zusätzlicher, änderbarer
         //         technologie (privates Attribut); die Textdarstellung
