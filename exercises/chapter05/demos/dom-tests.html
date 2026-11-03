@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Tests</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+        section {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        #ausgabe {
+            background: #f4f4f4;
+            padding: 8px;
+            min-height: 1.2em;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .markiert {
+            outline: 3px solid red;
+            background-color: yellow;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="titel">DOM-Tests</h1>
+
+    <!-- ==== Texte und Klassen ==== -->
+    <section id="texte">
+        <h2>Texte</h2>
+        <p id="absatz">Absatz mit id="absatz"</p>
+        <p class="info">Absatz mit class="info"</p>
+        <p class="info">Noch ein Absatz mit class="info"</p>
+        <a id="link" href="https://www.thi.de">Link zur THI</a>
+    </section>
+
+    <!-- ==== Liste ==== -->
+    <section id="liste-bereich">
+        <h2>Liste</h2>
+        <ul id="liste">
+            <li>Eintrag A</li>
+            <li class="info">Eintrag B (class="info")</li>
+            <li>Eintrag C</li>
+        </ul>
+    </section>
+
+    <!-- ==== Eingaben und Buttons ==== -->
+    <section id="eingaben">
+        <h2>Eingaben</h2>
+        <input type="text" id="eingabe" name="vorname" placeholder="Vorname">
+        <input type="checkbox" id="checkbox"> <label for="checkbox">Checkbox</label>
+        <select id="auswahl">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <br><br>
+        <button id="okButton">OK</button>
+        <button id="hinzufuegenButton">Hinzufügen</button>
+        <button id="loeschenButton">Löschen</button>
+    </section>
+
+    <!-- ==== Ausgabe ==== -->
+    <section>
+        <h2>Ausgabe</h2>
+        <div id="ausgabe"></div>
+    </section>
+
+    <script>
+        // Hier eigene DOM-Zugriffe und Event-Handler ergänzen
+        
+    </script>
+</body>
+</html>
