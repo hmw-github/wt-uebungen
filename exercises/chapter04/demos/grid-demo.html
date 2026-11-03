@@ -48,12 +48,15 @@
         @media (max-width: 600px) {
             .grid-container {
                 grid-template-columns: 1fr; /* nur 1 Spalte mit voller Breite */
-                grid-template-rows: auto auto 1fr auto; /* 4 Zeilen, content max. */
+                grid-template-rows: auto /*auto*/ 1fr auto; /* 4 Zeilen, content max. */
                 grid-template-areas: /* legt Belegung der 4 Zeilen fest */
                     "header"
-                    "nav"
+                    /* "nav" */
                     "content"
                     "footer";
+            }
+            nav {
+                display: none; /* nav ausblenden, sonst landet sie in einer impliziten Spalte */
             }
         }
 
