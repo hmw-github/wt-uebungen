@@ -63,6 +63,10 @@
             toString() {
                 return `Projekt (${this.#id}, ${this.#titel}, ${this.#jahr})`;
             }
+
+            alsJSON() {
+                return `{ "id": ${this.#id}, "titel": ${this.#titel}, "jahr": ${this.#jahr} }`;
+            }
         }
 /*
         try {
@@ -89,6 +93,10 @@
             toString() {
                 return 'Web-' + super.toString() 
                     + ', technologie = ' + this.#technologie;
+            }
+
+            alsJSON() {
+                return `{ "id": ${this.id}, "titel": ${this.titel}, "jahr": ${this.jahr}, "technologie": ${this.#technologie} }`;
             }
         }
 
@@ -172,6 +180,7 @@
                 //nachJahrVergleicher(p1 (2012), p2 (2020)) => -8;
                 this.#projekte.sort(nachJahrVergleicher);
             }
+
         }
 
         // ==== Teil 3: Hauptteil - Projektliste verwenden ====
@@ -215,7 +224,7 @@
         liste.hinzufuegen(new Webprojekt(11, 'Webprojekt', 2026, 'HTML'))
         const projekte = liste.alsArray();
         const p1 = projekte[0];
-        const p1AlsJSONString = JSON.stringify(p1);
+        const p1AlsJSONString = p1.alsJSON();
         ausgabe(p1AlsJSONString);
 
         // TODO 15: JSON-Text dauerhaft im Browser ablegen
