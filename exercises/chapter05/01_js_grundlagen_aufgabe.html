@@ -36,19 +36,64 @@
                 this.#jahr = jahr;
             }
 
+            /**
+             * Getter & Setter
+             */
+            get id() {
+                return this.#id;
+            }
+            get jahr() {
+                return this.#jahr;
+            }
+            get titel() {
+                return this.#titel;
+            }
+            set titel(neuerTitel) {
+                this.#titel = neuerTitel;
+            }
+            set jahr(neuesJahr) {
+                if (neuesJahr < 2000) {
+                    //throw 'Fehler: Jahr muss >= 2000 sein!';
+                    throw new Error('Fehler: Jahr muss >= 2000 sein!');
+                }
+                this.#jahr = neuesJahr;
+            }
+
             // analog zu Java: wird implizit genutzt
             toString() {
                 return `Projekt (${this.#id}, ${this.#titel}, ${this.#jahr})`;
             }
         }
-
-        const p1 = new Projekt(1, "Webportfolio", 2026);
-        ausgabe(p1);
-
+/*
+        try {
+            const p1 = new Projekt(1, "Webportfolio", 2026);
+            ausgabe(p1.jahr);
+            p1.titel = 'Webportfolio 2026';
+            p1.jahr = 1999;
+            // ausgabe(p1);
+        } catch (err) {
+            ausgabe(err.message);
+        }
+*/
         // TODO 2: Klasse Webprojekt: ein Projekt mit zusätzlicher, änderbarer
         //         technologie (privates Attribut); die Textdarstellung
         //         erweitert die eines Projekts
+        class Webprojekt extends Projekt {
+            #technologie;
 
+            constructor(id, titel, jahr, technologie) {
+                super(id, titel, jahr);
+                this.#technologie = technologie;
+            }
+
+            toString() {
+                return 'Web-' + super.toString() 
+                    + ', technologie = ' + this.#technologie;
+            }
+        }
+
+        // const wp1 = new Webprojekt(2, 'Shop', 2026, 'React');
+        // ausgabe(wp1);
 
         // ==== Teil 2: Klasse Projektliste ====
 
@@ -63,30 +108,75 @@
                 return this.#projekte.length;
             }
 
+            // Gibt eine Kopie des Projekte-Arrays zurück
             alsArray() {
-                return [...this.#projekte];
+                // ... spread-Operator: liefert die Array-Items
+                return [...this.#projekte]; 
             }
 
             // TODO 3: hinzufuegen(projekt): Projekt in die Liste aufnehmen
             //         und bestätigen
-
+            hinzufuegen(projekt) {
+                this.#projekte.push(projekt);
+                ausgabe(`Projekt ${projekt} hinzugefügt.`);
+            }
 
             // TODO 4: aktualisieren(id, aenderungen): übergebene Werte im
             //         passenden Projekt übernehmen
-
+            aktualisieren(id, aenderungen) {
+                // nach Projekt suchen
+                for (let i = 0; i < this.#projekte.length; ++i) {
+                    if (this.#projekte[i].id === id) {
+                        // gefunden: aenderungen vornehmen
+                        if (aenderungen.titel != undefined) {
+                            this.#projekte[i].titel = aenderungen.titel;
+                        }
+                        if (aenderungen.jahr != undefined) {
+                            this.#projekte[i].jahr = aenderungen.jahr;
+                        }
+                        break;
+                    }
+                }
+            }
 
             // TODO 5: entfernen(id): Projekt aus der Liste löschen
-
+            entfernen(id) {
+                // suche nach id
+                for (let i = 0; i < this.#projekte.length; ++i) {
+                    if (this.#projekte[i].id === id) {
+                        // gefunden: loesche projekt
+                        this.#projekte.splice(i, 1); // ein Element löschen
+                        break;
+                    }
+                }
+            }
 
             // TODO 6: auflisten(id): alle Projekte bzw. nur das Projekt mit
             //         dieser id ausgeben
-
+            auflisten(id) {
+                if (id) {
+                    // filtere projekte nach Projekt mit der id
+                    ausgabe(this.#projekte.filter(p => p.id == id));
+                } else {
+                    this.#projekte.forEach((projekt, index) => {
+                        ausgabe(`${index+1}: ${projekt}`);
+                    })
+                }
+            }
 
             // TODO 7: sortierenNachJahr(): Liste chronologisch ordnen
-
+            sortierenNachJahr() {
+                const nachJahrVergleicher = (projekt1, projekt2) => 
+                    projekt1.jahr - projekt2.jahr; 
+                
+                //nachJahrVergleicher(p1 (2012), p2 (2020)) => -8;
+                this.#projekte.sort(nachJahrVergleicher);
+            }
         }
 
         // ==== Teil 3: Hauptteil - Projektliste verwenden ====
+
+        const liste = new Projektliste();
 
         // TODO 8: Unterschiede zwischen let/const/var, Typen und == vs. ===
         //         in der Ausgabe sichtbar machen
@@ -94,26 +184,39 @@
 
         // TODO 9: Projektliste mit mindestens drei Projekten (davon
         //         mindestens ein Webprojekt) befüllen
-
+        liste.hinzufuegen(new Projekt(1, 'Java-Projekt', 2034));
+        liste.hinzufuegen(new Projekt(2, 'C-Projekt', 2025));
+        liste.hinzufuegen(new Webprojekt(3, 'Web-Projekt', 2026));
 
         // TODO 10: Alle Projekte chronologisch sortiert ausgeben
-
+        liste.sortierenNachJahr();
+        liste.auflisten();
 
         // TODO 11: Ein Projekt erfolgreich ändern; eine ungültige Änderung
         //         führt zu einer Fehlermeldung statt zum Abbruch
-
+        liste.aktualisieren(1, {
+            titel: 'Neues Projekt', jahr: 2001
+        });
+        liste.auflisten(1);
 
         // TODO 12: Die ersten beiden Projekte als eigene Variablen ausgeben
 
 
         // TODO 13: Löschen (erfolgreich und erfolglos) zeigen, danach die
         //         Listengröße in Worten bewerten
-
+        liste.entfernen(2);
+        liste.auflisten();
+        liste.entfernen(22);
+        liste.auflisten();
 
         // ==== Teil 4: JSON und localStorage ====
 
         // TODO 14: Projektdaten als JSON-Text ausgeben
-
+        liste.hinzufuegen(new Webprojekt(11, 'Webprojekt', 2026, 'HTML'))
+        const projekte = liste.alsArray();
+        const p1 = projekte[0];
+        const p1AlsJSONString = JSON.stringify(p1);
+        ausgabe(p1AlsJSONString);
 
         // TODO 15: JSON-Text dauerhaft im Browser ablegen
 
