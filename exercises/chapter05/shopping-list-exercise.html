@@ -452,7 +452,11 @@
             remainingItemsEl.textContent = remaining;
         }
 
-        // Filter wechseln
+        /**
+         * Filter wechseln
+         * Aktiviert den Filter-Button mit dem übergebenen Namen (all, pending, bought).
+         * Die Funktion eines Filter-Buttons ist im Attribut data-filter festgelegt
+         */
         function setFilter(filter) {
             currentFilter = filter;
 
