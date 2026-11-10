@@ -33,12 +33,13 @@ Der Block für das Burger-Menü am Dateianfang ist bereits fertig (kein TODO).
 2. TODO 2: Das Objekt liegt anschließend als JSON-Text unter dem Schlüssel `"kontaktanfrage"` im localStorage des Browsers (prüfbar in den Entwicklertools).
 3. TODO 3: Danach landet der Benutzer auf der Seite `"kontaktanfrage-bestaetigung.html"`.
 4. TODO 4 (auf kontaktanfrage-bestaetigung.html): Die Seite zeigt die gespeicherte Kontaktanfrage in den vorgegebenen Platzhalter-Elementen an:
-    - `#begruessung`: "Vielen Dank, <name>! Ihre Nachricht wurde empfangen."
-    - `#detailEmail`, `#detailBetreff`, `#detailNachricht`: die jeweiligen Werte
-    - `#detailRueckmeldung`: die gewählte Rückmeldungsart oder "keine Angabe"
-    - `#detailNewsletter`: "ja" oder "nein"
 
-    Liegt keine gespeicherte Anfrage vor, zeigt `#begruessung` stattdessen "Es wurde keine Kontaktanfrage gefunden. Bitte füllen Sie zuerst das Kontaktformular aus.", und die übrigen Elemente bleiben leer. Benutzereingaben werden dabei als reiner Text angezeigt, nicht als HTML interpretiert.
+   - `#begruessung`: "Vielen Dank, <name></name>! Ihre Nachricht wurde empfangen."
+   - `#detailEmail`, `#detailBetreff`, `#detailNachricht`: die jeweiligen Werte
+   - `#detailRueckmeldung`: die gewählte Rückmeldungsart oder "keine Angabe"
+   - `#detailNewsletter`: "ja" oder "nein"
+
+   Liegt keine gespeicherte Anfrage vor, zeigt `#begruessung` stattdessen "Es wurde keine Kontaktanfrage gefunden. Bitte füllen Sie zuerst das Kontaktformular aus.", und die übrigen Elemente bleiben leer. Benutzereingaben werden dabei als reiner Text angezeigt, nicht als HTML interpretiert.
 
 *DOM-Manipulation (5.5) – Projekttabelle*
 

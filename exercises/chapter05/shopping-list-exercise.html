@@ -398,6 +398,61 @@
          */
         function renderList() {
             // TODO Nr. 1
+            shoppingList.innerHTML = '';
+
+            // Itemliste gemäß Filtereinstellung filtern
+            const filteredItems = items.filter((item) => {
+
+                if (currentFilter == 'all') {
+                    return true;
+                }
+                if (currentFilter == 'pending') {
+                    return !item.bought;
+                }
+                if (currentFilter == 'bought') {
+                    return item.bought;
+                }
+            });
+
+            // Alternative mit normaler for-Schleife
+/*            const filteredItems = [];
+            for (let item of items) {
+                if (currentFilter == 'all') {
+                    filteredItems.push(item);
+                }
+                if (currentFilter == 'pending' && !item.bought) {
+                    filteredItems.push(item);
+                }
+                if (currentFilter == 'bought' && item.bought) {
+                    filteredItems.push(item);                    
+                }
+            }*/
+
+            // nichts anzuzeigen?
+            if (filteredItems.length == 0) {
+                shoppingList.innerHTML = '<li><div class="empty-state-icon">📭</div><p>Keine Artikel vorhanden</p></div></li>';
+            } else {
+                // Schleife über alle filteredItems
+                let html = '';
+
+                filteredItems.forEach((item) => {
+                    html += `<li class="shopping-item" data-id="${item.id}">
+                        <div class="item-content">
+                            <input type="checkbox" class="item-checkbox">
+                            <div class="item-details">
+                                <span class="item-name">${item.name}</span>
+                                <span class="item-quantity">${item.quantity} x</span>
+                            </div>
+                        </div>
+                        <div class="item-actions">
+                            <button class="btn-edit">Bearbeiten</button>
+                            <button class="btn-delete">Löschen</button>
+                        </div>
+                    </li>`;
+                    
+                });
+                shoppingList.innerHTML = html;
+            }
         }
 
         /*
@@ -479,8 +534,8 @@
         addButton.addEventListener('click', addItem);
 
         // Artikel hinzufügen per Enter-Taste
-        itemInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
+        itemInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
                 addItem();
             }
         });
