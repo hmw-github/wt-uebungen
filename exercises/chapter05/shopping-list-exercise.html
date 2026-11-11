@@ -351,7 +351,7 @@
         let items = [
             { id: 1, name: 'Milch', quantity: 2, bought: false },
             { id: 2, name: 'Brot', quantity: 1, bought: false },
-            { id: 3, name: 'Äpfel', quantity: 6, bought: true }
+            { id: 3, name: 'Äpfel', quantity: 6, bought: true },
         ];
         let currentFilter = 'all';
 
@@ -371,6 +371,47 @@
          */ 
         function addItem() {
             // TODO Nr 2
+            const itemName = itemInput.value;
+            let quantity = quantityInput.value;
+
+            // Validierung: Name nicht leer, Anzahl >0
+            itemInput.classList.remove('error');
+            quantityInput.classList.remove('error');
+            if (itemName.trim().length == 0) {
+                itemInput.classList.add('error');
+            }
+            if (Number.isNaN(quantity) || Number(quantity) <= 0) {
+                quantityInput.classList.add('error');
+            }
+            quantity = Number(quantity); // wandle String in Number um
+
+            // Falls Name bereits vorhanden: Anzahl erhöhen,
+            // sonst neues Element erzeugen
+            let gefunden = false;
+            items.forEach((item) => {
+                if (item.name == itemName) {
+                    item.quantity += quantity;
+                    gefunden = true;
+                    // break nicht möglich => for-Schleife nutzen bei grossen Arrays!
+                }
+            });
+            if (!gefunden) {
+                const newItem = { 
+                    id: Date.now(), // oder einfach: items.length + 1
+                    name: itemName,
+                    quantity: quantity, 
+                    bought: false 
+                };
+                items.push(newItem); // ans Ende anfügen
+            }
+
+            // Eingabefelder initialisieren, Fokus setzen auf "itemInput"
+            itemInput.value = '';
+            quantityInput.value = 1;
+            itemInput.focus();
+
+            renderList();
+            updateStats();
         }
 
         /*
