@@ -40,14 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
         //         Rückmeldungsart, ggf. keine, und Newsletter ja/nein) als
         //         Objekt mit den Eigenschaften name, email, betreff,
         //         rueckmeldung, nachricht und newsletter erfassen.
-
+        const inputs = {
+            name: document.getElementById('nameFeld').value,
+            email: document.getElementById('emailFeld').value,
+        };
 
         // TODO 2: Das Objekt als JSON-Text unter dem Schlüssel
         //         "kontaktanfrage" im Browser ablegen.
-
+        localStorage.kontaktanfrage = JSON.stringify(inputs);
 
         // TODO 3: Weiter zur Seite "kontaktanfrage-bestaetigung.html".
-
+        kontaktFormular.submit();
     });
 });
 
@@ -69,7 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
     //         ("ja"/"nein"). Liegt keine Anfrage vor, steht in #begruessung
     //         nur "Es wurde keine Kontaktanfrage gefunden. Bitte füllen Sie
     //         zuerst das Kontaktformular aus."
-
+    const inputs = JSON.parse(localStorage.kontaktanfrage);
+    document.getElementById('begruessung').textContent = `Hallo ${inputs.name}!`;
+    document.getElementById('detailEmail').textContent = inputs.email;
 });
 
 /*
