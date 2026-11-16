@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!--
     ÜBUNG 1: PHP-GRUNDLAGEN (Kapitel 6.1/6.2 - PHP-Sprachkonzepte: Ausgabe,
     Kontrollstrukturen, Arrays, Funktionen, Klassen)
