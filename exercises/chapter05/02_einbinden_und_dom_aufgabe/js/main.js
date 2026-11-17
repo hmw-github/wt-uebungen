@@ -98,8 +98,16 @@ async function loadProjects() {
 // TODO 5: fillProjectTable(projekte): Für jedes Projekt erscheint im
 //         tbody#projekteKoerper eine Zeile mit Titel, Technologie, Jahr und
 //         einem Link "Repository" (Ziel: projekt.link, öffnet in neuem Tab).
-//         Die Zelle #projekteAnzahl zeigt danach "Anzahl Projekte: <Anzahl>".
-
+//         footer: Die Zelle #projekteAnzahl zeigt danach "Anzahl Projekte: <Anzahl>".
+function fillProjectTable(projekte) {
+    // for (let projekt of projekte) { ... }
+    let tBody = '';
+    projekte.forEach((projekt) => {
+        const row = `<tr data-jahr="${projekt.jahr}"><td>${projekt.titel}</td><td>${projekt.technologie}</td><td>${projekt.jahr}</td><td><a href=${projekt.link}>Repository</a></td></tr>`;
+        tBody += row;
+    });
+    document.querySelector('tbody#projekteKoerper').innerHTML = tBody;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const projekteKoerper = document.getElementById("projekteKoerper");
@@ -112,4 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // TODO 6: Ein Klick auf #filterButton schaltet die Hervorhebung
     //         (CSS-Klasse "hervorgehoben") aller Tabellenzeilen mit dem Jahr
     //         2026 ein bzw. wieder aus.
+    document.getElementById('filterButton').addEventListener('click', function() {
+        // alle Hervorhebungen löschen
+        //document.querySelectorAll('tbody#projekteKoerper tr')
+        //.forEach(row => row.classList.remove('hervorgehoben'));
+
+        const rows = document.querySelectorAll('tbody#projekteKoerper tr[data-jahr="2026"]');
+        rows.forEach((row) => {
+            row.classList.toggle('hervorgehoben');
+        });
+    });
 });

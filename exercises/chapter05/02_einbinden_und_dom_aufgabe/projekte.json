@@ -1,5 +1,20 @@
 [
-    { "titel": "Wetter-App", "technologie": "JavaScript, Fetch API", "jahr": 2024, "link": "https://github.com/alexberger/wetter-app" },
-    { "titel": "Rezeptsammlung", "technologie": "PHP, MySQL", "jahr": 2025, "link": "https://github.com/alexberger/rezeptsammlung" },
-    { "titel": "Portfolio-Website", "technologie": "HTML, CSS, JavaScript, PHP, REST", "jahr": 2026, "link": "https://github.com/alexberger/portfolio" }
+    {
+        "titel": "Wetter-App",
+        "technologie": "JavaScript, Fetch API",
+        "jahr": 2026,
+        "link": "https://github.com/alexberger/wetter-app"
+    },
+    {
+        "titel": "Rezeptsammlung",
+        "technologie": "PHP, MySQL",
+        "jahr": 2025,
+        "link": "https://github.com/alexberger/rezeptsammlung"
+    },
+    {
+        "titel": "Portfolio-Website",
+        "technologie": "HTML, CSS, JavaScript, PHP, REST",
+        "jahr": 2026,
+        "link": "https://github.com/alexberger/portfolio"
+    }
 ]
