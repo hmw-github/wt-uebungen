@@ -14,6 +14,15 @@
 
     <p>
         Stand: <?php echo date('d.m.Y H:m:i'); ?>
+
+        <ul>
+<?php
+        for ($i = 1; $i < 10; ++$i) {
+            $quadrat = $i * $i;
+            echo "<li>" . $quadrat . "</li>";
+        }
+?>
+        </ul>
     </p>
 </body>
 </html>
