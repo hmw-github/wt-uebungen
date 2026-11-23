@@ -1,0 +1,27 @@
+{
+    "sequence": 0,
+    "owner": "Homer Simpson",
+    "items": [
+        {
+            "article": {
+                "name": "1 Liter Milk",
+                "price": 1.2
+            },
+            "count": 1
+        },
+        {
+            "article": {
+                "name": "Bread (1 Loaf)",
+                "price": 3.25
+            },
+            "count": 2
+        },
+        {
+            "article": {
+                "name": "Tomatoes (500 gr.)",
+                "price": 3.1
+            },
+            "count": 3
+        }
+    ]
+}
