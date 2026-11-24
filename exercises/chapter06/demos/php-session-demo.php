@@ -22,9 +22,11 @@
     <title>Session</title>
 </head>
 <body>
-
-<p>
-    Counter: <?=$counter?>
-</p>
+    <form action="" method="post">
+        <p>
+            Counter: <?=$counter?>
+        </p>
+        <button>refresh</button>
+    </form>
 </body>
 </html>
