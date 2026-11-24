@@ -175,14 +175,49 @@
 
     <?php
         // TODO 11: Klasse Projekt (Titel, Technologie, Textdarstellung)
+        class Projekt 
+        {
+            public $titel;
+            public $technologie;
+
+            public function __construct($titel, $technologie) 
+            {
+                $this->titel = $titel;
+                $this->technologie = $technologie;
+            }
+
+            public function __toString() 
+            {
+                return "titel=".$this->titel.", technologie=".$this->technologie;
+            }
+        }
 
         // TODO 12: Klasse Webprojekt: Projekt mit zusätzlichem Jahr
+        class Webprojekt extends Projekt 
+        {
+            public $jahr;
+
+            public function __construct($titel, $technologie, $jahr) 
+            {
+                parent::__construct($titel, $technologie);
+                $this->jahr = $jahr;
+            }
+
+            public function __toString() 
+            {
+                return parent::__toString() . ", jahr=".$this->jahr;
+            }            
+        }
     ?>
 
     <h3>Projekte</h3>
     <p>
         <?php
             // TODO 13: Ein Projekt und ein Webprojekt anzeigen
+            $projekt = new Projekt("PHP-Projekt", "PHP");
+            echo "projekt: ".$projekt."<br>";
+            $webprojekt = new Webprojekt("Typescript-Projekt", "TS", 2026);
+            echo "webprojekt: ".$webprojekt."<br>";
         ?>
     </p>
 

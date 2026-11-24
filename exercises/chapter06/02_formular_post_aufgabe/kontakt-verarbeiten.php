@@ -25,6 +25,14 @@
     TODO 4: Fehlen Name oder E-Mail-Adresse, erscheint eine Fehlermeldung,
             dass beide Pflichtfelder sind.
 -->
+<?php
+// erster Aufruf?
+// if (isset($_POST['absenden'])) {
+//     // Daten verarbeiten
+// } else {
+//     // ja: Daten initialisieren
+// }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,17 +68,36 @@
     <h1>Kontaktanfrage</h1>
 
     <?php
+        var_dump($_POST);
+
+        $name = $_POST['name'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $rueckmeldung = $_POST['rueckmeldung'] ?? '';
+        $betreff = $_POST['betreff'] ?? '';
+        $nachricht = $_POST['nachricht'] ?? '';
+        $newsletter = $_POST['newsletter'] ?? 'nein';
         // TODO 1: Bestätigung nur, wenn Name und E-Mail vorhanden und nicht
         //         leer sind, sonst Fehlermeldung
 
+        if (trim($name) != '' && trim($email) != '') {
             // TODO 2: Alle Formularwerte in Variablen bereitstellen ($name,
             //         $email, $nachricht, $betreff, $rueckmeldung,
             //         $newsletter)
-
             // TODO 3: Bestätigung mit allen Werten anzeigen, Eingaben dabei
             //         nie als HTML ausführen
+            echo "<p>Vielen Dank, ".htmlspecialchars($name)."! Ihre Nachricht wurde empfangen.</p>";
+            echo "<ul>";
+            echo "<li>E-Mail: ".htmlspecialchars($email)."</li>";
+            echo "<li>Betreff: ".htmlspecialchars($betreff)."</li>";
+            echo "<li>Bevorzugte Rückmeldung: ".htmlspecialchars($rueckmeldung)."</li>";
+            echo "<li>Nachricht: ".htmlspecialchars($nachricht)."</li>";
+            echo "<li>Newsletter gewünscht: ".htmlspecialchars($newsletter)."</li>";
+            echo "</ul>";
 
             // TODO 4: Fehlermeldung (Name und E-Mail sind Pflichtfelder)
+        } else {
+            echo "<p>Name und E-Mail sind Pflichtfelder!</p>";
+        }
     ?>
 
     <p><a href="kontakt.html">Zurück zum Kontaktformular</a></p>
