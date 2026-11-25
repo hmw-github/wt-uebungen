@@ -1,12 +1,27 @@
 <?php
     // TODO 1: Die Seite kann sich Daten eines Besuchers über mehrere Aufrufe
-    //         hinweg merken
+    //         hinweg merken => Session nutzen
+    session_start();
 
     // TODO 2: Gästebuch in $_SESSION['gaestebucheintraege'] steht bereit
-    //         (anfangs leer, bestehende Einträge bleiben erhalten)
+    //         (anfangs leer, bestehende Einträge bleiben erhalten) => Session initailisieren, falls leer
+    if (!isset($_SESSION['gaestebucheintraege'])) {
+        // key gaestebucheintraege nicht vorhanden => anlegen
+        $_SESSION['gaestebucheintraege'] = array(); // array of strings
+    }
 
     // TODO 3: Abgeschickte, nicht leere Nachricht als neuer Eintrag mit
     //         Zeitstempel ins Gästebuch übernehmen
+    // Wenn gbNachricht in $_POST vorhanden => nicht leere Nachricht als neuer Eintrag mit
+    //         Zeitstempel ins Gästebuch übernehmen
+    if (isset($_POST['gbnachricht'])) {
+        $nachricht = trim($_POST['gbnachricht']);
+        if ($nachricht != '') {
+            // Array.append: array[] = <neuer Wert>;
+            $_SESSION['gaestebucheintraege'][] = date('d.m.Y H:i:s') . " - " . trim($_POST['gbnachricht']);
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,17 +92,31 @@
 
     <h2>Gästebuch</h2>
 
+    <!-- action ist leer => gleiche Seite laden! -->
     <form action="" method="post">
         <label for="gbNachrichtFeld">Kurze Nachricht:</label><br>
         <input type="text" id="gbNachrichtFeld" name="gbnachricht">
         <input type="submit" value="Eintragen" class="btn">
     </form>
 
-    <ul>
-        <?php
-            // TODO 4: Alle Gästebuch-Einträge als Liste anzeigen
-        ?>
-    </ul>
+    <!-- Zusatz: wenn keine Einträge vorhanden sind, "Derzeit gibt es keine Gästebucheinträge." ausgeben -->
+
+<?php
+    if (count($_SESSION['gaestebucheintraege']) == 0) {
+        echo "<p>Derzeit gibt es keine Gästebucheinträge.</p>";
+    } else {
+?>
+        <ul>
+            <?php
+                // TODO 4: Alle Gästebuch-Einträge als Liste anzeigen
+                foreach ($_SESSION['gaestebucheintraege'] as $eintrag) {
+                    echo "<li>" . $eintrag . "</li>";
+                }
+            ?>
+        </ul>
+<?php
+    }
+?>
 
     </main>
 

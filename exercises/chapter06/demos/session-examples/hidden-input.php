@@ -21,7 +21,8 @@ if (!isset($_POST['session-data'])) {
     $cart = Cart::fromJSON($articles, json_decode($_POST['session-data']));
     // store new item counts
     for ($i = 0; $i < count($cart->items); ++$i) {
-        $cart->items[$i]->count = $_POST['count' . $i];
+        // counts aus Nutzereingabe anpassen
+        $cart->items[$i]->count = $_POST['count' . $i]; 
         $info .= $_POST['count' . $i] . ' ';
     }
 }
